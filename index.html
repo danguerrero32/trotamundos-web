@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Trotamundos · Bar Restaurante · Bubión, Alpujarra</title>
+<meta name="description" content="Bar restaurante en Bubión, Alpujarra. Cocina de todos los continentes con raíces alpujarreñas. Rutas de senderismo, a caballo y en 4x4 por Sierra Nevada. ¿Dónde comer en Bubión? Los Trotamundos.">
+<meta name="keywords" content="restaurante bubion, donde comer bubion, donde comer alpujarra, restaurante alpujarra, donde comer capileira, donde comer pampaneira, restaurant bubion granada, where to eat sierra nevada, bar restaurante la alpujarra">
+<meta property="og:title" content="Los Trotamundos · Restaurante en Bubión, La Alpujarra">
+<meta property="og:description" content="Cocina de todos los continentes con raíces alpujarreñas. Bubión, Granada.">
+<meta property="og:image" content="img/mural-los-trotamundos-restaurante-bubion-alpujarra.jpg">
+<meta property="og:type" content="restaurant">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark:#0B0907; --dark2:#13100A; --card:#1C1510; --card2:#231A12;
+  --gold:#EDAF8C; --gold-l:#F5CFA8; --gold-d:#C88860;
+  --accent:#68B4C8;
+  --cream:#F0E6D2; --muted:#8A7A62; --border:#2E2418;
+  --red:#7A1A1A;
+  --serif:'Berkshire Swash',Georgia,serif;
+  --sans:'Merriweather',Georgia,serif;
+  --r:8px; --t:0.25s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--cream);font-family:var(--sans);font-size:16px;font-weight:300;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* UTILS */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec-title{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.9rem);color:var(--gold-l);margin-bottom:8px}
+.sec-sub{color:var(--muted);font-size:.95rem;margin-bottom:40px;font-weight:300}
+.divider{width:56px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px 0 28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:var(--r);font-family:var(--sans);font-size:.9rem;font-weight:400;cursor:pointer;transition:all var(--t);border:none;letter-spacing:.02em}
+.btn-gold{background:var(--gold);color:#0B0907}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--cream);border:1.5px solid rgba(240,230,210,.35)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-l);transform:translateY(-1px)}
+.btn-green{background:#25D366;color:#fff}
+.btn-green:hover{background:#1daa53;transform:translateY(-1px)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;transition:background var(--t),backdrop-filter var(--t)}
+nav.on{background:rgba(11,9,7,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:11px}
+.nav-logo img{height:40px;width:40px;border-radius:50%;object-fit:cover}
+.nav-logo span{font-family:var(--serif);font-size:1.05rem;color:var(--cream)}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{font-size:.82rem;font-weight:400;color:rgba(240,230,210,.75);transition:color var(--t);letter-spacing:.03em}
+.nav-links a:hover{color:var(--gold-l)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang-btns{display:flex;gap:4px}
+.lang-btn{font-size:.75rem;font-weight:400;color:var(--muted);cursor:pointer;padding:4px 8px;border:1px solid var(--border);border-radius:20px;transition:all var(--t);background:transparent;font-family:var(--sans)}
+.lang-btn:hover{border-color:var(--gold-d);color:var(--gold-l)}
+.lang-btn.active{border-color:var(--gold);color:var(--gold-l);background:rgba(237,175,140,.1)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--cream);transition:all var(--t)}
+.mob-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(11,9,7,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:24px;z-index:99;flex-direction:column;gap:20px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:1.05rem;color:var(--cream);font-weight:400}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('img/mural-los-trotamundos-restaurante-bubion-alpujarra.jpg') center center/cover no-repeat;transform:scale(1.04);transition:transform 8s ease}
+#hero:hover .hero-bg{transform:scale(1)}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(11,9,7,.60) 0%,rgba(11,9,7,.35) 35%,rgba(11,9,7,.75) 75%,rgba(11,9,7,.97) 100%)}
+.hero-c{position:relative;z-index:1;max-width:780px;padding:0 24px}
+.hero-logo{width:112px;height:112px;margin:0 auto 22px;border-radius:50%;box-shadow:0 0 60px rgba(237,175,140,.28)}
+.hero-title{font-family:var(--serif);font-size:clamp(2.2rem,6vw,4.2rem);font-weight:400;line-height:1.1;color:#fff;margin-bottom:14px;text-shadow:0 2px 20px rgba(0,0,0,.55)}
+.hero-sub{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(240,230,210,.82);font-weight:300;font-style:italic;font-family:var(--sans);margin-bottom:36px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-rating{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:22px;padding:9px 20px;background:rgba(11,9,7,.45);backdrop-filter:blur(8px);border:1px solid rgba(237,175,140,.25);border-radius:40px;width:fit-content;margin-left:auto;margin-right:auto}
+.hero-rating .stars{color:#F5C518;font-size:.95rem;letter-spacing:1px}
+.hero-rating .score{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--gold-l)}
+.hero-rating .label{font-size:.75rem;color:rgba(240,230,210,.65);font-weight:300}
+.hero-rating .sep{color:rgba(240,230,210,.25);font-size:.8rem}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(240,230,210,.4);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;animation:bob 2s infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* UBICACIÓN */
+#ubicacion{padding:80px 24px;background:var(--dark2);border-top:1px solid var(--border)}
+.ubi-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.ubi-map iframe{width:100%;height:420px;border:0;border-radius:12px;border:1px solid var(--border)}
+.reviews-hd{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.reviews-score{font-family:var(--serif);font-size:3.2rem;color:var(--gold-l);line-height:1}
+.reviews-meta{display:flex;flex-direction:column;gap:4px}
+.stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px}
+.reviews-meta span{font-size:.8rem;color:var(--muted)}
+.review-cards{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.rcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.rcard-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rcard-avatar{width:36px;height:36px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--gold-l);flex-shrink:0}
+.rcard-name{font-size:.88rem;font-weight:400;color:var(--cream)}
+.rcard-date{font-size:.72rem;color:var(--muted)}
+.rcard-stars{color:var(--gold);font-size:.78rem;margin-bottom:6px}
+.rcard-text{font-size:.82rem;color:rgba(240,230,210,.75);line-height:1.6}
+.google-btn{display:flex;align-items:center;gap:10px;padding:12px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);font-size:.85rem;color:var(--cream);transition:all var(--t);width:fit-content}
+.google-btn:hover{border-color:var(--gold-d);color:var(--gold-l)}
+.google-btn svg{flex-shrink:0}
+
+/* STRIP */
+#strip{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 24px}
+.strip-in{max-width:1200px;margin:0 auto;display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+.strip-item{display:flex;align-items:center;gap:13px;font-size:.85rem;color:var(--muted)}
+.strip-item svg{color:var(--gold);flex-shrink:0}
+.strip-item strong{color:var(--cream);font-weight:400;display:block;font-size:.9rem}
+
+/* MENU */
+#menu{padding:88px 24px;background:var(--dark)}
+.menu-hd{max-width:1200px;margin:0 auto 40px}
+.menu-tabs{display:flex;gap:0;flex-wrap:wrap;max-width:1200px;margin:0 auto 36px;border-bottom:1px solid var(--border)}
+.mtab{padding:10px 16px;font-size:.78rem;font-weight:400;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all var(--t);letter-spacing:.05em;text-transform:uppercase;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--sans)}
+.mtab:hover{color:var(--cream)}
+.mtab.on{color:var(--gold-l);border-bottom-color:var(--gold)}
+.mpanel{display:none;max-width:1200px;margin:0 auto}
+.mpanel.on{display:block}
+.featured{display:grid;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:36px;background:var(--card)}
+.featured img{width:100%;height:300px;object-fit:cover}
+.feat-info{padding:36px}
+.feat-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:10px;font-weight:400}
+.feat-name{font-family:var(--serif);font-size:1.9rem;color:var(--cream);margin-bottom:14px;line-height:1.2}
+.feat-desc{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:20px}
+.feat-price{font-family:var(--serif);font-size:1.7rem;color:var(--gold-l)}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.mitem{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform var(--t),border-color var(--t)}
+.mitem:hover{transform:translateY(-3px);border-color:var(--gold-d)}
+.mitem-img{width:100%;height:170px;object-fit:cover}
+.mitem-ph{width:100%;height:170px;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+.mitem-b{padding:14px}
+.mitem-name{font-family:var(--serif);font-size:1rem;color:var(--cream);margin-bottom:3px}
+.mitem-en{font-size:.72rem;color:var(--muted);margin-bottom:10px;font-style:italic}
+.mitem-price{font-size:1.05rem;color:var(--gold-l);font-weight:400}
+.menu-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:20px;font-style:italic}
+
+/* RESERVAS */
+#reservas{padding:88px 24px;background:var(--dark2);border-top:1px solid var(--border)}
+.res-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.res-img{position:relative}
+.res-img img{width:100%;height:460px;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
+.res-badge{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(11,9,7,.86);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px}
+.res-badge p{font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.res-badge strong{color:var(--cream);font-size:.9rem}
+.ftabs{display:flex;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:28px}
+.ftab{flex:1;padding:13px;text-align:center;font-size:.88rem;font-weight:400;cursor:pointer;transition:all var(--t);background:transparent;color:var(--muted);border:none;font-family:var(--sans)}
+.ftab.on{background:var(--gold);color:#0B0907}
+.fpanel{display:none}
+.fpanel.on{display:block}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:.75rem;font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);color:var(--cream);font-family:var(--sans);font-size:.9rem;font-weight:300;transition:border-color var(--t);appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--gold-d)}
+.fg select option{background:#1C1510}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bizum{background:var(--card);border:1px solid var(--gold-d);border-radius:var(--r);padding:14px 18px;margin-bottom:22px;display:flex;gap:11px;align-items:flex-start}
+.bizum-ico{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.bizum-txt{font-size:.82rem;color:var(--muted);line-height:1.5}
+.bizum-txt strong{color:var(--gold-l);display:block;margin-bottom:3px}
+
+/* ACTIVIDADES */
+#actividades{padding:88px 24px;background:var(--dark);border-top:1px solid var(--border)}
+.act-hd{max-width:1200px;margin:0 auto 44px}
+.act-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.act-card{position:relative;border-radius:12px;overflow:hidden;height:460px;cursor:pointer;border:1px solid var(--border)}
+.act-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s ease}
+.act-card:hover .act-bg{transform:scale(1.05)}
+.act-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,9,7,.95) 0%,rgba(11,9,7,.35) 55%,rgba(11,9,7,.05) 100%)}
+.act-cnt{position:absolute;bottom:0;left:0;right:0;padding:28px}
+.act-ico{font-size:1.8rem;margin-bottom:10px}
+.act-name{font-family:var(--serif);font-size:1.4rem;color:#fff;margin-bottom:7px}
+.act-desc{font-size:.82rem;color:rgba(240,230,210,.68);margin-bottom:18px;line-height:1.6}
+.act-cta{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:400;color:var(--gold-l);transition:gap var(--t)}
+.act-card:hover .act-cta{gap:12px}
+
+/* MODAL */
+.modal-back{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center}
+.modal-back.open{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;max-width:460px;width:90%;position:relative}
+.modal-x{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color var(--t)}
+.modal-x:hover{color:var(--cream)}
+.modal-title{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin-bottom:6px}
+.modal-sub{font-size:.85rem;color:var(--muted);margin-bottom:24px}
+
+/* GALERIA */
+#galeria{padding:88px 24px;background:var(--dark2);border-top:1px solid var(--border)}
+.gal-hd{max-width:1200px;margin:0 auto 40px}
+.gal-grid{max-width:1200px;margin:0 auto;columns:4;gap:10px}
+.gal-item{break-inside:avoid;margin-bottom:10px;border-radius:var(--r);overflow:hidden}
+.gal-item img{width:100%;display:block;transition:transform .4s ease}
+.gal-item:hover img{transform:scale(1.03)}
+
+/* ALOJAMIENTO */
+#alojamiento{padding:88px 24px;background:var(--dark);border-top:1px solid var(--border)}
+.alo-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.alo-info p{color:rgba(240,230,210,.8);font-size:.95rem;line-height:1.8;margin-bottom:28px}
+.alo-features{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.alo-feat{display:flex;align-items:flex-start;gap:12px}
+.alo-feat-ico{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.alo-feat-txt{font-size:.88rem;color:var(--muted);line-height:1.5}
+.alo-feat-txt strong{color:var(--cream);display:block;margin-bottom:2px;font-size:.9rem}
+.alo-form-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px}
+.alo-form-title{font-family:var(--serif);font-size:1.4rem;color:var(--gold-l);margin-bottom:6px}
+.alo-form-sub{font-size:.82rem;color:var(--muted);margin-bottom:24px}
+
+/* CONTACTO */
+#contacto{padding:88px 24px;background:var(--dark2);border-top:1px solid var(--border)}
+.cnt-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.cnt-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:26px}
+.cnt-item svg{color:var(--gold);flex-shrink:0;margin-top:2px}
+.cnt-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px;font-weight:400}
+.cnt-val{color:var(--cream);font-size:.95rem}
+.hor-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 22px;font-size:.88rem;margin-top:7px}
+.hor-day{color:var(--muted)}
+.hor-closed{color:var(--red)}
+.soc{display:flex;gap:14px;margin-top:36px}
+.soc-a{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all var(--t);color:var(--muted)}
+.soc-a:hover{border-color:var(--gold-d);color:var(--gold-l);background:rgba(237,175,140,.08)}
+.map-ph{width:100%;height:340px;background:var(--card);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;color:var(--muted);text-align:center;padding:24px}
+.map-ph svg{color:var(--gold-d)}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24px 28px}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.foot-logo{display:flex;align-items:center;gap:11px}
+.foot-logo img{height:46px;width:46px;border-radius:50%;object-fit:cover}
+.foot-logo-txt{font-family:var(--serif);font-size:1rem;color:var(--cream)}
+.foot-logo-txt small{display:block;font-family:var(--sans);font-size:.72rem;color:var(--muted);font-style:normal;font-weight:300}
+.foot-soc{display:flex;gap:12px;align-items:center}
+.foot-soc-a{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:all var(--t);color:var(--muted)}
+.foot-soc-a:hover{border-color:var(--gold-d);color:var(--gold-l);background:rgba(237,175,140,.08)}
+.foot-copy{font-size:.78rem;color:var(--muted);text-align:right}
+
+/* WA */
+.wa{position:fixed;bottom:26px;right:26px;z-index:150;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform var(--t),box-shadow var(--t);cursor:pointer}
+.wa:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+.wa svg{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-r .btn{display:none}
+  .hamburger{display:flex}
+  .featured{grid-template-columns:1fr}
+  .featured img{height:210px}
+  .feat-info{padding:22px}
+  .act-grid{grid-template-columns:1fr}
+  .act-card{height:340px}
+  .res-grid{grid-template-columns:1fr}
+  .res-img{display:none}
+  .cnt-grid{grid-template-columns:1fr}
+  .gal-grid{columns:2}
+  .ubi-grid{grid-template-columns:1fr}
+  .alo-grid{grid-template-columns:1fr}
+  .foot-in{flex-direction:column;align-items:flex-start}
+  .foot-copy{text-align:left}
+}
+@media(max-width:540px){
+  .hero-title{font-size:2rem}
+  .gal-grid{columns:2}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .frow{grid-template-columns:1fr}
+  .strip-in{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="Los Trotamundos - Restaurante Bubión Alpujarra">
+    <span>Los Trotamundos</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#menu" data-es="Menú" data-en="Menu">Menú</a></li>
+    <li><a href="#reservas" data-es="Reservar" data-en="Book">Reservar</a></li>
+    <li><a href="#actividades" data-es="Actividades" data-en="Activities">Actividades</a></li>
+    <li><a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a></li>
+    <li><a href="#alojamiento" data-es="Alojamiento" data-en="Accommodation">Alojamiento</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="lang-btns">
+      <button class="lang-btn active" onclick="setLang('es')" id="langBtnEs">🇪🇸 ES</button>
+      <button class="lang-btn" onclick="setLang('en')" id="langBtnEn">🇬🇧 EN</button>
+    </div>
+    <a href="#reservas" class="btn btn-gold" style="padding:10px 18px;font-size:.82rem" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#menu" onclick="closeMob()" data-es="Menú" data-en="Menu">Menú</a>
+  <a href="#reservas" onclick="closeMob()" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
+  <a href="#actividades" onclick="closeMob()" data-es="Actividades" data-en="Activities">Actividades</a>
+  <a href="#ubicacion" onclick="closeMob()" data-es="Ubicación" data-en="Location">Ubicación</a>
+  <a href="#alojamiento" onclick="closeMob()" data-es="Alojamiento" data-en="Accommodation">Alojamiento</a>
+  <a href="#contacto" onclick="closeMob()" data-es="Contacto" data-en="Contact">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="Los Trotamundos Restaurante Bubión" class="hero-logo">
+    <h1 class="hero-title">Los Trotamundos</h1>
+    <p class="hero-sub" data-es="Un viaje gastronómico a los pies de Sierra Nevada" data-en="A gastronomic journey at the foot of Sierra Nevada">Un viaje gastronómico a los pies de Sierra Nevada</p>
+    <div class="hero-btns">
+      <a href="#reservas" class="btn btn-gold" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
+      <a href="#menu" class="btn btn-outline" data-es="Ver la carta" data-en="See the menu">Ver la carta</a>
+      <a href="#actividades" class="btn btn-outline" data-es="Explorar actividades" data-en="Explore activities">Explorar actividades</a>
+    </div>
+    <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="hero-rating">
+      <span class="score">4.8</span>
+      <span class="stars">★★★★★</span>
+      <span class="sep">|</span>
+      <span class="label" data-es="Valoración en Google" data-en="Google rating">Valoración en Google</span>
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <span data-es="Descubrir" data-en="Discover">Descubrir</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion">
+  <div class="wrap" style="margin-bottom:40px">
+    <p class="sec-title" data-es="Ubicación" data-en="Location">Ubicación</p>
+    <div class="divider"></div>
+    <p class="sec-sub" data-es="Encuéntranos en el corazón de La Alpujarra. Bubión, Granada." data-en="Find us in the heart of La Alpujarra. Bubión, Granada.">Encuéntranos en el corazón de La Alpujarra. Bubión, Granada.</p>
+  </div>
+  <div class="ubi-grid wrap">
+    <div class="ubi-map">
+      <iframe
+        src="https://maps.google.com/maps?q=Los+Trotamundos+Bubi%C3%B3n+Granada+Espa%C3%B1a&t=k&z=12&ie=UTF8&iwloc=&output=embed"
+        height="420" allowfullscreen="" loading="lazy"
+        title="Mapa Los Trotamundos - Restaurante Bubión Alpujarra"
+        style="width:100%;height:420px;border:0;border-radius:12px;border:1px solid #2E2418">
+      </iframe>
+      <div style="margin-top:14px">
+        <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="font-size:.82rem" data-es="📍 Abrir en Google Maps" data-en="📍 Open in Google Maps">📍 Abrir en Google Maps</a>
+      </div>
+    </div>
+    <div>
+      <div class="reviews-hd">
+        <div class="reviews-score">4.8</div>
+        <div class="reviews-meta">
+          <div class="stars">★★★★★</div>
+          <span data-es="Basado en reseñas de Google" data-en="Based on Google reviews">Basado en reseñas de Google</span>
+          <span style="margin-top:2px" data-es="Lo que dicen quienes nos visitan" data-en="What our visitors say">Lo que dicen quienes nos visitan</span>
+        </div>
+      </div>
+      <div class="review-cards">
+        <div class="rcard">
+          <div class="rcard-top"><div class="rcard-avatar">M</div><div><div class="rcard-name">María G.</div><div class="rcard-date">Hace 2 semanas</div></div></div>
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"Un lugar único en La Alpujarra. La carta sorprende con platos de todo el mundo pero usando producto local. Las croquetas y los pokes son impresionantes. El ambiente con la chimenea encendida es mágico."</p>
+        </div>
+        <div class="rcard">
+          <div class="rcard-top"><div class="rcard-avatar">J</div><div><div class="rcard-name">James T.</div><div class="rcard-date">Hace 1 mes</div></div></div>
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"We stumbled upon this gem while hiking in the Alpujarras. The food is outstanding — diverse menu with incredible local products. The mural inside is stunning. Will definitely return!"</p>
+        </div>
+        <div class="rcard">
+          <div class="rcard-top"><div class="rcard-avatar">A</div><div><div class="rcard-name">Ana R.</div><div class="rcard-date">Hace 3 semanas</div></div></div>
+          <div class="rcard-stars">★★★★★</div>
+          <p class="rcard-text">"El jamón alpujarreño gran reserva y la parrillada para compartir son de otro nivel. Ambiente acogedor, trato cercano. Ya vamos siempre que subimos a la sierra. ¡Los mejores de la zona!"</p>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="google-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-es="Ver todas las reseñas en Google Maps →" data-en="See all reviews on Google Maps →">Ver todas las reseñas en Google Maps →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div id="strip">
+  <div class="strip-in">
+    <div class="strip-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+      <div><strong data-es="Cocina del mundo" data-en="World cuisine">Cocina del mundo</strong><span>Europa · Asia · África · América</span></div>
+    </div>
+    <div class="strip-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8c-2.5 0-5 1.5-5 4s2.5 4 5 4 5-1.5 5-4-2.5-4-5-4z"/></svg>
+      <div><strong data-es="Producto local" data-en="Local produce">Producto local</strong><span data-es="Huerta propia · Km 0 alpujarreño" data-en="Own garden · Local km 0">Huerta propia · Km 0 alpujarreño</span></div>
+    </div>
+    <div class="strip-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      <div><strong data-es="Juegos de mesa" data-en="Board games">Juegos de mesa</strong><span data-es="Ajedrez · Cartas · Clásicos" data-en="Chess · Cards · Classics">Ajedrez · Cartas · Clásicos</span></div>
+    </div>
+    <div class="strip-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div><strong data-es="Como en casa" data-en="Home away from home">Como en casa</strong><span data-es="Chimenea · Ambiente familiar" data-en="Fireplace · Family atmosphere">Chimenea · Ambiente familiar</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MENÚ -->
+<section id="menu">
+  <div class="menu-hd wrap">
+    <p class="sec-title" data-es="Nuestra Carta" data-en="Our Menu">Nuestra Carta</p>
+    <div class="divider"></div>
+    <p class="sec-sub" data-es="Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas." data-en="Local produce, world flavours. Honest cooking with Alpujarran roots.">Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas.</p>
+  </div>
+  <div class="menu-tabs wrap">
+    <button class="mtab on"  onclick="mTab('entrantes',this)"    data-es="Entrantes"    data-en="Starters">Entrantes</button>
+    <button class="mtab"     onclick="mTab('ensaladas',this)"    data-es="Ensaladas"    data-en="Salads">Ensaladas</button>
+    <button class="mtab"     onclick="mTab('sopas',this)"        data-es="Sopas"        data-en="Soups">Sopas</button>
+    <button class="mtab"     onclick="mTab('parrilla',this)"     data-es="Mar y Montaña" data-en="Sea &amp; Mountain">Mar y Montaña</button>
+    <button class="mtab"     onclick="mTab('hamburguesas',this)" data-es="Hamburguesas" data-en="Burgers">Hamburguesas</button>
+    <button class="mtab"     onclick="mTab('pizzas',this)"       data-es="Pizzas"       data-en="Pizzas">Pizzas</button>
+    <button class="mtab"     onclick="mTab('pastas',this)"       data-es="Pastas"       data-en="Pastas">Pastas</button>
+  </div>
+  <div id="p-entrantes"    class="mpanel on wrap"><div class="mgrid" id="g-entrantes"></div></div>
+  <div id="p-ensaladas"    class="mpanel wrap"><div class="mgrid" id="g-ensaladas"></div></div>
+  <div id="p-sopas"        class="mpanel wrap"><div class="mgrid" id="g-sopas"></div></div>
+  <div id="p-parrilla"     class="mpanel wrap"><div class="mgrid" id="g-parrilla"></div></div>
+  <div id="p-hamburguesas" class="mpanel wrap"><div class="mgrid" id="g-hamburguesas"></div></div>
+  <div id="p-pizzas"       class="mpanel wrap">
+    <div class="featured">
+      <img src="img/pizza-capriccio-daniel-restaurante-bubion-granada.png" alt="Pizza Capriccio di Daniel - Restaurante Bubión Granada">
+      <div class="feat-info">
+        <span class="feat-tag" data-es="✦ Especial del chef" data-en="✦ Chef's special">✦ Especial del chef</span>
+        <h3 class="feat-name">Capriccio di Daniel 🔥</h3>
+        <p class="feat-desc" data-es="Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe." data-en="Margherita base, caramelised onion, mushrooms, pil pil prawns, gorgonzola, goat cheese… and an egg that ties it all together.">Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe.</p>
+        <span class="feat-price">18 €</span>
+      </div>
+    </div>
+    <div class="mgrid" id="g-pizzas"></div>
+    <p class="menu-note" data-es="Ingrediente extra +1,50 €" data-en="Extra ingredient +€1.50">Ingrediente extra +1,50 €</p>
+  </div>
+  <div id="p-pastas" class="mpanel wrap"><div class="mgrid" id="g-pastas"></div></div>
+</section>
+
+<!-- RESERVAS -->
+<section id="reservas">
+  <div class="res-grid wrap">
+    <div class="res-img">
+      <img src="img/chuletas-cordero-donde-comer-bubion-alpujarra.jpg" alt="Chuletas de cordero alpujarreño - Dónde comer en Bubión">
+      <div class="res-badge">
+        <p data-es="Horario" data-en="Opening hours">Horario</p>
+        <strong>Jue–Lun 12:00–23:30 &nbsp;·&nbsp; Mar 12:00–17:00 &nbsp;·&nbsp; Mié <span style="color:var(--red)" data-es="Cerrado" data-en="Closed">Cerrado</span></strong>
+      </div>
+    </div>
+    <div>
+      <p class="sec-title" data-es="Reservar o pedir" data-en="Book or order">Reservar o pedir</p>
+      <div class="divider"></div>
+      <p class="sec-sub" data-es="Reserva tu mesa o haz tu pedido para recoger." data-en="Book your table or place a takeaway order.">Reserva tu mesa o haz tu pedido para recoger.</p>
+      <div class="ftabs">
+        <button class="ftab on" onclick="fTab('mesa',this)" data-es="🍽️ Reservar mesa" data-en="🍽️ Book a table">🍽️ Reservar mesa</button>
+        <button class="ftab" onclick="fTab('llevar',this)" data-es="🥡 Para llevar" data-en="🥡 Takeaway">🥡 Para llevar</button>
+      </div>
+      <div id="f-mesa" class="fpanel on">
+        <div class="frow">
+          <div class="fg"><label data-es="Fecha" data-en="Date">Fecha</label><input type="date" id="d1"></div>
+          <div class="fg"><label data-es="Hora" data-en="Time">Hora</label>
+            <select><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option></select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label data-es="Personas" data-en="Guests">Personas</label>
+            <select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+          </div>
+          <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        </div>
+        <div class="fg"><label data-es="Teléfono o email" data-en="Phone or email">Teléfono o email</label><input type="text" placeholder="+34 6XX XXX XXX"></div>
+        <div class="fg"><label data-es="Petición especial (opcional)" data-en="Special request (optional)">Petición especial (opcional)</label><textarea rows="2" placeholder="Alergias, ocasión especial, terraza…"></textarea></div>
+        <div class="bizum">
+          <span class="bizum-ico">💙</span>
+          <div class="bizum-txt">
+            <strong data-es="Depósito de 10 € por Bizum al confirmar" data-en="€10 Bizum deposit on confirmation">Depósito de 10 € por Bizum al confirmar</strong>
+            <span data-es="Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva." data-en="Deducted from your final bill. We'll send you the Bizum number on confirmation.">Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva.</span>
+          </div>
+        </div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Solicitar reserva →" data-en="Request booking →">Solicitar reserva →</button>
+      </div>
+      <div id="f-llevar" class="fpanel">
+        <div class="frow">
+          <div class="fg"><label data-es="Fecha de recogida" data-en="Collection date">Fecha de recogida</label><input type="date" id="d2"></div>
+          <div class="fg"><label data-es="Hora de recogida" data-en="Collection time">Hora de recogida</label>
+            <select><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select>
+          </div>
+        </div>
+        <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="fg"><label data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+        <div class="fg"><label data-es="¿Qué quieres pedir?" data-en="What would you like to order?">¿Qué quieres pedir?</label><textarea rows="4" placeholder="Dinos los platos que quieres o consulta la carta primero…"></textarea></div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar pedido →" data-en="Send order →">Enviar pedido →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section id="actividades">
+  <div class="act-hd wrap">
+    <p class="sec-title" data-es="Actividades" data-en="Activities">Actividades</p>
+    <div class="divider"></div>
+    <p class="sec-sub" data-es="Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad." data-en="Explore Sierra Nevada with local experts. Come back to the table with a real appetite.">Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad.</p>
+  </div>
+  <div class="act-grid wrap">
+    <div class="act-card" onclick="openModal('senderismo')">
+      <div class="act-bg" style="background-image:url('img/senderismo-sierra-nevada-rutas-alpujarra.png');background-position:top center"></div>
+      <div class="act-ov"></div>
+      <div class="act-cnt">
+        <div class="act-ico">🥾</div>
+        <h3 class="act-name" data-es="Senderismo en Sierra Nevada" data-en="Hiking in Sierra Nevada">Senderismo en Sierra Nevada</h3>
+        <p class="act-desc" data-es="Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás." data-en="Guided hikes for all levels. Unique landscapes, high-mountain flora and views you'll never forget.">Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+      </div>
+    </div>
+    <div class="act-card" onclick="openModal('caballo')">
+      <div class="act-bg" style="background-image:url('img/ruta-caballo-alpujarra-sierra-nevada.jpg');background-position:center"></div>
+      <div class="act-ov"></div>
+      <div class="act-cnt">
+        <div class="act-ico">🐴</div>
+        <h3 class="act-name" data-es="Rutas a caballo" data-en="Horse riding routes">Rutas a caballo</h3>
+        <p class="act-desc" data-es="Los caminos históricos de La Alpujarra a lomos de caballo. Para principiantes y para quien ya monta." data-en="Historic trails of La Alpujarra on horseback. Suitable for beginners and experienced riders.">Los caminos históricos de La Alpujarra a lomos de caballo. Para todos los niveles.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+      </div>
+    </div>
+    <div class="act-card" onclick="openModal('4x4')">
+      <div class="act-bg" style="background-image:url('img/excursion-4x4-sierra-nevada-alpujarra.jpg');background-position:center"></div>
+      <div class="act-ov"></div>
+      <div class="act-cnt">
+        <div class="act-ico">🚙</div>
+        <h3 class="act-name" data-es="Excursiones en 4x4" data-en="4x4 excursions">Excursiones en 4x4</h3>
+        <p class="act-desc" data-es="Accede a lugares que no están en ningún mapa. Pistas de montaña, cortijos y rincones secretos de Sierra Nevada." data-en="Access places not on any map. Mountain tracks, farmhouses and secret corners of Sierra Nevada.">Accede a lugares que no están en ningún mapa. Sierra Nevada a fondo, sin límites.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-back" id="modal" onclick="bgClose(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <h3 class="modal-title" id="modal-t">Actividad</h3>
+    <p class="modal-sub" data-es="Déjanos tus datos y te contactamos en menos de 24h." data-en="Leave your details and we'll get back to you within 24 hours.">Déjanos tus datos y te contactamos en menos de 24h.</p>
+    <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+    <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+    <div class="frow">
+      <div class="fg"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="d3"></div>
+      <div class="fg"><label data-es="Personas" data-en="Persons">Personas</label><select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+    </div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" data-es="Enviar consulta →" data-en="Send enquiry →">Enviar consulta →</button>
+  </div>
+</div>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="gal-hd wrap">
+    <p class="sec-title" data-es="Galería" data-en="Gallery">Galería</p>
+    <div class="divider"></div>
+    <p class="sec-sub" data-es="Momentos, rincones y la gente que hace especial este lugar." data-en="Moments, corners and the people who make this place special.">Momentos, rincones y la gente que hace especial este lugar.</p>
+  </div>
+  <div class="gal-grid wrap">
+    <div class="gal-item"><img src="img/ambiente-restaurante-bubion-donde-comer.jpg" alt="Ambiente restaurante Bubión dónde comer Sierra Nevada" loading="lazy"></div>
+    <div class="gal-item"><img src="img/interior-bar-restaurante-bubion-mural.jpg" alt="Interior bar restaurante Bubión mural Alpujarra" loading="lazy"></div>
+    <div class="gal-item"><img src="img/cerveza-chimenea-bar-restaurante-alpujarra.jpg" alt="Cerveza chimenea bar restaurante Alpujarra ambiente" loading="lazy"></div>
+    <div class="gal-item"><img src="img/barra-bar-los-trotamundos-bubion.jpg" alt="Barra bar Los Trotamundos Bubión Granada" loading="lazy"></div>
+    <div class="gal-item"><img src="img/productos-locales-alpujarrenos-restaurante-bubion.jpg" alt="Productos locales alpujarreños restaurante Bubión" loading="lazy"></div>
+    <div class="gal-item"><img src="img/terraza-restaurante-bubion-vistas-sierra-nevada.png" alt="Terraza restaurante Bubión vistas Sierra Nevada" loading="lazy"></div>
+    <div class="gal-item"><img src="img/ruta-caballo-alpujarra-sierra-nevada.jpg" alt="Ruta a caballo La Alpujarra Sierra Nevada" loading="lazy"></div>
+    <div class="gal-item"><img src="img/mural-los-trotamundos-restaurante-bubion-alpujarra.jpg" alt="Mural Los Trotamundos restaurante Bubión Alpujarra" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ALOJAMIENTO -->
+<section id="alojamiento">
+  <div class="alo-grid wrap">
+    <div class="alo-info">
+      <p class="sec-title" data-es="Alojamientos amigos" data-en="Friendly Accommodation">Alojamientos amigos</p>
+      <div class="divider"></div>
+      <p class="sec-sub" data-es="Casas rurales y alquileres de confianza que te podemos recomendar." data-en="Rural houses and trusted rentals we can personally recommend.">Casas rurales y alquileres de confianza que te podemos recomendar.</p>
+      <p style="color:rgba(240,230,210,.8);font-size:.95rem;line-height:1.8;margin-bottom:28px" data-es="Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra." data-en="Tell us who's coming, when you need it, what your budget is, and we'll get in touch to find the ideal accommodation in La Alpujarra for you.">Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra.</p>
+      <div class="alo-features">
+        <div class="alo-feat"><span class="alo-feat-ico">🏡</span><div class="alo-feat-txt"><strong data-es="Casas rurales con encanto" data-en="Charming rural houses">Casas rurales con encanto</strong><span data-es="Seleccionadas por nosotros y de confianza probada." data-en="Selected by us and personally vetted.">Seleccionadas por nosotros y de confianza probada.</span></div></div>
+        <div class="alo-feat"><span class="alo-feat-ico">🌄</span><div class="alo-feat-txt"><strong data-es="Vistas a Sierra Nevada" data-en="Views of Sierra Nevada">Vistas a Sierra Nevada</strong><span data-es="Despertar en La Alpujarra es una experiencia que no se olvida." data-en="Waking up in La Alpujarra is an experience you won't forget.">Despertar en La Alpujarra es una experiencia que no se olvida.</span></div></div>
+        <div class="alo-feat"><span class="alo-feat-ico">🤝</span><div class="alo-feat-txt"><strong data-es="Atención personalizada" data-en="Personalised attention">Atención personalizada</strong><span data-es="Os asesoramos según vuestro grupo, fecha y presupuesto." data-en="We advise you based on your group, dates and budget.">Os asesoramos según vuestro grupo, fecha y presupuesto.</span></div></div>
+      </div>
+    </div>
+    <div class="alo-form-wrap">
+      <p class="alo-form-title" data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</p>
+      <p class="alo-form-sub" data-es="Rellena el formulario y te contactamos en menos de 24 horas." data-en="Fill in the form and we'll contact you within 24 hours.">Rellena el formulario y te contactamos en menos de 24 horas.</p>
+      <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre o el del grupo"></div>
+      <div class="frow">
+        <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+        <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label data-es="Fecha de entrada" data-en="Check-in date">Fecha de entrada</label><input type="date" id="alo-in"></div>
+        <div class="fg"><label data-es="Fecha de salida" data-en="Check-out date">Fecha de salida</label><input type="date" id="alo-out"></div>
+      </div>
+      <div class="fg">
+        <label data-es="Presupuesto estimado (precio por noche)" data-en="Estimated budget (price per night)">Presupuesto estimado (precio por noche)</label>
+        <select><option value="" disabled selected>Selecciona un rango…</option><option>40 – 60 € / noche</option><option>60 – 80 € / noche</option><option>80 – 120 € / noche</option><option>120 – 160 € / noche</option><option>160 € + / noche</option></select>
+      </div>
+      <div class="fg"><label data-es="Mensaje (opcional)" data-en="Message (optional)">Mensaje (opcional)</label><textarea rows="3" placeholder="Número de personas, necesidades especiales, mascotas…"></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar consulta →" data-en="Send enquiry →">Enviar consulta →</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="cnt-grid wrap">
+    <div>
+      <p class="sec-title" data-es="Cómo llegar" data-en="Find us">Cómo llegar</p>
+      <div class="divider"></div>
+      <div class="cnt-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><p class="cnt-lbl" data-es="Dirección" data-en="Address">Dirección</p><p class="cnt-val">Calle Carretera 22, Bubión<br>18412 La Alpujarra, Granada</p></div>
+      </div>
+      <div class="cnt-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.13 2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div><p class="cnt-lbl" data-es="Teléfono" data-en="Phone">Teléfono</p><a href="tel:+34858893777" class="cnt-val">+34 858 893 777</a></div>
+      </div>
+      <div class="cnt-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <p class="cnt-lbl" data-es="Horario" data-en="Opening hours">Horario</p>
+          <div class="hor-grid">
+            <span class="hor-day" data-es="Jue – Lun" data-en="Thu – Mon">Jue – Lun</span><span>12:00 – 23:30</span>
+            <span class="hor-day" data-es="Martes" data-en="Tuesday">Martes</span><span>12:00 – 17:00</span>
+            <span class="hor-day" data-es="Miércoles" data-en="Wednesday">Miércoles</span><span class="hor-closed" data-es="Cerrado" data-en="Closed">Cerrado</span>
+          </div>
+        </div>
+      </div>
+      <div class="cnt-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <div><p class="cnt-lbl">Email</p><a href="mailto:lostrotamundosalpujarra@gmail.com" class="cnt-val" style="font-size:.82rem">lostrotamundosalpujarra@gmail.com</a></div>
+      </div>
+      <div class="soc">
+        <a href="https://www.instagram.com/lostrotamundosalpujarra/" target="_blank" class="soc-a" title="Instagram Los Trotamundos">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@lostrotamundosalpujarra" target="_blank" class="soc-a" title="TikTok Los Trotamundos">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+        </a>
+        <a href="https://wa.me/34858893777" target="_blank" class="soc-a" title="WhatsApp Los Trotamundos">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="map-ph">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <p style="color:var(--cream);font-size:.95rem;margin-bottom:6px">Bubión, La Alpujarra, Granada</p>
+      <p style="font-size:.82rem" data-es="Amplio aparcamiento disponible en el pueblo" data-en="Ample parking available in the village">Amplio aparcamiento disponible en el pueblo</p>
+      <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="margin-top:18px;font-size:.82rem" data-es="Abrir en Google Maps" data-en="Open in Google Maps">Abrir en Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-logo">
+      <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="Los Trotamundos Restaurante Bubión">
+      <div class="foot-logo-txt">Los Trotamundos<small>Bubión · La Alpujarra · Granada</small></div>
+    </div>
+    <div class="foot-soc">
+      <a href="https://www.instagram.com/lostrotamundosalpujarra/" target="_blank" class="foot-soc-a" title="Instagram">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@lostrotamundosalpujarra" target="_blank" class="foot-soc-a" title="TikTok">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+      </a>
+      <a href="#" class="foot-soc-a" title="YouTube">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+    <div class="foot-copy">
+      <p>Calle Carretera 22, Bubión &nbsp;·&nbsp; +34 858 893 777</p>
+      <p style="margin-top:4px;font-size:.72rem" data-es="© 2025 Los Trotamundos. Todos los derechos reservados." data-en="© 2025 Los Trotamundos. All rights reserved.">© 2025 Los Trotamundos. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/34858893777" target="_blank" class="wa" title="WhatsApp Los Trotamundos">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const MD = {
+  entrantes:[
+    {es:'Croquetas de cocido',en:'Stew Croquettes',desc_es:'Jamón, pollo y verdura',p:'14.00',img:'img/croquetas-cocido-tapas-donde-comer-bubion.jpg'},
+    {es:'Croquetas del mar',en:'Seafood Croquettes',desc_es:'Frutos del mar',p:'16.00',img:null,ico:'🦞'},
+    {es:'Empanada de ternera',en:'Beef Empanada',desc_es:'Cebolla y ternera',p:'12.50',img:'img/empanada-ternera-carta-restaurante-alpujarra.jpg'},
+    {es:'Empanada de fugazzeta',en:'Fugazzeta Empanada',desc_es:'Cebolla caramelizada, mozzarella y queso de cabra',p:'10.00',img:null,ico:'🧅'},
+    {es:'Jamón alpujarreño gran reserva',en:'Cured Ham Board',desc_es:'Jamones Diego Martín',p:'14.00',img:'img/jamon-alpujarreno-gran-reserva-donde-comer.jpg'},
+    {es:'Queso alpujarreño',en:'Local Cheese Board',desc_es:'',p:'11.00',img:null,ico:'🧀'},
+    {es:'Chorizo alpujarreño',en:'Local Chorizo',desc_es:'',p:'12.00',img:null,ico:'🌶️'},
+    {es:'Morcilla alpujarreña',en:'Local Black Pudding',desc_es:'',p:'11.00',img:null,ico:'🍢'},
+    {es:'Langostinos al pilpil',en:'Pil Pil Prawns',desc_es:'Ajo, langostino, pimentón de la Vera',p:'16.00',img:null,ico:'🦐'},
+    {es:'Bombas de queso',en:'Cheese Bombs',desc_es:'Con jalapeños y salsa de setas',p:'11.50',img:null,ico:'🧆'},
+    {es:'Gyozas de verdura',en:'Vegetable Gyozas',desc_es:'',p:'9.50',img:null,ico:'🥟'},
+    {es:'Gyozas de pato o langostino',en:'Duck or Prawn Gyozas',desc_es:'',p:'12.00',img:null,ico:'🥟'},
+    {es:'Mix de Gyozas',en:'Gyoza Mix',desc_es:'',p:'12.50',img:null,ico:'🥟'},
+    {es:'Salmorejo (en temporada)',en:'Salmorejo (seasonal)',desc_es:'',p:'10.00',img:null,ico:'🍅'},
+  ],
+  ensaladas:[
+    {es:'Tomate aliñado',en:'Seasoned Tomato',desc_es:'Tomate fresco, aceite de oliva, ajo, vinagre de Módena, sal y orégano',p:'11.50',img:'img/tomate-alinado-ensalada-restaurante-bubion.jpg'},
+    {es:'Ensalada mixta',en:'Mixed Salad',desc_es:'Mezclum, tomate, maíz, cebolla morada, aceitunas y atún',p:'11.00',img:null,ico:'🥗'},
+    {es:'Ensalada de quesos',en:'Cheese Salad',desc_es:'Mezclum, cebolla morada, tomate, queso feta, de cabra y alpujarreño',p:'14.90',img:null,ico:'🧀'},
+    {es:'Poke de pollo',en:'Chicken Poke Bowl',desc_es:'Arroz, cebolla morada, tomate, maíz, pollo crujiente, salsa de soja y agridulce',p:'15.00',img:null,ico:'🍗'},
+    {es:'Poke de langostinos',en:'Prawn Poke Bowl',desc_es:'Arroz, cebolla morada, tomate, wakame, salsa de soja, surimi y langostinos',p:'17.00',img:'img/poke-langostinos-restaurante-sierra-nevada.jpg'},
+  ],
+  sopas:[
+    {es:'Sopa de picadillo',en:'Chicken Broth Soup',desc_es:'Caldo de pollo y jamón con fideos y pan frito',p:'9.50',img:'img/sopa-picadillo-cocina-casera-donde-comer-alpujarra.jpg'},
+    {es:'Sopa de verduras',en:'Vegetable Soup',desc_es:'Caldo vegetal con mezcla de verduras',p:'8.50',img:null,ico:'🥣'},
+    {es:'Sopa de marisco',en:'Seafood Soup',desc_es:'Fumet de pescado y marisco con salteado de frutos del mar',p:'12.50',img:null,ico:'🦞'},
+  ],
+  parrilla:[
+    {es:'Pata de pulpo con parmentier',en:'Octopus Leg with Parmentier',desc_es:'',p:'20.00',img:null,ico:'🐙'},
+    {es:'Calamar nacional',en:'Local Squid',desc_es:'',p:'18.50',img:null,ico:'🦑'},
+    {es:'Entrecot de ternera con guarnición',en:'Beef Entrecôte with Side',desc_es:'',p:'23.00',img:'img/entrecot-ternera-parrilla-restaurante-bubion.png'},
+    {es:'Chuletas de cordero con guarnición',en:'Lamb Chops with Side',desc_es:'',p:'19.50',img:'img/chuletas-cordero-where-to-eat-alpujarra.jpg'},
+    {es:'Costilla en orza',en:'Preserved Ribs',desc_es:'',p:'16.50',img:null,ico:'🍖'},
+    {es:'Parrillada para compartir',en:'Mixed Grill to Share',desc_es:'Presa, lagarto, secreto, pluma, chorizo, morcilla y costilla en orza',p:'30.00',img:null,ico:'🔥'},
+  ],
+  hamburguesas:[
+    {es:'Hamburguesa completa',en:'Full Burger',desc_es:'Carne de ternera, bacon, queso, lechuga, tomate y huevo',p:'12.00',img:null,ico:'🍔'},
+    {es:'Hamburguesa de cabra',en:'Goat Cheese Burger',desc_es:'Ternera, pimiento asado, cebolla caramelizada y rulo de cabra frito',p:'13.00',img:null,ico:'🍔'},
+    {es:'Hamburguesa vegana',en:'Vegan Burger',desc_es:'Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas',p:'14.00',img:null,ico:'🥑'},
+    {es:'Texas Burger',en:'Texas Burger',desc_es:'Doble carne de ternera, doble queso, doble bacon, lechuga, tomate y jalapeños',p:'15.00',img:null,ico:'🤠'},
+    {es:'Fikandel',en:'Frikandel',desc_es:'Doble salchicha, cebolla caramelizada, cebolla crujiente, mostaza y guarnición',p:'15.00',img:null,ico:'🌭'},
+  ],
+  pizzas:[
+    {es:'Margarita',en:'Margherita',desc_es:'Tomate y mozzarella',p:'11.50',img:null,ico:'🍕'},
+    {es:'Prosciutto',en:'Prosciutto',desc_es:'Margarita con jamón york',p:'12.50',img:null,ico:'🍕'},
+    {es:'Pepperoni',en:'Pepperoni',desc_es:'Margarita con pepperoni',p:'13.50',img:null,ico:'🍕'},
+    {es:'4 Quesos',en:'Four Cheese',desc_es:'Margarita, mozzarella, queso de cabra, parmesano y roquefort',p:'13.90',img:null,ico:'🧀'},
+    {es:'Del Huerto',en:'Garden',desc_es:'Margarita con mezcla de verduras',p:'14.00',img:null,ico:'🥦'},
+    {es:'Carbonara',en:'Carbonara',desc_es:'Margarita, bacon, huevo y parmesano',p:'14.50',img:null,ico:'🍳'},
+    {es:'Fugazzeta',en:'Fugazzeta',desc_es:'Margarita con cebolla caramelizada y queso de cabra',p:'14.50',img:null,ico:'🧅'},
+    {es:'Del Mar',en:'Seafood',desc_es:'Margarita con marisco',p:'16.00',img:'img/pizza-del-mar-marisco-restaurante-bubion.png'},
+    {es:'De la Sierra',en:'Sierra',desc_es:'Margarita con jamón, rúcula y parmesano',p:'15.00',img:null,ico:'🏔️'},
+  ],
+  pastas:[
+    {es:'Tallarines al Pesto',en:'Pesto Tagliatelle',desc_es:'',p:'12.50',img:null,ico:'🍝'},
+    {es:'Tallarines 4 Quesos',en:'Four Cheese Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🧀'},
+    {es:'Tallarines Carbonara',en:'Carbonara Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🥚'},
+    {es:'Tallarines Boloñesa',en:'Bolognese Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🍝'},
+    {es:'Tallarines Marinera',en:'Marinara Tagliatelle',desc_es:'',p:'15.00',img:null,ico:'🦞'},
+    {es:'Tallarines con verduras',en:'Vegetable Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🥦'},
+    {es:'Canelones de foie y trufa',en:'Foie & Truffle Cannelloni',desc_es:'',p:'15.50',img:null,ico:'🍽️'},
+  ]
+};
+
+let lang='es';
+function renderGrid(cat){
+  const el=document.getElementById('g-'+cat);
+  if(!el)return;
+  el.innerHTML=MD[cat].map(i=>`
+    <div class="mitem">
+      ${i.img?`<img class="mitem-img" src="${i.img}" alt="${i.es} - restaurante Bubión Alpujarra" loading="lazy">`:`<div class="mitem-ph">${i.ico||'🍽️'}</div>`}
+      <div class="mitem-b">
+        <p class="mitem-name">${lang==='es'?i.es:i.en}</p>
+        ${i.desc_es?`<p class="mitem-en">${i.desc_es}</p>`:''}
+        <p class="mitem-price">${i.p} €</p>
+      </div>
+    </div>`).join('');
+}
+function renderAll(){Object.keys(MD).forEach(renderGrid)}
+function mTab(cat,btn){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('p-'+cat).classList.add('on');btn.classList.add('on');
+}
+function fTab(t,btn){
+  document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('f-'+t).classList.add('on');btn.classList.add('on');
+}
+function setLang(l){
+  lang=l;
+  document.getElementById('langBtnEs').classList.toggle('active',l==='es');
+  document.getElementById('langBtnEn').classList.toggle('active',l==='en');
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')return;
+    el.textContent=l==='es'?el.dataset.es:el.dataset.en;
+  });
+  renderAll();
+}
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('on',scrollY>50)});
+function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
+function closeMob(){document.getElementById('mobNav').classList.remove('open')}
+const mTitles={
+  senderismo:{es:'Senderismo en Sierra Nevada',en:'Hiking in Sierra Nevada'},
+  caballo:{es:'Rutas a caballo',en:'Horse riding routes'},
+  '4x4':{es:'Excursiones en 4x4',en:'4x4 excursions'}
+};
+function openModal(t){
+  document.getElementById('modal-t').textContent=mTitles[t][lang];
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function bgClose(e){if(e.target.id==='modal')closeModal()}
+const today=new Date().toISOString().split('T')[0];
+document.querySelectorAll('input[type="date"]').forEach(i=>i.min=today);
+renderAll();
+</script>
+</body>
+</html>
