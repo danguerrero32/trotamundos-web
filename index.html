@@ -273,29 +273,31 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="Los Trotamundos - Restaurante Bubión Alpujarra">
   </div>
   <ul class="nav-links">
-    <li><a href="#menu" data-es="Menú" data-en="Menu">Menú</a></li>
-    <li><a href="#reservas" data-es="Reservar" data-en="Book">Reservar</a></li>
-    <li><a href="#actividades" data-es="Actividades" data-en="Activities">Actividades</a></li>
-    <li><a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a></li>
-    <li><a href="#alojamiento" data-es="Alojamiento" data-en="Accommodation">Alojamiento</a></li>
-    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+    <li><a href="#menu" data-es="Menú" data-en="Menu" data-fr="Menu" data-ca="Menú">Menú</a></li>
+    <li><a href="#reservas" data-es="Reservar" data-en="Book" data-fr="Réserver" data-ca="Reservar">Reservar</a></li>
+    <li><a href="#actividades" data-es="Actividades" data-en="Activities" data-fr="Activités" data-ca="Activitats">Actividades</a></li>
+    <li><a href="#ubicacion" data-es="Ubicación" data-en="Location" data-fr="Emplacement" data-ca="Ubicació">Ubicación</a></li>
+    <li><a href="#alojamiento" data-es="Alojamiento" data-en="Accommodation" data-fr="Hébergement" data-ca="Allotjament">Alojamiento</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact" data-fr="Contact" data-ca="Contacte">Contacto</a></li>
   </ul>
   <div class="nav-r">
     <div class="lang-btns">
       <button class="lang-btn active" onclick="setLang('es')" id="langBtnEs">🇪🇸 ES</button>
       <button class="lang-btn" onclick="setLang('en')" id="langBtnEn">🇬🇧 EN</button>
+      <button class="lang-btn" onclick="setLang('fr')" id="langBtnFr">🇫🇷 FR</button>
+      <button class="lang-btn" onclick="setLang('ca')" id="langBtnCa">CA</button>
     </div>
-    <a href="#reservas" class="btn btn-gold" style="padding:10px 18px;font-size:.82rem" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
+    <a href="#reservas" class="btn btn-gold" style="padding:10px 18px;font-size:.82rem" data-es="Reservar mesa" data-en="Book a table" data-fr="Réserver une table" data-ca="Reservar taula">Reservar mesa</a>
     <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
-  <a href="#menu" onclick="closeMob()" data-es="Menú" data-en="Menu">Menú</a>
-  <a href="#reservas" onclick="closeMob()" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
-  <a href="#actividades" onclick="closeMob()" data-es="Actividades" data-en="Activities">Actividades</a>
-  <a href="#ubicacion" onclick="closeMob()" data-es="Ubicación" data-en="Location">Ubicación</a>
-  <a href="#alojamiento" onclick="closeMob()" data-es="Alojamiento" data-en="Accommodation">Alojamiento</a>
-  <a href="#contacto" onclick="closeMob()" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a href="#menu" onclick="closeMob()" data-es="Menú" data-en="Menu" data-fr="Menu" data-ca="Menú">Menú</a>
+  <a href="#reservas" onclick="closeMob()" data-es="Reservar mesa" data-en="Book a table" data-fr="Réserver une table" data-ca="Reservar taula">Reservar mesa</a>
+  <a href="#actividades" onclick="closeMob()" data-es="Actividades" data-en="Activities" data-fr="Activités" data-ca="Activitats">Actividades</a>
+  <a href="#ubicacion" onclick="closeMob()" data-es="Ubicación" data-en="Location" data-fr="Emplacement" data-ca="Ubicació">Ubicación</a>
+  <a href="#alojamiento" onclick="closeMob()" data-es="Alojamiento" data-en="Accommodation" data-fr="Hébergement" data-ca="Allotjament">Alojamiento</a>
+  <a href="#contacto" onclick="closeMob()" data-es="Contacto" data-en="Contact" data-fr="Contact" data-ca="Contacte">Contacto</a>
 </div>
 
 <!-- HERO -->
@@ -304,21 +306,21 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
   <div class="hero-ov"></div>
   <div class="hero-c">
     <h1 class="hero-title">Tu Restaurante en Bubión</h1>
-    <p class="hero-sub" data-es="Entre Pampaneira y Capileira, en pleno barranco del Poqueira. Un viaje gastronómico a los pies de Sierra Nevada" data-en="A gastronomic journey at the foot of Sierra Nevada">Entre Pampaneira y Capileira. Un viaje gastronómico con sabor a hogar, en pleno barranco del Poqueira, a los pies de Sierra Nevada</p>
+    <p class="hero-sub" data-es="Entre Pampaneira y Capileira, en pleno barranco del Poqueira. Un viaje gastronómico a los pies de Sierra Nevada" data-en="A gastronomic journey at the foot of Sierra Nevada" data-fr="Entre Pampaneira et Capileira. Un voyage gastronomique avec des saveurs de chez soi, au cœur du Barranco del Poqueira, au pied de Sierra Nevada" data-ca="Entre Pampaneira i Capileira. Un viatge gastronòmic amb sabor a llar, en ple Barranc del Poqueira, als peus de Sierra Nevada">Entre Pampaneira y Capileira. Un viaje gastronómico con sabor a hogar, en pleno barranco del Poqueira, a los pies de Sierra Nevada</p>
     <div class="hero-btns">
-      <a href="#reservas" class="btn btn-gold" data-es="Reservar mesa" data-en="Book a table">Reservar mesa</a>
-      <a href="#menu" class="btn btn-outline" data-es="Ver la carta" data-en="See the menu">Ver la carta</a>
-      <a href="#actividades" class="btn btn-outline" data-es="Explorar actividades" data-en="Explore activities">Explorar actividades</a>
+      <a href="#reservas" class="btn btn-gold" data-es="Reservar mesa" data-en="Book a table" data-fr="Réserver une table" data-ca="Reservar taula">Reservar mesa</a>
+      <a href="#menu" class="btn btn-outline" data-es="Ver la carta" data-en="See the menu" data-fr="Voir la carte" data-ca="Veure la carta">Ver la carta</a>
+      <a href="#actividades" class="btn btn-outline" data-es="Explorar actividades" data-en="Explore activities" data-fr="Explorer les activités" data-ca="Explorar activitats">Explorar actividades</a>
     </div>
     <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="hero-rating">
       <span class="score">4.8</span>
       <span class="stars">★★★★★</span>
       <span class="sep">|</span>
-      <span class="label" data-es="Valoración en Google" data-en="Google rating">Valoración en Google</span>
+      <span class="label" data-es="Valoración en Google" data-en="Google rating" data-fr="Note Google" data-ca="Valoració a Google">Valoración en Google</span>
     </a>
   </div>
   <div class="scroll-hint">
-    <span data-es="Descubrir" data-en="Discover">Descubrir</span>
+    <span data-es="Descubrir" data-en="Discover" data-fr="Découvrir" data-ca="Descobrir">Descubrir</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
@@ -326,9 +328,9 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 <!-- UBICACIÓN -->
 <section id="ubicacion">
   <div class="wrap" style="margin-bottom:40px">
-    <p class="sec-title" data-es="Ubicación" data-en="Location">Ubicación</p>
+    <p class="sec-title" data-es="Ubicación" data-en="Location" data-fr="Emplacement" data-ca="Ubicació">Ubicación</p>
     <div class="divider"></div>
-    <p class="sec-sub" data-es="Encuéntranos en el corazón de La Alpujarra. Bubión, Granada." data-en="Find us in the heart of La Alpujarra. Bubión, Granada.">Encuéntranos en el corazón de La Alpujarra. Bubión, Granada.</p>
+    <p class="sec-sub" data-es="Encuéntranos en el corazón de La Alpujarra. Bubión, Granada." data-en="Find us in the heart of La Alpujarra. Bubión, Granada." data-fr="Retrouvez-nous au cœur de La Alpujarra. Bubión, Grenade." data-ca="Trobeu-nos al cor de La Alpujarra. Bubión, Granada.">Encuéntranos en el corazón de La Alpujarra. Bubión, Granada.</p>
   </div>
   <div class="ubi-grid wrap">
     <div class="ubi-map">
@@ -339,7 +341,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
         style="width:100%;height:420px;border:0;border-radius:12px;border:1px solid #2E2418">
       </iframe>
       <div style="margin-top:14px">
-        <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="font-size:.82rem" data-es="📍 Abrir en Google Maps" data-en="📍 Open in Google Maps">📍 Abrir en Google Maps</a>
+        <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="font-size:.82rem" data-es="📍 Abrir en Google Maps" data-en="📍 Open in Google Maps" data-fr="📍 Ouvrir dans Google Maps" data-ca="📍 Obrir a Google Maps">📍 Abrir en Google Maps</a>
       </div>
     </div>
     <div>
@@ -347,8 +349,8 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
         <div class="reviews-score">4.8</div>
         <div class="reviews-meta">
           <div class="stars">★★★★★</div>
-          <span data-es="Basado en reseñas de Google" data-en="Based on Google reviews">Basado en reseñas de Google</span>
-          <span style="margin-top:2px" data-es="Lo que dicen quienes nos visitan" data-en="What our visitors say">Lo que dicen quienes nos visitan</span>
+          <span data-es="Basado en reseñas de Google" data-en="Based on Google reviews" data-fr="Basé sur les avis Google" data-ca="Basat en ressenyes de Google">Basado en reseñas de Google</span>
+          <span style="margin-top:2px" data-es="Lo que dicen quienes nos visitan" data-en="What our visitors say" data-fr="Ce que disent nos visiteurs" data-ca="El que diuen els nostres visitants">Lo que dicen quienes nos visitan</span>
         </div>
       </div>
       <div class="review-cards">
@@ -370,7 +372,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
       </div>
       <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="google-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span data-es="Ver todas las reseñas en Google Maps →" data-en="See all reviews on Google Maps →">Ver todas las reseñas en Google Maps →</span>
+        <span data-es="Ver todas las reseñas en Google Maps →" data-en="See all reviews on Google Maps →" data-fr="Voir tous les avis sur Google Maps →" data-ca="Veure totes les ressenyes a Google Maps →">Ver todas las reseñas en Google Maps →</span>
       </a>
     </div>
   </div>
@@ -381,38 +383,37 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
   <div class="strip-in">
     <div class="strip-item">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-      <div><strong data-es="Cocina del mundo" data-en="World cuisine">Cocina del mundo</strong><span>Europa · Asia · África · América</span></div>
+      <div><strong data-es="Cocina del mundo" data-en="World cuisine" data-fr="Cuisine du monde" data-ca="Cuina del món">Cocina del mundo</strong><span>Europa · Asia · África · América</span></div>
     </div>
     <div class="strip-item">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8c-2.5 0-5 1.5-5 4s2.5 4 5 4 5-1.5 5-4-2.5-4-5-4z"/></svg>
-      <div><strong data-es="Producto local" data-en="Local produce">Producto local</strong><span data-es="Huerta propia · Km 0 alpujarreño" data-en="Own garden · Local km 0">Huerta propia · Km 0 alpujarreño</span></div>
+      <div><strong data-es="Producto local" data-en="Local produce" data-fr="Produit local" data-ca="Producte local">Producto local</strong><span data-es="Huerta propia · Km 0 alpujarreño" data-en="Own garden · Local km 0" data-fr="Jardin propre · Km 0 local" data-ca="Hort propi · Km 0 alpujarrenyo">Huerta propia · Km 0 alpujarreño</span></div>
     </div>
     <div class="strip-item">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-      <div><strong data-es="Juegos de mesa" data-en="Board games">Juegos de mesa</strong><span data-es="Ajedrez · Cartas · Clásicos" data-en="Chess · Cards · Classics">Ajedrez · Cartas · Clásicos</span></div>
+      <div><strong data-es="Juegos de mesa" data-en="Board games" data-fr="Jeux de société" data-ca="Jocs de taula">Juegos de mesa</strong><span data-es="Ajedrez · Cartas · Clásicos" data-en="Chess · Cards · Classics" data-fr="Échecs · Cartes · Classiques" data-ca="Escacs · Cartes · Clàssics">Ajedrez · Cartas · Clásicos</span></div>
     </div>
     <div class="strip-item">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <div><strong data-es="Como en casa" data-en="Home away from home">Como en casa</strong><span data-es="Chimenea · Ambiente familiar" data-en="Fireplace · Family atmosphere">Chimenea · Ambiente familiar</span></div>
-    </div>
-  </div>
+      <div><strong data-es="Como en casa" data-en="Home away from home" data-fr="Comme à la maison" data-ca="Com a casa">Como en casa</strong><span data-es="Chimenea · Ambiente familiar" data-en="Fireplace · Family atmosphere" data-fr="Cheminée · Ambiance familiale" data-ca="Xemeneia · Ambient familiar">Chimenea · Ambiente familiar</span></div>
+    </div></div>
 </div>
 
 <!-- MENÚ -->
 <section id="menu">
   <div class="menu-hd wrap">
-    <p class="sec-title" data-es="Nuestra Carta" data-en="Our Menu">Nuestra Carta</p>
+    <p class="sec-title" data-es="Nuestra Carta" data-en="Our Menu" data-fr="Notre Carte" data-ca="La nostra Carta">Nuestra Carta</p>
     <div class="divider"></div>
-    <p class="sec-sub" data-es="Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas." data-en="Local produce, world flavours. Honest cooking with Alpujarran roots.">Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas.</p>
+    <p class="sec-sub" data-es="Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas." data-en="Local produce, world flavours. Honest cooking with Alpujarran roots." data-fr="Produits locaux, saveurs du monde. Cuisine honnête aux racines alpujarreñas." data-ca="Producte local, sabors del món. Cuina honesta amb arrels alpujarrenyes.">Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas.</p>
   </div>
   <div class="menu-tabs wrap">
-    <button class="mtab on"  onclick="mTab('entrantes',this)"    data-es="Entrantes"    data-en="Starters">Entrantes</button>
-    <button class="mtab"     onclick="mTab('ensaladas',this)"    data-es="Ensaladas"    data-en="Salads">Ensaladas</button>
-    <button class="mtab"     onclick="mTab('sopas',this)"        data-es="Sopas"        data-en="Soups">Sopas</button>
-    <button class="mtab"     onclick="mTab('parrilla',this)"     data-es="Mar y Montaña" data-en="Sea &amp; Mountain">Mar y Montaña</button>
-    <button class="mtab"     onclick="mTab('hamburguesas',this)" data-es="Hamburguesas" data-en="Burgers">Hamburguesas</button>
-    <button class="mtab"     onclick="mTab('pizzas',this)"       data-es="Pizzas"       data-en="Pizzas">Pizzas</button>
-    <button class="mtab"     onclick="mTab('pastas',this)"       data-es="Pastas"       data-en="Pastas">Pastas</button>
+    <button class="mtab on"  onclick="mTab('entrantes',this)"    data-es="Entrantes"    data-en="Starters" data-fr="Entrées" data-ca="Entrants">Entrantes</button>
+    <button class="mtab"     onclick="mTab('ensaladas',this)"    data-es="Ensaladas"    data-en="Salads" data-fr="Salades" data-ca="Amanides">Ensaladas</button>
+    <button class="mtab"     onclick="mTab('sopas',this)"        data-es="Sopas"        data-en="Soups" data-fr="Soupes" data-ca="Sopes">Sopas</button>
+    <button class="mtab"     onclick="mTab('parrilla',this)"     data-es="Mar y Montaña" data-en="Sea &amp; Mountain" data-fr="Mer et Montagne" data-ca="Mar i Muntanya">Mar y Montaña</button>
+    <button class="mtab"     onclick="mTab('hamburguesas',this)" data-es="Hamburguesas" data-en="Burgers" data-fr="Burgers" data-ca="Hamburgueses">Hamburguesas</button>
+    <button class="mtab"     onclick="mTab('pizzas',this)"       data-es="Pizzas"       data-en="Pizzas" data-fr="Pizzas" data-ca="Pizzes">Pizzas</button>
+    <button class="mtab"     onclick="mTab('pastas',this)"       data-es="Pastas"       data-en="Pastas" data-fr="Pâtes" data-ca="Pastes">Pastas</button>
   </div>
   <div id="p-entrantes"    class="mpanel on wrap"><div class="mgrid" id="g-entrantes"></div></div>
   <div id="p-ensaladas"    class="mpanel wrap"><div class="mgrid" id="g-ensaladas"></div></div>
@@ -423,14 +424,14 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <div class="featured">
       <img src="img/pizza-capriccio-daniel-restaurante-bubion-granada.png" alt="Pizza Capriccio di Daniel - Restaurante Bubión Granada">
       <div class="feat-info">
-        <span class="feat-tag" data-es="✦ Especial del chef" data-en="✦ Chef's special">✦ Especial del chef</span>
+        <span class="feat-tag" data-es="✦ Especial del chef" data-en="✦ Chef's special" data-fr="✦ Spécial du chef" data-ca="✦ Especial del xef">✦ Especial del chef</span>
         <h3 class="feat-name">Capriccio di Daniel 🔥</h3>
-        <p class="feat-desc" data-es="Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe." data-en="Margherita base, caramelised onion, mushrooms, pil pil prawns, gorgonzola, goat cheese… and an egg that ties it all together.">Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe.</p>
+        <p class="feat-desc" data-es="Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe." data-en="Margherita base, caramelised onion, mushrooms, pil pil prawns, gorgonzola, goat cheese… and an egg that ties it all together." data-fr="Base margherita, oignon caramélisé, champignons, crevettes pil pil, gorgonzola, fromage de chèvre… et un œuf qui lie tout quand il se casse." data-ca="Base margherita, ceba caramel·litzada, xampinyons, llagostins al pil pil, gorgonzola, formatge de cabra… i un ou que ho uneix tot quan es trenca.">Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe.</p>
         <span class="feat-price">18 €</span>
       </div>
     </div>
     <div class="mgrid" id="g-pizzas"></div>
-    <p class="menu-note" data-es="Ingrediente extra +1,50 €" data-en="Extra ingredient +€1.50">Ingrediente extra +1,50 €</p>
+    <p class="menu-note" data-es="Ingrediente extra +1,50 €" data-en="Extra ingredient +€1.50" data-fr="Ingrédient supplémentaire +1,50 €" data-ca="Ingredient extra +1,50 €">Ingrediente extra +1,50 €</p>
   </div>
   <div id="p-pastas" class="mpanel wrap"><div class="mgrid" id="g-pastas"></div></div>
 </section>
@@ -441,53 +442,53 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <div class="res-img">
       <img src="img/chuletas-cordero-donde-comer-bubion-alpujarra.jpg" alt="Chuletas de cordero alpujarreño - Dónde comer en Bubión">
       <div class="res-badge">
-        <p data-es="Horario" data-en="Opening hours">Horario</p>
-        <strong>Jue–Lun 12:00–23:30 &nbsp;·&nbsp; Mar 12:00–17:00 &nbsp;·&nbsp; Mié <span style="color:var(--red)" data-es="Cerrado" data-en="Closed">Cerrado</span></strong>
+        <p data-es="Horario" data-en="Opening hours" data-fr="Horaires" data-ca="Horari">Horario</p>
+        <strong>Jue–Lun 12:00–23:30 &nbsp;·&nbsp; Mar 12:00–17:00 &nbsp;·&nbsp; Mié <span style="color:var(--red)" data-es="Cerrado" data-en="Closed" data-fr="Fermé" data-ca="Tancat">Cerrado</span></strong>
       </div>
     </div>
     <div>
-      <p class="sec-title" data-es="Reservar o pedir" data-en="Book or order">Reservar o pedir</p>
+      <p class="sec-title" data-es="Reservar o pedir" data-en="Book or order" data-fr="Réserver ou commander" data-ca="Reservar o demanar">Reservar o pedir</p>
       <div class="divider"></div>
-      <p class="sec-sub" data-es="Reserva tu mesa o haz tu pedido para recoger." data-en="Book your table or place a takeaway order.">Reserva tu mesa o haz tu pedido para recoger.</p>
+      <p class="sec-sub" data-es="Reserva tu mesa o haz tu pedido para recoger." data-en="Book your table or place a takeaway order." data-fr="Réservez votre table ou passez votre commande à emporter." data-ca="Reserva la teva taula o fes la teva comanda per emportar.">Reserva tu mesa o haz tu pedido para recoger.</p>
       <div class="ftabs">
-        <button class="ftab on" onclick="fTab('mesa',this)" data-es="🍽️ Reservar mesa" data-en="🍽️ Book a table">🍽️ Reservar mesa</button>
-        <button class="ftab" onclick="fTab('llevar',this)" data-es="🥡 Para llevar" data-en="🥡 Takeaway">🥡 Para llevar</button>
+        <button class="ftab on" onclick="fTab('mesa',this)" data-es="🍽️ Reservar mesa" data-en="🍽️ Book a table" data-fr="🍽️ Réserver une table" data-ca="🍽️ Reservar taula">🍽️ Reservar mesa</button>
+        <button class="ftab" onclick="fTab('llevar',this)" data-es="🥡 Para llevar" data-en="🥡 Takeaway" data-fr="🥡 À emporter" data-ca="🥡 Per emportar">🥡 Para llevar</button>
       </div>
       <div id="f-mesa" class="fpanel on">
         <div class="frow">
-          <div class="fg"><label data-es="Fecha" data-en="Date">Fecha</label><input type="date" id="d1"></div>
-          <div class="fg"><label data-es="Hora" data-en="Time">Hora</label>
+          <div class="fg"><label data-es="Fecha" data-en="Date" data-fr="Date" data-ca="Data">Fecha</label><input type="date" id="d1"></div>
+          <div class="fg"><label data-es="Hora" data-en="Time" data-fr="Heure" data-ca="Hora">Hora</label>
             <select><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option></select>
           </div>
         </div>
         <div class="frow">
-          <div class="fg"><label data-es="Personas" data-en="Guests">Personas</label>
+          <div class="fg"><label data-es="Personas" data-en="Guests" data-fr="Personnes" data-ca="Persones">Personas</label>
             <select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
           </div>
-          <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+          <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
         </div>
-        <div class="fg"><label data-es="Teléfono o email" data-en="Phone or email">Teléfono o email</label><input type="text" placeholder="+34 6XX XXX XXX"></div>
-        <div class="fg"><label data-es="Petición especial (opcional)" data-en="Special request (optional)">Petición especial (opcional)</label><textarea rows="2" placeholder="Alergias, ocasión especial, terraza…"></textarea></div>
+        <div class="fg"><label data-es="Teléfono o email" data-en="Phone or email" data-fr="Téléphone ou email" data-ca="Telèfon o email">Teléfono o email</label><input type="text" placeholder="+34 6XX XXX XXX"></div>
+        <div class="fg"><label data-es="Petición especial (opcional)" data-en="Special request (optional)" data-fr="Demande spéciale (optionnelle)" data-ca="Petició especial (opcional)">Petición especial (opcional)</label><textarea rows="2" placeholder="Alergias, ocasión especial, terraza…"></textarea></div>
         <div class="bizum">
           <span class="bizum-ico">💙</span>
           <div class="bizum-txt">
-            <strong data-es="Depósito de 10 € por Bizum al confirmar" data-en="€10 Bizum deposit on confirmation">Depósito de 10 € por Bizum al confirmar</strong>
-            <span data-es="Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva." data-en="Deducted from your final bill. We'll send you the Bizum number on confirmation.">Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva.</span>
+            <strong data-es="Depósito de 10 € por Bizum al confirmar" data-en="€10 Bizum deposit on confirmation" data-fr="Acompte de 10 € par Bizum à la confirmation" data-ca="Dipòsit de 10 € per Bizum en confirmar">Depósito de 10 € por Bizum al confirmar</strong>
+            <span data-es="Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva." data-en="Deducted from your final bill. We'll send you the Bizum number on confirmation." data-fr="Déduit du total de votre note. Nous vous enverrons le numéro Bizum à la confirmation." data-ca="Es descompta del total del teu compte en pagar. T'enviem el número de Bizum en confirmar la reserva.">Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva.</span>
           </div>
         </div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Solicitar reserva →" data-en="Request booking →">Solicitar reserva →</button>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Solicitar reserva →" data-en="Request booking →" data-fr="Demander une réservation →" data-ca="Sol·licitar reserva →">Solicitar reserva →</button>
       </div>
       <div id="f-llevar" class="fpanel">
         <div class="frow">
-          <div class="fg"><label data-es="Fecha de recogida" data-en="Collection date">Fecha de recogida</label><input type="date" id="d2"></div>
-          <div class="fg"><label data-es="Hora de recogida" data-en="Collection time">Hora de recogida</label>
+          <div class="fg"><label data-es="Fecha de recogida" data-en="Collection date" data-fr="Date de retrait" data-ca="Data de recollida">Fecha de recogida</label><input type="date" id="d2"></div>
+          <div class="fg"><label data-es="Hora de recogida" data-en="Collection time" data-fr="Heure de retrait" data-ca="Hora de recollida">Hora de recogida</label>
             <select><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select>
           </div>
         </div>
-        <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
-        <div class="fg"><label data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
-        <div class="fg"><label data-es="¿Qué quieres pedir?" data-en="What would you like to order?">¿Qué quieres pedir?</label><textarea rows="4" placeholder="Dinos los platos que quieres o consulta la carta primero…"></textarea></div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar pedido →" data-en="Send order →">Enviar pedido →</button>
+        <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+        <div class="fg"><label data-es="Teléfono" data-en="Phone" data-fr="Téléphone" data-ca="Telèfon">Teléfono</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+        <div class="fg"><label data-es="¿Qué quieres pedir?" data-en="What would you like to order?" data-fr="Que voulez-vous commander ?" data-ca="Què vols demanar?">¿Qué quieres pedir?</label><textarea rows="4" placeholder="Dinos los platos que quieres o consulta la carta primero…"></textarea></div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar pedido →" data-en="Send order →" data-fr="Envoyer la commande →" data-ca="Enviar la comanda →">Enviar pedido →</button>
       </div>
     </div>
   </div>
@@ -496,9 +497,9 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 <!-- ACTIVIDADES -->
 <section id="actividades">
   <div class="act-hd wrap">
-    <p class="sec-title" data-es="Actividades" data-en="Activities">Actividades</p>
+    <p class="sec-title" data-es="Actividades" data-en="Activities" data-fr="Activités" data-ca="Activitats">Actividades</p>
     <div class="divider"></div>
-    <p class="sec-sub" data-es="Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad." data-en="Explore Sierra Nevada with local experts. Come back to the table with a real appetite.">Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad.</p>
+    <p class="sec-sub" data-es="Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad." data-en="Explore Sierra Nevada with local experts. Come back to the table with a real appetite." data-fr="Explorez Sierra Nevada avec des experts locaux. Revenez à table avec un vrai appétit." data-ca="Explora Sierra Nevada amb experts locals. Torna a la taula amb gana de veritat.">Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad.</p>
   </div>
   <div class="act-grid wrap">
     <div class="act-card" onclick="openModal('senderismo')">
@@ -506,9 +507,9 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
       <div class="act-ov"></div>
       <div class="act-cnt">
         <div class="act-ico">🥾</div>
-        <h3 class="act-name" data-es="Senderismo en Sierra Nevada" data-en="Hiking in Sierra Nevada">Senderismo en Sierra Nevada</h3>
-        <p class="act-desc" data-es="Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás." data-en="Guided hikes for all levels. Unique landscapes, high-mountain flora and views you'll never forget.">Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás.</p>
-        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+        <h3 class="act-name" data-es="Senderismo en Sierra Nevada" data-en="Hiking in Sierra Nevada" data-fr="Randonnée à Sierra Nevada" data-ca="Senderisme a Sierra Nevada">Senderismo en Sierra Nevada</h3>
+        <p class="act-desc" data-es="Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás." data-en="Guided hikes for all levels. Unique landscapes, high-mountain flora and views you'll never forget." data-fr="Randonnées guidées pour tous les niveaux. Paysages uniques, flore de haute montagne et vues inoubliables." data-ca="Rutes guiades per a tots els nivells. Paisatges únics, flora d'alta muntanya i vistes que no oblidaràs.">Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →" data-fr="Vérifier la disponibilité →" data-ca="Consultar disponibilitat →">Consultar disponibilidad →</span>
       </div>
     </div>
     <div class="act-card" onclick="openModal('caballo')">
@@ -516,9 +517,9 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
       <div class="act-ov"></div>
       <div class="act-cnt">
         <div class="act-ico">🐴</div>
-        <h3 class="act-name" data-es="Rutas a caballo" data-en="Horse riding routes">Rutas a caballo</h3>
-        <p class="act-desc" data-es="Los caminos históricos de La Alpujarra a lomos de caballo. Para principiantes y para quien ya monta." data-en="Historic trails of La Alpujarra on horseback. Suitable for beginners and experienced riders.">Los caminos históricos de La Alpujarra a lomos de caballo. Para todos los niveles.</p>
-        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+        <h3 class="act-name" data-es="Rutas a caballo" data-en="Horse riding routes" data-fr="Randonnées à cheval" data-ca="Rutes a cavall">Rutas a caballo</h3>
+        <p class="act-desc" data-es="Los caminos históricos de La Alpujarra a lomos de caballo. Para principiantes y para quien ya monta." data-en="Historic trails of La Alpujarra on horseback. Suitable for beginners and experienced riders." data-fr="Les chemins historiques de La Alpujarra à cheval. Pour tous les niveaux." data-ca="Els camins històrics de La Alpujarra a cavall. Per a tots els nivells.">Los caminos históricos de La Alpujarra a lomos de caballo. Para todos los niveles.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →" data-fr="Vérifier la disponibilité →" data-ca="Consultar disponibilitat →">Consultar disponibilidad →</span>
       </div>
     </div>
     <div class="act-card" onclick="openModal('4x4')">
@@ -526,9 +527,9 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
       <div class="act-ov"></div>
       <div class="act-cnt">
         <div class="act-ico">🚙</div>
-        <h3 class="act-name" data-es="Excursiones en 4x4" data-en="4x4 excursions">Excursiones en 4x4</h3>
-        <p class="act-desc" data-es="Accede a lugares que no están en ningún mapa. Pistas de montaña, cortijos y rincones secretos de Sierra Nevada." data-en="Access places not on any map. Mountain tracks, farmhouses and secret corners of Sierra Nevada.">Accede a lugares que no están en ningún mapa. Sierra Nevada a fondo, sin límites.</p>
-        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →">Consultar disponibilidad →</span>
+        <h3 class="act-name" data-es="Excursiones en 4x4" data-en="4x4 excursions" data-fr="Excursions en 4x4" data-ca="Excursions en 4x4">Excursiones en 4x4</h3>
+        <p class="act-desc" data-es="Accede a lugares que no están en ningún mapa. Pistas de montaña, cortijos y rincones secretos de Sierra Nevada." data-en="Access places not on any map. Mountain tracks, farmhouses and secret corners of Sierra Nevada." data-fr="Accédez à des endroits qui ne figurent sur aucune carte. Sierra Nevada en profondeur, sans limites." data-ca="Accedeix a llocs que no surten en cap mapa. Sierra Nevada a fons, sense límits.">Accede a lugares que no están en ningún mapa. Sierra Nevada a fondo, sin límites.</p>
+        <span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →" data-fr="Vérifier la disponibilité →" data-ca="Consultar disponibilitat →">Consultar disponibilidad →</span>
       </div>
     </div>
   </div>
@@ -539,23 +540,23 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
   <div class="modal">
     <button class="modal-x" onclick="closeModal()">✕</button>
     <h3 class="modal-title" id="modal-t">Actividad</h3>
-    <p class="modal-sub" data-es="Déjanos tus datos y te contactamos en menos de 24h." data-en="Leave your details and we'll get back to you within 24 hours.">Déjanos tus datos y te contactamos en menos de 24h.</p>
-    <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre"></div>
-    <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+    <p class="modal-sub" data-es="Déjanos tus datos y te contactamos en menos de 24h." data-en="Leave your details and we'll get back to you within 24 hours." data-fr="Laissez-nous vos coordonnées et nous vous contacterons sous 24h." data-ca="Deixeu-nos les vostres dades i us contactarem en menys de 24h.">Déjanos tus datos y te contactamos en menos de 24h.</p>
+    <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
+    <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-ca="Telèfon / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
     <div class="frow">
-      <div class="fg"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="d3"></div>
-      <div class="fg"><label data-es="Personas" data-en="Persons">Personas</label><select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+      <div class="fg"><label data-es="Fecha preferida" data-en="Preferred date" data-fr="Date souhaitée" data-ca="Data preferida">Fecha preferida</label><input type="date" id="d3"></div>
+      <div class="fg"><label data-es="Personas" data-en="Persons" data-fr="Personnes" data-ca="Persones">Personas</label><select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select></div>
     </div>
-    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" data-es="Enviar consulta →" data-en="Send enquiry →">Enviar consulta →</button>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" data-es="Enviar consulta →" data-en="Send enquiry →" data-fr="Envoyer la demande →" data-ca="Enviar consulta →">Enviar consulta →</button>
   </div>
 </div>
 
 <!-- GALERÍA -->
 <section id="galeria">
   <div class="gal-hd wrap">
-    <p class="sec-title" data-es="Galería" data-en="Gallery">Galería</p>
+    <p class="sec-title" data-es="Galería" data-en="Gallery" data-fr="Galerie" data-ca="Galeria">Galería</p>
     <div class="divider"></div>
-    <p class="sec-sub" data-es="Momentos, rincones y la gente que hace especial este lugar." data-en="Moments, corners and the people who make this place special.">Momentos, rincones y la gente que hace especial este lugar.</p>
+    <p class="sec-sub" data-es="Momentos, rincones y la gente que hace especial este lugar." data-en="Moments, corners and the people who make this place special." data-fr="Moments, coins et les gens qui rendent cet endroit spécial." data-ca="Moments, racons i la gent que fa especial aquest lloc.">Momentos, rincones y la gente que hace especial este lugar.</p>
   </div>
   <div class="gal-grid wrap">
     <div class="gal-item"><img src="img/ambiente-restaurante-bubion-donde-comer.jpg" alt="Ambiente restaurante Bubión dónde comer Sierra Nevada" loading="lazy"></div>
@@ -573,34 +574,34 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 <section id="alojamiento">
   <div class="alo-grid wrap">
     <div class="alo-info">
-      <p class="sec-title" data-es="Alojamientos amigos" data-en="Friendly Accommodation">Alojamientos amigos</p>
+      <p class="sec-title" data-es="Alojamientos amigos" data-en="Friendly Accommodation" data-fr="Hébergements partenaires" data-ca="Allotjaments amics">Alojamientos amigos</p>
       <div class="divider"></div>
-      <p class="sec-sub" data-es="Casas rurales y alquileres de confianza que te podemos recomendar." data-en="Rural houses and trusted rentals we can personally recommend.">Casas rurales y alquileres de confianza que te podemos recomendar.</p>
-      <p style="color:rgba(240,230,210,.8);font-size:.95rem;line-height:1.8;margin-bottom:28px" data-es="Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra." data-en="Tell us who's coming, when you need it, what your budget is, and we'll get in touch to find the ideal accommodation in La Alpujarra for you.">Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra.</p>
+      <p class="sec-sub" data-es="Casas rurales y alquileres de confianza que te podemos recomendar." data-en="Rural houses and trusted rentals we can personally recommend." data-fr="Maisons rurales et locations de confiance que nous pouvons vous recommander." data-ca="Cases rurals i lloguers de confiança que us podem recomanar.">Casas rurales y alquileres de confianza que te podemos recomendar.</p>
+      <p style="color:rgba(240,230,210,.8);font-size:.95rem;line-height:1.8;margin-bottom:28px" data-es="Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra." data-en="Tell us who's coming, when you need it, what your budget is, and we'll get in touch to find the ideal accommodation in La Alpujarra for you." data-fr="Dites-nous qui vient, à quelle date, quel est votre budget, et nous vous contacterons pour trouver l'hébergement idéal en La Alpujarra." data-ca="Digueu-nos qui veniu, en quina data, amb quin pressupost compteu i us posarem en contacte per trobar l'allotjament ideal a La Alpujarra.">Cuéntanos quiénes venís, en qué fecha necesitáis, con qué presupuesto contáis y nos ponemos en contacto con vosotros para encontrar el alojamiento ideal en La Alpujarra.</p>
       <div class="alo-features">
-        <div class="alo-feat"><span class="alo-feat-ico">🏡</span><div class="alo-feat-txt"><strong data-es="Casas rurales con encanto" data-en="Charming rural houses">Casas rurales con encanto</strong><span data-es="Seleccionadas por nosotros y de confianza probada." data-en="Selected by us and personally vetted.">Seleccionadas por nosotros y de confianza probada.</span></div></div>
-        <div class="alo-feat"><span class="alo-feat-ico">🌄</span><div class="alo-feat-txt"><strong data-es="Vistas a Sierra Nevada" data-en="Views of Sierra Nevada">Vistas a Sierra Nevada</strong><span data-es="Despertar en La Alpujarra es una experiencia que no se olvida." data-en="Waking up in La Alpujarra is an experience you won't forget.">Despertar en La Alpujarra es una experiencia que no se olvida.</span></div></div>
-        <div class="alo-feat"><span class="alo-feat-ico">🤝</span><div class="alo-feat-txt"><strong data-es="Atención personalizada" data-en="Personalised attention">Atención personalizada</strong><span data-es="Os asesoramos según vuestro grupo, fecha y presupuesto." data-en="We advise you based on your group, dates and budget.">Os asesoramos según vuestro grupo, fecha y presupuesto.</span></div></div>
+        <div class="alo-feat"><span class="alo-feat-ico">🏡</span><div class="alo-feat-txt"><strong data-es="Casas rurales con encanto" data-en="Charming rural houses" data-fr="Maisons rurales de charme" data-ca="Cases rurals amb encant">Casas rurales con encanto</strong><span data-es="Seleccionadas por nosotros y de confianza probada." data-en="Selected by us and personally vetted." data-fr="Sélectionnées par nous et d'une fiabilité éprouvée." data-ca="Seleccionades per nosaltres i de confiança provada.">Seleccionadas por nosotros y de confianza probada.</span></div></div>
+        <div class="alo-feat"><span class="alo-feat-ico">🌄</span><div class="alo-feat-txt"><strong data-es="Vistas a Sierra Nevada" data-en="Views of Sierra Nevada" data-fr="Vues sur Sierra Nevada" data-ca="Vistes de Sierra Nevada">Vistas a Sierra Nevada</strong><span data-es="Despertar en La Alpujarra es una experiencia que no se olvida." data-en="Waking up in La Alpujarra is an experience you won't forget." data-fr="Se réveiller en La Alpujarra est une expérience inoubliable." data-ca="Despertar a La Alpujarra és una experiència que no s'oblida.">Despertar en La Alpujarra es una experiencia que no se olvida.</span></div></div>
+        <div class="alo-feat"><span class="alo-feat-ico">🤝</span><div class="alo-feat-txt"><strong data-es="Atención personalizada" data-en="Personalised attention" data-fr="Attention personnalisée" data-ca="Atenció personalitzada">Atención personalizada</strong><span data-es="Os asesoramos según vuestro grupo, fecha y presupuesto." data-en="We advise you based on your group, dates and budget." data-fr="Nous vous conseillons selon votre groupe, vos dates et votre budget." data-ca="Us assessorem segons el vostre grup, data i pressupost.">Os asesoramos según vuestro grupo, fecha y presupuesto.</span></div></div>
       </div>
     </div>
     <div class="alo-form-wrap">
-      <p class="alo-form-title" data-es="Consultar disponibilidad" data-en="Check availability">Consultar disponibilidad</p>
-      <p class="alo-form-sub" data-es="Rellena el formulario y te contactamos en menos de 24 horas." data-en="Fill in the form and we'll contact you within 24 hours.">Rellena el formulario y te contactamos en menos de 24 horas.</p>
-      <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" placeholder="Tu nombre o el del grupo"></div>
+      <p class="alo-form-title" data-es="Consultar disponibilidad" data-en="Check availability" data-fr="Vérifier la disponibilité" data-ca="Consultar disponibilitat">Consultar disponibilidad</p>
+      <p class="alo-form-sub" data-es="Rellena el formulario y te contactamos en menos de 24 horas." data-en="Fill in the form and we'll contact you within 24 hours." data-fr="Remplissez le formulaire et nous vous contacterons sous 24 heures." data-ca="Omple el formulari i et contactem en menys de 24 hores.">Rellena el formulario y te contactamos en menos de 24 horas.</p>
+      <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre o el del grupo"></div>
       <div class="frow">
         <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
-        <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+        <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-ca="Telèfon / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
       </div>
       <div class="frow">
-        <div class="fg"><label data-es="Fecha de entrada" data-en="Check-in date">Fecha de entrada</label><input type="date" id="alo-in"></div>
-        <div class="fg"><label data-es="Fecha de salida" data-en="Check-out date">Fecha de salida</label><input type="date" id="alo-out"></div>
+        <div class="fg"><label data-es="Fecha de entrada" data-en="Check-in date" data-fr="Date d'arrivée" data-ca="Data d'entrada">Fecha de entrada</label><input type="date" id="alo-in"></div>
+        <div class="fg"><label data-es="Fecha de salida" data-en="Check-out date" data-fr="Date de départ" data-ca="Data de sortida">Fecha de salida</label><input type="date" id="alo-out"></div>
       </div>
       <div class="fg">
-        <label data-es="Presupuesto estimado (precio por noche)" data-en="Estimated budget (price per night)">Presupuesto estimado (precio por noche)</label>
+        <label data-es="Presupuesto estimado (precio por noche)" data-en="Estimated budget (price per night)" data-fr="Budget estimé (prix par nuit)" data-ca="Pressupost estimat (preu per nit)">Presupuesto estimado (precio por noche)</label>
         <select><option value="" disabled selected>Selecciona un rango…</option><option>40 – 60 € / noche</option><option>60 – 80 € / noche</option><option>80 – 120 € / noche</option><option>120 – 160 € / noche</option><option>160 € + / noche</option></select>
       </div>
-      <div class="fg"><label data-es="Mensaje (opcional)" data-en="Message (optional)">Mensaje (opcional)</label><textarea rows="3" placeholder="Número de personas, necesidades especiales, mascotas…"></textarea></div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar consulta →" data-en="Send enquiry →">Enviar consulta →</button>
+      <div class="fg"><label data-es="Mensaje (opcional)" data-en="Message (optional)" data-fr="Message (optionnel)" data-ca="Missatge (opcional)">Mensaje (opcional)</label><textarea rows="3" placeholder="Número de personas, necesidades especiales, mascotas…"></textarea></div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar consulta →" data-en="Send enquiry →" data-fr="Envoyer la demande →" data-ca="Enviar consulta →">Enviar consulta →</button>
     </div>
   </div>
 </section>
@@ -609,24 +610,24 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 <section id="contacto">
   <div class="cnt-grid wrap">
     <div>
-      <p class="sec-title" data-es="Cómo llegar" data-en="Find us">Cómo llegar</p>
+      <p class="sec-title" data-es="Cómo llegar" data-en="Find us" data-fr="Comment nous trouver" data-ca="Com arribar">Cómo llegar</p>
       <div class="divider"></div>
       <div class="cnt-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <div><p class="cnt-lbl" data-es="Dirección" data-en="Address">Dirección</p><p class="cnt-val">Calle Carretera 22, Bubión<br>18412 La Alpujarra, Granada</p></div>
+        <div><p class="cnt-lbl" data-es="Dirección" data-en="Address" data-fr="Adresse" data-ca="Adreça">Dirección</p><p class="cnt-val">Calle Carretera 22, Bubión<br>18412 La Alpujarra, Granada</p></div>
       </div>
       <div class="cnt-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.4 1.13 2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        <div><p class="cnt-lbl" data-es="Teléfono" data-en="Phone">Teléfono</p><a href="tel:+34858893777" class="cnt-val">+34 858 893 777</a></div>
+        <div><p class="cnt-lbl" data-es="Teléfono" data-en="Phone" data-fr="Téléphone" data-ca="Telèfon">Teléfono</p><a href="tel:+34858893777" class="cnt-val">+34 858 893 777</a></div>
       </div>
       <div class="cnt-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div>
-          <p class="cnt-lbl" data-es="Horario" data-en="Opening hours">Horario</p>
+          <p class="cnt-lbl" data-es="Horario" data-en="Opening hours" data-fr="Horaires" data-ca="Horari">Horario</p>
           <div class="hor-grid">
-            <span class="hor-day" data-es="Jue – Lun" data-en="Thu – Mon">Jue – Lun</span><span>12:00 – 23:30</span>
-            <span class="hor-day" data-es="Martes" data-en="Tuesday">Martes</span><span>12:00 – 17:00</span>
-            <span class="hor-day" data-es="Miércoles" data-en="Wednesday">Miércoles</span><span class="hor-closed" data-es="Cerrado" data-en="Closed">Cerrado</span>
+            <span class="hor-day" data-es="Jue – Lun" data-en="Thu – Mon" data-fr="Jeu – Lun" data-ca="Dij – Dil">Jue – Lun</span><span>12:00 – 23:30</span>
+            <span class="hor-day" data-es="Martes" data-en="Tuesday" data-fr="Mardi" data-ca="Dimarts">Martes</span><span>12:00 – 17:00</span>
+            <span class="hor-day" data-es="Miércoles" data-en="Wednesday" data-fr="Mercredi" data-ca="Dimecres">Miércoles</span><span class="hor-closed" data-es="Cerrado" data-en="Closed" data-fr="Fermé" data-ca="Tancat">Cerrado</span>
           </div>
         </div>
       </div>
@@ -649,8 +650,8 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <div class="map-ph">
       <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <p style="color:var(--cream);font-size:.95rem;margin-bottom:6px">Bubión, La Alpujarra, Granada</p>
-      <p style="font-size:.82rem" data-es="Amplio aparcamiento disponible en el pueblo" data-en="Ample parking available in the village">Amplio aparcamiento disponible en el pueblo</p>
-      <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="margin-top:18px;font-size:.82rem" data-es="Abrir en Google Maps" data-en="Open in Google Maps">Abrir en Google Maps →</a>
+      <p style="font-size:.82rem" data-es="Amplio aparcamiento disponible en el pueblo" data-en="Ample parking available in the village" data-fr="Grand parking disponible dans le village" data-ca="Ampli aparcament disponible al poble">Amplio aparcamiento disponible en el pueblo</p>
+      <a href="https://maps.app.goo.gl/v24wcAUq9jPnK6nJ7" target="_blank" class="btn btn-outline" style="margin-top:18px;font-size:.82rem" data-es="Abrir en Google Maps" data-en="Open in Google Maps" data-fr="Ouvrir dans Google Maps" data-ca="Obrir a Google Maps">Abrir en Google Maps →</a>
     </div>
   </div>
 </section>
@@ -670,12 +671,12 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
       </a>
       <a href="#" class="foot-soc-a" title="YouTube">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
       </a>
     </div>
     <div class="foot-copy">
       <p>Calle Carretera 22, Bubión &nbsp;·&nbsp; +34 858 893 777</p>
-      <p style="margin-top:4px;font-size:.72rem" data-es="© 2025 Los Trotamundos. Todos los derechos reservados." data-en="© 2025 Los Trotamundos. All rights reserved.">© 2025 Los Trotamundos. Todos los derechos reservados.</p>
+      <p style="margin-top:4px;font-size:.72rem" data-es="© 2025 Los Trotamundos. Todos los derechos reservados." data-en="© 2025 Los Trotamundos. All rights reserved." data-fr="© 2025 Los Trotamundos. Tous droits réservés." data-ca="© 2025 Los Trotamundos. Tots els drets reservats.">© 2025 Los Trotamundos. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>
@@ -687,67 +688,67 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 <script>
 const MD = {
   entrantes:[
-    {es:'Croquetas de cocido',en:'Stew Croquettes',desc_es:'Jamón, pollo y verdura',p:'14.00',img:'img/croquetas-cocido-tapas-donde-comer-bubion.jpg'},
-    {es:'Croquetas del mar',en:'Seafood Croquettes',desc_es:'Frutos del mar',p:'16.00',img:null,ico:'🦞'},
-    {es:'Empanada de ternera',en:'Beef Empanada',desc_es:'Cebolla y ternera',p:'12.50',img:'img/empanada-ternera-carta-restaurante-alpujarra.jpg'},
-    {es:'Empanada de fugazzeta',en:'Fugazzeta Empanada',desc_es:'Cebolla caramelizada, mozzarella y queso de cabra',p:'10.00',img:null,ico:'🧅'},
-    {es:'Jamón alpujarreño gran reserva',en:'Cured Ham Board',desc_es:'Jamones Diego Martín',p:'14.00',img:'img/jamon-alpujarreno-gran-reserva-donde-comer.jpg'},
-    {es:'Queso alpujarreño',en:'Local Cheese Board',desc_es:'',p:'11.00',img:null,ico:'🧀'},
-    {es:'Chorizo alpujarreño',en:'Local Chorizo',desc_es:'',p:'12.00',img:null,ico:'🌶️'},
-    {es:'Morcilla alpujarreña',en:'Local Black Pudding',desc_es:'',p:'11.00',img:null,ico:'🍢'},
-    {es:'Langostinos al pilpil',en:'Pil Pil Prawns',desc_es:'Ajo, langostino, pimentón de la Vera',p:'16.00',img:null,ico:'🦐'},
-    {es:'Bombas de queso',en:'Cheese Bombs',desc_es:'Con jalapeños y salsa de setas',p:'11.50',img:null,ico:'🧆'},
-    {es:'Gyozas de verdura',en:'Vegetable Gyozas',desc_es:'',p:'9.50',img:null,ico:'🥟'},
-    {es:'Gyozas de pato o langostino',en:'Duck or Prawn Gyozas',desc_es:'',p:'12.00',img:null,ico:'🥟'},
-    {es:'Mix de Gyozas',en:'Gyoza Mix',desc_es:'',p:'12.50',img:null,ico:'🥟'},
-    {es:'Salmorejo (en temporada)',en:'Salmorejo (seasonal)',desc_es:'',p:'10.00',img:null,ico:'🍅'},
+    {es:'Croquetas de cocido',en:'Stew Croquettes',fr:'Croquettes de ragoût',ca:'Croquetes de cuinat',desc_es:'Jamón, pollo y verdura',p:'14.00',img:'img/croquetas-cocido-tapas-donde-comer-bubion.jpg'},
+    {es:'Croquetas del mar',en:'Seafood Croquettes',fr:'Croquettes de fruits de mer',ca:'Croquetes de mar',desc_es:'Frutos del mar',p:'16.00',img:null,ico:'🦞'},
+    {es:'Empanada de ternera',en:'Beef Empanada',fr:'Chausson au bœuf',ca:'Empanada de vedella',desc_es:'Cebolla y ternera',p:'12.50',img:'img/empanada-ternera-carta-restaurante-alpujarra.jpg'},
+    {es:'Empanada de fugazzeta',en:'Fugazzeta Empanada',fr:'Chausson Fugazzeta',ca:'Empanada de Fugazzeta',desc_es:'Cebolla caramelizada, mozzarella y queso de cabra',p:'10.00',img:null,ico:'🧅'},
+    {es:'Jamón alpujarreño gran reserva',en:'Cured Ham Board',fr:'Jambon alpujarreño gran reserva',ca:'Pernil alpujarrenyo gran reserva',desc_es:'Jamones Diego Martín',p:'14.00',img:'img/jamon-alpujarreno-gran-reserva-donde-comer.jpg'},
+    {es:'Queso alpujarreño',en:'Local Cheese Board',fr:'Fromage alpujarreño',ca:'Formatge alpujarrenyo',desc_es:'',p:'11.00',img:null,ico:'🧀'},
+    {es:'Chorizo alpujarreño',en:'Local Chorizo',fr:'Chorizo alpujarreño',ca:'Xoriç alpujarrenyo',desc_es:'',p:'12.00',img:null,ico:'🌶️'},
+    {es:'Morcilla alpujarreña',en:'Local Black Pudding',fr:'Boudin noir alpujarreño',ca:'Botifarra negra alpujarrenya',desc_es:'',p:'11.00',img:null,ico:'🍢'},
+    {es:'Langostinos al pilpil',en:'Pil Pil Prawns',fr:'Crevettes au pil pil',ca:'Llagostins al pilpil',desc_es:'Ajo, langostino, pimentón de la Vera',p:'16.00',img:null,ico:'🦐'},
+    {es:'Bombas de queso',en:'Cheese Bombs',fr:'Bombes de fromage',ca:'Bombes de formatge',desc_es:'Con jalapeños y salsa de setas',p:'11.50',img:null,ico:'🧆'},
+    {es:'Gyozas de verdura',en:'Vegetable Gyozas',fr:'Gyozas aux légumes',ca:'Gyozas de verdures',desc_es:'',p:'9.50',img:null,ico:'🥟'},
+    {es:'Gyozas de pato o langostino',en:'Duck or Prawn Gyozas',fr:'Gyozas au canard ou aux crevettes',ca:'Gyozas de pato o llagostí',desc_es:'',p:'12.00',img:null,ico:'🥟'},
+    {es:'Mix de Gyozas',en:'Gyoza Mix',fr:'Mix de Gyozas',ca:'Mix de Gyozas',desc_es:'',p:'12.50',img:null,ico:'🥟'},
+    {es:'Salmorejo (en temporada)',en:'Salmorejo (seasonal)',fr:'Salmorejo (de saison)',ca:'Salmorejo (de temporada)',desc_es:'',p:'10.00',img:null,ico:'🍅'},
   ],
   ensaladas:[
-    {es:'Tomate aliñado',en:'Seasoned Tomato',desc_es:'Tomate fresco, aceite de oliva, ajo, vinagre de Módena, sal y orégano',p:'11.50',img:'img/tomate-alinado-ensalada-restaurante-bubion.jpg'},
-    {es:'Ensalada mixta',en:'Mixed Salad',desc_es:'Mezclum, tomate, maíz, cebolla morada, aceitunas y atún',p:'11.00',img:null,ico:'🥗'},
-    {es:'Ensalada de quesos',en:'Cheese Salad',desc_es:'Mezclum, cebolla morada, tomate, queso feta, de cabra y alpujarreño',p:'14.90',img:null,ico:'🧀'},
-    {es:'Poke de pollo',en:'Chicken Poke Bowl',desc_es:'Arroz, cebolla morada, tomate, maíz, pollo crujiente, salsa de soja y agridulce',p:'15.00',img:null,ico:'🍗'},
-    {es:'Poke de langostinos',en:'Prawn Poke Bowl',desc_es:'Arroz, cebolla morada, tomate, wakame, salsa de soja, surimi y langostinos',p:'17.00',img:'img/poke-langostinos-restaurante-sierra-nevada.jpg'},
+    {es:'Tomate aliñado',en:'Seasoned Tomato',fr:'Tomate assaisonnée',ca:'Tomàquet amanit',desc_es:'Tomate fresco, aceite de oliva, ajo, vinagre de Módena, sal y orégano',p:'11.50',img:'img/tomate-alinado-ensalada-restaurante-bubion.jpg'},
+    {es:'Ensalada mixta',en:'Mixed Salad',fr:'Salade mixte',ca:'Amanida mixta',desc_es:'Mezclum, tomate, maíz, cebolla morada, aceitunas y atún',p:'11.00',img:null,ico:'🥗'},
+    {es:'Ensalada de quesos',en:'Cheese Salad',fr:'Salade de fromages',ca:'Amanida de formatges',desc_es:'Mezclum, cebolla morada, tomate, queso feta, de cabra y alpujarreño',p:'14.90',img:null,ico:'🧀'},
+    {es:'Poke de pollo',en:'Chicken Poke Bowl',fr:'Poke bowl au poulet',ca:'Poke de pollastre',desc_es:'Arroz, cebolla morada, tomate, maíz, pollo crujiente, salsa de soja y agridulce',p:'15.00',img:null,ico:'🍗'},
+    {es:'Poke de langostinos',en:'Prawn Poke Bowl',fr:'Poke bowl aux crevettes',ca:'Poke de llagostins',desc_es:'Arroz, cebolla morada, tomate, wakame, salsa de soja, surimi y langostinos',p:'17.00',img:'img/poke-langostinos-restaurante-sierra-nevada.jpg'},
   ],
   sopas:[
-    {es:'Sopa de picadillo',en:'Chicken Broth Soup',desc_es:'Caldo de pollo y jamón con fideos y pan frito',p:'9.50',img:'img/sopa-picadillo-cocina-casera-donde-comer-alpujarra.jpg'},
-    {es:'Sopa de verduras',en:'Vegetable Soup',desc_es:'Caldo vegetal con mezcla de verduras',p:'8.50',img:null,ico:'🥣'},
-    {es:'Sopa de marisco',en:'Seafood Soup',desc_es:'Fumet de pescado y marisco con salteado de frutos del mar',p:'12.50',img:null,ico:'🦞'},
+    {es:'Sopa de picadillo',en:'Chicken Broth Soup',fr:'Soupe de bouillon au poulet',ca:'Sopa de picadillo',desc_es:'Caldo de pollo y jamón con fideos y pan frito',p:'9.50',img:'img/sopa-picadillo-cocina-casera-donde-comer-alpujarra.jpg'},
+    {es:'Sopa de verduras',en:'Vegetable Soup',fr:'Soupe de légumes',ca:'Sopa de verdures',desc_es:'Caldo vegetal con mezcla de verduras',p:'8.50',img:null,ico:'🥣'},
+    {es:'Sopa de marisco',en:'Seafood Soup',fr:'Soupe de fruits de mer',ca:'Sopa de marisc',desc_es:'Fumet de pescado y marisco con salteado de frutos del mar',p:'12.50',img:null,ico:'🦞'},
   ],
   parrilla:[
-    {es:'Pata de pulpo con parmentier',en:'Octopus Leg with Parmentier',desc_es:'',p:'20.00',img:null,ico:'🐙'},
-    {es:'Calamar nacional',en:'Local Squid',desc_es:'',p:'18.50',img:null,ico:'🦑'},
-    {es:'Entrecot de ternera con guarnición',en:'Beef Entrecôte with Side',desc_es:'',p:'23.00',img:'img/entrecot-ternera-parrilla-restaurante-bubion.png'},
-    {es:'Chuletas de cordero con guarnición',en:'Lamb Chops with Side',desc_es:'',p:'19.50',img:'img/chuletas-cordero-where-to-eat-alpujarra.jpg'},
-    {es:'Costilla en orza',en:'Preserved Ribs',desc_es:'',p:'16.50',img:null,ico:'🍖'},
-    {es:'Parrillada para compartir',en:'Mixed Grill to Share',desc_es:'Presa, lagarto, secreto, pluma, chorizo, morcilla y costilla en orza',p:'30.00',img:null,ico:'🔥'},
+    {es:'Pata de pulpo con parmentier',en:'Octopus Leg with Parmentier',fr:'Tentacule de poulpe avec parmentier',ca:'Pota de pop amb parmentier',desc_es:'',p:'20.00',img:null,ico:'🐙'},
+    {es:'Calamar nacional',en:'Local Squid',fr:'Calmar national',ca:'Calamar nacional',desc_es:'',p:'18.50',img:null,ico:'🦑'},
+    {es:'Entrecot de ternera con guarnición',en:'Beef Entrecôte with Side',fr:'Entrecôte de bœuf avec garniture',ca:'Entrecot de vedella amb guarnició',desc_es:'',p:'23.00',img:'img/entrecot-ternera-parrilla-restaurante-bubion.png'},
+    {es:'Chuletas de cordero con guarnición',en:'Lamb Chops with Side',fr:'Côtelettes d\'agneau avec garniture',ca:'Costelles de xai amb guarnició',desc_es:'',p:'19.50',img:'img/chuletas-cordero-where-to-eat-alpujarra.jpg'},
+    {es:'Costilla en orza',en:'Preserved Ribs',fr:'Côtes marinées',ca:'Costella en orça',desc_es:'',p:'16.50',img:null,ico:'🍖'},
+    {es:'Parrillada para compartir',en:'Mixed Grill to Share',fr:'Grillade à partager',ca:'Graellada per compartir',desc_es:'Presa, lagarto, secreto, pluma, chorizo, morcilla y costilla en orza',p:'30.00',img:null,ico:'🔥'},
   ],
   hamburguesas:[
-    {es:'Hamburguesa completa',en:'Full Burger',desc_es:'Carne de ternera, bacon, queso, lechuga, tomate y huevo',p:'12.00',img:null,ico:'🍔'},
-    {es:'Hamburguesa de cabra',en:'Goat Cheese Burger',desc_es:'Ternera, pimiento asado, cebolla caramelizada y rulo de cabra frito',p:'13.00',img:null,ico:'🍔'},
-    {es:'Hamburguesa vegana',en:'Vegan Burger',desc_es:'Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas',p:'14.00',img:null,ico:'🥑'},
-    {es:'Texas Burger',en:'Texas Burger',desc_es:'Doble carne de ternera, doble queso, doble bacon, lechuga, tomate y jalapeños',p:'15.00',img:null,ico:'🤠'},
-    {es:'Fikandel',en:'Frikandel',desc_es:'Doble salchicha, cebolla caramelizada, cebolla crujiente, mostaza y guarnición',p:'15.00',img:null,ico:'🌭'},
+    {es:'Hamburguesa completa',en:'Full Burger',fr:'Burger complet',ca:'Hamburguesa completa',desc_es:'Carne de ternera, bacon, queso, lechuga, tomate y huevo',p:'12.00',img:null,ico:'🍔'},
+    {es:'Hamburguesa de cabra',en:'Goat Cheese Burger',fr:'Burger au fromage de chèvre',ca:'Hamburguesa de cabra',desc_es:'Ternera, pimiento asado, cebolla caramelizada y rulo de cabra frito',p:'13.00',img:null,ico:'🍔'},
+    {es:'Hamburguesa vegana',en:'Vegan Burger',fr:'Burger vegan',ca:'Hamburguesa vegana',desc_es:'Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas',p:'14.00',img:null,ico:'🥑'},
+    {es:'Texas Burger',en:'Texas Burger',fr:'Texas Burger',ca:'Texas Burger',desc_es:'Doble carne de ternera, doble queso, doble bacon, lechuga, tomate y jalapeños',p:'15.00',img:null,ico:'🤠'},
+    {es:'Fikandel',en:'Frikandel',fr:'Frikandel',ca:'Frikandel',desc_es:'Doble salchicha, cebolla caramelizada, cebolla crujiente, mostaza y guarnición',p:'15.00',img:null,ico:'🌭'},
   ],
   pizzas:[
-    {es:'Margarita',en:'Margherita',desc_es:'Tomate y mozzarella',p:'11.50',img:null,ico:'🍕'},
-    {es:'Prosciutto',en:'Prosciutto',desc_es:'Margarita con jamón york',p:'12.50',img:null,ico:'🍕'},
-    {es:'Pepperoni',en:'Pepperoni',desc_es:'Margarita con pepperoni',p:'13.50',img:null,ico:'🍕'},
-    {es:'4 Quesos',en:'Four Cheese',desc_es:'Margarita, mozzarella, queso de cabra, parmesano y roquefort',p:'13.90',img:null,ico:'🧀'},
-    {es:'Del Huerto',en:'Garden',desc_es:'Margarita con mezcla de verduras',p:'14.00',img:null,ico:'🥦'},
-    {es:'Carbonara',en:'Carbonara',desc_es:'Margarita, bacon, huevo y parmesano',p:'14.50',img:null,ico:'🍳'},
-    {es:'Fugazzeta',en:'Fugazzeta',desc_es:'Margarita con cebolla caramelizada y queso de cabra',p:'14.50',img:null,ico:'🧅'},
-    {es:'Del Mar',en:'Seafood',desc_es:'Margarita con marisco',p:'16.00',img:'img/pizza-del-mar-marisco-restaurante-bubion.png'},
-    {es:'De la Sierra',en:'Sierra',desc_es:'Margarita con jamón, rúcula y parmesano',p:'15.00',img:null,ico:'🏔️'},
+    {es:'Margarita',en:'Margherita',fr:'Margherita',ca:'Margarida',desc_es:'Tomate y mozzarella',p:'11.50',img:null,ico:'🍕'},
+    {es:'Prosciutto',en:'Prosciutto',fr:'Prosciutto',ca:'Prosciutto',desc_es:'Margarita con jamón york',p:'12.50',img:null,ico:'🍕'},
+    {es:'Pepperoni',en:'Pepperoni',fr:'Pepperoni',ca:'Pepperoni',desc_es:'Margarita con pepperoni',p:'13.50',img:null,ico:'🍕'},
+    {es:'4 Quesos',en:'Four Cheese',fr:'4 Fromages',ca:'4 Formatges',desc_es:'Margarita, mozzarella, queso de cabra, parmesano y roquefort',p:'13.90',img:null,ico:'🧀'},
+    {es:'Del Huerto',en:'Garden',fr:'Du Jardin',ca:'De l\'Hort',desc_es:'Margarita con mezcla de verduras',p:'14.00',img:null,ico:'🥦'},
+    {es:'Carbonara',en:'Carbonara',fr:'Carbonara',ca:'Carbonara',desc_es:'Margarita, bacon, huevo y parmesano',p:'14.50',img:null,ico:'🍳'},
+    {es:'Fugazzeta',en:'Fugazzeta',fr:'Fugazzeta',ca:'Fugazzeta',desc_es:'Margarita con cebolla caramelizada y queso de cabra',p:'14.50',img:null,ico:'🧅'},
+    {es:'Del Mar',en:'Seafood',fr:'De la Mer',ca:'De la Mar',desc_es:'Margarita con marisco',p:'16.00',img:'img/pizza-del-mar-marisco-restaurante-bubion.png'},
+    {es:'De la Sierra',en:'Sierra',fr:'De la Sierra',ca:'De la Serra',desc_es:'Margarita con jamón, rúcula y parmesano',p:'15.00',img:null,ico:'🏔️'},
   ],
   pastas:[
-    {es:'Tallarines al Pesto',en:'Pesto Tagliatelle',desc_es:'',p:'12.50',img:null,ico:'🍝'},
-    {es:'Tallarines 4 Quesos',en:'Four Cheese Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🧀'},
-    {es:'Tallarines Carbonara',en:'Carbonara Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🥚'},
-    {es:'Tallarines Boloñesa',en:'Bolognese Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🍝'},
-    {es:'Tallarines Marinera',en:'Marinara Tagliatelle',desc_es:'',p:'15.00',img:null,ico:'🦞'},
-    {es:'Tallarines con verduras',en:'Vegetable Tagliatelle',desc_es:'',p:'13.50',img:null,ico:'🥦'},
-    {es:'Canelones de foie y trufa',en:'Foie & Truffle Cannelloni',desc_es:'',p:'15.50',img:null,ico:'🍽️'},
+    {es:'Tallarines al Pesto',en:'Pesto Tagliatelle',fr:'Tagliatelles au Pesto',ca:'Tallarines al Pesto',desc_es:'',p:'12.50',img:null,ico:'🍝'},
+    {es:'Tallarines 4 Quesos',en:'Four Cheese Tagliatelle',fr:'Tagliatelles 4 Fromages',ca:'Tallarines 4 Formatges',desc_es:'',p:'13.50',img:null,ico:'🧀'},
+    {es:'Tallarines Carbonara',en:'Carbonara Tagliatelle',fr:'Tagliatelles Carbonara',ca:'Tallarines Carbonara',desc_es:'',p:'13.50',img:null,ico:'🥚'},
+    {es:'Tallarines Boloñesa',en:'Bolognese Tagliatelle',fr:'Tagliatelles Bolognaise',ca:'Tallarines Boloñesa',desc_es:'',p:'13.50',img:null,ico:'🍝'},
+    {es:'Tallarines Marinera',en:'Marinara Tagliatelle',fr:'Tagliatelles Marinière',ca:'Tallarines Marinera',desc_es:'',p:'15.00',img:null,ico:'🦞'},
+    {es:'Tallarines con verduras',en:'Vegetable Tagliatelle',fr:'Tagliatelles aux légumes',ca:'Tallarines amb verdures',desc_es:'',p:'13.50',img:null,ico:'🥦'},
+    {es:'Canelones de foie y trufa',en:'Foie & Truffle Cannelloni',fr:'Cannelloni au foie et à la truffe',ca:'Canelons de foie i tòfona',desc_es:'',p:'15.50',img:null,ico:'🍽️'},
   ]
 };
 
@@ -759,7 +760,7 @@ function renderGrid(cat){
     <div class="mitem">
       ${i.img?`<img class="mitem-img" src="${i.img}" alt="${i.es} - restaurante Bubión Alpujarra" loading="lazy">`:`<div class="mitem-ph">${i.ico||'🍽️'}</div>`}
       <div class="mitem-b">
-        <p class="mitem-name">${lang==='es'?i.es:i.en}</p>
+        <p class="mitem-name">${i[lang]||i.es}</p>
         ${i.desc_es?`<p class="mitem-en">${i.desc_es}</p>`:''}
         <p class="mitem-price">${i.p} €</p>
       </div>
@@ -778,11 +779,14 @@ function fTab(t,btn){
 }
 function setLang(l){
   lang=l;
+  document.documentElement.lang=l;
   document.getElementById('langBtnEs').classList.toggle('active',l==='es');
   document.getElementById('langBtnEn').classList.toggle('active',l==='en');
+  document.getElementById('langBtnFr').classList.toggle('active',l==='fr');
+  document.getElementById('langBtnCa').classList.toggle('active',l==='ca');
   document.querySelectorAll('[data-es]').forEach(el=>{
     if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')return;
-    el.textContent=l==='es'?el.dataset.es:el.dataset.en;
+    el.textContent=el.dataset[l]||el.dataset.es;
   });
   renderAll();
 }
@@ -790,12 +794,12 @@ window.addEventListener('scroll',()=>{document.getElementById('nav').classList.t
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
 function closeMob(){document.getElementById('mobNav').classList.remove('open')}
 const mTitles={
-  senderismo:{es:'Senderismo en Sierra Nevada',en:'Hiking in Sierra Nevada'},
-  caballo:{es:'Rutas a caballo',en:'Horse riding routes'},
-  '4x4':{es:'Excursiones en 4x4',en:'4x4 excursions'}
+  senderismo:{es:'Senderismo en Sierra Nevada',en:'Hiking in Sierra Nevada',fr:'Randonnée à Sierra Nevada',ca:'Senderisme a Sierra Nevada'},
+  caballo:{es:'Rutas a caballo',en:'Horse riding routes',fr:'Randonnées à cheval',ca:'Rutes a cavall'},
+  '4x4':{es:'Excursiones en 4x4',en:'4x4 excursions',fr:'Excursions en 4x4',ca:'Excursions en 4x4'}
 };
 function openModal(t){
-  document.getElementById('modal-t').textContent=mTitles[t][lang];
+  document.getElementById('modal-t').textContent=mTitles[t][lang]||mTitles[t].es;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
