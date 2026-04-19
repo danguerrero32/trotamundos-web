@@ -1,0 +1,39 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://lostrotamundosalpujarra.com/",
+      "permanent": true
+    },
+    {
+      "source": "/aviso-legal",
+      "destination": "https://lostrotamundosalpujarra.com/aviso-legal/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "https://lostrotamundosalpujarra.com/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/menu-carta",
+      "destination": "https://lostrotamundosalpujarra.com/menu-carta/",
+      "permanent": true
+    },
+    {
+      "source": "/pagina-1",
+      "destination": "https://lostrotamundosalpujarra.com/pagina-1/",
+      "permanent": true
+    },
+    {
+      "source": "/politica-de-privacidad",
+      "destination": "https://lostrotamundosalpujarra.com/politica-de-privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/reservar",
+      "destination": "https://lostrotamundosalpujarra.com/reservar/",
+      "permanent": true
+    }
+  ]
+}
