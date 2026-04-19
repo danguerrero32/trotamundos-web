@@ -1,33 +1,63 @@
 {
   "redirects": [
     {
-      "source": "/aviso-legal",
-      "destination": "https://lostrotamundosalpujarra.com/aviso-legal/",
+      "source": "/menu-carta",
+      "destination": "https://lostrotamundosalpujarra.com/#menu",
+      "permanent": true
+    },
+    {
+      "source": "/menu-carta/",
+      "destination": "https://lostrotamundosalpujarra.com/#menu",
       "permanent": true
     },
     {
       "source": "/contact",
-      "destination": "https://lostrotamundosalpujarra.com/contact/",
+      "destination": "https://lostrotamundosalpujarra.com/#contacto",
       "permanent": true
     },
     {
-      "source": "/menu-carta",
-      "destination": "https://lostrotamundosalpujarra.com/menu-carta/",
+      "source": "/contact/",
+      "destination": "https://lostrotamundosalpujarra.com/#contacto",
+      "permanent": true
+    },
+    {
+      "source": "/aviso-legal",
+      "destination": "https://lostrotamundosalpujarra.com/",
+      "permanent": true
+    },
+    {
+      "source": "/aviso-legal/",
+      "destination": "https://lostrotamundosalpujarra.com/",
       "permanent": true
     },
     {
       "source": "/pagina-1",
-      "destination": "https://lostrotamundosalpujarra.com/pagina-1/",
+      "destination": "https://lostrotamundosalpujarra.com/",
+      "permanent": true
+    },
+    {
+      "source": "/pagina-1/",
+      "destination": "https://lostrotamundosalpujarra.com/",
       "permanent": true
     },
     {
       "source": "/politica-de-privacidad",
-      "destination": "https://lostrotamundosalpujarra.com/politica-de-privacidad/",
+      "destination": "https://lostrotamundosalpujarra.com/",
+      "permanent": true
+    },
+    {
+      "source": "/politica-de-privacidad/",
+      "destination": "https://lostrotamundosalpujarra.com/",
       "permanent": true
     },
     {
       "source": "/reservar",
-      "destination": "https://lostrotamundosalpujarra.com/reservar/",
+      "destination": "https://lostrotamundosalpujarra.com/",
+      "permanent": true
+    },
+    {
+      "source": "/reservar/",
+      "destination": "https://lostrotamundosalpujarra.com/",
       "permanent": true
     }
   ]
