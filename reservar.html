@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar mesa · Los Trotamundos de Alpujarra</title>
+  <meta name="description" content="Reserva tu mesa en Los Trotamundos de Alpujarra. Selecciona fecha, hora y zona de forma rápida y sencilla.">
+  <style>
+    :root {
+      --primary: #4a7c59;
+      --primary-dark: #356045;
+      --primary-light: #e8f0eb;
+      --bg: #faf8f3;
+      --surface: #ffffff;
+      --text: #2c2c2c;
+      --text-muted: #6b7280;
+      --border: #e0ddd5;
+      --error: #c0392b;
+      --success: #27ae60;
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .back-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .site-header .back-link:hover { text-decoration: underline; }
+    .site-header h1 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+    .header-spacer { width: 100px; }
+
+    /* ── Container ── */
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    /* ── Progress ── */
+    .progress {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 36px;
+    }
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all 0.25s ease;
+    }
+    .progress-dot.done   { background: var(--primary); opacity: 0.4; }
+    .progress-dot.active { background: var(--primary); width: 28px; border-radius: 4px; }
+
+    /* ── Steps ── */
+    .step { display: none; }
+    .step.active {
+      display: block;
+      animation: slideIn 0.22s ease;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .step-subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn-back {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: inherit;
+    }
+    .btn-back:hover { color: var(--text); }
+
+    /* ── Diners grid ── */
+    .diners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .diner-btn {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 8px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .diner-btn:hover   { border-color: var(--primary); color: var(--primary); }
+    .diner-btn.selected { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+    /* ── Calendar ── */
+    .calendar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .cal-month-label {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .cal-nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .cal-nav-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+    .cal-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .cal-header {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      padding: 8px 0;
+      letter-spacing: 0.05em;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+      cursor: default;
+    }
+    .cal-day.past       { color: #d1d5db; }
+    .cal-day.unavailable { color: #d1d5db; }
+    .cal-day.available  {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .cal-day.available:hover  { background: var(--primary); color: #fff; }
+    .cal-day.selected         { background: var(--primary); color: #fff; border-color: var(--primary-dark); }
+
+    /* ── Loading spinner ── */
+    .loading {
+      text-align: center;
+      padding: 40px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .spinner {
+      display: block;
+      width: 28px;
+      height: 28px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Slots ── */
+    .zone-block { margin-bottom: 24px; }
+    .zone-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .slots-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .slot-btn {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+    .slot-btn:hover    { border-color: var(--primary); color: var(--primary); }
+    .slot-btn.selected { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+    /* ── Form ── */
+    .summary-box {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary-dark);
+      line-height: 1.6;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-group { margin-bottom: 16px; }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .req { color: var(--error); }
+    .opt { color: var(--text-muted); font-weight: 400; }
+    input, textarea {
+      width: 100%;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--surface);
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--primary); }
+    textarea { resize: vertical; min-height: 84px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+      margin-top: 8px;
+    }
+    .btn-primary:hover    { background: var(--primary-dark); }
+    .btn-primary:disabled { background: var(--border); cursor: not-allowed; }
+
+    /* ── Error ── */
+    .error-box {
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--error);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    /* ── Confirmation ── */
+    .success-wrap { text-align: center; }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 34px;
+      color: #fff;
+    }
+    .success-title   { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .success-subtitle { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+    .confirmation-details {
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: left;
+      font-size: 14px;
+      color: var(--primary-dark);
+      line-height: 2;
+      margin-bottom: 24px;
+    }
+    .confirmation-details strong { display: inline-block; min-width: 100px; }
+    .link-home {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .link-home:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="back-link">← Inicio</a>
+  <h1>Los Trotamundos</h1>
+  <div class="header-spacer"></div>
+</header>
+
+<main class="container">
+
+  <!-- Progress dots -->
+  <div class="progress" id="progress">
+    <div class="progress-dot active"></div>
+    <div class="progress-dot"></div>
+    <div class="progress-dot"></div>
+    <div class="progress-dot"></div>
+  </div>
+
+  <!-- ─── Step 1: Comensales ─────────────────────────────── -->
+  <section class="step active" id="step-1">
+    <h2 class="step-title">¿Para cuántas personas?</h2>
+    <p class="step-subtitle">Selecciona el número de comensales para consultar disponibilidad.</p>
+    <div class="diners-grid" id="diners-grid"></div>
+    <button class="btn-primary" id="btn-step1-next" disabled onclick="goToStep2()">Ver disponibilidad →</button>
+  </section>
+
+  <!-- ─── Step 2: Fecha ──────────────────────────────────── -->
+  <section class="step" id="step-2">
+    <button class="btn-back" onclick="goBack(1)">← Cambiar comensales</button>
+    <h2 class="step-title">Elige una fecha</h2>
+    <p class="step-subtitle">Los días resaltados tienen disponibilidad para <span id="diners-label">tu reserva</span>.</p>
+
+    <div class="calendar-nav">
+      <button class="cal-nav-btn" id="btn-prev-month" onclick="changeMonth(-1)">&#8249;</button>
+      <span class="cal-month-label" id="cal-month-label"></span>
+      <button class="cal-nav-btn" id="btn-next-month" onclick="changeMonth(1)">&#8250;</button>
+    </div>
+    <div id="cal-loading" class="loading" style="display:none">
+      <span class="spinner"></span>Cargando disponibilidad…
+    </div>
+    <div class="calendar-grid" id="calendar-grid"></div>
+  </section>
+
+  <!-- ─── Step 3: Hora y zona ───────────────────────────── -->
+  <section class="step" id="step-3">
+    <button class="btn-back" onclick="goBack(2)">← Cambiar fecha</button>
+    <h2 class="step-title">Elige hora y zona</h2>
+    <p class="step-subtitle" id="subtitle-step3"></p>
+    <div id="slots-loading" class="loading" style="display:none">
+      <span class="spinner"></span>Cargando horarios…
+    </div>
+    <div id="slots-container"></div>
+    <button class="btn-primary" id="btn-step3-next" disabled onclick="goToStep4()" style="margin-top:8px">Continuar →</button>
+  </section>
+
+  <!-- ─── Step 4: Datos personales ─────────────────────── -->
+  <section class="step" id="step-4">
+    <button class="btn-back" onclick="goBack(3)">← Cambiar hora</button>
+    <h2 class="step-title">Tus datos</h2>
+    <div class="summary-box" id="booking-summary"></div>
+    <div class="error-box" id="form-error" style="display:none"></div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nombre <span class="req">*</span></label>
+        <input type="text" id="inp-name" placeholder="María" autocomplete="given-name">
+      </div>
+      <div class="form-group">
+        <label>Apellidos <span class="req">*</span></label>
+        <input type="text" id="inp-surname" placeholder="García" autocomplete="family-name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Teléfono <span class="req">*</span></label>
+      <input type="tel" id="inp-phone" placeholder="+34 666 111 222" autocomplete="tel">
+    </div>
+    <div class="form-group">
+      <label>Email <span class="opt">(opcional)</span></label>
+      <input type="email" id="inp-email" placeholder="maria@ejemplo.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label>Comentarios <span class="opt">(opcional)</span></label>
+      <textarea id="inp-comments" placeholder="Alergias, ocasión especial, silla para bebé…"></textarea>
+    </div>
+    <button class="btn-primary" id="btn-submit" onclick="submitReservation()">Confirmar reserva</button>
+  </section>
+
+  <!-- ─── Step 5: Confirmación ─────────────────────────── -->
+  <section class="step" id="step-5">
+    <div class="success-wrap">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">¡Reserva confirmada!</h2>
+      <p class="success-subtitle">Nos vemos pronto. Si necesitas cambiar algo, llámanos directamente.</p>
+      <div class="confirmation-details" id="confirmation-details"></div>
+      <a href="/" class="link-home">← Volver al inicio</a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// Estado global
+// ════════════════════════════════════════════════════════════
+const S = {
+  diners:       null,
+  currentMonth: null,   // { year, month }
+  availableDays: [],    // ['YYYY-MM-DD', ...]
+  selectedDate: null,   // 'YYYY-MM-DD'
+  slots:        {},     // { zona: [{start, end}, ...] }
+  selectedSlot: null,   // { zone, start, end }
+};
+
+const today = new Date();
+const todayStr = fmtDate(today);
+S.currentMonth = { year: today.getFullYear(), month: today.getMonth() + 1 };
+
+// ════════════════════════════════════════════════════════════
+// Inicialización
+// ════════════════════════════════════════════════════════════
+(function init() {
+  const grid = document.getElementById('diners-grid');
+  for (let n = 1; n <= 12; n++) {
+    const btn = document.createElement('button');
+    btn.className = 'diner-btn';
+    btn.textContent = n;
+    btn.dataset.n = n;
+    btn.onclick = () => selectDiners(n);
+    grid.appendChild(btn);
+  }
+})();
+
+// ════════════════════════════════════════════════════════════
+// Step 1 — Comensales
+// ════════════════════════════════════════════════════════════
+function selectDiners(n) {
+  S.diners = n;
+  document.querySelectorAll('.diner-btn').forEach(b => {
+    b.classList.toggle('selected', +b.dataset.n === n);
+  });
+  document.getElementById('btn-step1-next').disabled = false;
+}
+
+async function goToStep2() {
+  showStep(2);
+  document.getElementById('diners-label').textContent =
+    S.diners + (S.diners === 1 ? ' comensal' : ' comensales');
+  await loadMonth();
+}
+
+// ════════════════════════════════════════════════════════════
+// Step 2 — Calendario
+// ════════════════════════════════════════════════════════════
+const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DAYS   = ['L','M','X','J','V','S','D'];
+
+async function loadMonth() {
+  const { year, month } = S.currentMonth;
+  const ym = `${year}-${pad(month)}`;
+  document.getElementById('cal-month-label').textContent = `${MONTHS[month-1]} ${year}`;
+  document.getElementById('btn-prev-month').disabled =
+    (year === today.getFullYear() && month <= today.getMonth() + 1);
+
+  // Loading state
+  document.getElementById('cal-loading').style.display = 'block';
+  document.getElementById('calendar-grid').innerHTML = '';
+
+  try {
+    const r = await fetch(`/api/availability?date=${ym}&diners=${S.diners}`);
+    if (!r.ok) throw new Error('Error API');
+    const data = await r.json();
+    S.availableDays = Array.isArray(data) ? data.map(d => d.substring(0, 10)) : [];
+  } catch (e) {
+    S.availableDays = [];
+    console.error('[calendar]', e);
+  }
+
+  document.getElementById('cal-loading').style.display = 'none';
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const { year, month } = S.currentMonth;
+  const grid = document.getElementById('calendar-grid');
+  grid.innerHTML = '';
+
+  // Cabecera días
+  DAYS.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-header';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+
+  // Offset lunes-primero
+  const firstDow = new Date(year, month - 1, 1).getDay();
+  const offset   = (firstDow + 6) % 7;
+  for (let i = 0; i < offset; i++) {
+    grid.appendChild(Object.assign(document.createElement('div'), { className: 'cal-day' }));
+  }
+
+  const totalDays = new Date(year, month, 0).getDate();
+  for (let d = 1; d <= totalDays; d++) {
+    const ds  = `${year}-${pad(month)}-${pad(d)}`;
+    const el  = document.createElement('div');
+    el.textContent = d;
+
+    if (ds < todayStr) {
+      el.className = 'cal-day past';
+    } else if (S.availableDays.includes(ds)) {
+      el.className = 'cal-day available' + (ds === S.selectedDate ? ' selected' : '');
+      el.onclick   = () => onDayClick(ds);
+    } else {
+      el.className = 'cal-day unavailable';
+    }
+    grid.appendChild(el);
+  }
+}
+
+async function changeMonth(delta) {
+  let { year, month } = S.currentMonth;
+  month += delta;
+  if (month > 12) { month = 1; year++; }
+  if (month < 1)  { month = 12; year--; }
+  S.currentMonth = { year, month };
+  await loadMonth();
+}
+
+async function onDayClick(ds) {
+  S.selectedDate = ds;
+  S.selectedSlot = null;
+  renderCalendar();
+  showStep(3);
+  await loadSlots(ds);
+}
+
+// ════════════════════════════════════════════════════════════
+// Step 3 — Franjas horarias
+// ════════════════════════════════════════════════════════════
+async function loadSlots(ds) {
+  const [y, m, d] = ds.split('-');
+  document.getElementById('subtitle-step3').textContent =
+    `${d}/${m}/${y}  ·  ${S.diners} ${S.diners === 1 ? 'comensal' : 'comensales'}`;
+  document.getElementById('slots-loading').style.display = 'block';
+  document.getElementById('slots-container').innerHTML = '';
+  document.getElementById('btn-step3-next').disabled = true;
+
+  try {
+    const r = await fetch(`/api/availability-day?date=${ds}&diners=${S.diners}`);
+    if (!r.ok) throw new Error('Error API');
+    S.slots = await r.json();
+  } catch (e) {
+    S.slots = {};
+    console.error('[slots]', e);
+  }
+
+  document.getElementById('slots-loading').style.display = 'none';
+  renderSlots();
+}
+
+function renderSlots() {
+  const container = document.getElementById('slots-container');
+  const zones = Object.entries(S.slots).filter(([, v]) => v && v.length > 0);
+
+  if (!zones.length) {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:14px">No hay horarios disponibles para este día. Prueba con otra fecha.</p>';
+    return;
+  }
+
+  zones.forEach(([zone, slotList]) => {
+    const block = document.createElement('div');
+    block.className = 'zone-block';
+    block.innerHTML = `<div class="zone-label">${zone}</div><div class="slots-row" id="row-${slugify(zone)}"></div>`;
+    container.appendChild(block);
+
+    const row = block.querySelector('.slots-row');
+    slotList.forEach(slot => {
+      const btn = document.createElement('button');
+      btn.className = 'slot-btn';
+      btn.textContent = slot.start;
+      btn.onclick = () => selectSlot(zone, slot, btn);
+      row.appendChild(btn);
+    });
+  });
+}
+
+function selectSlot(zone, slot, btn) {
+  document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  S.selectedSlot = { zone, ...slot };
+  document.getElementById('btn-step3-next').disabled = false;
+}
+
+// ════════════════════════════════════════════════════════════
+// Step 4 — Formulario
+// ════════════════════════════════════════════════════════════
+function goToStep4() {
+  const [y, m, d] = S.selectedDate.split('-');
+  document.getElementById('booking-summary').innerHTML =
+    `&#128197; ${d}/${m}/${y} &nbsp;&middot;&nbsp; &#128336; ${S.selectedSlot.start} &nbsp;&middot;&nbsp;` +
+    ` &#128101; ${S.diners} ${S.diners === 1 ? 'comensal' : 'comensales'} &nbsp;&middot;&nbsp; &#128205; ${S.selectedSlot.zone}`;
+  showStep(4);
+}
+
+async function submitReservation() {
+  const name     = document.getElementById('inp-name').value.trim();
+  const surname  = document.getElementById('inp-surname').value.trim();
+  const phone    = document.getElementById('inp-phone').value.trim();
+  const email    = document.getElementById('inp-email').value.trim();
+  const comments = document.getElementById('inp-comments').value.trim();
+  const errEl    = document.getElementById('form-error');
+
+  if (!name || !surname || !phone) {
+    errEl.textContent = 'Por favor, completa los campos obligatorios: nombre, apellidos y teléfono.';
+    errEl.style.display = 'block';
+    return;
+  }
+
+  errEl.style.display = 'none';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled    = true;
+  btn.textContent = 'Enviando…';
+
+  try {
+    const r = await fetch('/api/reservations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, surname,
+        phoneNumber: phone,
+        email,
+        diners:          S.diners,
+        dateTime:        buildDateTime(S.selectedDate, S.selectedSlot.start),
+        zone:            S.selectedSlot.zone,
+        customerComments: comments || null,
+      }),
+    });
+
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.error || `Error ${r.status}`);
+    }
+
+    // Mostrar confirmación
+    const [y, m, d] = S.selectedDate.split('-');
+    document.getElementById('confirmation-details').innerHTML =
+      `<strong>Nombre:</strong> ${name} ${surname}<br>` +
+      `<strong>Fecha:</strong> ${d}/${m}/${y}<br>` +
+      `<strong>Hora:</strong> ${S.selectedSlot.start}<br>` +
+      `<strong>Zona:</strong> ${S.selectedSlot.zone}<br>` +
+      `<strong>Comensales:</strong> ${S.diners}<br>` +
+      (email ? `<strong>Email:</strong> ${email}<br>` : '') +
+      `<strong>Teléfono:</strong> ${phone}`;
+
+    showStep(5);
+  } catch (e) {
+    errEl.textContent = e.message || 'No se pudo confirmar la reserva. Inténtalo de nuevo o llámanos.';
+    errEl.style.display = 'block';
+    btn.disabled    = false;
+    btn.textContent = 'Confirmar reserva';
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// Navegación entre pasos
+// ════════════════════════════════════════════════════════════
+function showStep(n) {
+  document.querySelectorAll('.step').forEach((el, i) => {
+    el.classList.toggle('active', i + 1 === n);
+  });
+  const dots = document.querySelectorAll('.progress-dot');
+  const visual = Math.min(n, 4);
+  dots.forEach((dot, i) => {
+    dot.classList.remove('active', 'done');
+    if (i + 1 < visual) dot.classList.add('done');
+    if (i + 1 === visual) dot.classList.add('active');
+  });
+  if (n === 5) document.getElementById('progress').style.display = 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goBack(target) {
+  showStep(target);
+  if (target === 2) renderCalendar();
+}
+
+// ════════════════════════════════════════════════════════════
+// Utilidades
+// ════════════════════════════════════════════════════════════
+function pad(n) { return String(n).padStart(2, '0'); }
+function fmtDate(d) { return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+function slugify(s) { return s.replace(/\s+/g, '_'); }
+
+// Calcula el offset horario de Madrid en la fecha dada (UTC+1 invierno, UTC+2 verano)
+function getMadridOffset(dateStr) {
+  const year = +dateStr.slice(0, 4);
+  const lastSunMarch   = lastSunday(year, 3);
+  const lastSunOctober = lastSunday(year, 10);
+  const d = new Date(dateStr + 'T00:00:00Z');
+  return (d >= lastSunMarch && d < lastSunOctober) ? '+02:00' : '+01:00';
+}
+
+function lastSunday(year, month) {
+  const last = new Date(Date.UTC(year, month, 0));
+  last.setUTCDate(last.getUTCDate() - last.getUTCDay());
+  return last;
+}
+
+function buildDateTime(dateStr, timeStr) {
+  // Genera ISO 8601 con offset correcto de Madrid: '2026-05-15T14:00:00.000+02:00'
+  const offset = getMadridOffset(dateStr);
+  return `${dateStr}T${timeStr}:00.000${offset}`;
+}
+</script>
+
+</body>
+</html>

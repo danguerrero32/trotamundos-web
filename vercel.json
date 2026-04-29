@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "redirects": [
     {
       "source": "/menu-carta",
@@ -47,16 +52,6 @@
     },
     {
       "source": "/politica-de-privacidad/",
-      "destination": "https://lostrotamundosalpujarra.com/",
-      "permanent": true
-    },
-    {
-      "source": "/reservar",
-      "destination": "https://lostrotamundosalpujarra.com/",
-      "permanent": true
-    },
-    {
-      "source": "/reservar/",
       "destination": "https://lostrotamundosalpujarra.com/",
       "permanent": true
     }
