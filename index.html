@@ -500,45 +500,10 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
       <p class="sec-title" data-es="Reservar o pedir" data-en="Book or order" data-fr="Réserver ou commander" data-ca="Reservar o demanar">Reservar o pedir</p>
       <div class="divider"></div>
       <p class="sec-sub" data-es="Reserva tu mesa o haz tu pedido para recoger." data-en="Book your table or place a takeaway order." data-fr="Réservez votre table ou passez votre commande à emporter." data-ca="Reserva la teva taula o fes la teva comanda per emportar.">Reserva tu mesa o haz tu pedido para recoger.</p>
-      <div class="ftabs">
-        <button class="ftab on" onclick="fTab('mesa',this)" data-es="🍽️ Reservar mesa" data-en="🍽️ Book a table" data-fr="🍽️ Réserver une table" data-ca="🍽️ Reservar taula">🍽️ Reservar mesa</button>
-        <button class="ftab" onclick="fTab('llevar',this)" data-es="🥡 Para llevar" data-en="🥡 Takeaway" data-fr="🥡 À emporter" data-ca="🥡 Per emportar">🥡 Para llevar</button>
-      </div>
-      <div id="f-mesa" class="fpanel on">
-        <div class="frow">
-          <div class="fg"><label data-es="Fecha" data-en="Date" data-fr="Date" data-ca="Data">Fecha</label><input type="date" id="d1"></div>
-          <div class="fg"><label data-es="Hora" data-en="Time" data-fr="Heure" data-ca="Hora">Hora</label>
-            <select><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option></select>
-          </div>
-        </div>
-        <div class="frow">
-          <div class="fg"><label data-es="Personas" data-en="Guests" data-fr="Personnes" data-ca="Persones">Personas</label>
-            <select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
-          </div>
-          <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
-        </div>
-        <div class="fg"><label data-es="Teléfono o email" data-en="Phone or email" data-fr="Téléphone ou email" data-ca="Telèfon o email">Teléfono o email</label><input type="text" placeholder="+34 6XX XXX XXX"></div>
-        <div class="fg"><label data-es="Petición especial (opcional)" data-en="Special request (optional)" data-fr="Demande spéciale (optionnelle)" data-ca="Petició especial (opcional)">Petición especial (opcional)</label><textarea rows="2" placeholder="Alergias, ocasión especial, terraza…"></textarea></div>
-        <div class="bizum">
-          <span class="bizum-ico">💙</span>
-          <div class="bizum-txt">
-            <strong data-es="Depósito de 10 € por Bizum al confirmar" data-en="€10 Bizum deposit on confirmation" data-fr="Acompte de 10 € par Bizum à la confirmation" data-ca="Dipòsit de 10 € per Bizum en confirmar">Depósito de 10 € por Bizum al confirmar</strong>
-            <span data-es="Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva." data-en="Deducted from your final bill. We'll send you the Bizum number on confirmation." data-fr="Déduit du total de votre note. Nous vous enverrons le numéro Bizum à la confirmation." data-ca="Es descompta del total del teu compte en pagar. T'enviem el número de Bizum en confirmar la reserva.">Se descuenta del total de tu cuenta al pagar. Te enviamos el número de Bizum al confirmar la reserva.</span>
-          </div>
-        </div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Solicitar reserva →" data-en="Request booking →" data-fr="Demander une réservation →" data-ca="Sol·licitar reserva →">Solicitar reserva →</button>
-      </div>
-      <div id="f-llevar" class="fpanel">
-        <div class="frow">
-          <div class="fg"><label data-es="Fecha de recogida" data-en="Collection date" data-fr="Date de retrait" data-ca="Data de recollida">Fecha de recogida</label><input type="date" id="d2"></div>
-          <div class="fg"><label data-es="Hora de recogida" data-en="Collection time" data-fr="Heure de retrait" data-ca="Hora de recollida">Hora de recogida</label>
-            <select><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select>
-          </div>
-        </div>
-        <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
-        <div class="fg"><label data-es="Teléfono" data-en="Phone" data-fr="Téléphone" data-ca="Telèfon">Teléfono</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
-        <div class="fg"><label data-es="¿Qué quieres pedir?" data-en="What would you like to order?" data-fr="Que voulez-vous commander ?" data-ca="Què vols demanar?">¿Qué quieres pedir?</label><textarea rows="4" placeholder="Dinos los platos que quieres o consulta la carta primero…"></textarea></div>
-        <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar pedido →" data-en="Send order →" data-fr="Envoyer la commande →" data-ca="Enviar la comanda →">Enviar pedido →</button>
+      <div class="wa-cta-wrap" style="text-align:center;padding:28px 0 8px">
+        <a href="https://wa.me/34858893777" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex;align-items:center;gap:10px;font-size:1.05rem;padding:16px 36px;justify-content:center;width:100%" data-es="💬 Escríbenos por WhatsApp" data-en="💬 Write us on WhatsApp" data-fr="💬 Écrivez-nous sur WhatsApp" data-ca="💬 Escriu-nos per WhatsApp">💬 Escríbenos por WhatsApp</a>
+        <p style="margin-top:24px;color:rgba(240,230,210,.75);font-size:.95rem" data-es="O llámanos directamente:" data-en="Or call us directly:" data-fr="Ou appelez-nous directement :" data-ca="O truca'ns directament:">O llámanos directamente:</p>
+        <a href="tel:+34858893777" style="color:#d4a843;font-size:1.35rem;font-weight:700;letter-spacing:.03em;display:inline-block;margin-top:8px">+34 858 893 777</a>
       </div>
     </div>
   </div>
@@ -634,24 +599,11 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
         <div class="alo-feat"><span class="alo-feat-ico">🤝</span><div class="alo-feat-txt"><strong data-es="Atención personalizada" data-en="Personalised attention" data-fr="Attention personnalisée" data-ca="Atenció personalitzada">Atención personalizada</strong><span data-es="Os asesoramos según vuestro grupo, fecha y presupuesto." data-en="We advise you based on your group, dates and budget." data-fr="Nous vous conseillons selon votre groupe, vos dates et votre budget." data-ca="Us assessorem segons el vostre grup, data i pressupost.">Os asesoramos según vuestro grupo, fecha y presupuesto.</span></div></div>
       </div>
     </div>
-    <div class="alo-form-wrap">
+    <div class="alo-form-wrap" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:24px">
       <p class="alo-form-title" data-es="Consultar disponibilidad" data-en="Check availability" data-fr="Vérifier la disponibilité" data-ca="Consultar disponibilitat">Consultar disponibilidad</p>
-      <p class="alo-form-sub" data-es="Rellena el formulario y te contactamos en menos de 24 horas." data-en="Fill in the form and we'll contact you within 24 hours." data-fr="Remplissez le formulaire et nous vous contacterons sous 24 heures." data-ca="Omple el formulari i et contactem en menys de 24 hores.">Rellena el formulario y te contactamos en menos de 24 horas.</p>
-      <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre o el del grupo"></div>
-      <div class="frow">
-        <div class="fg"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
-        <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-ca="Telèfon / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
-      </div>
-      <div class="frow">
-        <div class="fg"><label data-es="Fecha de entrada" data-en="Check-in date" data-fr="Date d'arrivée" data-ca="Data d'entrada">Fecha de entrada</label><input type="date" id="alo-in"></div>
-        <div class="fg"><label data-es="Fecha de salida" data-en="Check-out date" data-fr="Date de départ" data-ca="Data de sortida">Fecha de salida</label><input type="date" id="alo-out"></div>
-      </div>
-      <div class="fg">
-        <label data-es="Presupuesto estimado (precio por noche)" data-en="Estimated budget (price per night)" data-fr="Budget estimé (prix par nuit)" data-ca="Pressupost estimat (preu per nit)">Presupuesto estimado (precio por noche)</label>
-        <select><option value="" disabled selected>Selecciona un rango…</option><option>40 – 60 € / noche</option><option>60 – 80 € / noche</option><option>80 – 120 € / noche</option><option>120 – 160 € / noche</option><option>160 € + / noche</option></select>
-      </div>
-      <div class="fg"><label data-es="Mensaje (opcional)" data-en="Message (optional)" data-fr="Message (optionnel)" data-ca="Missatge (opcional)">Mensaje (opcional)</label><textarea rows="3" placeholder="Número de personas, necesidades especiales, mascotas…"></textarea></div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center" data-es="Enviar consulta →" data-en="Send enquiry →" data-fr="Envoyer la demande →" data-ca="Enviar consulta →">Enviar consulta →</button>
+      <p class="alo-form-sub" data-es="Cuéntanos quiénes venís, fechas y presupuesto. Te respondemos en menos de 24 horas." data-en="Tell us who's coming, dates and budget. We'll get back to you within 24 hours." data-fr="Dites-nous qui vient, les dates et le budget. Nous vous répondons en moins de 24 h." data-ca="Digueu-nos qui veniu, dates i pressupost. Us responem en menys de 24 hores.">Cuéntanos quiénes venís, fechas y presupuesto. Te respondemos en menos de 24 horas.</p>
+      <a href="https://wa.me/34858893777" target="_blank" rel="noopener" class="btn btn-gold" style="display:inline-flex;align-items:center;gap:10px;font-size:1.05rem;padding:16px 36px;justify-content:center;width:100%" data-es="💬 Consultar por WhatsApp" data-en="💬 Ask on WhatsApp" data-fr="💬 Demander sur WhatsApp" data-ca="💬 Consultar per WhatsApp">💬 Consultar por WhatsApp</a>
+      <a href="tel:+34858893777" style="color:#d4a843;font-size:1.2rem;font-weight:700;letter-spacing:.03em;display:inline-block">+34 858 893 777</a>
     </div>
   </div>
 </section>
