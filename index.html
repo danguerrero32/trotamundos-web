@@ -457,33 +457,23 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <p class="sec-sub" data-es="Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas." data-en="Local produce, world flavours. Honest cooking with Alpujarran roots." data-fr="Produits locaux, saveurs du monde. Cuisine honnête aux racines alpujarreñas." data-ca="Producte local, sabors del món. Cuina honesta amb arrels alpujarrenyes.">Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas.</p>
   </div>
   <div class="menu-tabs wrap">
-    <button class="mtab on"  onclick="mTab('entrantes',this)"    data-es="Entrantes"    data-en="Starters" data-fr="Entrées" data-ca="Entrants">Entrantes</button>
-    <button class="mtab"     onclick="mTab('ensaladas',this)"    data-es="Ensaladas"    data-en="Salads" data-fr="Salades" data-ca="Amanides">Ensaladas</button>
-    <button class="mtab"     onclick="mTab('sopas',this)"        data-es="Sopas"        data-en="Soups" data-fr="Soupes" data-ca="Sopes">Sopas</button>
-    <button class="mtab"     onclick="mTab('parrilla',this)"     data-es="Mar y Montaña" data-en="Sea &amp; Mountain" data-fr="Mer et Montagne" data-ca="Mar i Muntanya">Mar y Montaña</button>
-    <button class="mtab"     onclick="mTab('hamburguesas',this)" data-es="Hamburguesas" data-en="Burgers" data-fr="Burgers" data-ca="Hamburgueses">Hamburguesas</button>
-    <button class="mtab"     onclick="mTab('pizzas',this)"       data-es="Pizzas"       data-en="Pizzas" data-fr="Pizzas" data-ca="Pizzes">Pizzas</button>
-    <button class="mtab"     onclick="mTab('pastas',this)"       data-es="Pastas"       data-en="Pastas" data-fr="Pâtes" data-ca="Pastes">Pastas</button>
+    <button class="mtab on"  onclick="mTab('deaqui',this)"        data-es="De Aquí"           data-en="From Here"        data-fr="D&#39;Ici"            data-ca="D&#39;Aquí">De Aquí</button>
+    <button class="mtab"     onclick="mTab('detodaspartes',this)" data-es="De Todas Partes"   data-en="From Everywhere"  data-fr="De Partout"       data-ca="De Tot Arreu">De Todas Partes</button>
+    <button class="mtab"     onclick="mTab('ensaladas',this)"     data-es="Ensaladas"         data-en="Salads"           data-fr="Salades"          data-ca="Amanides">Ensaladas</button>
+    <button class="mtab"     onclick="mTab('vegetarianos',this)"  data-es="Vegetarianos"      data-en="Vegetarian"       data-fr="Végétariens"      data-ca="Vegetarians">Vegetarianos</button>
+    <button class="mtab"     onclick="mTab('carnes',this)"        data-es="Carnes"            data-en="Meat"             data-fr="Viandes"          data-ca="Carns">Carnes</button>
+    <button class="mtab"     onclick="mTab('delamar',this)"       data-es="De la Mar"         data-en="From the Sea"     data-fr="De la Mer"        data-ca="De la Mar">De la Mar</button>
+    <button class="mtab"     onclick="mTab('hamburguesas',this)"  data-es="Hamburguesas y Pan" data-en="Burgers &amp; Bao" data-fr="Burgers et Pains" data-ca="Hamburgueses i Pa">Hamburguesas y Pan</button>
+    <button class="mtab"     onclick="mTab('pizzapasta',this)"    data-es="Pizza y Pasta"     data-en="Pizza &amp; Pasta" data-fr="Pizza et Pâtes"   data-ca="Pizza i Pasta">Pizza y Pasta</button>
   </div>
-  <div id="p-entrantes"    class="mpanel on wrap"><div class="mgrid" id="g-entrantes"></div></div>
-  <div id="p-ensaladas"    class="mpanel wrap"><div class="mgrid" id="g-ensaladas"></div></div>
-  <div id="p-sopas"        class="mpanel wrap"><div class="mgrid" id="g-sopas"></div></div>
-  <div id="p-parrilla"     class="mpanel wrap"><div class="mgrid" id="g-parrilla"></div></div>
-  <div id="p-hamburguesas" class="mpanel wrap"><div class="mgrid" id="g-hamburguesas"></div></div>
-  <div id="p-pizzas"       class="mpanel wrap">
-    <div class="featured">
-      <img src="img/pizza-capriccio-daniel-restaurante-bubion-granada.png" alt="Pizza Capriccio di Daniel - Restaurante Bubión Granada">
-      <div class="feat-info">
-        <span class="feat-tag" data-es="✦ Especial del chef" data-en="✦ Chef's special" data-fr="✦ Spécial du chef" data-ca="✦ Especial del xef">✦ Especial del chef</span>
-        <h3 class="feat-name">Capriccio di Daniel 🔥</h3>
-        <p class="feat-desc" data-es="Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe." data-en="Margherita base, caramelised onion, mushrooms, pil pil prawns, gorgonzola, goat cheese… and an egg that ties it all together." data-fr="Base margherita, oignon caramélisé, champignons, crevettes pil pil, gorgonzola, fromage de chèvre… et un œuf qui lie tout quand il se casse." data-ca="Base margherita, ceba caramel·litzada, xampinyons, llagostins al pil pil, gorgonzola, formatge de cabra… i un ou que ho uneix tot quan es trenca.">Base margarita, cebolla caramelizada, champiñones, langostinos al pil pil, gorgonzola, queso de cabra… y un huevo que lo une todo cuando rompe.</p>
-        <span class="feat-price">18 €</span>
-      </div>
-    </div>
-    <div class="mgrid" id="g-pizzas"></div>
-    <p class="menu-note" data-es="Ingrediente extra +1,50 €" data-en="Extra ingredient +€1.50" data-fr="Ingrédient supplémentaire +1,50 €" data-ca="Ingredient extra +1,50 €">Ingrediente extra +1,50 €</p>
-  </div>
-  <div id="p-pastas" class="mpanel wrap"><div class="mgrid" id="g-pastas"></div></div>
+  <div id="p-deaqui"        class="mpanel on wrap"><div class="mgrid" id="g-deaqui"></div></div>
+  <div id="p-detodaspartes" class="mpanel wrap"><div class="mgrid" id="g-detodaspartes"></div></div>
+  <div id="p-ensaladas"     class="mpanel wrap"><div class="mgrid" id="g-ensaladas"></div></div>
+  <div id="p-vegetarianos"  class="mpanel wrap"><div class="mgrid" id="g-vegetarianos"></div></div>
+  <div id="p-carnes"        class="mpanel wrap"><div class="mgrid" id="g-carnes"></div></div>
+  <div id="p-delamar"       class="mpanel wrap"><div class="mgrid" id="g-delamar"></div></div>
+  <div id="p-hamburguesas"  class="mpanel wrap"><div class="mgrid" id="g-hamburguesas"></div></div>
+  <div id="p-pizzapasta"    class="mpanel wrap"><div class="mgrid" id="g-pizzapasta"></div></div>
 </section>
 
 <!-- RESERVAS -->
@@ -730,68 +720,69 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
 
 <script>
 const MD = {
-  entrantes:[
-    {es:'Croquetas de cocido',en:'Stew Croquettes',fr:'Croquettes de ragoût',ca:'Croquetes de cuinat',desc_es:'Jamón, pollo y verdura',p:'14.00',img:'img/croquetas-cocido-tapas-donde-comer-bubion.jpg'},
-    {es:'Croquetas del mar',en:'Seafood Croquettes',fr:'Croquettes de fruits de mer',ca:'Croquetes de mar',desc_es:'Frutos del mar',p:'16.00',img:null,ico:'🦞'},
-    {es:'Empanada de ternera',en:'Beef Empanada',fr:'Chausson au bœuf',ca:'Empanada de vedella',desc_es:'Cebolla y ternera',p:'12.50',img:'img/empanada-ternera-carta-restaurante-alpujarra.jpg'},
-    {es:'Empanada de fugazzeta',en:'Fugazzeta Empanada',fr:'Chausson Fugazzeta',ca:'Empanada de Fugazzeta',desc_es:'Cebolla caramelizada, mozzarella y queso de cabra',p:'10.00',img:null,ico:'🧅'},
-    {es:'Jamón alpujarreño gran reserva',en:'Cured Ham Board',fr:'Jambon alpujarreño gran reserva',ca:'Pernil alpujarrenyo gran reserva',desc_es:'Jamones Diego Martín',p:'14.00',img:'img/jamon-alpujarreno-gran-reserva-donde-comer.jpg'},
-    {es:'Queso alpujarreño',en:'Local Cheese Board',fr:'Fromage alpujarreño',ca:'Formatge alpujarrenyo',desc_es:'',p:'11.00',img:null,ico:'🧀'},
-    {es:'Chorizo alpujarreño',en:'Local Chorizo',fr:'Chorizo alpujarreño',ca:'Xoriç alpujarrenyo',desc_es:'',p:'12.00',img:null,ico:'🌶️'},
-    {es:'Morcilla alpujarreña',en:'Local Black Pudding',fr:'Boudin noir alpujarreño',ca:'Botifarra negra alpujarrenya',desc_es:'',p:'11.00',img:null,ico:'🍢'},
-    {es:'Langostinos al pilpil',en:'Pil Pil Prawns',fr:'Crevettes au pil pil',ca:'Llagostins al pilpil',desc_es:'Ajo, langostino, pimentón de la Vera',p:'16.00',img:null,ico:'🦐'},
-    {es:'Bombas de queso',en:'Cheese Bombs',fr:'Bombes de fromage',ca:'Bombes de formatge',desc_es:'Con jalapeños y salsa de setas',p:'11.50',img:null,ico:'🧆'},
-    {es:'Gyozas de verdura',en:'Vegetable Gyozas',fr:'Gyozas aux légumes',ca:'Gyozas de verdures',desc_es:'',p:'9.50',img:null,ico:'🥟'},
-    {es:'Gyozas de pato o langostino',en:'Duck or Prawn Gyozas',fr:'Gyozas au canard ou aux crevettes',ca:'Gyozas de pato o llagostí',desc_es:'',p:'12.00',img:null,ico:'🥟'},
-    {es:'Mix de Gyozas',en:'Gyoza Mix',fr:'Mix de Gyozas',ca:'Mix de Gyozas',desc_es:'',p:'12.50',img:null,ico:'🥟'},
-    {es:'Salmorejo (en temporada)',en:'Salmorejo (seasonal)',fr:'Salmorejo (de saison)',ca:'Salmorejo (de temporada)',desc_es:'',p:'10.00',img:null,ico:'🍅'},
+  deaqui:[
+    {es:'Jamón Gran Reserva',en:'Reserve Ham',fr:'Jambon Gran Reserva',ca:'Pernil Gran Reserva',desc_es:'Jamones Diego Martín, corte fino a mano',desc_en:'Diego Martín hams, hand-sliced',desc_fr:'Jambons Diego Martín, coupés finement à la main',desc_ca:'Pernils Diego Martín, tall fi a mà',p:'15.00'},
+    {es:'Surtido queso alpujarreño',en:'Alpujarra Cheese',fr:'Assortiment de fromages de l\'Alpujarra',ca:'Assortiment de formatge alpujarrenyo',desc_es:'Selección variada de la sierra, venta del chaleco',desc_en:'Assorted local cheeses',desc_fr:'Sélection variée de la sierra, venta del chaleco',desc_ca:'Selecció variada de la serra, venta del chaleco',p:'20.00'},
+    {es:'Chorizo alpujarreño',en:'Alpujarra Chorizo',fr:'Chorizo de l\'Alpujarra',ca:'Xoriç alpujarrenyo',desc_es:'Curado artesano de la Alpujarra',desc_en:'Artisan cured chorizo',desc_fr:'Séché de façon artisanale dans l\'Alpujarra',desc_ca:'Curat artesà de l\'Alpujarra',p:'12.00'},
+    {es:'Morcilla alpujarreña',en:'Alpujarra Black Pudding',fr:'Boudin noir de l\'Alpujarra',ca:'Botifarra negra alpujarrenya',desc_es:'Receta tradicional de la sierra',desc_en:'Traditional sierra recipe',desc_fr:'Recette traditionnelle de la sierra',desc_ca:'Recepta tradicional de la serra',p:'11.00'},
+    {es:'Surtido de croquetas',en:'Assorted Croquettes',fr:'Assortiment de croquettes',ca:'Assortiment de croquetes',desc_es:'Cocido, morcilla, setas y jamón',desc_en:'Cocido stew, black pudding, mushrooms, ham',desc_fr:'Pot-au-feu, boudin noir, champignons et jambon',desc_ca:'Cuinat, botifarra negra, bolets i pernil',p:'14.00'},
+    {es:'Plato Alpujarreño',en:'Alpujarra Plate',fr:'Assiette Alpujarreña',ca:'Plat Alpujarrenyo',desc_es:'Patatas con pimientos, chorizo, morcilla, jamón, costilla en orza y huevo frito',desc_en:'Potatoes, peppers, chorizo, black pudding, ham, pork rib and fried egg',desc_fr:'Pommes de terre aux poivrons, chorizo, boudin noir, jambon, travers de porc confit et œuf au plat',desc_ca:'Patates amb pebrots, xoriç, botifarra negra, pernil, costella en orça i ou ferrat',p:'17.00'},
+    {es:'Migas Alpujarreñas',en:'Alpujarra Migas',fr:'Migas Alpujarreñas',ca:'Migues Alpujarrenyes',desc_es:'Migas tradicionales con pimientos salteados, chorizo, morcilla y jamón',desc_en:'Fried bread crumbs, peppers, chorizo, black pudding, ham',desc_fr:'Migas traditionnelles aux poivrons sautés, chorizo, boudin noir et jambon',desc_ca:'Migues tradicionals amb pebrots saltats, xoriç, botifarra negra i pernil',p:'16.50'},
+    {es:'Choto',en:'Kid Goat Stew',fr:'Chevreau',ca:'Cabrit',desc_es:'Guiso tradicional de choto (cabrito) de la sierra, en salsa de almendras',desc_en:'Traditional sierra stew in almond sauce',desc_fr:'Ragoût traditionnel de chevreau de la sierra, sauce aux amandes',desc_ca:'Guisat tradicional de cabrit de la serra, en salsa d\'ametlles',p:'21.00'},
+    {es:'Chuletas Segureñas',en:'Segureño Lamb Chops',fr:'Côtelettes d\'agneau Segureño',ca:'Costelles Segurenyes',desc_es:'Chuletas de cordero segureño a la brasa',desc_en:'Grilled lamb chops',desc_fr:'Côtelettes d\'agneau segureño grillées',desc_ca:'Costelles de xai segureny a la brasa',p:'25.00'},
+    {es:'Costilla en orza',en:'Preserved Pork Ribs',fr:'Côtes de porc confites',ca:'Costella en orça',desc_es:'Confitada en manteca, receta tradicional',desc_en:'Pork ribs preserved in lard, traditional recipe',desc_fr:'Confites au saindoux, recette traditionnelle',desc_ca:'Confitada en llard, recepta tradicional',p:'18.00'},
+    {es:'Pollo mozárabe',en:'Mozarabic Chicken',fr:'Poulet mozarabe',ca:'Pollastre mossàrab',desc_es:'Pollo especiado con un toque de frutos secos',desc_en:'Spiced chicken, touch of nuts',desc_fr:'Poulet épicé avec une touche de fruits secs',desc_ca:'Pollastre especiat amb un toc de fruita seca',p:'17.00'},
+  ],
+  detodaspartes:[
+    {es:'Empanada argentina',en:'Argentinian Empanada',fr:'Empanada argentine',ca:'Empanada argentina',desc_es:'Ternera picada, cebolla caramelizada y huevo duro — por unidad',desc_en:'Beef, caramelized onion, egg',desc_fr:'Bœuf haché, oignon caramélisé et œuf dur — à l\'unité',desc_ca:'Vedella picada, ceba caramel·litzada i ou dur — per unitat',p:'3.50'},
+    {es:'Enchiladas',en:'Enchiladas',fr:'Enchiladas',ca:'Enchiladas',desc_es:'Receta mexicana',desc_en:'Mexican recipe, spicy',desc_fr:'Recette mexicaine',desc_ca:'Recepta mexicana',p:'18.00'},
   ],
   ensaladas:[
-    {es:'Tomate aliñado',en:'Seasoned Tomato',fr:'Tomate assaisonnée',ca:'Tomàquet amanit',desc_es:'Tomate fresco, aceite de oliva, ajo, vinagre de Módena, sal y orégano',p:'11.50',img:'img/tomate-alinado-ensalada-restaurante-bubion.jpg'},
-    {es:'Ensalada mixta',en:'Mixed Salad',fr:'Salade mixte',ca:'Amanida mixta',desc_es:'Mezclum, tomate, maíz, cebolla morada, aceitunas y atún',p:'11.00',img:null,ico:'🥗'},
-    {es:'Ensalada de quesos',en:'Cheese Salad',fr:'Salade de fromages',ca:'Amanida de formatges',desc_es:'Mezclum, cebolla morada, tomate, queso feta, de cabra y alpujarreño',p:'14.90',img:null,ico:'🧀'},
-    {es:'Poke de pollo',en:'Chicken Poke Bowl',fr:'Poke bowl au poulet',ca:'Poke de pollastre',desc_es:'Arroz, cebolla morada, tomate, maíz, pollo crujiente, salsa de soja y agridulce',p:'15.00',img:null,ico:'🍗'},
-    {es:'Poke de langostinos',en:'Prawn Poke Bowl',fr:'Poke bowl aux crevettes',ca:'Poke de llagostins',desc_es:'Arroz, cebolla morada, tomate, wakame, salsa de soja, surimi y langostinos',p:'17.00',img:'img/poke-langostinos-restaurante-sierra-nevada.jpg'},
+    {es:'Ensalada Trotamundos',en:'Trotamundos Salad',fr:'Salade Trotamundos',ca:'Amanida Trotamundos',desc_es:'Mezcla de la casa con lo mejor de la huerta',desc_en:'House mix, best of the garden',desc_fr:'Mélange maison avec le meilleur du potager',desc_ca:'Barreja de la casa amb el millor de l\'hort',p:'14.00'},
+    {es:'Tomate con burrata',en:'Tomato with Burrata',fr:'Tomate à la burrata',ca:'Tomàquet amb burrata',desc_es:'Tomate aliñado con burrata cremosa',desc_en:'Dressed tomato and creamy burrata',desc_fr:'Tomate assaisonnée et burrata crémeuse',desc_ca:'Tomàquet amanit amb burrata cremosa',p:'14.00'},
   ],
-  sopas:[
-    {es:'Sopa de picadillo',en:'Chicken Broth Soup',fr:'Soupe de bouillon au poulet',ca:'Sopa de picadillo',desc_es:'Caldo de pollo y jamón con fideos y pan frito',p:'9.50',img:'img/sopa-picadillo-cocina-casera-donde-comer-alpujarra.jpg'},
-    {es:'Sopa de verduras',en:'Vegetable Soup',fr:'Soupe de légumes',ca:'Sopa de verdures',desc_es:'Caldo vegetal con mezcla de verduras',p:'8.50',img:null,ico:'🥣'},
-    {es:'Sopa de marisco',en:'Seafood Soup',fr:'Soupe de fruits de mer',ca:'Sopa de marisc',desc_es:'Fumet de pescado y marisco con salteado de frutos del mar',p:'12.50',img:null,ico:'🦞'},
+  vegetarianos:[
+    {es:'Cous-cous',en:'Couscous',fr:'Couscous',ca:'Cuscús',desc_es:'Cuscús con verduras salteadas y frutos secos',desc_en:'With sautéed vegetables and nuts',desc_fr:'Couscous aux légumes sautés et fruits secs',desc_ca:'Cuscús amb verdures saltades i fruita seca',p:'15.00'},
+    {es:'Zaalouk',en:'Zaalouk',fr:'Zaalouk',ca:'Zaalouk',desc_es:'Crema de verduras asadas, estilo marroquí',desc_en:'Roasted vegetable soup, moroccan style',desc_fr:'Crème de légumes rôtis, style marocain',desc_ca:'Crema de verdures rostides, estil marroquí',p:'10.00',pnote_es:'(confirmar)',pnote_en:'(to confirm)',pnote_fr:'(à confirmer)',pnote_ca:'(a confirmar)'},
+    {es:'Gyozas de verdura',en:'Vegetable Gyoza',fr:'Gyozas aux légumes',ca:'Gyozas de verdura',desc_es:'Empanadillas japonesas de verduras salteadas',desc_en:'Japanese dumplings, sautéed vegetables',desc_fr:'Raviolis japonais aux légumes sautés',desc_ca:'Empanadetes japoneses de verdures saltades',p:'10.00'},
+    {es:'Mix de Gyozas',en:'Gyoza Mix',fr:'Mix de Gyozas',ca:'Mix de Gyozas',desc_es:'Selección mixta de gyozas de la casa',desc_en:'House selection',desc_fr:'Sélection mixte de gyozas de la maison',desc_ca:'Selecció mixta de gyozas de la casa',p:'12.50'},
+    {es:'Empanada fugazzeta',en:'Fugazzeta Empanada',fr:'Empanada fugazzeta',ca:'Empanada fugazzeta',desc_es:'Cebolla caramelizada y queso de cabra — por unidad',desc_en:'Caramelized onion and goat cheese',desc_fr:'Oignon caramélisé et fromage de chèvre — à l\'unité',desc_ca:'Ceba caramel·litzada i formatge de cabra — per unitat',p:'3.50'},
+    {es:'Hamburguesa vegana',en:'Vegan Burger',fr:'Burger vegan',ca:'Hamburguesa vegana',desc_es:'Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas',desc_en:'Lentil patty, lettuce, tomato, onion and guacamole',desc_fr:'Steak de lentilles, laitue, tomate, oignon et guacamole',desc_ca:'Enciam, tomàquet, ceba, guacamole i hamburguesa de llenties',p:'15.00'},
   ],
-  parrilla:[
-    {es:'Pata de pulpo con parmentier',en:'Octopus Leg with Parmentier',fr:'Tentacule de poulpe avec parmentier',ca:'Pota de pop amb parmentier',desc_es:'',p:'20.00',img:null,ico:'🐙'},
-    {es:'Calamar nacional',en:'Local Squid',fr:'Calmar national',ca:'Calamar nacional',desc_es:'',p:'18.50',img:null,ico:'🦑'},
-    {es:'Entrecot de ternera con guarnición',en:'Beef Entrecôte with Side',fr:'Entrecôte de bœuf avec garniture',ca:'Entrecot de vedella amb guarnició',desc_es:'',p:'23.00',img:'img/entrecot-ternera-parrilla-restaurante-bubion.png'},
-    {es:'Chuletas de cordero con guarnición',en:'Lamb Chops with Side',fr:'Côtelettes d\'agneau avec garniture',ca:'Costelles de xai amb guarnició',desc_es:'',p:'19.50',img:'img/chuletas-cordero-where-to-eat-alpujarra.jpg'},
-    {es:'Costilla en orza',en:'Preserved Ribs',fr:'Côtes marinées',ca:'Costella en orça',desc_es:'',p:'16.50',img:null,ico:'🍖'},
-    {es:'Parrillada para compartir',en:'Mixed Grill to Share',fr:'Grillade à partager',ca:'Graellada per compartir',desc_es:'Presa, lagarto, secreto, pluma, chorizo, morcilla y costilla en orza',p:'30.00',img:null,ico:'🔥'},
+  carnes:[
+    {es:'Carpaccio de wagyu',en:'Wagyu Carpaccio',fr:'Carpaccio de wagyu',ca:'Carpaccio de wagyu',desc_es:'Aceite de albahaca, lima, alcaparras, rúcula y finas láminas de parmesano',desc_en:'Basil oil, lime, capers, arugula, and thin shavings of Parmesan',desc_fr:'Huile de basilic, citron vert, câpres, roquette et fines lamelles de parmesan',desc_ca:'Oli d\'alfàbrega, llima, tàperes, ruca i fines làmines de parmesà',p:'14.00'},
+    {es:'Alitas Buffalo',en:'Buffalo Wings',fr:'Ailes de poulet Buffalo',ca:'Aletes Buffalo',desc_es:'Salsa búfalo',desc_en:'Buffalo sauce',desc_fr:'Sauce buffalo',desc_ca:'Salsa búfal',p:'14.00'},
+    {es:'Ternera con ciruelas',en:'Beef with Prunes',fr:'Bœuf aux pruneaux',ca:'Vedella amb prunes',desc_es:'Guisada con ciruelas, especias y toque marroquí',desc_en:'Spices, Moroccan touch',desc_fr:'Mijoté aux pruneaux, épices et touche marocaine',desc_ca:'Guisada amb prunes, espècies i toc marroquí',p:'20.00'},
+    {es:'Wok de pollo',en:'Chicken Wok',fr:'Wok de poulet',ca:'Wok de pollastre',desc_es:'Salteado al wok con verduras, estilo asiático',desc_en:'Vegetables, Asian style',desc_fr:'Sauté au wok avec légumes, style asiatique',desc_ca:'Saltat al wok amb verdures, estil asiàtic',p:'12.50'},
+    {es:'Pollo al curry',en:'Chicken Curry',fr:'Poulet au curry',ca:'Pollastre al curri',desc_es:'Con leche de coco y especias de la India',desc_en:'Coconut milk, Indian spices',desc_fr:'Au lait de coco et épices indiennes',desc_ca:'Amb llet de coco i espècies de l\'Índia',p:'16.50'},
+    {es:'Codillo con chucrut',en:'Pork Knuckle & Sauerkraut',fr:'Jarret de porc à la choucroute',ca:'Colze de porc amb xucrut',desc_es:'Codillo de cerdo asado con chucrut, receta alemana',desc_en:'German recipe',desc_fr:'Jarret de porc rôti à la choucroute, recette allemande',desc_ca:'Colze de porc rostit amb xucrut, recepta alemanya',p:'18.00'},
+    {es:'Parrillada',en:'Grilled Meat Platter',fr:'Grillade',ca:'Graellada',desc_es:'Selección de carnes a la brasa',desc_en:'Selection of grilled meats',desc_fr:'Sélection de viandes grillées',desc_ca:'Selecció de carns a la brasa',p:'32.00'},
+    {es:'Osobuco',en:'Osobuco',fr:'Osobuco',ca:'Ossobuco',desc_es:'Pierna de ternera a baja temperatura con pasta de cacao 100% de la Abuela ili',desc_en:'Pork Knuckle & Sauerkraut. German recipe',desc_fr:'Gigot de veau à basse température avec pâte de cacao 100% de la Abuela ili',desc_ca:'Cuixa de vedella a baixa temperatura amb pasta de cacau 100% de la Abuela ili',p:'23.00'},
+    {es:'Entrecote',en:'Entrecote',fr:'Entrecôte',ca:'Entrecot',desc_es:'Pierna de ternera a baja temperatura con pasta de cacao 100% de la Abuela ili',desc_en:'Pork Knuckle & Sauerkraut. German recipe',desc_fr:'Gigot de veau à basse température avec pâte de cacao 100% de la Abuela ili',desc_ca:'Cuixa de vedella a baixa temperatura amb pasta de cacau 100% de la Abuela ili',p:''},
+  ],
+  delamar:[
+    {es:'Langostinos al pilpil',en:'Sizzling Prawns',fr:'Crevettes au pil pil',ca:'Llagostins al pilpil',desc_es:'Ajo, gamba, pimentón de la Vera',desc_en:'Garlic, prawns, La Vera paprika',desc_fr:'Ail, crevette, paprika de la Vera',desc_ca:'All, gamba, pebre vermell de la Vera',p:'16.00'},
+    {es:'Bacalao Trotamundos',en:'Trotamundos Cod',fr:'Morue Trotamundos',ca:'Bacallà Trotamundos',desc_es:'Crema de puerro y almendra con picada de pistacho',desc_en:'Leek and almond cream, pistachio praline',desc_fr:'Crème de poireau et amande, éclats de pistache',desc_ca:'Crema de porro i ametlla amb picada de pistatxo',p:'19.00'},
+    {es:'Pulpo a la gallega',en:'Galician-style Octopus',fr:'Poulpe à la galicienne',ca:'Pop a la gallega',desc_es:'Con patata, pimentón y aceite de oliva',desc_en:'With potato, paprika and olive oil',desc_fr:'Avec pomme de terre, paprika et huile d\'olive',desc_ca:'Amb patata, pebre vermell i oli d\'oliva',p:'22.00'},
+    {es:'Gyozas de langostinos',en:'Prawn Gyoza',fr:'Gyozas aux crevettes',ca:'Gyozas de llagostins',desc_es:'Empanadillas japonesas rellenas de langostino',desc_en:'Japanese dumplings filled with prawn',desc_fr:'Raviolis japonais farcis aux crevettes',desc_ca:'Empanadetes japoneses farcides de llagostí',p:'12.00'},
   ],
   hamburguesas:[
-    {es:'Hamburguesa completa',en:'Full Burger',fr:'Burger complet',ca:'Hamburguesa completa',desc_es:'Carne de ternera, bacon, queso, lechuga, tomate y huevo',p:'12.00',img:null,ico:'🍔'},
-    {es:'Hamburguesa de cabra',en:'Goat Cheese Burger',fr:'Burger au fromage de chèvre',ca:'Hamburguesa de cabra',desc_es:'Ternera, pimiento asado, cebolla caramelizada y rulo de cabra frito',p:'13.00',img:null,ico:'🍔'},
-    {es:'Hamburguesa vegana',en:'Vegan Burger',fr:'Burger vegan',ca:'Hamburguesa vegana',desc_es:'Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas',p:'14.00',img:null,ico:'🥑'},
-    {es:'Texas Burger',en:'Texas Burger',fr:'Texas Burger',ca:'Texas Burger',desc_es:'Doble carne de ternera, doble queso, doble bacon, lechuga, tomate y jalapeños',p:'15.00',img:null,ico:'🤠'},
-    {es:'Fikandel',en:'Frikandel',fr:'Frikandel',ca:'Frikandel',desc_es:'Doble salchicha, cebolla caramelizada, cebolla crujiente, mostaza y guarnición',p:'15.00',img:null,ico:'🌭'},
+    {es:'Hamburguesa completa',en:'Full Burger',fr:'Burger complet',ca:'Hamburguesa completa',desc_es:'Wagyu, bacon, queso, lechuga',desc_en:'Wagyu, bacon, cheese, lettuce',desc_fr:'Wagyu, bacon, fromage, laitue',desc_ca:'Wagyu, bacó, formatge, enciam',p:'15.00'},
+    {es:'Hamburguesa de cabra',en:'Goat Cheese Burger',fr:'Burger au fromage de chèvre',ca:'Hamburguesa de cabra',desc_es:'Wagyu, pimiento asado, cebolla caramelizada y rulo de cabra frito',desc_en:'Wagyu, roasted pepper, fried goat cheese',desc_fr:'Wagyu, poivron rôti, oignon caramélisé et bûche de chèvre frite',desc_ca:'Wagyu, pebrot rostit, ceba caramel·litzada i rotlle de cabra fregit',p:'16.00'},
+    {es:'Hamburguesa Trotamundos',en:'Trotamundos Burger',fr:'Burger Trotamundos',ca:'Hamburguesa Trotamundos',desc_es:'Wagyu al horno',desc_en:'Oven-baked wagyu',desc_fr:'Wagyu au four',desc_ca:'Wagyu al forn',p:'18.00'},
+    {es:'Pan Bao — Pulled pork',en:'Bao Bun — Pulled Pork',fr:'Pain Bao — Pulled pork',ca:'Pa Bao — Pulled pork',desc_es:'Precio por unidad',desc_en:'Per unit',desc_fr:'Prix à l\'unité',desc_ca:'Preu per unitat',p:'3.00'},
+    {es:'Pan Bao — Kebab',en:'Bao Bun — Kebab',fr:'Pain Bao — Kebab',ca:'Pa Bao — Kebab',desc_es:'Precio por unidad',desc_en:'Per unit',desc_fr:'Prix à l\'unité',desc_ca:'Preu per unitat',p:'3.00'},
   ],
-  pizzas:[
-    {es:'Margarita',en:'Margherita',fr:'Margherita',ca:'Margarida',desc_es:'Tomate y mozzarella',p:'11.50',img:null,ico:'🍕'},
-    {es:'Prosciutto',en:'Prosciutto',fr:'Prosciutto',ca:'Prosciutto',desc_es:'Margarita con jamón york',p:'12.50',img:null,ico:'🍕'},
-    {es:'Pepperoni',en:'Pepperoni',fr:'Pepperoni',ca:'Pepperoni',desc_es:'Margarita con pepperoni',p:'13.50',img:null,ico:'🍕'},
-    {es:'4 Quesos',en:'Four Cheese',fr:'4 Fromages',ca:'4 Formatges',desc_es:'Margarita, mozzarella, queso de cabra, parmesano y roquefort',p:'13.90',img:null,ico:'🧀'},
-    {es:'Del Huerto',en:'Garden',fr:'Du Jardin',ca:'De l\'Hort',desc_es:'Margarita con mezcla de verduras',p:'14.00',img:null,ico:'🥦'},
-    {es:'Carbonara',en:'Carbonara',fr:'Carbonara',ca:'Carbonara',desc_es:'Margarita, bacon, huevo y parmesano',p:'14.50',img:null,ico:'🍳'},
-    {es:'Fugazzeta',en:'Fugazzeta',fr:'Fugazzeta',ca:'Fugazzeta',desc_es:'Margarita con cebolla caramelizada y queso de cabra',p:'14.50',img:null,ico:'🧅'},
-    {es:'Del Mar',en:'Seafood',fr:'De la Mer',ca:'De la Mar',desc_es:'Margarita con marisco',p:'16.00',img:'img/pizza-del-mar-marisco-restaurante-bubion.png'},
-    {es:'De la Sierra',en:'Sierra',fr:'De la Sierra',ca:'De la Serra',desc_es:'Margarita con jamón, rúcula y parmesano',p:'15.00',img:null,ico:'🏔️'},
-  ],
-  pastas:[
-    {es:'Tallarines al Pesto',en:'Pesto Tagliatelle',fr:'Tagliatelles au Pesto',ca:'Tallarines al Pesto',desc_es:'',p:'12.50',img:null,ico:'🍝'},
-    {es:'Tallarines 4 Quesos',en:'Four Cheese Tagliatelle',fr:'Tagliatelles 4 Fromages',ca:'Tallarines 4 Formatges',desc_es:'',p:'13.50',img:null,ico:'🧀'},
-    {es:'Tallarines Carbonara',en:'Carbonara Tagliatelle',fr:'Tagliatelles Carbonara',ca:'Tallarines Carbonara',desc_es:'',p:'13.50',img:null,ico:'🥚'},
-    {es:'Tallarines Boloñesa',en:'Bolognese Tagliatelle',fr:'Tagliatelles Bolognaise',ca:'Tallarines Boloñesa',desc_es:'',p:'13.50',img:null,ico:'🍝'},
-    {es:'Tallarines Marinera',en:'Marinara Tagliatelle',fr:'Tagliatelles Marinière',ca:'Tallarines Marinera',desc_es:'',p:'15.00',img:null,ico:'🦞'},
-    {es:'Tallarines con verduras',en:'Vegetable Tagliatelle',fr:'Tagliatelles aux légumes',ca:'Tallarines amb verdures',desc_es:'',p:'13.50',img:null,ico:'🥦'},
-    {es:'Canelones de foie y trufa',en:'Foie & Truffle Cannelloni',fr:'Cannelloni au foie et à la truffe',ca:'Canelons de foie i tòfona',desc_es:'',p:'15.50',img:null,ico:'🍽️'},
+  pizzapasta:[
+    {es:'Margarita',en:'Margherita',fr:'Margherita',ca:'Margarida',desc_es:'Tomate y mozzarella',desc_en:'Tomato and mozzarella',desc_fr:'Tomate et mozzarella',desc_ca:'Tomàquet i mozzarella',p:'12.50'},
+    {es:'4 Quesos',en:'Four Cheese',fr:'4 Fromages',ca:'4 Formatges',desc_es:'Mozzarella, queso de cabra, parmesano y roquefort',desc_en:'Mozzarella, goat cheese, parmesan, roquefort',desc_fr:'Mozzarella, fromage de chèvre, parmesan et roquefort',desc_ca:'Mozzarella, formatge de cabra, parmesà i roquefort',p:'15.00'},
+    {es:'Carbonara',en:'Carbonara',fr:'Carbonara',ca:'Carbonara',desc_es:'Margarita, bacon, huevo y parmesano',desc_en:'Margherita, bacon, egg, parmesan',desc_fr:'Margherita, bacon, œuf et parmesan',desc_ca:'Margarida, bacó, ou i parmesà',p:'15.00'},
+    {es:'Fugazzeta',en:'Fugazzeta',fr:'Fugazzeta',ca:'Fugazzeta',desc_es:'Cebolla caramelizada y queso de cabra',desc_en:'Caramelized onion and goat cheese',desc_fr:'Oignon caramélisé et fromage de chèvre',desc_ca:'Ceba caramel·litzada i formatge de cabra',p:'15.00'},
+    {es:'De la Sierra',en:'From the Sierra',fr:'De la Sierra',ca:'De la Serra',desc_es:'Jamón, rúcula y parmesano',desc_en:'Ham, rocket and parmesan',desc_fr:'Jambon, roquette et parmesan',desc_ca:'Pernil, ruca i parmesà',p:'17.00'},
+    {es:'Macarrones a la Boloñesa',en:'Macaroni Bolognese',fr:'Macaronis à la bolognaise',ca:'Macarrons a la Bolonyesa',desc_es:'Pasta italiana con salsa boloñesa casera',desc_en:'Italian pasta, homemade bolognese',desc_fr:'Pâtes italiennes, sauce bolognaise maison',desc_ca:'Pasta italiana amb salsa bolonyesa casolana',p:'13.50'},
+    {es:'Tallarines Carbonara',en:'Tagliatelle Carbonara',fr:'Tagliatelles Carbonara',ca:'Tallarines Carbonara',desc_es:'Con bacon, huevo y parmesano',desc_en:'Bacon, egg, parmesan',desc_fr:'Bacon, œuf et parmesan',desc_ca:'Amb bacó, ou i parmesà',p:'13.50'},
+    {es:'Pasta con salsa de queso',en:'Pasta with Cheese Sauce',fr:'Pâtes à la sauce fromagère',ca:'Pasta amb salsa de formatge',desc_es:'Salsa cremosa de quesos italianos',desc_en:'Creamy Italian cheese sauce',desc_fr:'Sauce crémeuse aux fromages italiens',desc_ca:'Salsa cremosa de formatges italians',p:'13.50'},
+    {es:'Pasta al Pesto',en:'Pesto Pasta',fr:'Pâtes au Pesto',ca:'Pasta al Pesto',desc_es:'Pesto genovés casero',desc_en:'Homemade Genovese pesto',desc_fr:'Pesto génois maison',desc_ca:'Pesto genovès casolà',p:'13.50'},
   ]
 };
 
@@ -799,15 +790,18 @@ let lang='es';
 function renderGrid(cat){
   const el=document.getElementById('g-'+cat);
   if(!el)return;
-  el.innerHTML=MD[cat].map(i=>`
+  el.innerHTML=MD[cat].map(i=>{
+    const d=i['desc_'+lang]||i.desc_es;
+    const pn=i['pnote_'+lang]||i.pnote_es;
+    return `
     <div class="mitem">
-      ${i.img?`<img class="mitem-img" src="${i.img}" alt="${i.es} - restaurante Bubión Alpujarra" loading="lazy">`:`<div class="mitem-ph">${i.ico||'🍽️'}</div>`}
       <div class="mitem-b">
         <p class="mitem-name">${i[lang]||i.es}</p>
-        ${i.desc_es?`<p class="mitem-en">${i.desc_es}</p>`:''}
-        <p class="mitem-price">${i.p} €</p>
+        ${d?`<p class="mitem-en">${d}</p>`:''}
+        <p class="mitem-price">${i.p?`${i.p} €`:''}${pn?` ${pn}`:''}</p>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 function renderAll(){Object.keys(MD).forEach(renderGrid)}
 function mTab(cat,btn){
