@@ -547,7 +547,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <div class="divider"></div>
     <p class="sec-sub" data-es="Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad." data-en="Explore Sierra Nevada with local experts. Come back to the table with a real appetite." data-fr="Explorez Sierra Nevada avec des experts locaux. Revenez à table avec un vrai appétit." data-ca="Explora Sierra Nevada amb experts locals. Torna a la taula amb gana de veritat.">Explora Sierra Nevada con expertos locales. Vuelve a la mesa con hambre de verdad.</p>
   </div>
-  <div class="act-grid wrap">
+  <div class="act-grid wrap" id="actgrid">
     <div class="act-card" onclick="openModal('senderismo')">
       <div class="act-bg" style="background-image:url('img/senderismo-sierra-nevada-rutas-alpujarra.png');background-position:top center"></div>
       <div class="act-ov"></div>
@@ -893,15 +893,42 @@ function setLang(l){
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('on',scrollY>50)});
 function toggleMob(){document.getElementById('mobNav').classList.toggle('open')}
 function closeMob(){document.getElementById('mobNav').classList.remove('open')}
-const mTitles={
+let mTitles={
   senderismo:{es:'Senderismo en Sierra Nevada',en:'Hiking in Sierra Nevada',fr:'Randonnée à Sierra Nevada',ca:'Senderisme a Sierra Nevada'},
   caballo:{es:'Rutas a caballo',en:'Horse riding routes',fr:'Randonnées à cheval',ca:'Rutes a cavall'},
   '4x4':{es:'Excursiones en 4x4',en:'4x4 excursions',fr:'Excursions en 4x4',ca:'Excursions en 4x4'}
 };
+let actActual=null, WHATSAPP='34858893777';
 function openModal(t){
+  actActual=t;
   document.getElementById('modal-t').textContent=mTitles[t][lang]||mTitles[t].es;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
+}
+// Pinta las tarjetas de actividades que llegan de la base de datos (mismas clases que las de respaldo).
+const cssUrl=u=>String(u||'').replace(/['"()\\\s]/g,'');
+function pintarActividades(lista){
+  const cta=`<span class="act-cta" data-es="Consultar disponibilidad →" data-en="Check availability →" data-fr="Vérifier la disponibilité →" data-ca="Consultar disponibilitat →">${esc({es:'Consultar disponibilidad →',en:'Check availability →',fr:'Vérifier la disponibilité →',ca:'Consultar disponibilitat →'}[lang])}</span>`;
+  const t=(a,k)=>a[k+lang]||a[k+'es']||'';
+  document.getElementById('actgrid').innerHTML=lista.map(a=>`
+    <div class="act-card" onclick="openModal('${esc(a.id)}')">
+      <div class="act-bg" style="background-image:url('${esc(cssUrl(a.foto))}');background-position:${esc(a.posicion||'center')}"></div>
+      <div class="act-ov"></div>
+      <div class="act-cnt">
+        <div class="act-ico">${esc(a.ico)}</div>
+        <h3 class="act-name" data-es="${esc(a.es)}" data-en="${esc(a.en||a.es)}" data-fr="${esc(a.fr||a.es)}" data-ca="${esc(a.ca||a.es)}">${esc(t(a,''))}</h3>
+        <p class="act-desc" data-es="${esc(a.desc_es)}" data-en="${esc(a.desc_en||a.desc_es)}" data-fr="${esc(a.desc_fr||a.desc_es)}" data-ca="${esc(a.desc_ca||a.desc_es)}">${esc(t(a,'desc_'))}</p>
+        ${cta}
+      </div>
+    </div>`).join('');
+  mTitles=Object.fromEntries(lista.map(a=>[a.id,{es:a.es,en:a.en||a.es,fr:a.fr||a.es,ca:a.ca||a.es}]));
+}
+function cargarActividades(){
+  const ctl=new AbortController(), t=setTimeout(()=>ctl.abort(),4000);
+  fetch('/api/actividades',{signal:ctl.signal})
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{clearTimeout(t);if(!d||d.origen!=='bd')return;if(d.whatsapp)WHATSAPP=d.whatsapp;if(Array.isArray(d.actividades)&&d.actividades.length)pintarActividades(d.actividades)})
+    .catch(()=>{});
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 function bgClose(e){if(e.target.id==='modal')closeModal()}
@@ -909,6 +936,7 @@ const today=new Date().toISOString().split('T')[0];
 document.querySelectorAll('input[type="date"]').forEach(i=>i.min=today);
 renderAll();
 cargarCarta();
+cargarActividades();
 function toggleSoc(){
   const exp=document.getElementById('socExpand');
   const btn=document.getElementById('socToggle');

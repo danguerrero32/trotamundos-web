@@ -7,6 +7,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { componerCarta } from '../lib/carta.js';
+import { actividadAWeb } from '../lib/actividades.js';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUERTO = Number(process.env.PORT || 4324);
@@ -55,7 +56,10 @@ http.createServer(async (req, res) => {
         const d = await leerJson(process.env.DEMO_DATOS || path.join(RAIZ, 'uploads/panel-demo.json'));
         return r.json(componerCarta({ categorias: d.categorias, platos: d.platos.map((p) => ({ ...p, categoria_id: p.categoria })) }));
       }
-      if (DEMO && nombre === 'actividades' && process.env.DEMO_ACTIVIDADES) return r.json(await leerJson(process.env.DEMO_ACTIVIDADES));
+      if (DEMO && nombre === 'actividades') {
+        const d = await leerJson(process.env.DEMO_DATOS || path.join(RAIZ, 'uploads/panel-demo.json'));
+        return r.json({ origen: 'bd', whatsapp: '34858893777', actividades: d.actividades.filter((a) => a.visible && !a.archivada).map(actividadAWeb) });
+      }
       const { default: handler } = await import(pathToFileURL(path.join(RAIZ, 'api', nombre + '.js')).href + '?t=' + Date.now());
       await handler(req, r);
     } catch (e) { console.error(e); r.status(500).json({ ok: false, error: String(e.message) }); }
