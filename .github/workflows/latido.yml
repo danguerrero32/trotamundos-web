@@ -1,0 +1,20 @@
+# Latido de respaldo: cada dos días apunta un latido en Supabase para que el plan gratuito no se pause,
+# aunque falle el cron diario de Vercel. Usa la clave pública: la función latir() es lo único que puede hacer.
+name: Latido de Supabase
+on:
+  schedule:
+    - cron: '17 7 */2 * *'
+  workflow_dispatch:
+jobs:
+  latido:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Latir
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          curl -fsS -X POST "$SUPABASE_URL/rest/v1/rpc/latir" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{"p_origen":"github"}'
