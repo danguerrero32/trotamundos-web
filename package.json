@@ -2,7 +2,15 @@
   "name": "trotamundos-web",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": "24.x"
+  },
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.2.0",
+    "zod": "^4.6.7"
   }
 }

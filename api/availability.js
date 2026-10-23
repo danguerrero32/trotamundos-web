@@ -1,8 +1,8 @@
 // GET /api/availability?date=YYYY-MM&diners=N
 // Devuelve los días disponibles del mes para el número de comensales dado.
-const { callLastApp, LASTAPP_LOCATION_ID } = require('./_lastapp');
+import { callLastApp, LASTAPP_LOCATION_ID } from './_lastapp.js';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
@@ -24,4 +24,4 @@ module.exports = async function handler(req, res) {
     console.error('[availability]', err.message);
     return res.status(500).json({ error: err.message });
   }
-};
+}

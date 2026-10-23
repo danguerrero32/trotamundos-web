@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "trotamundos-web", "runtimeExecutable": "node", "runtimeArgs": ["tools/servidor-local.mjs"], "port": 4324 }
+  ]
+}

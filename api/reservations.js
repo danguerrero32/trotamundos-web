@@ -1,9 +1,9 @@
 // POST /api/reservations
 // Crea la reserva en Last.app. El body debe incluir:
 // { name, surname, phoneNumber, email?, diners, dateTime, zone, customerComments? }
-const { callLastApp, LASTAPP_LOCATION_ID } = require('./_lastapp');
+import { callLastApp, LASTAPP_LOCATION_ID } from './_lastapp.js';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -39,4 +39,4 @@ module.exports = async function handler(req, res) {
     console.error('[reservations]', err.message);
     return res.status(500).json({ error: err.message });
   }
-};
+}

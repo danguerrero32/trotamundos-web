@@ -1,8 +1,8 @@
 // GET /api/availability-day?date=YYYY-MM-DD&diners=N
 // Devuelve las franjas horarias disponibles por zona para un día concreto.
-const { callLastApp, LASTAPP_LOCATION_ID } = require('./_lastapp');
+import { callLastApp, LASTAPP_LOCATION_ID } from './_lastapp.js';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
@@ -23,4 +23,4 @@ module.exports = async function handler(req, res) {
     console.error('[availability-day]', err.message);
     return res.status(500).json({ error: err.message });
   }
-};
+}

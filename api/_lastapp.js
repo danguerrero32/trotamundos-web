@@ -24,4 +24,4 @@ async function callLastApp(path, options = {}) {
   return response.json();
 }
 
-module.exports = { callLastApp, LASTAPP_LOCATION_ID };
+export { callLastApp, LASTAPP_LOCATION_ID };
