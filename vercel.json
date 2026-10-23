@@ -11,6 +11,9 @@
   "functions": {
     "api/latido.js": {
       "maxDuration": 60
+    },
+    "api/panel/importar.js": {
+      "maxDuration": 60
     }
   },
   "headers": [
