@@ -12,7 +12,7 @@
     "api/latido.js": {
       "maxDuration": 60
     },
-    "api/panel/importar.js": {
+    "api/panel/*.js": {
       "maxDuration": 60
     }
   },

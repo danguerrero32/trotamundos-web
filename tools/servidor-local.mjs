@@ -60,7 +60,10 @@ http.createServer(async (req, res) => {
         const d = await leerJson(process.env.DEMO_DATOS || path.join(RAIZ, 'uploads/panel-demo.json'));
         return r.json({ origen: 'bd', whatsapp: '34858893777', actividades: d.actividades.filter((a) => a.visible && !a.archivada).map(actividadAWeb) });
       }
-      const { default: handler } = await import(pathToFileURL(path.join(RAIZ, 'api', nombre + '.js')).href + '?t=' + Date.now());
+      // Como en Vercel: si no hay un archivo con ese nombre, la función de ruta dinámica de la carpeta ([ruta].js).
+      let archivo = path.join(RAIZ, 'api', nombre + '.js');
+      try { await stat(archivo); } catch { archivo = path.join(RAIZ, 'api', path.dirname(nombre), '[ruta].js'); req.query.ruta = path.basename(nombre); }
+      const { default: handler } = await import(pathToFileURL(archivo).href + '?t=' + Date.now());
       await handler(req, r);
     } catch (e) { console.error(e); r.status(500).json({ ok: false, error: String(e.message) }); }
     return;
