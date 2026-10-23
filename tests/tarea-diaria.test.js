@@ -11,7 +11,7 @@ test('con la traducción apagada no llama a Claude ni busca pendientes', async (
   const r = await tareaDiaria({ s: S, fetch: f, client: clienteProhibido, ahora: AHORA });
   assert.equal(r.latido, true);
   assert.equal(r.traducidas, 0);
-  assert.equal(f.llamadas.filter((l) => l.path.includes('traduccion->>pendiente')).length, 0);
+  assert.equal(f.llamadas.filter((l) => decodeURIComponent(l.path).includes('traduccion->>pendiente')).length, 0);
   assert.ok(f.llamadas.some((l) => l.path === 'rpc/latir' && l.body.p_origen === 'vercel'));
 });
 
