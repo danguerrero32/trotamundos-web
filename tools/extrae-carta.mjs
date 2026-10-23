@@ -26,7 +26,8 @@ export function extraerCarta(html) {
   if (!literal) throw new Error('No encuentro el objeto MD en index.html');
   const MD = new Function('return ' + literal[1])();
 
-  const categorias = [...html.matchAll(/<button class="mtab[^"]*"[^>]*>/g)].map((m, i) => ({
+  const menu = html.slice(html.indexOf('<section id="menu">'), html.indexOf('</section>', html.indexOf('<section id="menu">')));
+  const categorias = [...menu.matchAll(/<button class="mtab[^"]*"[^>]*>/g)].map((m, i) => ({
     id: m[0].match(/mTab\('([^']+)'/)[1],
     nombre: atributosIdioma(m[0]),
     orden: i + 1,
@@ -45,7 +46,8 @@ export function extraerCarta(html) {
     }));
   }
 
-  const actividades = html.split('<div class="act-card"').slice(1).map((bloque, i) => {
+  const seccionAct = html.slice(html.indexOf('<section id="actividades">'), html.indexOf('</section>', html.indexOf('<section id="actividades">')));
+  const actividades = seccionAct.split('<div class="act-card"').slice(1).map((bloque, i) => {
     const fondo = bloque.match(/background-image:url\('([^']+)'\);background-position:([a-z]+)/);
     return {
       id: bloque.match(/openModal\('([^']+)'\)/)[1],

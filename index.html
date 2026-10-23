@@ -470,7 +470,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <div class="divider"></div>
     <p class="sec-sub" data-es="Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas." data-en="Local produce, world flavours. Honest cooking with Alpujarran roots." data-fr="Produits locaux, saveurs du monde. Cuisine honnête aux racines alpujarreñas." data-ca="Producte local, sabors del món. Cuina honesta amb arrels alpujarrenyes.">Producto local, sabores del mundo. Cocina honesta con raíces alpujarreñas.</p>
   </div>
-  <div class="menu-tabs wrap">
+  <div class="menu-tabs wrap" id="mtabs">
     <button class="mtab on"  onclick="mTab('deaqui',this)"        data-es="De Aquí"           data-en="From Here"        data-fr="D&#39;Ici"            data-ca="D&#39;Aquí">De Aquí</button>
     <button class="mtab"     onclick="mTab('detodaspartes',this)" data-es="De Todas Partes"   data-en="From Everywhere"  data-fr="De Partout"       data-ca="De Tot Arreu">De Todas Partes</button>
     <button class="mtab"     onclick="mTab('ensaladas',this)"     data-es="Ensaladas"         data-en="Salads"           data-fr="Salades"          data-ca="Amanides">Ensaladas</button>
@@ -480,6 +480,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
     <button class="mtab"     onclick="mTab('hamburguesas',this)"  data-es="Hamburguesas y Pan" data-en="Burgers &amp; Bao" data-fr="Burgers et Pains" data-ca="Hamburgueses i Pa">Hamburguesas y Pan</button>
     <button class="mtab"     onclick="mTab('pizzapasta',this)"    data-es="Pizza y Pasta"     data-en="Pizza &amp; Pasta" data-fr="Pizza et Pâtes"   data-ca="Pizza i Pasta">Pizza y Pasta</button>
   </div>
+  <div id="mpaneles">
   <div id="p-deaqui"        class="mpanel on wrap"><div class="mgrid" id="g-deaqui"></div></div>
   <div id="p-detodaspartes" class="mpanel wrap"><div class="mgrid" id="g-detodaspartes"></div></div>
   <div id="p-ensaladas"     class="mpanel wrap"><div class="mgrid" id="g-ensaladas"></div></div>
@@ -488,6 +489,7 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
   <div id="p-delamar"       class="mpanel wrap"><div class="mgrid" id="g-delamar"></div></div>
   <div id="p-hamburguesas"  class="mpanel wrap"><div class="mgrid" id="g-hamburguesas"></div></div>
   <div id="p-pizzapasta"    class="mpanel wrap"><div class="mgrid" id="g-pizzapasta"></div></div>
+  </div>
 </section>
 
 <!-- POR ENCARGO -->
@@ -826,28 +828,49 @@ const MD = {
 };
 
 let lang='es';
+// La carta en uso. Empieza con MD (la carta de respaldo escrita aquí) y se sustituye por la de /api/carta.
+let CARTA=MD, catActiva='deaqui';
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderGrid(cat){
   const el=document.getElementById('g-'+cat);
   if(!el)return;
-  el.innerHTML=MD[cat].map(i=>{
+  el.innerHTML=(CARTA[cat]||[]).map(i=>{
     const d=i['desc_'+lang]||i.desc_es;
     const pn=i['pnote_'+lang]||i.pnote_es;
     return `
     <div class="mitem">
       <div class="mitem-b">
-        ${i.ico?`<p class="mitem-ico">${i.ico}</p>`:''}
-        <p class="mitem-name">${i[lang]||i.es}</p>
-        ${d?`<p class="mitem-en">${d}</p>`:''}
-        <p class="mitem-price">${i.p?`${i.p} €`:''}${pn?` ${pn}`:''}</p>
+        ${i.ico?`<p class="mitem-ico">${esc(i.ico)}</p>`:''}
+        <p class="mitem-name">${esc(i[lang]||i.es)}</p>
+        ${d?`<p class="mitem-en">${esc(d)}</p>`:''}
+        <p class="mitem-price">${i.p?`${esc(i.p)} €`:''}${pn?` ${esc(pn)}`:''}</p>
       </div>
     </div>`;
   }).join('');
 }
-function renderAll(){Object.keys(MD).forEach(renderGrid)}
+function renderAll(){Object.keys(CARTA).forEach(renderGrid)}
 function mTab(cat,btn){
+  catActiva=cat;
   document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));
   document.getElementById('p-'+cat).classList.add('on');btn.classList.add('on');
+}
+// Pinta las pestañas y los paneles de la carta que llega de la base de datos.
+function pintarCarta(categorias){
+  const slugs=categorias.map(c=>c.slug);
+  const sel=slugs.includes(catActiva)?catActiva:slugs[0];
+  catActiva=sel;
+  document.getElementById('mtabs').innerHTML=categorias.map(c=>`<button class="mtab${c.slug===sel?' on':''}" onclick="mTab('${esc(c.slug)}',this)" data-es="${esc(c.es)}" data-en="${esc(c.en||c.es)}" data-fr="${esc(c.fr||c.es)}" data-ca="${esc(c.ca||c.es)}">${esc(c[lang]||c.es)}</button>`).join('');
+  document.getElementById('mpaneles').innerHTML=categorias.map(c=>`<div id="p-${esc(c.slug)}" class="mpanel wrap${c.slug===sel?' on':''}"><div class="mgrid" id="g-${esc(c.slug)}"></div></div>`).join('');
+  CARTA=Object.fromEntries(categorias.map(c=>[c.slug,c.platos||[]]));
+  renderAll();
+}
+function cargarCarta(){
+  const ctl=new AbortController(), t=setTimeout(()=>ctl.abort(),4000);
+  fetch('/api/carta',{signal:ctl.signal})
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{clearTimeout(t);if(d&&d.origen==='bd'&&Array.isArray(d.categorias)&&d.categorias.length)pintarCarta(d.categorias)})
+    .catch(()=>{});
 }
 function fTab(t,btn){
   document.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('on'));
@@ -885,6 +908,7 @@ function bgClose(e){if(e.target.id==='modal')closeModal()}
 const today=new Date().toISOString().split('T')[0];
 document.querySelectorAll('input[type="date"]').forEach(i=>i.min=today);
 renderAll();
+cargarCarta();
 function toggleSoc(){
   const exp=document.getElementById('socExpand');
   const btn=document.getElementById('socToggle');

@@ -6,6 +6,7 @@ import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { componerCarta } from '../lib/carta.js';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUERTO = Number(process.env.PORT || 4324);
@@ -49,7 +50,11 @@ http.createServer(async (req, res) => {
       req.body = await leerCuerpo(req);
       req.query = Object.fromEntries(url.searchParams);
       if (DEMO && nombre.startsWith('panel/')) return await panelDemo(nombre.slice(6), req.body, r);
-      if (DEMO && nombre === 'carta' && process.env.DEMO_CARTA) return r.json(await leerJson(process.env.DEMO_CARTA));
+      if (DEMO && nombre === 'carta') {
+        // La carta pública sale de los mismos datos de muestra que el panel.
+        const d = await leerJson(process.env.DEMO_DATOS || path.join(RAIZ, 'uploads/panel-demo.json'));
+        return r.json(componerCarta({ categorias: d.categorias, platos: d.platos.map((p) => ({ ...p, categoria_id: p.categoria })) }));
+      }
       if (DEMO && nombre === 'actividades' && process.env.DEMO_ACTIVIDADES) return r.json(await leerJson(process.env.DEMO_ACTIVIDADES));
       const { default: handler } = await import(pathToFileURL(path.join(RAIZ, 'api', nombre + '.js')).href + '?t=' + Date.now());
       await handler(req, r);
