@@ -24,6 +24,12 @@
       ]
     }
   ],
+  "rewrites": [
+    {
+      "source": "/privacidad",
+      "destination": "/privacidad.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/menu-carta",
@@ -67,12 +73,12 @@
     },
     {
       "source": "/politica-de-privacidad",
-      "destination": "https://lostrotamundosalpujarra.com/",
+      "destination": "https://www.lostrotamundosalpujarra.com/privacidad",
       "permanent": true
     },
     {
       "source": "/politica-de-privacidad/",
-      "destination": "https://lostrotamundosalpujarra.com/",
+      "destination": "https://www.lostrotamundosalpujarra.com/privacidad",
       "permanent": true
     }
   ]

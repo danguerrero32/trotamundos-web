@@ -190,7 +190,7 @@ nav.on{background:rgba(11,9,7,.93);backdrop-filter:blur(14px);border-bottom:1px 
 /* MODAL */
 .modal-back{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center}
 .modal-back.open{display:flex}
-.modal{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;max-width:460px;width:90%;position:relative}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px;max-width:460px;width:90%;position:relative;max-height:92vh;overflow-y:auto}
 .modal-x{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;transition:color var(--t)}
 .modal-x:hover{color:var(--cream)}
 .modal-title{font-family:var(--serif);font-size:1.5rem;color:var(--cream);margin-bottom:6px}
@@ -586,14 +586,25 @@ footer{background:var(--card);border-top:1px solid var(--border);padding:44px 24
   <div class="modal">
     <button class="modal-x" onclick="closeModal()">✕</button>
     <h3 class="modal-title" id="modal-t">Actividad</h3>
+    <div id="m-form">
     <p class="modal-sub" data-es="Déjanos tus datos y te contactamos en menos de 24h." data-en="Leave your details and we'll get back to you within 24 hours." data-fr="Laissez-nous vos coordonnées et nous vous contacterons sous 24h." data-ca="Deixeu-nos les vostres dades i us contactarem en menys de 24h.">Déjanos tus datos y te contactamos en menos de 24h.</p>
-    <div class="fg"><label data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" placeholder="Tu nombre"></div>
-    <div class="fg"><label data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-ca="Telèfon / WhatsApp">Teléfono / WhatsApp</label><input type="tel" placeholder="+34 6XX XXX XXX"></div>
+    <div class="fg"><label for="m-nombre" data-es="Nombre" data-en="Name" data-fr="Nom" data-ca="Nom">Nombre</label><input type="text" id="m-nombre" maxlength="80" autocomplete="name" placeholder="Tu nombre"></div>
+    <div class="fg"><label for="m-tel" data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp" data-ca="Telèfon / WhatsApp">Teléfono / WhatsApp</label><input type="tel" id="m-tel" autocomplete="tel" placeholder="+34 6XX XXX XXX"></div>
     <div class="frow">
-      <div class="fg"><label data-es="Fecha preferida" data-en="Preferred date" data-fr="Date souhaitée" data-ca="Data preferida">Fecha preferida</label><input type="date" id="d3"></div>
-      <div class="fg"><label data-es="Personas" data-en="Persons" data-fr="Personnes" data-ca="Persones">Personas</label><select><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+      <div class="fg"><label for="d3" data-es="Fecha preferida" data-en="Preferred date" data-fr="Date souhaitée" data-ca="Data preferida">Fecha preferida</label><input type="date" id="d3"></div>
+      <div class="fg"><label for="m-personas" data-es="Personas" data-en="Persons" data-fr="Personnes" data-ca="Persones">Personas</label><select id="m-personas"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select></div>
     </div>
-    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" data-es="Enviar consulta →" data-en="Send enquiry →" data-fr="Envoyer la demande →" data-ca="Enviar consulta →">Enviar consulta →</button>
+    <input type="text" id="m-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+    <p class="modal-sub" style="font-size:.75rem;margin-bottom:10px" data-es="Usamos tu nombre y teléfono solo para contestar esta consulta. Responsable: Los Trotamundos (Bubión). Puedes pedir que los borremos cuando quieras." data-en="We only use your name and phone number to reply to this enquiry. Data controller: Los Trotamundos (Bubión). You can ask us to delete them at any time." data-fr="Nous utilisons votre nom et votre téléphone uniquement pour répondre à cette demande. Responsable : Los Trotamundos (Bubión). Vous pouvez demander leur suppression à tout moment." data-ca="Fem servir el teu nom i telèfon només per respondre aquesta consulta. Responsable: Los Trotamundos (Bubión). Pots demanar que els esborrem quan vulguis.">Usamos tu nombre y teléfono solo para contestar esta consulta. Responsable: Los Trotamundos (Bubión). Puedes pedir que los borremos cuando quieras.</p>
+    <label id="m-priv-l" style="display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:var(--cream);margin-bottom:6px;padding:6px;border:1px solid transparent;border-radius:var(--r);cursor:pointer"><input type="checkbox" id="m-priv" style="margin-top:3px;accent-color:var(--gold)"><span data-es="Acepto la política de privacidad" data-en="I accept the privacy policy" data-fr="J'accepte la politique de confidentialité" data-ca="Accepto la política de privacitat">Acepto la política de privacidad</span></label>
+    <p style="font-size:.75rem;margin:0 0 14px 30px"><a href="/privacidad" target="_blank" rel="noopener" style="color:var(--gold-l);text-decoration:underline" data-es="Leer la política de privacidad" data-en="Read the privacy policy" data-fr="Lire la politique de confidentialité" data-ca="Llegir la política de privacitat">Leer la política de privacidad</a></p>
+    <p id="m-aviso" class="modal-sub" style="display:none;color:var(--gold-l);margin-bottom:10px" data-es="Revisa los campos marcados." data-en="Please check the highlighted fields." data-fr="Vérifiez les champs signalés." data-ca="Revisa els camps marcats.">Revisa los campos marcados.</p>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" onclick="enviarConsulta()" data-es="Enviar consulta →" data-en="Send enquiry →" data-fr="Envoyer la demande →" data-ca="Enviar consulta →">Enviar consulta →</button>
+    </div>
+    <div id="m-ok" style="display:none">
+      <p class="modal-sub" data-es="Recibida. Si WhatsApp no se ha abierto, pulsa aquí:" data-en="Received. If WhatsApp hasn't opened, tap here:" data-fr="Reçue. Si WhatsApp ne s'est pas ouvert, touchez ici :" data-ca="Rebuda. Si WhatsApp no s'ha obert, prem aquí:">Recibida. Si WhatsApp no se ha abierto, pulsa aquí:</p>
+      <a id="m-wa" class="btn btn-green" href="https://wa.me/34858893777" target="_blank" rel="noopener" style="width:100%;justify-content:center">💬 WhatsApp</a>
+    </div>
   </div>
 </div>
 
@@ -898,9 +909,12 @@ let mTitles={
   caballo:{es:'Rutas a caballo',en:'Horse riding routes',fr:'Randonnées à cheval',ca:'Rutes a cavall'},
   '4x4':{es:'Excursiones en 4x4',en:'4x4 excursions',fr:'Excursions en 4x4',ca:'Excursions en 4x4'}
 };
-let actActual=null, WHATSAPP='34858893777';
+let actActual=null, WHATSAPP='34858893777', tInicio=0;
 function openModal(t){
-  actActual=t;
+  actActual=t; tInicio=Date.now();
+  document.getElementById('m-form').style.display='block';
+  document.getElementById('m-ok').style.display='none';
+  document.getElementById('m-aviso').style.display='none';
   document.getElementById('modal-t').textContent=mTitles[t][lang]||mTitles[t].es;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
@@ -930,6 +944,24 @@ function cargarActividades(){
     .then(d=>{clearTimeout(t);if(!d||d.origen!=='bd')return;if(d.whatsapp)WHATSAPP=d.whatsapp;if(Array.isArray(d.actividades)&&d.actividades.length)pintarActividades(d.actividades)})
     .catch(()=>{});
 }
+// Consulta de actividad: en el mismo toque se guarda en el panel y se abre WhatsApp con el mensaje escrito.
+function enviarConsulta(){
+  const v=id=>document.getElementById(id), M=window.TrotaMensajes;
+  const nombre=v('m-nombre').value.trim(), tel=v('m-tel').value.trim(), fecha=v('d3').value, personas=v('m-personas').value, priv=v('m-priv').checked;
+  const num=M?M.telefonoWa(tel):null;
+  const malos={'m-nombre':!nombre,'m-tel':!num,'m-priv-l':!priv};
+  Object.keys(malos).forEach(i=>v(i).style.borderColor=malos[i]?'var(--gold)':'');
+  const hayMalos=Object.values(malos).some(Boolean);
+  v('m-aviso').style.display=hayMalos?'block':'none';
+  if(hayMalos||!M)return;
+  const titulos=mTitles[actActual]||{}, actividad=titulos[lang]||titulos.es||'';
+  const cuerpo={actividad_id:actActual,nombre,telefono:tel,fecha,personas,idioma:lang,privacidad:true,hp:v('m-hp').value,t_inicio:tInicio};
+  try{fetch('/api/consulta',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(cuerpo)}).catch(()=>{})}catch(e){}
+  const url='https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(M.mensajeConsulta({nombre,actividad,fecha,personas},lang));
+  v('m-wa').href=url;
+  window.open(url,'_blank');
+  v('m-form').style.display='none';v('m-ok').style.display='block';
+}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 function bgClose(e){if(e.target.id==='modal')closeModal()}
 const today=new Date().toISOString().split('T')[0];
@@ -950,6 +982,11 @@ document.addEventListener('click',function(e){
     document.getElementById('socToggle').classList.remove('open');
   }
 });
+</script>
+<script type="module">
+import { mensajeConsulta } from '/lib/mensajes.js';
+import { telefonoWa } from '/lib/telefono.js';
+window.TrotaMensajes = { mensajeConsulta, telefonoWa };
 </script>
 </body>
 </html>
