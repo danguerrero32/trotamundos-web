@@ -17,10 +17,9 @@ end $$;
 -- ---------- Carta ----------
 create table if not exists categorias (
   id             text primary key,                 -- el identificador de la pestaña de la web (deaqui, carnes…)
-  nombre         jsonb not null,                   -- {es, en, fr, ca}
+  nombre         jsonb not null,                   -- {es, …}: el panel solo escribe es
   orden          smallint not null default 0,
   visible        boolean not null default true,
-  traduccion     jsonb not null default '{"pendiente":false,"manual":[]}',
   creado_en      timestamptz not null default now(),
   actualizado_en timestamptz not null default now()
 );
@@ -28,18 +27,17 @@ create table if not exists categorias (
 create table if not exists platos (
   id             uuid primary key default gen_random_uuid(),
   categoria_id   text not null references categorias(id) on update cascade on delete restrict,
-  nombre         jsonb not null,                   -- {es, en, fr, ca}
+  nombre         jsonb not null,                   -- {es, …}: el panel solo escribe es
   descripcion    jsonb not null default '{}',
   nota_precio    jsonb not null default '{}',      -- "(confirmar)", "por unidad"…
   precio         numeric(8,2),                     -- null = sin precio (Entrecote)
-  precio_fijo    boolean not null default false,   -- la importación de LastApp no toca este precio
   emoji          text not null default '',
   visible        boolean not null default true,    -- "hoy no hay"
   archivado      boolean not null default false,   -- "quitar de la carta", recuperable
   orden          smallint not null default 0,
+  -- Con lastapp_id, el precio lo manda LastApp. Sin él, el plato va a mano y nadie le toca el precio.
   lastapp_id     text unique,                      -- un producto de LastApp, como mucho un plato
   lastapp_nombre text,
-  traduccion     jsonb not null default '{"pendiente":false,"manual":[]}',
   creado_en      timestamptz not null default now(),
   actualizado_en timestamptz not null default now()
 );
@@ -83,7 +81,6 @@ create table if not exists actividades (
   visible        boolean not null default true,
   archivada      boolean not null default false,
   orden          smallint not null default 0,
-  traduccion     jsonb not null default '{"pendiente":false,"manual":[]}',
   creado_en      timestamptz not null default now(),
   actualizado_en timestamptz not null default now()
 );
@@ -120,8 +117,7 @@ insert into ajustes (clave, valor) values
   ('whatsapp', '"+34858893777"'),
   ('correos_aviso', '[]'),
   ('aviso_consultas_correo', 'true'),
-  ('nombre_gestor', '"Daniel"'),
-  ('traduccion_automatica', 'false')
+  ('nombre_gestor', '"Daniel"')
 on conflict (clave) do nothing;
 
 -- ---------- Panel: acceso, sesiones e historial ----------

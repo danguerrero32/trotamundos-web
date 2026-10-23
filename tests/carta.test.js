@@ -17,13 +17,18 @@ test('platoAWeb omite idiomas vacíos', () => {
 });
 
 test('platoAWeb lleva todos los idiomas que tiene', () => {
-  const w = platoAWeb({ nombre: { es: 'Zaalouk', en: 'Zaalouk', fr: 'Zaalouk', ca: 'Zaalouk' }, descripcion: {}, nota_precio: { es: '(confirmar)', en: '(to confirm)' }, precio: null, emoji: '🍆', traduccion: { pendiente: false, manual: [] } });
+  const w = platoAWeb({ nombre: { es: 'Zaalouk', en: 'Zaalouk', fr: 'Zaalouk', ca: 'Zaalouk' }, descripcion: {}, nota_precio: { es: '(confirmar)', en: '(to confirm)' }, precio: null, emoji: '🍆' });
   assert.deepEqual(w, { es: 'Zaalouk', en: 'Zaalouk', fr: 'Zaalouk', ca: 'Zaalouk', pnote_es: '(confirmar)', pnote_en: '(to confirm)', p: '', ico: '🍆' });
 });
 
-test('platoAWeb pendiente de traducir: solo español', () => {
-  const w = platoAWeb({ nombre: { es: 'Choto al ajillo', en: 'Kid Goat Stew' }, descripcion: {}, nota_precio: {}, precio: 21, emoji: '🐐', traduccion: { pendiente: true, manual: [] } });
-  assert.deepEqual(w, { es: 'Choto al ajillo', p: '21.00', ico: '🐐' });
+test('platoAWeb de un plato importado: solo español, y la web cae al español', () => {
+  const w = platoAWeb({ nombre: { es: 'Pizza Pepperoni' }, descripcion: {}, nota_precio: {}, precio: 13.5, emoji: '🍕' });
+  assert.deepEqual(w, { es: 'Pizza Pepperoni', p: '13.50', ico: '🍕' });
+});
+
+test('platoAWeb publica las cuatro versiones que la web ya tiene escritas', () => {
+  const w = platoAWeb({ nombre: { es: 'Choto', en: 'Kid Goat', fr: 'Chevreau', ca: 'Cabrit' }, descripcion: {}, nota_precio: {}, precio: 21, emoji: '🐐' });
+  assert.deepEqual(w, { es: 'Choto', en: 'Kid Goat', fr: 'Chevreau', ca: 'Cabrit', p: '21.00', ico: '🐐' });
 });
 
 test('componerCarta quita ocultos, archivados y categorías vacías, y ordena', () => {

@@ -3,27 +3,37 @@ import assert from 'node:assert/strict';
 import { vistaPrevia, resumenAplicado, procesarImportacion } from '../lib/importacion.js';
 import { S, fakeFetch } from './_ayuda.js';
 
-const plato = (id, es, extra = {}) => ({ id, categoria_id: 'carnes', nombre: { es }, precio: 10, precio_fijo: false, lastapp_id: null, lastapp_nombre: null, archivado: false, ...extra });
+const plato = (id, es, extra = {}) => ({ id, categoria_id: 'carnes', nombre: { es }, precio: 10, lastapp_id: null, lastapp_nombre: null, archivado: false, ...extra });
 const fila = (id, nombre, precio) => ({ id, nombre, precio, descripcion: '', categoria: null, imagen: '' });
 const base = { formato: 'productos', catalogo: null, ultima: null };
 
-test('vistaPrevia: nuevo, precio, precio fijo, no_web y sin cambios', () => {
+test('vistaPrevia: nuevo, precio, no_web y sin cambios', () => {
   const platos = [
     plato('p1', 'Choto', { lastapp_id: 'a', lastapp_nombre: 'Choto', precio: 21 }),
-    plato('p2', 'Empanada argentina', { lastapp_id: 'b', lastapp_nombre: 'Empanada de ternera', precio: 3.5, precio_fijo: true }),
     plato('p3', 'Migas', { lastapp_id: 'c', lastapp_nombre: 'Migas', precio: 16.5 }),
   ];
-  const productos = [{ id: 'a' }, { id: 'b' }, { id: 'c' }, { id: 'z', no_web: true }];
-  const filas = [fila('a', 'Choto', 18.9), fila('b', 'Empanada de ternera', 12.5), fila('c', 'Migas', 16.5), fila('z', 'Coca Cola', 2.5), fila('n', 'Pizza Pepperoni', 13.5)];
+  const productos = [{ id: 'a' }, { id: 'c' }, { id: 'z', no_web: true }];
+  const filas = [fila('a', 'Choto', 18.9), fila('c', 'Migas', 16.5), fila('z', 'Coca Cola', 2.5), fila('n', 'Pizza Pepperoni', 13.5)];
   const v = vistaPrevia({ ...base, filas, platos, productos });
   assert.deepEqual(v.grupos.precio, [{ plato_id: 'p1', nombre: 'Choto', antes: '21.00', despues: '18.90' }]);
-  assert.deepEqual(v.grupos.precio_fijo, [{ plato_id: 'p2', nombre: 'Empanada argentina', web: '3.50', lastapp: '12.50' }]);
   assert.deepEqual(v.grupos.sin_cambios, [{ plato_id: 'p3', nombre: 'Migas' }]);
   assert.deepEqual(v.grupos.no_web, [{ lastapp_id: 'z', nombre: 'Coca Cola' }]);
   assert.equal(v.grupos.nuevos[0].lastapp_id, 'n');
   assert.equal(v.grupos.nuevos[0].precio, '13.50');
-  assert.equal(v.totales.filas, 5);
+  assert.equal(v.totales.filas, 4);
   assert.equal(v.totales.nuevos, 1);
+  assert.equal(v.grupos.precio_fijo, undefined);
+});
+
+test('vistaPrevia: un plato a mano no lo toca ninguna importación', () => {
+  // La empanada va a 3,50 € por unidad en la web y a 12,50 € en LastApp: es un plato a mano,
+  // sin vínculo, así que el producto de LastApp ni se compara con él.
+  const platos = [plato('p2', 'Empanada argentina', { precio: 3.5 })];
+  const productos = [{ id: 'b', no_web: true }];
+  const v = vistaPrevia({ ...base, filas: [fila('b', 'Empanada de ternera', 12.5)], platos, productos });
+  assert.deepEqual(v.grupos.precio, []);
+  assert.deepEqual(v.grupos.desaparecidos, []);
+  assert.deepEqual(v.grupos.no_web, [{ lastapp_id: 'b', nombre: 'Empanada de ternera' }]);
 });
 
 test('vistaPrevia: nombre cambiado en LastApp y desaparecidos', () => {

@@ -1,35 +1,69 @@
 {
   "id": "imp-demo",
-  "archivo": "Products-24-07-2026.xls",
+  "archivo": "Products-23-10-2026.csv",
   "formato": "productos",
   "catalogo": null,
   "aviso_fuente": null,
   "aviso_incompleto": false,
   "ocultar_desaparecidos_por_defecto": true,
   "totales": {
-    "filas": 175,
+    "filas": 197,
     "nuevos": 12,
-    "precio": 6,
-    "precio_fijo": 3,
+    "precio": 4,
     "nombre": 1,
     "desaparecidos": 1,
-    "sin_cambios": 8,
-    "no_web": 145
+    "sin_cambios": 39,
+    "no_web": 141
   },
   "grupos": {
     "nuevos": [
+      {
+        "lastapp_id": "36aaf2ad-76e1-4008-a1c8-37fc3c143dc1",
+        "nombre": "Bacalao a la Vizcaína",
+        "precio": "19.00",
+        "categoria_lastapp": null,
+        "sugerencia": null,
+        "parecidos": []
+      },
       {
         "lastapp_id": "f5380ae0-c0c9-4cd0-880c-71813099793b",
         "nombre": "Bombas de queso con jalapeños y salsa de setas",
         "precio": "11.50",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-47",
-            "nombre": "Pasta con salsa de queso"
-          }
-        ]
+        "parecidos": []
+      },
+      {
+        "lastapp_id": "364b43f0-5fd9-4a8f-b047-474ccf0f1297",
+        "nombre": "Calamar nacional",
+        "precio": "18.50",
+        "categoria_lastapp": null,
+        "sugerencia": null,
+        "parecidos": []
+      },
+      {
+        "lastapp_id": "91820df9-c7f6-4a2e-8b5c-87f534ef0e76",
+        "nombre": "Canelones de foie y trufa",
+        "precio": "15.50",
+        "categoria_lastapp": null,
+        "sugerencia": null,
+        "parecidos": []
+      },
+      {
+        "lastapp_id": "a87b7c21-a81d-4f62-a995-59f81176866d",
+        "nombre": "Capriccio di Daniel",
+        "precio": "18.00",
+        "categoria_lastapp": null,
+        "sugerencia": null,
+        "parecidos": []
+      },
+      {
+        "lastapp_id": "ff9e386a-4eee-4fc4-aaee-8f318beacde7",
+        "nombre": "Codillo de cerdo",
+        "precio": "18.90",
+        "categoria_lastapp": null,
+        "sugerencia": null,
+        "parecidos": []
       },
       {
         "lastapp_id": "6c0a58b2-46f3-4631-8bc7-c4c87cbdd60c",
@@ -37,12 +71,7 @@
         "precio": "14.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-5",
-            "nombre": "Surtido de croquetas"
-          }
-        ]
+        "parecidos": []
       },
       {
         "lastapp_id": "d5510554-5e39-4513-992b-f5af080a66b7",
@@ -50,25 +79,7 @@
         "precio": "16.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-5",
-            "nombre": "Surtido de croquetas"
-          }
-        ]
-      },
-      {
-        "lastapp_id": "139bca0e-0d5d-4615-8b94-985a4aab4c6f",
-        "nombre": "Enchiladas de pollo picantes",
-        "precio": "17.00",
-        "categoria_lastapp": null,
-        "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-13",
-            "nombre": "Enchiladas"
-          }
-        ]
+        "parecidos": []
       },
       {
         "lastapp_id": "ee2cfe99-df03-4235-befd-4fa4a1232b9f",
@@ -76,12 +87,7 @@
         "precio": "14.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-47",
-            "nombre": "Pasta con salsa de queso"
-          }
-        ]
+        "parecidos": []
       },
       {
         "lastapp_id": "4f6a4ab1-c2c8-44bc-b073-a9bded66afa4",
@@ -89,148 +95,49 @@
         "precio": "11.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-14",
-            "nombre": "Ensalada Trotamundos"
-          }
-        ]
+        "parecidos": []
       },
       {
-        "lastapp_id": "affc4599-29fe-4992-b1b0-d480e01cde8f",
-        "nombre": "Gyozas de pato o langostino",
-        "precio": "12.00",
-        "categoria_lastapp": null,
-        "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-34",
-            "nombre": "Gyozas de langostinos"
-          }
-        ]
-      },
-      {
-        "lastapp_id": "2dcdfcae-fba2-4416-986a-add85cf3cc7d",
-        "nombre": "Jamón alpujarreño gran reserva",
+        "lastapp_id": "a1b39ebd-1a6d-439a-9a77-b2778a68d947",
+        "nombre": "Pizza Del huerto",
         "precio": "14.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-1",
-            "nombre": "Jamón Gran Reserva"
-          }
-        ]
+        "parecidos": []
       },
       {
-        "lastapp_id": "44539a43-03ed-40ef-9d8c-930a83765c65",
-        "nombre": "Osobuco de ternera",
-        "precio": "23.00",
+        "lastapp_id": "9589abde-8987-4009-862d-7b5c04ed3580",
+        "nombre": "Pizza Del mar",
+        "precio": "16.00",
         "categoria_lastapp": null,
         "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-29",
-            "nombre": "Osobuco"
-          }
-        ]
-      },
-      {
-        "lastapp_id": "01fe1736-7101-49ec-b28f-e98654dfa73d",
-        "nombre": "Parrillada para compartir",
-        "precio": "30.00",
-        "categoria_lastapp": null,
-        "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-28",
-            "nombre": "Parrillada"
-          }
-        ]
-      },
-      {
-        "lastapp_id": "850ec610-2ca3-4eed-a179-30c37a5c6b5f",
-        "nombre": "Pizza 4 quesos",
-        "precio": "13.90",
-        "categoria_lastapp": null,
-        "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-41",
-            "nombre": "4 Quesos"
-          }
-        ]
-      },
-      {
-        "lastapp_id": "21fe0244-8480-4ae2-a8c7-418958c57a4c",
-        "nombre": "Pizza Carbonara",
-        "precio": "13.50",
-        "categoria_lastapp": null,
-        "sugerencia": null,
-        "parecidos": [
-          {
-            "plato_id": "pl-42",
-            "nombre": "Carbonara"
-          }
-        ]
+        "parecidos": []
       }
     ],
     "precio": [
       {
-        "plato_id": "pl-3",
-        "nombre": "Chorizo alpujarreño",
-        "antes": "12.00",
-        "despues": "11.00"
+        "plato_id": "pl-36",
+        "nombre": "Hamburguesa de cabra",
+        "antes": "15.00",
+        "despues": "16.00"
       },
       {
-        "plato_id": "pl-10",
-        "nombre": "Costilla en orza",
-        "antes": "18.00",
+        "plato_id": "pl-7",
+        "nombre": "Migas Alpujarreñas",
+        "antes": "15.50",
         "despues": "16.50"
       },
       {
-        "plato_id": "pl-18",
-        "nombre": "Gyozas de verdura",
-        "antes": "10.00",
-        "despues": "9.50"
+        "plato_id": "pl-33",
+        "nombre": "Pulpo a la gallega",
+        "antes": "18.00",
+        "despues": "20.00"
       },
       {
-        "plato_id": "pl-35",
-        "nombre": "Hamburguesa completa",
-        "antes": "15.00",
-        "despues": "12.00"
-      },
-      {
-        "plato_id": "pl-36",
-        "nombre": "Hamburguesa de cabra",
-        "antes": "16.00",
-        "despues": "13.00"
-      },
-      {
-        "plato_id": "pl-21",
-        "nombre": "Hamburguesa vegana",
-        "antes": "15.00",
-        "despues": "14.00"
-      }
-    ],
-    "precio_fijo": [
-      {
-        "plato_id": "pl-20",
-        "nombre": "Empanada fugazzeta",
-        "web": "3.50",
-        "lastapp": "10.00"
-      },
-      {
-        "plato_id": "pl-12",
-        "nombre": "Empanada argentina",
-        "web": "3.50",
-        "lastapp": "12.50"
-      },
-      {
-        "plato_id": "pl-30",
-        "nombre": "Entrecote",
-        "web": "",
-        "lastapp": "23.00"
+        "plato_id": "pl-40",
+        "nombre": "Margarita",
+        "antes": "11.00",
+        "despues": "11.50"
       }
     ],
     "nombre": [
@@ -250,16 +157,80 @@
     ],
     "sin_cambios": [
       {
+        "plato_id": "pl-3",
+        "nombre": "Chorizo alpujarreño"
+      },
+      {
+        "plato_id": "pl-8",
+        "nombre": "Choto"
+      },
+      {
+        "plato_id": "pl-9",
+        "nombre": "Chuletas Segureñas"
+      },
+      {
+        "plato_id": "pl-10",
+        "nombre": "Costilla en orza"
+      },
+      {
+        "plato_id": "pl-16",
+        "nombre": "Cous-cous"
+      },
+      {
+        "plato_id": "pl-13",
+        "nombre": "Enchiladas"
+      },
+      {
+        "plato_id": "pl-34",
+        "nombre": "Gyozas de langostinos"
+      },
+      {
+        "plato_id": "pl-18",
+        "nombre": "Gyozas de verdura"
+      },
+      {
+        "plato_id": "pl-35",
+        "nombre": "Hamburguesa completa"
+      },
+      {
+        "plato_id": "pl-21",
+        "nombre": "Hamburguesa vegana"
+      },
+      {
+        "plato_id": "pl-1",
+        "nombre": "Jamón Gran Reserva"
+      },
+      {
         "plato_id": "pl-31",
         "nombre": "Langostinos al pilpil"
       },
       {
-        "plato_id": "pl-7",
-        "nombre": "Migas Alpujarreñas"
-      },
-      {
         "plato_id": "pl-19",
         "nombre": "Mix de Gyozas"
+      },
+      {
+        "plato_id": "pl-29",
+        "nombre": "Osobuco"
+      },
+      {
+        "plato_id": "pl-28",
+        "nombre": "Parrillada"
+      },
+      {
+        "plato_id": "pl-41",
+        "nombre": "4 Quesos"
+      },
+      {
+        "plato_id": "pl-42",
+        "nombre": "Carbonara"
+      },
+      {
+        "plato_id": "pl-44",
+        "nombre": "De la Sierra"
+      },
+      {
+        "plato_id": "pl-43",
+        "nombre": "Fugazzeta"
       },
       {
         "plato_id": "pl-49",
@@ -270,16 +241,76 @@
         "nombre": "Plato Alpujarreño"
       },
       {
+        "plato_id": "pl-2",
+        "nombre": "Surtido queso alpujarreño"
+      },
+      {
         "plato_id": "pl-50",
         "nombre": "Shakshuka"
       },
       {
-        "plato_id": "pl-51",
-        "nombre": "Sopa de verduras"
+        "plato_id": "pl-47",
+        "nombre": "Pasta con salsa de queso"
+      },
+      {
+        "plato_id": "pl-48",
+        "nombre": "Pasta al Pesto"
+      },
+      {
+        "plato_id": "pl-45",
+        "nombre": "Macarrones a la Boloñesa"
       },
       {
         "plato_id": "pl-46",
         "nombre": "Tallarines Carbonara"
+      },
+      {
+        "plato_id": "pl-32",
+        "nombre": "Bacalao Trotamundos"
+      },
+      {
+        "plato_id": "pl-17",
+        "nombre": "Zaalouk"
+      },
+      {
+        "plato_id": "pl-14",
+        "nombre": "Ensalada Trotamundos"
+      },
+      {
+        "plato_id": "pl-26",
+        "nombre": "Pollo al curry"
+      },
+      {
+        "plato_id": "pl-22",
+        "nombre": "Carpaccio de wagyu"
+      },
+      {
+        "plato_id": "pl-25",
+        "nombre": "Wok de pollo"
+      },
+      {
+        "plato_id": "pl-24",
+        "nombre": "Ternera con ciruelas"
+      },
+      {
+        "plato_id": "pl-23",
+        "nombre": "Alitas Buffalo"
+      },
+      {
+        "plato_id": "pl-15",
+        "nombre": "Tomate con burrata"
+      },
+      {
+        "plato_id": "pl-37",
+        "nombre": "Hamburguesa Trotamundos"
+      },
+      {
+        "plato_id": "pl-5",
+        "nombre": "Surtido de croquetas"
+      },
+      {
+        "plato_id": "pl-51",
+        "nombre": "torrija"
       }
     ],
     "no_web": [
@@ -289,11 +320,11 @@
       },
       {
         "lastapp_id": "1f9655dd-153e-4d08-a1a4-9f5b6ad6f357",
-        "nombre": "Agua 1,5 L"
+        "nombre": "Agua grande"
       },
       {
         "lastapp_id": "903f4193-cb7b-443b-95aa-05f9db2b01af",
-        "nombre": "Agua 50cl"
+        "nombre": "Agua pequeña"
       },
       {
         "lastapp_id": "abde9012-b150-4323-9cd6-9cc96c1fec46",
@@ -368,6 +399,10 @@
         "nombre": "Café solo con HIELO"
       },
       {
+        "lastapp_id": "7003c4f7-60ae-4855-b0e8-9eead86bd7d4",
+        "nombre": "Capuccino"
+      },
+      {
         "lastapp_id": "7d5f27ee-bb74-4ff9-8429-38866eec350d",
         "nombre": "Carajillo"
       },
@@ -376,8 +411,16 @@
         "nombre": "Carajillo de Bailey"
       },
       {
+        "lastapp_id": "daef581a-9427-439d-9dbd-aa9f66f786a3",
+        "nombre": "carlos tercero"
+      },
+      {
         "lastapp_id": "da62c5ae-5c46-445a-a4ce-76a75c359b4d",
         "nombre": "Chco Clack"
+      },
+      {
+        "lastapp_id": "ca6ac6e5-e48d-4933-a7ac-ced49b2306ec",
+        "nombre": "chocolate"
       },
       {
         "lastapp_id": "2919d15b-86c3-448f-9f4c-dce7082bff5c",
@@ -436,6 +479,10 @@
         "nombre": "Creppe"
       },
       {
+        "lastapp_id": "1e2b1a17-ccab-49b7-af82-30a64dad6177",
+        "nombre": "Dewars White Label"
+      },
+      {
         "lastapp_id": "06f9720e-a969-4fb7-b785-b00ff8561419",
         "nombre": "DYC"
       },
@@ -444,8 +491,24 @@
         "nombre": "DYC 8 AÑOS"
       },
       {
+        "lastapp_id": "7bbb51b6-66d3-483d-9cfd-b30c3cc33e20",
+        "nombre": "Empanada de Fugazzeta"
+      },
+      {
+        "lastapp_id": "4c91472f-62b1-4f73-9933-72fe71cb2b83",
+        "nombre": "Empanada de ternera"
+      },
+      {
+        "lastapp_id": "c71c91dc-3836-4605-b211-2b360dee3c2d",
+        "nombre": "Espresso Doble"
+      },
+      {
         "lastapp_id": "7e1c2e3b-0019-48cc-bf9e-3ee34ef3abf2",
         "nombre": "EXTRA"
+      },
+      {
+        "lastapp_id": "c45d0d21-c014-402a-94d3-0f3702b003e3",
+        "nombre": "Extreme"
       },
       {
         "lastapp_id": "3bdbb913-e4a4-4cd1-aee8-809569f9936f",
@@ -454,6 +517,14 @@
       {
         "lastapp_id": "d96215e4-fa21-4e4d-bfd7-e8fc3d6912d5",
         "nombre": "Fanta Naranja"
+      },
+      {
+        "lastapp_id": "fe1d8e2c-f010-4ce8-ac41-760059e5f28c",
+        "nombre": "Fruta"
+      },
+      {
+        "lastapp_id": "d181940b-6282-4946-b35f-ce906fea1a89",
+        "nombre": "Infucion Montecelio"
       },
       {
         "lastapp_id": "faf55ab8-b135-4499-b8f4-adc87a10ca67",
@@ -468,8 +539,20 @@
         "nombre": "Jack Daniels"
       },
       {
+        "lastapp_id": "eab8fb8a-7bd9-46b6-ba7f-7e85997f1f6a",
+        "nombre": "Jameson"
+      },
+      {
+        "lastapp_id": "a4ffe9ff-ec7e-40cc-8e20-2f175bb40c2a",
+        "nombre": "JW Red Label"
+      },
+      {
         "lastapp_id": "afa98cf2-3217-45bd-948d-2eaba986cb0e",
         "nombre": "Kalimotxo"
+      },
+      {
+        "lastapp_id": "74652d73-f63a-4396-a958-a778f0750003",
+        "nombre": "Kitkat"
       },
       {
         "lastapp_id": "6569da4f-7543-4656-8615-ac62b9af6af2",
@@ -484,16 +567,48 @@
         "nombre": "lata llevar"
       },
       {
+        "lastapp_id": "ea42f6ed-d185-4bfa-a0fe-c71bf6133d68",
+        "nombre": "Maxi Bon"
+      },
+      {
+        "lastapp_id": "98ab31c7-0fa3-4369-a00e-c94c9b42ac13",
+        "nombre": "Menú del día"
+      },
+      {
+        "lastapp_id": "64825884-f553-408f-81ee-c39749c54ba1",
+        "nombre": "Menú infantil"
+      },
+      {
         "lastapp_id": "fa458083-cdde-4d88-b1f2-e4c570c0fd66",
         "nombre": "Milka"
+      },
+      {
+        "lastapp_id": "9f4aaf23-b188-4fb7-8d9c-01fdf094e404",
+        "nombre": "Mojito"
+      },
+      {
+        "lastapp_id": "7e280a00-b1af-47b5-98cd-2a4ba9ec4aed",
+        "nombre": "Monster"
+      },
+      {
+        "lastapp_id": "1da938ef-f886-4260-9bd7-ec3853822d58",
+        "nombre": "Monter llevar"
       },
       {
         "lastapp_id": "a3f0fea8-b6d6-4ff6-802a-11e3fba5cdf7",
         "nombre": "Mosto"
       },
       {
+        "lastapp_id": "80603373-8ce4-4c1e-8d88-e860ec005e5a",
+        "nombre": "Nata"
+      },
+      {
         "lastapp_id": "80202a61-aa9a-43ae-a29a-314200598e54",
         "nombre": "Nestea"
+      },
+      {
+        "lastapp_id": "d1c77c76-e820-4afa-a4ee-c094519127a1",
+        "nombre": "Nuii"
       },
       {
         "lastapp_id": "2e58d69a-7a9f-4fdc-afb9-9ccc8ca48138",
@@ -502,6 +617,10 @@
       {
         "lastapp_id": "fa5d2c0f-0e2d-4132-b609-639faf14d876",
         "nombre": "orujo hiervas"
+      },
+      {
+        "lastapp_id": "80a7ae41-255d-4fcb-8299-35baa8ae9ecd",
+        "nombre": "Pacharán"
       },
       {
         "lastapp_id": "088e4d0e-cc5e-440f-9484-eddcab0cec09",
@@ -528,8 +647,16 @@
         "nombre": "Pinta Clara"
       },
       {
+        "lastapp_id": "38dfe96b-144b-4e11-89d7-8f2a7969ab81",
+        "nombre": "Pirulo"
+      },
+      {
         "lastapp_id": "665315ad-b088-4744-a4e1-d888517f8d5b",
         "nombre": "puerto de indias"
+      },
+      {
+        "lastapp_id": "3115dac0-428e-4d1c-95e1-d267552359ab",
+        "nombre": "Sangria"
       },
       {
         "lastapp_id": "5ac3f533-2888-4577-a4c9-5028c98ecbc3",
@@ -540,8 +667,20 @@
         "nombre": "sidra"
       },
       {
+        "lastapp_id": "be0e0224-1815-4f4f-b1f7-97bfe61a7604",
+        "nombre": "sol y sombra"
+      },
+      {
         "lastapp_id": "a6c99f01-4f16-4562-b746-35f9bf6d40e1",
         "nombre": "Sprite"
+      },
+      {
+        "lastapp_id": "f9df509b-9cc5-4031-874c-1fc03df17d04",
+        "nombre": "Tarta de chocolate"
+      },
+      {
+        "lastapp_id": "b492a359-7821-4a48-8955-fe412ec18160",
+        "nombre": "Entrecot de ternera con guarnición"
       },
       {
         "lastapp_id": "4270dbb7-a099-491d-9524-6321b08b5bf4",
@@ -554,6 +693,10 @@
       {
         "lastapp_id": "82d022f8-386a-41dd-9761-60ef3b4511c6",
         "nombre": "Tinto de Verano"
+      },
+      {
+        "lastapp_id": "77f85236-53e4-4902-af7a-aad0a2d50db1",
+        "nombre": "Toblerone"
       },
       {
         "lastapp_id": "a0b35cf9-e392-44bc-892c-a04e8e2aa35a",
@@ -576,12 +719,24 @@
         "nombre": "vino del terreno"
       },
       {
+        "lastapp_id": "cc70abf6-2c36-4b1c-8126-918b3a24c51a",
+        "nombre": "Yogurt"
+      },
+      {
         "lastapp_id": "e6cb1abb-f325-40b7-be56-230a012d4e49",
         "nombre": "Zumo"
       },
       {
+        "lastapp_id": "f2abc683-7efa-4646-b34e-4bebbfbefefe",
+        "nombre": "Tortilla"
+      },
+      {
         "lastapp_id": "de909817-91ed-4aa8-8654-380bc6d821c4",
         "nombre": "caña Shandy 33"
+      },
+      {
+        "lastapp_id": "a5575d88-e355-4be1-86b3-4074c8f243f2",
+        "nombre": "Sugerencia del día"
       },
       {
         "lastapp_id": "85a2bdec-2eb2-4e49-9a4c-beb1ec3bff11",
@@ -628,16 +783,28 @@
         "nombre": "tinto de verano pinta"
       },
       {
-        "lastapp_id": "fc761c6a-7121-4a13-a78a-ae09f27b167a",
-        "nombre": "Pizza De la sierra"
+        "lastapp_id": "9fe0497d-ef52-415e-bb6a-29d0980f69ef",
+        "nombre": "pan bao"
       },
       {
-        "lastapp_id": "0c5db5e9-0bf1-4b01-a5d3-f24a148a95e7",
-        "nombre": "Pizza Fugazzeta"
+        "lastapp_id": "b575410e-d088-44d6-996d-c409e8335f7a",
+        "nombre": "empanada extra"
       },
       {
-        "lastapp_id": "509156d4-dcc6-4b39-8c5a-21dd6fd95a62",
-        "nombre": "Pizza Margarita"
+        "lastapp_id": "9e6aaf87-a28e-4a17-a4ff-97253ee4ccf8",
+        "nombre": "guindalera"
+      },
+      {
+        "lastapp_id": "0f511eb6-4040-4fbb-bc84-d748106a5ddd",
+        "nombre": "protos"
+      },
+      {
+        "lastapp_id": "9206a65b-f619-450d-b571-cbc10a0b3d8c",
+        "nombre": "finca resalso"
+      },
+      {
+        "lastapp_id": "be48bddf-9fb4-4450-accd-a7a75a30654a",
+        "nombre": "Pizza Prosciutto"
       },
       {
         "lastapp_id": "fc189cfb-ef20-4bea-bc79-d0d0f0682639",
@@ -648,168 +815,8 @@
         "nombre": "Poke de pollo"
       },
       {
-        "lastapp_id": "753d6f23-defd-4357-9b37-3f448f93908b",
-        "nombre": "Queso alpujarreño"
-      },
-      {
-        "lastapp_id": "413f0a06-e563-4190-98b4-f18e165fcf92",
-        "nombre": "Tallarines 4 quesos"
-      },
-      {
-        "lastapp_id": "a0ed1050-b16d-425c-af36-07d8fe23778a",
-        "nombre": "Tallarines al pesto"
-      },
-      {
-        "lastapp_id": "f6f93c14-a3fe-4b42-a644-667790faf9db",
-        "nombre": "Tallarines boloñesa"
-      },
-      {
-        "lastapp_id": "1c7b3c05-1a57-448e-bf03-d5ee6d5879e5",
-        "nombre": "Tarta de queso"
-      },
-      {
-        "lastapp_id": "36aaf2ad-76e1-4008-a1c8-37fc3c143dc1",
-        "nombre": "Bacalao a la Vizcaína"
-      },
-      {
-        "lastapp_id": "364b43f0-5fd9-4a8f-b047-474ccf0f1297",
-        "nombre": "Calamar nacional"
-      },
-      {
-        "lastapp_id": "91820df9-c7f6-4a2e-8b5c-87f534ef0e76",
-        "nombre": "Canelones de foie y trufa"
-      },
-      {
-        "lastapp_id": "a87b7c21-a81d-4f62-a995-59f81176866d",
-        "nombre": "Capriccio di Daniel"
-      },
-      {
-        "lastapp_id": "7003c4f7-60ae-4855-b0e8-9eead86bd7d4",
-        "nombre": "Capuccino"
-      },
-      {
-        "lastapp_id": "daef581a-9427-439d-9dbd-aa9f66f786a3",
-        "nombre": "carlos tercero"
-      },
-      {
-        "lastapp_id": "ca6ac6e5-e48d-4933-a7ac-ced49b2306ec",
-        "nombre": "chocolate"
-      },
-      {
-        "lastapp_id": "ec3df2c6-0d14-43f1-83a1-740f6829f222",
-        "nombre": "Choto en salsa de almendras"
-      },
-      {
-        "lastapp_id": "19e3e0ef-56b5-4c3d-bb68-f5d3d23a1a8b",
-        "nombre": "Chuletas de cordero con guarnición"
-      },
-      {
-        "lastapp_id": "ff9e386a-4eee-4fc4-aaee-8f318beacde7",
-        "nombre": "Codillo de cerdo"
-      },
-      {
-        "lastapp_id": "36b48ca1-3961-4753-9e75-32f279fade7f",
-        "nombre": "Cuscús vegetal"
-      },
-      {
-        "lastapp_id": "1e2b1a17-ccab-49b7-af82-30a64dad6177",
-        "nombre": "Dewars White Label"
-      },
-      {
-        "lastapp_id": "c71c91dc-3836-4605-b211-2b360dee3c2d",
-        "nombre": "Espresso Doble"
-      },
-      {
-        "lastapp_id": "c45d0d21-c014-402a-94d3-0f3702b003e3",
-        "nombre": "Extreme"
-      },
-      {
-        "lastapp_id": "fe1d8e2c-f010-4ce8-ac41-760059e5f28c",
-        "nombre": "Fruta"
-      },
-      {
-        "lastapp_id": "d181940b-6282-4946-b35f-ce906fea1a89",
-        "nombre": "Infucion Montecelio"
-      },
-      {
-        "lastapp_id": "eab8fb8a-7bd9-46b6-ba7f-7e85997f1f6a",
-        "nombre": "Jameson"
-      },
-      {
-        "lastapp_id": "a4ffe9ff-ec7e-40cc-8e20-2f175bb40c2a",
-        "nombre": "JW Red Label"
-      },
-      {
-        "lastapp_id": "74652d73-f63a-4396-a958-a778f0750003",
-        "nombre": "Kitkat"
-      },
-      {
-        "lastapp_id": "ea42f6ed-d185-4bfa-a0fe-c71bf6133d68",
-        "nombre": "Maxi Bon"
-      },
-      {
-        "lastapp_id": "98ab31c7-0fa3-4369-a00e-c94c9b42ac13",
-        "nombre": "Menú del día"
-      },
-      {
-        "lastapp_id": "64825884-f553-408f-81ee-c39749c54ba1",
-        "nombre": "Menú infantil"
-      },
-      {
-        "lastapp_id": "9f4aaf23-b188-4fb7-8d9c-01fdf094e404",
-        "nombre": "Mojito"
-      },
-      {
-        "lastapp_id": "7e280a00-b1af-47b5-98cd-2a4ba9ec4aed",
-        "nombre": "Monster"
-      },
-      {
-        "lastapp_id": "1da938ef-f886-4260-9bd7-ec3853822d58",
-        "nombre": "Monter llevar"
-      },
-      {
-        "lastapp_id": "80603373-8ce4-4c1e-8d88-e860ec005e5a",
-        "nombre": "Nata"
-      },
-      {
-        "lastapp_id": "d1c77c76-e820-4afa-a4ee-c094519127a1",
-        "nombre": "Nuii"
-      },
-      {
-        "lastapp_id": "80a7ae41-255d-4fcb-8299-35baa8ae9ecd",
-        "nombre": "Pacharán"
-      },
-      {
-        "lastapp_id": "0b947f4e-3a70-4f99-8c18-6e03a3ea8038",
-        "nombre": "Pata de pulpo con parmentier"
-      },
-      {
-        "lastapp_id": "38dfe96b-144b-4e11-89d7-8f2a7969ab81",
-        "nombre": "Pirulo"
-      },
-      {
-        "lastapp_id": "a1b39ebd-1a6d-439a-9a77-b2778a68d947",
-        "nombre": "Pizza Del huerto"
-      },
-      {
-        "lastapp_id": "9589abde-8987-4009-862d-7b5c04ed3580",
-        "nombre": "Pizza Del mar"
-      },
-      {
-        "lastapp_id": "be48bddf-9fb4-4450-accd-a7a75a30654a",
-        "nombre": "Pizza Prosciutto"
-      },
-      {
         "lastapp_id": "bb242c9b-9947-4eb8-8c2a-5b8044fe2f85",
         "nombre": "Salmorejo (en temporada)"
-      },
-      {
-        "lastapp_id": "3115dac0-428e-4d1c-95e1-d267552359ab",
-        "nombre": "Sangria"
-      },
-      {
-        "lastapp_id": "be0e0224-1815-4f4f-b1f7-97bfe61a7604",
-        "nombre": "sol y sombra"
       },
       {
         "lastapp_id": "cab9ad45-0dca-4889-80e1-b25d22722279",
@@ -820,6 +827,10 @@
         "nombre": "Sopa de picadillo"
       },
       {
+        "lastapp_id": "89a5352c-cabc-49de-a7f7-32057862a8e6",
+        "nombre": "Sopa de verduras"
+      },
+      {
         "lastapp_id": "fc2664ae-2a34-4ef0-a22c-ef0fd41b0906",
         "nombre": "Tallarines con verduras"
       },
@@ -828,8 +839,8 @@
         "nombre": "Tallarines marinera"
       },
       {
-        "lastapp_id": "f9df509b-9cc5-4031-874c-1fc03df17d04",
-        "nombre": "Tarta de chocolate"
+        "lastapp_id": "1c7b3c05-1a57-448e-bf03-d5ee6d5879e5",
+        "nombre": "Tarta de queso"
       },
       {
         "lastapp_id": "2347c559-4411-4642-928d-a42cb9a7c671",
@@ -844,24 +855,28 @@
         "nombre": "Tiramisú"
       },
       {
-        "lastapp_id": "77f85236-53e4-4902-af7a-aad0a2d50db1",
-        "nombre": "Toblerone"
-      },
-      {
         "lastapp_id": "256b4a38-f7d7-46ae-8f02-5c4f95f0a4e1",
         "nombre": "Tomate aliñado"
       },
       {
-        "lastapp_id": "cc70abf6-2c36-4b1c-8126-918b3a24c51a",
-        "nombre": "Yogurt"
+        "lastapp_id": "5abf6eb3-8576-4054-9dff-5852d32f54e7",
+        "nombre": "pulpo a la gallega"
       },
       {
-        "lastapp_id": "f2abc683-7efa-4646-b34e-4bebbfbefefe",
-        "nombre": "Tortilla"
+        "lastapp_id": "5b8f0845-6b41-4234-8616-d0fa94a68bf6",
+        "nombre": "pollo mozarabe"
       },
       {
-        "lastapp_id": "a5575d88-e355-4be1-86b3-4074c8f243f2",
-        "nombre": "Sugerencia del día"
+        "lastapp_id": "c26f33a2-4c40-4d63-8af4-e44cd18c1fd1",
+        "nombre": "camembert con focaccia"
+      },
+      {
+        "lastapp_id": "d843f4a9-d97a-432b-987e-6bb25bee2c0a",
+        "nombre": "coulant"
+      },
+      {
+        "lastapp_id": "88007fc8-2f2b-4b1c-8ed4-0749679911c5",
+        "nombre": "quesos fritos"
       }
     ]
   }

@@ -11,14 +11,14 @@ Los Trotamundos es el bar restaurante de Daniel en Bubión (La Alpujarra). Su we
 
 Dan le ha vendido a Daniel el backend. Tiene que conseguir estas cosas, por este orden:
 
-1. **Que la carta de la web nunca vaya por detrás de la del restaurante.** Un cambio hecho en el panel se ve en la web en menos de un minuto. Lo nuevo sale en español en los cuatro idiomas mientras la traducción siga apagada (§6).
+1. **Que la carta de la web nunca vaya por detrás de la del restaurante.** Un cambio hecho en el panel se ve en la web en menos de un minuto.
 2. **Que mantenerla le cueste poco a Daniel.** Puede dar de alta un plato a mano desde el móvil en un minuto, o subir el Excel que exporta LastApp, su TPV, y decidir solo lo que es nuevo.
 3. **Actividades editables**, en segundo plano: rutas, visitas y excursiones que él crea y retira, con consultas de clientes que no se pierden.
 4. **Ningún hosting que mantener y coste cero.** En este encargo no se llama a ninguna API de pago.
 
 El panel lo diseña Claude Design con la marca de Trotamundos. Claude Code monta la base de datos y las funciones, y después conecta la maqueta de Design a los datos sin reescribirla, igual que se hizo con el panel de Ascua.
 
-**Punto de partida, comprobado el 23 de octubre de 2026.** El proyecto de Vercel es `trotamundos-web`, en el equipo de Dan. Sirve `www.lostrotamundosalpujarra.com`; el dominio sin www redirige ahí con un 308. El DNS está en IONOS. El proyecto no tiene ninguna variable de entorno, así que las funciones de reservas con LastApp (`api/reservations.js` y compañía, usadas por `reservar.html`) no están activas y la página de reservas va en modo demo. Esas funciones están escritas en CommonJS y el paquete no declara módulos ES.
+**Punto de partida, comprobado el 23 de octubre de 2026.** El proyecto de Vercel es `trotamundos-web`, en el equipo de Dan. Sirve `www.lostrotamundosalpujarra.com`; el dominio sin www redirige ahí con un 308. El DNS está en IONOS. El proyecto no tiene ninguna variable de entorno. Sus funciones de reserva de mesa (`api/reservations.js` y compañía, usadas por `reservar.html`) estaban en CommonJS; se pasan a módulos ES para que el repositorio sea coherente, y nada más: **de las reservas no se toca nada**, porque Daniel ya las tiene en LastApp (§15).
 
 ## 2. Decisiones cerradas
 
@@ -28,17 +28,17 @@ El panel lo diseña Claude Design con la marca de Trotamundos. Claude Code monta
 | Alojamiento | Vercel, que ya sirve la web. Ningún servidor propio | Dan |
 | Base de datos | Supabase en la nube, plan gratuito, región UE (París) | Dan |
 | Que Supabase no se duerma | Latido diario desde Vercel y otro cada dos días desde GitHub Actions como respaldo. En Ascua solo llegó a montarse el de Vercel | Dan |
-| Idiomas | **Solo español en esta fase.** No se traduce nada ni se llama a la API de Claude: cero gasto. El código de la traducción automática (Claude Haiku) queda preparado y probado con respuestas simuladas, apagado y sin clave. Encenderlo es una decisión futura de Dan, fuera de este encargo (§6) | Dan |
+| Idiomas | **Solo español.** Se construye el backend en español y nada más: ni se traduce, ni se llama a ninguna API, ni se deja código de traducción preparado. Las otras versiones son una fase aparte, después (§6) | Dan |
 | Entrada al panel | Sin contraseña: enlace al correo enviado con Resend desde el dominio, verificado con registros en el DNS de IONOS | Dan |
 | Consultas de actividades | Se guardan en el panel y, en el mismo toque, se abre WhatsApp con el mensaje ya escrito para Daniel | Dan |
 | Diseño del panel | Claude Design, con la marca de la web. Claude Code no maqueta | Dan |
 | Campos del plato | Los mismos que ya tiene la web (§4) | Dan |
-| Hospedajes | Fuera. No está vendido | Dan |
+| Hospedajes y reservas de mesa | Fuera del backend. Lo que la web tiene hoy se queda exactamente como está: no se quita ni se cambia nada | Dan |
 | Web pública | No se rediseña. Solo cambia de dónde lee la carta y las actividades, y el formulario de actividades pasa a enviar de verdad | Mía |
 | Categorías | Daniel puede crearlas, renombrarlas, ordenarlas y ocultarlas (la carta nueva ya trae "Postres", que la web no tiene) | Mía |
 | Nada se borra | Un plato o una actividad se oculta o se archiva, y se puede recuperar. La única excepción es "Borrar los datos de esta persona" en una consulta | Mía, como en Ascua |
-| Quién manda en cada dato | LastApp manda en el precio de los platos vinculados, salvo los que tienen el precio fijado en la web. La web manda en el nombre, la descripción, el emoji y las traducciones | Mía |
-| Vínculo con LastApp | Un plato de la web, como mucho un producto de LastApp. Cada plato tiene un interruptor "Precio fijo en la web" para los casos en que el precio de la web es otro a propósito (§5) | Mía |
+| Quién manda en el precio | **Dos métodos.** Un plato que viene de LastApp lleva el precio de LastApp, y el panel no lo edita. Un plato que Daniel sube a mano lleva el precio que él pone, y ninguna importación lo toca. El nombre, la descripción y el emoji los manda siempre la web (§5) | Dan |
+| Vínculo con LastApp | Un plato de la web, como mucho un producto de LastApp. "Quitar el vínculo con LastApp" pasa un plato del primer método al segundo, quedándose con el precio que tenía (§5) | Mía |
 | Sugerencias en la importación | Sin IA, para no gastar API: solo "Es el mismo que…" cuando el nombre coincide exacto, y lo marcado como "No va en la web" se recuerda. La primera vinculación la prepara Claude Code (§5), así que Daniel no se enfrenta a 175 filas | Mía, corregida por Dan |
 | Producción | La web en vivo no se toca hasta el OK de Dan: todo se prueba en una rama con las vistas previas de Vercel | Mía |
 | Repositorio | Pasa a privado (§12). Necesita el OK explícito de Dan | Mía, vetable |
@@ -56,8 +56,7 @@ El panel lo diseña Claude Design con la marca de Trotamundos. Claude Code monta
                  ▲
                  │  /api/panel/* (con sesión)
  Daniel ──────► /panel  (maqueta de Claude Design + puente de conexión)
-                         ├─ Resend: enlace de entrada y aviso de consultas
-                         └─ Claude (Haiku): traducción preparada y apagada; no se llama
+                         └─ Resend: enlace de entrada y aviso de consultas
 
  Latidos: Vercel (cada día) y GitHub Actions (cada 2 días) ──► Supabase
 ```
@@ -67,7 +66,7 @@ Cada pieza tiene un solo trabajo:
 - **La web pública** sigue siendo HTML estático. Al cargar pide la carta a `/api/carta` y las actividades a `/api/actividades`. Si la API no responde en unos segundos, pinta la carta y las actividades de hoy, que se quedan dentro del `index.html` como respaldo. Nunca se queda vacía.
 - **Las funciones** (`api/`) son lo único que habla con Supabase, con la llave de servicio guardada en las variables de Vercel. Desde el navegador la base de datos está cerrada: todas las tablas llevan RLS activado y ninguna política, igual que en Ascua.
 - **El panel** es la maqueta de Claude Design servida en `/panel`. Un puente (`tools/panel-conexion.js`, que un script añade tras cada exportación) cambia sus lecturas de datos de muestra por la API y manda cada cambio a `/api/panel/accion`.
-- **Casi sin dependencias en el servidor**: Supabase y Resend se llaman por HTTP con `fetch`, como en Ascua. Para Claude se usa su SDK oficial (`@anthropic-ai/sdk`, con `zod` para que la respuesta llegue en un JSON validado), porque es la vía que Anthropic recomienda; son las dos únicas dependencias. El Excel se lee en el navegador de Daniel (§5), así que las funciones no cargan librerías de hojas de cálculo.
+- **Sin dependencias en el servidor**: Supabase y Resend se llaman por HTTP con `fetch`, como en Ascua, así que el proyecto no instala ni un paquete. El Excel se lee en el navegador de Daniel (§5), así que las funciones no cargan librerías de hojas de cálculo.
 - **Caché**: las respuestas públicas se guardan 60 segundos en el borde de Vercel. Un cambio en el panel tarda como mucho un minuto en verse.
 
 ## 4. La carta
@@ -80,18 +79,20 @@ Cada pieza tiene un solo trabajo:
 | Nombre | `es`, `en`, `fr`, `ca` | Daniel escribe solo el español (§6) |
 | Descripción | `desc_es` … `desc_ca` | Opcional |
 | Precio | `p` (`'15.00'`; vacío en Entrecote) | Puede quedar vacío. Se muestra como hoy |
-| Nota de precio | `pnote_es` … `pnote_ca` (`'(confirmar)'`) | Opcional, traducida |
+| Nota de precio | `pnote_es` … `pnote_ca` (`'(confirmar)'`) | Opcional |
 | Emoji | `ico` | Uno |
 
-Campos del panel que no se ven en la web: visible (sí o no: "hoy no hay"), archivado ("quitar de la carta", recuperable), orden dentro de su categoría, vínculo con LastApp (Id y nombre del producto allí), precio fijo en la web (sí o no) y, por cada traducción, si es automática o escrita a mano.
+Daniel escribe siempre el español. Las claves `en`, `fr` y `ca` existen porque la web pública sigue en cuatro idiomas y los 48 platos de hoy ya las traen escritas a mano: **se cargan tal cual y no se borran**. Un plato nuevo o importado solo tiene español, y la web, al no encontrar su idioma, enseña el español, que es lo que ya hace hoy.
+
+Campos del panel que no se ven en la web: visible (sí o no: "hoy no hay"), archivado ("quitar de la carta", recuperable), orden dentro de su categoría y vínculo con LastApp (Id y nombre del producto allí), que es lo que decide quién manda en el precio.
 
 ### Categorías
 
-Cada una tiene un identificador fijo (el que usa la pestaña), su nombre en los cuatro idiomas, su orden y si se ve. Una categoría sin platos visibles no sale en la web. La base de datos arranca con las 8 de hoy y sus nombres.
+Cada una tiene un identificador fijo (el que usa la pestaña), su nombre (en español, más las versiones que la web ya tiene), su orden y si se ve. Una categoría sin platos visibles no sale en la web. La base de datos arranca con las 8 de hoy y sus nombres.
 
 ### Cómo la lee la web
 
-`GET /api/carta` devuelve las categorías visibles, en orden, y dentro de cada una sus platos visibles con la **misma forma** que el objeto `MD` actual (`es`, `en`, `desc_es`, `p`, `pnote_es`, `ico`…). Así, el código que dibuja la carta casi no cambia: las pestañas pasan a generarse desde los datos en vez de estar escritas en el HTML, y el selector de idioma las sigue traduciendo con los mismos atributos `data-es`/`data-en`. Cuando a un plato le falta una traducción, la web ya muestra el español en su lugar.
+`GET /api/carta` devuelve las categorías visibles, en orden, y dentro de cada una sus platos visibles con la **misma forma** que el objeto `MD` actual (`es`, `en`, `desc_es`, `p`, `pnote_es`, `ico`…). Así, el código que dibuja la carta casi no cambia: las pestañas pasan a generarse desde los datos en vez de estar escritas en el HTML, y el selector de idioma las sigue traduciendo con los mismos atributos `data-es`/`data-en`. Cuando a un plato le falta un idioma, la web ya muestra el español en su lugar.
 
 ## 5. Importación desde LastApp
 
@@ -115,7 +116,7 @@ El export de productos da un precio base por producto. El de catálogo da el pre
 2. **Vista previa.** El servidor compara cada fila con lo que ya conoce, usando el Id de LastApp como llave, y la clasifica en grupos:
    - **Nuevos en LastApp**: Daniel elige para cada uno una categoría de la web (y emoji), "No va en la web" (bebidas, extras) o "Es el mismo que…" un plato todavía sin vincular. Si el nombre coincide exacto con uno de esos platos, viene preseleccionado; si solo se parece, se le enseña como posible, sin marcar. Hay un botón para marcar varios de golpe como "No va en la web".
    - **Cambian de precio**: precio de antes y precio nuevo. Se aplican.
-   - **Cambian de nombre en LastApp**: se informa y, con una casilla desmarcada por defecto, se puede cambiar también el nombre en la web (queda pendiente de traducir, §6).
+   - **Cambian de nombre en LastApp**: se informa y, con una casilla desmarcada por defecto, se puede cambiar también el nombre en la web.
    - **Ya no están en LastApp**: casilla "Ocultarlos de la web", marcada por defecto. Si falta más de la mitad de lo vinculado, la casilla viene desmarcada y un aviso pregunta si el archivo es el export completo.
    - **Sin cambios** y **No van en la web** (lo que se marcó otras veces), plegados. Lo segundo se puede deshacer.
 3. **Aplicar.** Un botón aplica todo junto. Una función de la base de datos escribe todos los cambios en una sola operación: si algo falla, no se aplica nada a medias. Los platos nuevos entran en español. El panel enseña el resumen ("3 platos nuevos, 5 precios actualizados, 2 ocultados") y queda apuntado en el historial.
@@ -125,9 +126,11 @@ El export de productos da un precio base por producto. El de catálogo da el pre
 - La decisión "No va en la web" se recuerda por Id: en las importaciones siguientes esa fila ya no pregunta.
 - Los platos creados a mano y sin vincular nunca se ocultan ni se tocan por una importación.
 - Un plato se vincula como mucho a un producto de LastApp. "Es el mismo que…" solo ofrece platos todavía sin vincular.
-- **Precio fijo en la web.** Hay platos cuyo precio en la web es otro a propósito. Las empanadas van a 3,50 € por unidad en la web y en la carta impresa, pero en LastApp están a 12,50 € y 10,00 €. El Entrecote va sin precio, y LastApp le pone 23 €. Con el interruptor encendido, la importación no toca ese precio y la vista previa solo informa ("en LastApp ha pasado a 13 €; en la web sigue en 3,50 €").
-- **Un plato que en LastApp son varios productos** (el Surtido de croquetas frente a "Croquetas de cocido" y "Croquetas del mar") se vincula a uno con el precio fijo, o se deja sin vincular con su precio a mano, y los demás productos se marcan "No va en la web".
-- Un plato vinculado y sin precio fijo al que Daniel le cambia el precio a mano volverá al precio de LastApp en la siguiente importación, y la vista previa lo enseña como cambio. Al cambiar un precio a mano en un plato vinculado, el panel pregunta en la misma pantalla si quiere fijarlo.
+- **Los dos métodos, en claro.** Un plato vinculado a un producto de LastApp lleva el precio de LastApp: la importación lo actualiza y el panel enseña ese precio sin poder editarlo. Un plato sin vínculo es un plato a mano: el precio lo pone Daniel en el panel y ninguna importación lo toca. No hay un tercer caso ni interruptores que recordar.
+- **Cuando el precio de la web es otro a propósito, ese plato va a mano.** Las empanadas se venden por unidad a 3,50 € en la web y en la carta impresa, mientras en LastApp están a 10,50 € la bandeja; el Entrecote va sin precio y LastApp le pone 30 €; los Pan Bao van a 3,00 € la unidad. Esos cinco se quedan sin vincular, y sus productos de LastApp se marcan "No va en la web" para que no vuelvan a preguntar.
+- **Quitar el vínculo con LastApp** pasa un plato de un método al otro: se queda con el precio que tiene en ese momento y su producto de LastApp queda marcado "No va en la web". Es la salida cuando Daniel quiere mandar él en un precio.
+- **Un plato que en LastApp son varios productos** (el Surtido de croquetas frente a "Croquetas de cocido" y "Croquetas del mar") se vincula a uno de ellos, o se deja a mano con su precio, y los demás se marcan "No va en la web".
+- **Consecuencia que Dan ya conoce y ha aceptado:** la primera importación pone en la web los precios de LastApp. Medido con el export del 23 de octubre, los que más bajan son las pizzas (Margarita 12,50 → 11,50; 4 Quesos 15,00 → 13,90; Carbonara 15,00 → 13,50; De la Sierra 17,00 → 15,00). La lista completa va en la vinculación inicial para que Daniel la vea antes de aplicarla (§5, "La primera vinculación").
 - Si un plato nuevo trae descripción en LastApp, esa es su descripción inicial en español.
 - Un archivo sin las columnas reconocibles se rechaza con un mensaje que dice qué columnas esperaba. No se aplica nada.
 
@@ -136,27 +139,22 @@ El export de productos da un precio base por producto. El de catálogo da el pre
 Los 48 platos de la web de hoy no tienen Id de LastApp. Cruzándolos con el export de julio salen 12 coincidencias exactas y 20 parecidas, muchas falsas ("Choto" se parece a "Cortado"; "Carpaccio de wagyu", a "Carajillo de Bailey"). Otros 16 ni aparecen, porque la carta es de septiembre y el export es de julio. Así que:
 
 - Hace falta **un export nuevo** de LastApp antes de vincular.
-- Claude Code prepara la vinculación inicial con ese export: propone qué producto es cada plato, cuáles llevan el precio fijo y qué filas son bebidas o extras, y marca cada precio que no cuadre con la carta impresa. Se la pasa a Dan en una lista para que la confirme. Con eso, la primera importación real de Daniel solo le enseña cambios de verdad, no 175 filas.
+- Claude Code prepara la vinculación inicial con ese export: propone qué producto es cada plato, cuáles van a mano y qué filas son bebidas o extras, y marca cada precio que cambie respecto al que hoy tiene la web. Se la pasa a Dan en una lista para que la confirme. Con eso, la primera importación real de Daniel solo le enseña cambios de verdad, no 175 filas.
 - Ninguna vinculación por parecido se aplica sin confirmación, ni en la primera importación ni en las siguientes.
 
-## 6. Traducciones
+## 6. Idiomas
 
-**En este encargo, solo español y cero gasto de API.** No se traduce nada: ni durante la construcción ni al publicar. Lo que sí se hace es dejar el código preparado:
+**Este encargo es el backend en español, y nada más.** No se traduce, no se llama a ninguna API y no se deja código de traducción a medio hacer: lo que no se usa, no se escribe.
 
-- Un interruptor en los ajustes (`traduccion_automatica`) que arranca y se queda apagado. No se pone ninguna clave de Anthropic.
-- Con el interruptor apagado, guardar o importar no llama a Claude. Lo nuevo o cambiado queda en español y marcado como pendiente de traducir.
-- **Un plato pendiente se ve en español en los cuatro idiomas.** Así, si Daniel cambia "Choto" por otro plato, la versión inglesa no sigue enseñando la traducción vieja.
-- Los 48 platos y las 3 actividades de hoy conservan las traducciones que ya tienen en la web mientras no se cambien.
-- El panel trabaja solo en español: no enseña campos de otros idiomas ni botones de traducir.
-- Las pruebas automáticas cubren la traducción con respuestas simuladas, sin llamar a la API.
+Qué significa eso en la práctica:
 
-Cuando Dan decida encenderla, harán falta la clave, el interruptor y la parte del panel para revisar traducciones. Lo de abajo describe cómo funcionará entonces.
+- La web pública sigue en cuatro idiomas y se queda exactamente como está. No se le quita nada.
+- Los 48 platos, las 8 categorías y las 3 actividades de hoy entran en la base de datos **con las cuatro versiones que ya tienen escritas a mano**, así que el primer día la web se ve igual que ahora en los cuatro idiomas.
+- El panel es solo español: Daniel escribe el español y no ve ni un campo de otro idioma.
+- Un plato nuevo, o uno que llega de una importación, solo tiene español. En la web sale en español en los cuatro idiomas, porque es lo que ya hace hoy cuando le falta un idioma.
+- Si Daniel cambia el español de un campo, las versiones en inglés, francés y catalán **de ese campo** se vacían, y la web pasa a enseñar el español ahí. Es la única forma de que no quede un nombre en inglés describiendo un plato que ya no existe. Los demás campos no se tocan.
 
-- Con el interruptor encendido, al guardar un plato, una categoría o una actividad con el texto en español cambiado, la función pide a Claude (Haiku) las versiones en inglés, francés y catalán. Las instrucciones incluyen ejemplos de la carta actual para que mantenga el estilo de la casa (cómo se traducen "Choto", "Migas" o "Costilla en orza") y los nombres propios.
-- Cada traducción sabe si es automática o escrita a mano. Si Daniel corrige el inglés de un plato, esa traducción pasa a manual y ya no se rehace cuando cambia el español. El panel marca las automáticas para que se vean y tiene un botón "Volver a traducir".
-- Si la traducción falla (sin conexión, sin saldo), el plato se guarda igual en español y queda marcado como pendiente. La tarea diaria reintenta las pendientes. Mientras tanto, la web enseña el español.
-- La importación usa la misma llamada, por lotes: una sola petición para todos los platos nuevos.
-- Coste: una traducción de un plato son unos cientos de tokens. Con el uso de un restaurante, céntimos al año. La clave (`ANTHROPIC_API_KEY`) va en Vercel, con un límite de gasto puesto en la cuenta de Anthropic.
+Las otras versiones son una fase aparte, cuando Dan lo diga. Entonces se decidirá de dónde salen —LastApp permite traducir la carta, así que lo lógico es sacarlas de ahí— y no hará falta cambiar la base de datos: las claves `en`, `fr` y `ca` ya están.
 
 ## 7. Actividades
 
@@ -224,11 +222,11 @@ Todo en Supabase, con RLS activado y sin políticas en todas las tablas.
 
 | Tabla | Contiene |
 |---|---|
-| `categorias` | Identificador, nombre en 4 idiomas, orden, visible, qué traducciones son manuales |
-| `platos` | Categoría, nombre, descripción y nota de precio en 4 idiomas, precio, precio fijo, emoji, visible, archivado, orden, Id y nombre en LastApp (Id único: un producto, un plato), traducciones manuales o pendientes |
+| `categorias` | Identificador, nombre, orden, visible |
+| `platos` | Categoría, nombre, descripción y nota de precio (el español, más las versiones que la web ya tiene), precio, emoji, visible, archivado, orden, Id y nombre en LastApp (Id único: un producto, un plato). Con Id de LastApp, el precio lo manda LastApp; sin él, el plato va a mano |
 | `productos_lastapp` | Lo último que se ha visto de cada producto de LastApp (por su Id de organización): nombre, precio, categoría allí, si "no va en la web", qué plato tiene vinculado, primera y última vez visto |
 | `importaciones` | Cada importación: quién, cuándo, archivo, formato y catálogo de origen, filas limpias, vista previa, decisiones, resumen y estado (vista previa, aplicada o descartada) |
-| `actividades` | Emoji, nombre y descripción en 4 idiomas, foto, encuadre, visible, archivada, orden |
+| `actividades` | Emoji, nombre y descripción, foto, encuadre, visible, archivada, orden |
 | `consultas` | Actividad (y su nombre en ese momento), nombre, teléfono, fecha, personas, idioma, aceptación de privacidad con fecha, estado, notas, si salió el aviso, anonimizada |
 | `ajustes` | Clave y valor: WhatsApp, correos de aviso, aviso por correo, nombre de quien gestiona |
 | `administradores` | Correos con acceso al panel |
@@ -275,7 +273,7 @@ Todo lo demás lo hace Claude Code. Lo de Dan se agrupa en tres momentos:
 4. Pedirle a Daniel un export nuevo de LastApp, o sacarlo tú si tienes acceso, y dejarlo en `~/Downloads`. Si se puede, los dos formatos (productos y catálogo).
 5. OK para pasar el repositorio a privado.
 
-No hace falta clave de Anthropic: en este encargo no se llama a Claude.
+No hace falta clave de Anthropic: en este encargo no se llama a ninguna API de pago.
 
 **Claude Design (una sesión)**: crear el proyecto, pegar el PRD y el prompt, revisar en el móvil y hacer *Hand off*.
 
@@ -283,16 +281,18 @@ No hace falta clave de Anthropic: en este encargo no se llama a Claude.
 
 ## 14. Cómo se comprueba
 
-- Pruebas automáticas (`node --test`): limpieza de filas del Excel en los dos formatos y con los precios tal como vienen (`"19,00 €"` con espacio duro), clasificación de la vista previa (nuevo, precio, nombre, desaparecido, ignorado, "es el mismo que"), aviso de export incompleto, reglas de traducción con respuestas simuladas (automática frente a manual, pendiente, y que con el interruptor apagado no se llama a Claude), conversión a la forma de la web, validación y filtro de la consulta, y sesiones (las de Ascua, adaptadas).
+- Pruebas automáticas (`node --test`): limpieza de filas del Excel en los dos formatos y con los precios tal como vienen (`"19,00 €"` con espacio duro), clasificación de la vista previa (nuevo, precio, nombre, desaparecido, ignorado, "es el mismo que"), aviso de export incompleto, los dos métodos de precio (que el panel no edita el precio de un plato de LastApp, que sí edita el de un plato a mano, y que "quitar el vínculo" lo pasa de uno al otro), conversión a la forma de la web, validación y filtro de la consulta, y sesiones (las de Ascua, adaptadas).
 - Servidor local con modo demo, como en Ascua: sin claves sirve los JSON de muestra y registra las acciones sin guardarlas.
-- Recorrido completo en el navegador, en la vista previa de Vercel con la base de datos real: entrar con el enlace; crear un plato y verlo en la web en menos de un minuto, en español en los cuatro idiomas; ocultarlo y archivarlo; importar el export real y aplicar; crear una actividad con foto desde el tamaño de móvil; mandar una consulta desde la web y verla en el panel, con el WhatsApp bien escrito y el correo recibido.
+- Recorrido completo en el navegador, en la vista previa de Vercel con la base de datos real: entrar con el enlace; crear un plato y verlo en la web en menos de un minuto; ocultarlo y archivarlo; importar el export real y aplicar; crear una actividad con foto desde el tamaño de móvil; mandar una consulta desde la web y verla en el panel, con el WhatsApp bien escrito y el correo recibido.
 - Caso de fallo: con la API caída, la web enseña la carta y las actividades de respaldo.
-- Que las reservas por LastApp (`reservar.html` y sus funciones) siguen funcionando igual tras los cambios del repositorio.
+- Que la web pública sigue teniendo todo lo que tenía: reservas de mesa, hospedajes, "Por encargo", horarios y galería, igual que antes de empezar. El backend solo añade.
 - Revisión a 390 px de ancho.
 
 ## 15. Fuera de este alcance
 
-Hospedajes (no vendido). Fotos de los platos y alérgenos: la web no los tiene hoy y no se pidieron, aunque la tabla admitiría añadirlos más adelante. La sección "Por encargo" y el horario siguen fijos en el código. Sincronización directa con la API de LastApp, sin Excel: es posible porque la web ya usa esa API para las reservas, pero no se pidió. Rediseño de la web pública. Respuestas automáticas por WhatsApp (se usan enlaces que abren la conversación).
+**Lo que la web tiene hoy y el backend no toca, por decisión de Dan:** las reservas de mesa (Daniel ya las tiene en LastApp), los hospedajes y la sección "Por encargo". Se quedan tal cual están, funcionen o no sus formularios: aquí se añade, no se quita.
+
+Tampoco entra: las otras versiones de idioma (fase aparte, §6), fotos de los platos y alérgenos (la web no los tiene y no se pidieron, aunque la tabla los admitiría), sincronizar con la API de LastApp sin Excel (posible, porque la web ya habla con esa API, pero no se pidió), rediseñar la web pública y responder por WhatsApp de forma automática (se usan enlaces que abren la conversación).
 
 ## 16. Pendientes de datos
 

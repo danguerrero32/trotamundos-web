@@ -36,30 +36,31 @@ begin
     continue when f is null;
     if d->>'destino' = 'plato' then
       select coalesce(max(orden), 0) + 1 into v_orden from platos where categoria_id = d->>'categoria';
-      insert into platos (categoria_id, nombre, descripcion, precio, emoji, orden, lastapp_id, lastapp_nombre, traduccion)
+      insert into platos (categoria_id, nombre, descripcion, precio, emoji, orden, lastapp_id, lastapp_nombre)
       values (d->>'categoria', jsonb_build_object('es', f->>'nombre'),
               case when coalesce(f->>'descripcion', '') <> '' then jsonb_build_object('es', f->>'descripcion') else '{}'::jsonb end,
-              (f->>'precio')::numeric, coalesce(d->>'emoji', ''), v_orden, k, f->>'nombre', '{"pendiente":true,"manual":[]}')
+              (f->>'precio')::numeric, coalesce(d->>'emoji', ''), v_orden, k, f->>'nombre')
       returning id into v_plato;
       tocados := tocados || v_plato;
     elsif d->>'destino' = 'no_web' then
       update productos_lastapp set no_web = true where id = k;
     elsif d->>'destino' = 'mismo' then
+      -- Al vincularlo pasa a mandar el precio de LastApp.
       update platos set lastapp_id = k, lastapp_nombre = f->>'nombre',
-             precio = case when precio_fijo or f->>'precio' is null then precio else (f->>'precio')::numeric end
+             precio = case when f->>'precio' is null then precio else (f->>'precio')::numeric end
       where id = (d->>'plato_id')::uuid and lastapp_id is null;
     end if;
   end loop;
 
-  -- Precios de los platos vinculados, salvo los que tienen el precio fijo en la web.
+  -- Precios de los platos vinculados: los manda LastApp. Los platos a mano no están vinculados.
   update platos p set precio = (x->>'precio')::numeric
   from jsonb_array_elements(imp.filas) x
-  where p.lastapp_id = x->>'id' and not p.precio_fijo and x->>'precio' is not null
+  where p.lastapp_id = x->>'id' and x->>'precio' is not null
     and p.precio is distinct from (x->>'precio')::numeric;
 
-  -- Renombrar en la web los que Daniel marcó (queda pendiente de traducir).
-  update platos p set nombre = p.nombre || jsonb_build_object('es', x->>'nombre'),
-         traduccion = coalesce(p.traduccion, '{}'::jsonb) || '{"pendiente":true}'::jsonb
+  -- Renombrar en la web los que Daniel marcó. Al cambiar el español, las otras versiones de ese
+  -- nombre se van: mejor que la web enseñe el español que el nombre viejo en inglés.
+  update platos p set nombre = jsonb_build_object('es', x->>'nombre')
   from jsonb_array_elements(imp.filas) x
   where p.id::text = any(renombrar) and p.lastapp_id = x->>'id';
   tocados := tocados || array(select id from platos where id::text = any(renombrar));

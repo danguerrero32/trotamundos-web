@@ -1,5 +1,5 @@
 {
-  "_aviso": "DATOS DE MUESTRA para diseñar el panel. La carta y las actividades son las reales; las consultas, inventadas.",
+  "_aviso": "DATOS DE MUESTRA para diseñar el panel. La carta y las actividades son las reales; las consultas, inventadas. El panel es solo en español: de los textos se edita la clave es y nada más.",
   "gestor": {
     "nombre": "Daniel",
     "email": "daniel@example.com"
@@ -9,12 +9,6 @@
     "platos_ocultos": 1,
     "ultima_importacion": "2026-10-20T11:05:00+02:00"
   },
-  "idiomas": [
-    "es",
-    "en",
-    "fr",
-    "ca"
-  ],
   "categorias": [
     {
       "id": "deaqui",
@@ -25,11 +19,7 @@
         "ca": "D'Aquí"
       },
       "visible": true,
-      "orden": 1,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 1
     },
     {
       "id": "detodaspartes",
@@ -40,11 +30,7 @@
         "ca": "De Tot Arreu"
       },
       "visible": true,
-      "orden": 2,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 2
     },
     {
       "id": "ensaladas",
@@ -55,11 +41,7 @@
         "ca": "Amanides"
       },
       "visible": true,
-      "orden": 3,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 3
     },
     {
       "id": "vegetarianos",
@@ -70,11 +52,7 @@
         "ca": "Vegetarians"
       },
       "visible": true,
-      "orden": 4,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 4
     },
     {
       "id": "carnes",
@@ -85,11 +63,7 @@
         "ca": "Carns"
       },
       "visible": true,
-      "orden": 5,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 5
     },
     {
       "id": "delamar",
@@ -100,11 +74,7 @@
         "ca": "De la Mar"
       },
       "visible": true,
-      "orden": 6,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 6
     },
     {
       "id": "hamburguesas",
@@ -115,11 +85,7 @@
         "ca": "Hamburgueses i Pa"
       },
       "visible": true,
-      "orden": 7,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 7
     },
     {
       "id": "pizzapasta",
@@ -130,11 +96,7 @@
         "ca": "Pizza i Pasta"
       },
       "visible": true,
-      "orden": 8,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "orden": 8
     }
   ],
   "platos": [
@@ -160,15 +122,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "15.00",
-      "precio_fijo": false,
+      "precio": "14.00",
       "emoji": "🍖",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "2dcdfcae-fba2-4416-986a-add85cf3cc7d",
+        "nombre": "Jamón alpujarreño gran reserva",
+        "precio": "14.00"
       }
     },
     {
@@ -194,14 +155,13 @@
         "ca": ""
       },
       "precio": "20.00",
-      "precio_fijo": false,
       "emoji": "🧀",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "753d6f23-defd-4357-9b37-3f448f93908b",
+        "nombre": "Queso alpujarreño",
+        "precio": "20.00"
       }
     },
     {
@@ -226,8 +186,7 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "12.00",
-      "precio_fijo": false,
+      "precio": "11.00",
       "emoji": "🌶️",
       "visible": true,
       "archivado": false,
@@ -235,10 +194,6 @@
         "id": "febfebd6-4af8-4600-a4b4-51e091f16638",
         "nombre": "Chorizo alpujarreño",
         "precio": "11.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -264,7 +219,6 @@
         "ca": ""
       },
       "precio": "11.00",
-      "precio_fijo": false,
       "emoji": "🍢",
       "visible": true,
       "archivado": false,
@@ -272,10 +226,6 @@
         "id": "cb2d2dc0-18bb-4ccc-abf9-e769ddb383d0",
         "nombre": "Morcilla",
         "precio": "11.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -300,15 +250,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "14.00",
-      "precio_fijo": false,
+      "precio": "15.00",
       "emoji": "🧆",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "827cac33-4edc-4d7b-b3b7-01bc70ed2892",
+        "nombre": "surtido de croquetas",
+        "precio": "15.00"
       }
     },
     {
@@ -334,7 +283,6 @@
         "ca": ""
       },
       "precio": "17.00",
-      "precio_fijo": false,
       "emoji": "🍳",
       "visible": true,
       "archivado": false,
@@ -342,10 +290,6 @@
         "id": "98832290-4813-477a-9f28-1d9ed6d395be",
         "nombre": "Plato alpujarreño",
         "precio": "17.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -370,8 +314,7 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "16.50",
-      "precio_fijo": false,
+      "precio": "15.50",
       "emoji": "🍞",
       "visible": true,
       "archivado": false,
@@ -379,10 +322,6 @@
         "id": "920d7399-9c17-441b-87fa-b8c67af5e4e4",
         "nombre": "Migas alpujarreñas",
         "precio": "16.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -408,14 +347,13 @@
         "ca": ""
       },
       "precio": "21.00",
-      "precio_fijo": false,
       "emoji": "🐐",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "ec3df2c6-0d14-43f1-83a1-740f6829f222",
+        "nombre": "Choto en salsa de almendras",
+        "precio": "21.00"
       }
     },
     {
@@ -441,14 +379,13 @@
         "ca": ""
       },
       "precio": "25.00",
-      "precio_fijo": false,
       "emoji": "🐑",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "19e3e0ef-56b5-4c3d-bb68-f5d3d23a1a8b",
+        "nombre": "Chuletas de cordero segureñas",
+        "precio": "25.00"
       }
     },
     {
@@ -474,18 +411,13 @@
         "ca": ""
       },
       "precio": "18.00",
-      "precio_fijo": false,
       "emoji": "🍖",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "b60f2173-52cd-4ab4-91ed-f33ef1a6bf75",
         "nombre": "Costilla en orza",
-        "precio": "16.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+        "precio": "18.00"
       }
     },
     {
@@ -511,7 +443,6 @@
         "ca": ""
       },
       "precio": "17.00",
-      "precio_fijo": false,
       "emoji": "🍗",
       "visible": true,
       "archivado": false,
@@ -519,10 +450,6 @@
         "id": "demo-ya-no-esta",
         "nombre": "Pollo mozárabe",
         "precio": "17.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -548,19 +475,10 @@
         "ca": ""
       },
       "precio": "3.50",
-      "precio_fijo": true,
       "emoji": "🥟",
       "visible": true,
       "archivado": false,
-      "lastapp": {
-        "id": "4c91472f-62b1-4f73-9933-72fe71cb2b83",
-        "nombre": "Empanada de ternera",
-        "precio": "12.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "lastapp": null
     },
     {
       "id": "pl-13",
@@ -585,14 +503,13 @@
         "ca": ""
       },
       "precio": "18.00",
-      "precio_fijo": false,
       "emoji": "🌮",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "139bca0e-0d5d-4615-8b94-985a4aab4c6f",
+        "nombre": "Enchiladas de pollo picantes",
+        "precio": "18.00"
       }
     },
     {
@@ -618,14 +535,13 @@
         "ca": ""
       },
       "precio": "14.00",
-      "precio_fijo": false,
       "emoji": "🥗",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "7b2faf6f-4c70-4da3-8d51-f4300ddc8f64",
+        "nombre": "Ensalada trotamundos",
+        "precio": "14.00"
       }
     },
     {
@@ -651,14 +567,13 @@
         "ca": ""
       },
       "precio": "14.00",
-      "precio_fijo": false,
       "emoji": "🍅",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "eb6e6ceb-a37b-481b-9e06-679954f13ff6",
+        "nombre": "tomate con burrata",
+        "precio": "14.00"
       }
     },
     {
@@ -684,14 +599,13 @@
         "ca": ""
       },
       "precio": "15.00",
-      "precio_fijo": false,
       "emoji": "🌾",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "36b48ca1-3961-4753-9e75-32f279fade7f",
+        "nombre": "Cuscús vegetal",
+        "precio": "15.00"
       }
     },
     {
@@ -717,14 +631,13 @@
         "ca": "(a confirmar)"
       },
       "precio": "10.00",
-      "precio_fijo": false,
       "emoji": "🍆",
       "visible": false,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "5597727e-5930-4a1e-9ba5-3cfc082d654e",
+        "nombre": "Zaalouk",
+        "precio": "10.00"
       }
     },
     {
@@ -749,19 +662,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "10.00",
-      "precio_fijo": false,
+      "precio": "12.00",
       "emoji": "🥟",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "6830eef8-2e82-439e-b3f6-99c7c2af2e06",
         "nombre": "Gyozas de verdura",
-        "precio": "9.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+        "precio": "12.00"
       }
     },
     {
@@ -787,7 +695,6 @@
         "ca": ""
       },
       "precio": "12.50",
-      "precio_fijo": false,
       "emoji": "🥟",
       "visible": true,
       "archivado": false,
@@ -795,10 +702,6 @@
         "id": "09da6ddd-14aa-4b96-b20a-5a18e7a14abe",
         "nombre": "Mix de gyozas",
         "precio": "12.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -824,19 +727,10 @@
         "ca": ""
       },
       "precio": "3.50",
-      "precio_fijo": true,
       "emoji": "🧅",
       "visible": true,
       "archivado": false,
-      "lastapp": {
-        "id": "7bbb51b6-66d3-483d-9cfd-b30c3cc33e20",
-        "nombre": "Empanada de Fugazzeta",
-        "precio": "10.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "lastapp": null
     },
     {
       "id": "pl-21",
@@ -861,18 +755,13 @@
         "ca": ""
       },
       "precio": "15.00",
-      "precio_fijo": false,
       "emoji": "🥑",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "0dd068bd-3a72-47bd-ae81-48585fcf7fd8",
         "nombre": "Hamburguesa vegana",
-        "precio": "14.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+        "precio": "15.00"
       }
     },
     {
@@ -898,14 +787,13 @@
         "ca": ""
       },
       "precio": "14.00",
-      "precio_fijo": false,
       "emoji": "🥩",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "8fdd84d5-83e7-46b9-88bf-1ba876b7b20b",
+        "nombre": "carpaccio wagyu",
+        "precio": "14.00"
       }
     },
     {
@@ -931,14 +819,13 @@
         "ca": ""
       },
       "precio": "14.00",
-      "precio_fijo": false,
       "emoji": "🍗",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "cad77ff6-8cb4-419d-aea8-095addef48fb",
+        "nombre": "alitas buffalo",
+        "precio": "14.00"
       }
     },
     {
@@ -964,14 +851,13 @@
         "ca": ""
       },
       "precio": "20.00",
-      "precio_fijo": false,
       "emoji": "🍲",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "3699a73f-ee36-4018-972f-7098b706f154",
+        "nombre": "ternera con ciruelas",
+        "precio": "20.00"
       }
     },
     {
@@ -997,14 +883,13 @@
         "ca": ""
       },
       "precio": "12.50",
-      "precio_fijo": false,
       "emoji": "🥘",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "89e7e2fd-f69e-4fad-a2c2-8907049e9c5e",
+        "nombre": "wok pollo",
+        "precio": "12.50"
       }
     },
     {
@@ -1030,14 +915,13 @@
         "ca": ""
       },
       "precio": "16.50",
-      "precio_fijo": false,
       "emoji": "🍛",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "bf47b50f-d4f4-4e92-bb62-642f307742e4",
+        "nombre": "Pollo al curry",
+        "precio": "16.50"
       }
     },
     {
@@ -1062,15 +946,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "18.00",
-      "precio_fijo": false,
+      "precio": "18.90",
       "emoji": "🥨",
       "visible": true,
       "archivado": true,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "ff9e386a-4eee-4fc4-aaee-8f318beacde7",
+        "nombre": "Codillo de cerdo",
+        "precio": "18.90"
       }
     },
     {
@@ -1095,15 +978,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "32.00",
-      "precio_fijo": false,
+      "precio": "30.00",
       "emoji": "🔥",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "01fe1736-7101-49ec-b28f-e98654dfa73d",
+        "nombre": "Parrillada para compartir",
+        "precio": "30.00"
       }
     },
     {
@@ -1129,14 +1011,13 @@
         "ca": ""
       },
       "precio": "23.00",
-      "precio_fijo": false,
       "emoji": "🥩",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "44539a43-03ed-40ef-9d8c-930a83765c65",
+        "nombre": "Osobuco de ternera",
+        "precio": "23.00"
       }
     },
     {
@@ -1162,19 +1043,10 @@
         "ca": ""
       },
       "precio": "",
-      "precio_fijo": true,
       "emoji": "🥩",
       "visible": true,
       "archivado": false,
-      "lastapp": {
-        "id": "b492a359-7821-4a48-8955-fe412ec18160",
-        "nombre": "Entrecot de ternera con guarnición",
-        "precio": "23.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "lastapp": null
     },
     {
       "id": "pl-31",
@@ -1199,7 +1071,6 @@
         "ca": ""
       },
       "precio": "16.00",
-      "precio_fijo": false,
       "emoji": "🦐",
       "visible": true,
       "archivado": false,
@@ -1207,10 +1078,6 @@
         "id": "56625d63-3304-4bfb-aefc-a6405464809c",
         "nombre": "Langostinos al pilpil",
         "precio": "16.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -1236,14 +1103,13 @@
         "ca": ""
       },
       "precio": "19.00",
-      "precio_fijo": false,
       "emoji": "🐟",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "1a5183c7-1ce4-4e9d-8bf3-064fbc10aba2",
+        "nombre": "Bacalao Trotamundos",
+        "precio": "19.00"
       }
     },
     {
@@ -1268,15 +1134,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "22.00",
-      "precio_fijo": false,
+      "precio": "18.00",
       "emoji": "🐙",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "0b947f4e-3a70-4f99-8c18-6e03a3ea8038",
+        "nombre": "pulpo a la gallega",
+        "precio": "20.00"
       }
     },
     {
@@ -1302,14 +1167,13 @@
         "ca": ""
       },
       "precio": "12.00",
-      "precio_fijo": false,
       "emoji": "🥟",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "affc4599-29fe-4992-b1b0-d480e01cde8f",
+        "nombre": "Gyozas de pato o langostino",
+        "precio": "12.00"
       }
     },
     {
@@ -1335,18 +1199,13 @@
         "ca": ""
       },
       "precio": "15.00",
-      "precio_fijo": false,
       "emoji": "🍔",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "ea0342d4-d7e8-4ab8-b715-a208f6b7235a",
         "nombre": "Hamburguesa completa",
-        "precio": "12.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+        "precio": "15.00"
       }
     },
     {
@@ -1371,19 +1230,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "16.00",
-      "precio_fijo": false,
+      "precio": "15.00",
       "emoji": "🍔",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "e691edf0-cce4-4d66-ac81-75f1a1985d30",
         "nombre": "Hamburguesa de cabra",
-        "precio": "13.00"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+        "precio": "16.00"
       }
     },
     {
@@ -1409,14 +1263,13 @@
         "ca": ""
       },
       "precio": "18.00",
-      "precio_fijo": false,
       "emoji": "🍔",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "ed8d7146-f4b6-48b1-a836-bb7792190bfc",
+        "nombre": "hamburguesa trotamundos",
+        "precio": "18.00"
       }
     },
     {
@@ -1442,15 +1295,10 @@
         "ca": ""
       },
       "precio": "3.00",
-      "precio_fijo": false,
       "emoji": "🐷",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "lastapp": null
     },
     {
       "id": "pl-39",
@@ -1475,15 +1323,10 @@
         "ca": ""
       },
       "precio": "3.00",
-      "precio_fijo": false,
       "emoji": "🥙",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "lastapp": null
     },
     {
       "id": "pl-40",
@@ -1507,15 +1350,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "12.50",
-      "precio_fijo": false,
+      "precio": "11.00",
       "emoji": "🍕",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "509156d4-dcc6-4b39-8c5a-21dd6fd95a62",
+        "nombre": "Pizza Margarita",
+        "precio": "11.50"
       }
     },
     {
@@ -1540,15 +1382,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "15.00",
-      "precio_fijo": false,
+      "precio": "13.90",
       "emoji": "🧀",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "850ec610-2ca3-4eed-a179-30c37a5c6b5f",
+        "nombre": "Pizza 4 quesos",
+        "precio": "13.90"
       }
     },
     {
@@ -1573,15 +1414,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "15.00",
-      "precio_fijo": false,
+      "precio": "13.50",
       "emoji": "🍳",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "21fe0244-8480-4ae2-a8c7-418958c57a4c",
+        "nombre": "Pizza Carbonara",
+        "precio": "13.50"
       }
     },
     {
@@ -1606,15 +1446,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "15.00",
-      "precio_fijo": false,
+      "precio": "14.50",
       "emoji": "🧅",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "0c5db5e9-0bf1-4b01-a5d3-f24a148a95e7",
+        "nombre": "Pizza Fugazzeta",
+        "precio": "14.50"
       }
     },
     {
@@ -1639,15 +1478,14 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "17.00",
-      "precio_fijo": false,
+      "precio": "15.00",
       "emoji": "🏔️",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "fc761c6a-7121-4a13-a78a-ae09f27b167a",
+        "nombre": "Pizza De la sierra",
+        "precio": "15.00"
       }
     },
     {
@@ -1673,14 +1511,13 @@
         "ca": ""
       },
       "precio": "13.50",
-      "precio_fijo": false,
       "emoji": "🍝",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "f6f93c14-a3fe-4b42-a644-667790faf9db",
+        "nombre": "Tallarines boloñesa",
+        "precio": "13.50"
       }
     },
     {
@@ -1706,7 +1543,6 @@
         "ca": ""
       },
       "precio": "13.50",
-      "precio_fijo": false,
       "emoji": "🥚",
       "visible": true,
       "archivado": false,
@@ -1714,10 +1550,6 @@
         "id": "9f930171-f8ed-42e6-99ff-e5b11d1d74e2",
         "nombre": "Tallarines carbonara",
         "precio": "13.50"
-      },
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
       }
     },
     {
@@ -1743,14 +1575,13 @@
         "ca": ""
       },
       "precio": "13.50",
-      "precio_fijo": false,
       "emoji": "🧀",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "413f0a06-e563-4190-98b4-f18e165fcf92",
+        "nombre": "Tallarines 4 quesos",
+        "precio": "13.50"
       }
     },
     {
@@ -1776,14 +1607,13 @@
         "ca": ""
       },
       "precio": "13.50",
-      "precio_fijo": false,
       "emoji": "🌿",
       "visible": true,
       "archivado": false,
-      "lastapp": null,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
+      "lastapp": {
+        "id": "a0ed1050-b16d-425c-af36-07d8fe23778a",
+        "nombre": "Tallarines al pesto",
+        "precio": "13.50"
       }
     },
     {
@@ -1809,7 +1639,6 @@
         "ca": ""
       },
       "precio": "13.50",
-      "precio_fijo": false,
       "emoji": "🍕",
       "visible": true,
       "archivado": false,
@@ -1817,10 +1646,6 @@
         "id": "c4373db9-6f00-4105-b517-90de3741c12e",
         "nombre": "Pizza Pepperoni",
         "precio": "13.50"
-      },
-      "traduccion": {
-        "pendiente": true,
-        "manual": []
       }
     },
     {
@@ -1845,27 +1670,22 @@
         "fr": "",
         "ca": ""
       },
-      "precio": "13.00",
-      "precio_fijo": false,
+      "precio": "16.00",
       "emoji": "🍳",
       "visible": true,
       "archivado": false,
       "lastapp": {
         "id": "8a7cd63f-27b6-4dce-b698-237126f98b6a",
         "nombre": "Shakshuka",
-        "precio": "13.00"
-      },
-      "traduccion": {
-        "pendiente": true,
-        "manual": []
+        "precio": "16.00"
       }
     },
     {
       "id": "pl-51",
-      "categoria": "vegetarianos",
-      "orden": 8,
+      "categoria": "deaqui",
+      "orden": 12,
       "nombre": {
-        "es": "Sopa de verduras",
+        "es": "torrija",
         "en": "",
         "fr": "",
         "ca": ""
@@ -1883,18 +1703,13 @@
         "ca": ""
       },
       "precio": "8.50",
-      "precio_fijo": false,
-      "emoji": "🥣",
+      "emoji": "🍞",
       "visible": true,
       "archivado": false,
       "lastapp": {
-        "id": "89a5352c-cabc-49de-a7f7-32057862a8e6",
-        "nombre": "Sopa de verduras",
+        "id": "059b090a-6fbb-4f0c-91a1-9915ddc6659a",
+        "nombre": "torrija",
         "precio": "8.50"
-      },
-      "traduccion": {
-        "pendiente": true,
-        "manual": []
       }
     }
   ],
@@ -1918,11 +1733,7 @@
       "encuadre": "arriba",
       "orden": 1,
       "visible": true,
-      "archivada": false,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "archivada": false
     },
     {
       "id": "caballo",
@@ -1943,11 +1754,7 @@
       "encuadre": "centro",
       "orden": 2,
       "visible": true,
-      "archivada": false,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "archivada": false
     },
     {
       "id": "4x4",
@@ -1968,11 +1775,7 @@
       "encuadre": "centro",
       "orden": 3,
       "visible": true,
-      "archivada": false,
-      "traduccion": {
-        "pendiente": false,
-        "manual": []
-      }
+      "archivada": false
     }
   ],
   "consultas": [
@@ -2092,7 +1895,6 @@
     ],
     "aviso_consultas_correo": true,
     "nombre_gestor": "Daniel",
-    "traduccion_automatica": false,
     "administradores": [
       {
         "email": "daniel@example.com",
@@ -2124,7 +1926,7 @@
     {
       "en": "2026-10-22T12:01:00+02:00",
       "quien": "Daniel",
-      "accion": "Cambió el precio de Choto a 21 €"
+      "accion": "Cambió el precio de Empanada argentina a 3,50 €"
     },
     {
       "en": "2026-10-21T10:30:00+02:00",
@@ -2134,7 +1936,7 @@
     {
       "en": "2026-10-20T11:05:00+02:00",
       "quien": "Daniel",
-      "accion": "Importó la carta de LastApp: 3 platos nuevos, 5 precios"
+      "accion": "Subió la carta de LastApp: 3 platos nuevos, 5 precios"
     },
     {
       "en": "2026-10-19T19:12:00+02:00",

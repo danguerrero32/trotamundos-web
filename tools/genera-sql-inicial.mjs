@@ -10,24 +10,25 @@ const { categorias, platos, actividades } = extraerCarta(await readFile(new URL(
 
 const lit = (s) => `'${String(s).replace(/'/g, "''")}'`;
 const json = (o) => `${lit(JSON.stringify(o))}::jsonb`;
-const TRADUCCION = json({ pendiente: false, manual: [] });
 
 const filasCategorias = categorias.map((c) => `  (${lit(c.id)}, ${json(c.nombre)}, ${c.orden})`);
-const filasPlatos = platos.map((p) => `  (md5(${lit(`plato:${p.categoria}:${p.orden}`)})::uuid, ${lit(p.categoria)}, ${json(p.nombre)}, ${json(p.descripcion)}, ${json(p.nota_precio)}, ${p.precio === '' ? 'null' : p.precio}, ${lit(p.emoji)}, ${p.orden}, ${TRADUCCION})`);
-const filasActividades = actividades.map((a) => `  (${lit(a.id)}, ${lit(a.emoji)}, ${json(a.nombre)}, ${json(a.descripcion)}, ${lit(a.foto)}, ${lit(a.encuadre)}, ${a.orden}, ${TRADUCCION})`);
+const filasPlatos = platos.map((p) => `  (md5(${lit(`plato:${p.categoria}:${p.orden}`)})::uuid, ${lit(p.categoria)}, ${json(p.nombre)}, ${json(p.descripcion)}, ${json(p.nota_precio)}, ${p.precio === '' ? 'null' : p.precio}, ${lit(p.emoji)}, ${p.orden})`);
+const filasActividades = actividades.map((a) => `  (${lit(a.id)}, ${lit(a.emoji)}, ${json(a.nombre)}, ${json(a.descripcion)}, ${lit(a.foto)}, ${lit(a.encuadre)}, ${a.orden})`);
 
 const sql = `-- Los Trotamundos · 002 · datos iniciales: la carta y las actividades que hoy tiene la web.
 -- Generado por tools/genera-sql-inicial.mjs a partir de index.html. No editar a mano. Idempotente.
+-- Los nombres y descripciones llegan con las cuatro versiones que la web ya tiene escritas a mano.
+-- El panel solo edita el español; las otras no se tocan ni se borran.
 
 insert into categorias (id, nombre, orden) values
 ${filasCategorias.join(',\n')}
 on conflict (id) do nothing;
 
-insert into platos (id, categoria_id, nombre, descripcion, nota_precio, precio, emoji, orden, traduccion) values
+insert into platos (id, categoria_id, nombre, descripcion, nota_precio, precio, emoji, orden) values
 ${filasPlatos.join(',\n')}
 on conflict (id) do nothing;
 
-insert into actividades (id, emoji, nombre, descripcion, foto, encuadre, orden, traduccion) values
+insert into actividades (id, emoji, nombre, descripcion, foto, encuadre, orden) values
 ${filasActividades.join(',\n')}
 on conflict (id) do nothing;
 `;

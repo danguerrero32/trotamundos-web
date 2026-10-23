@@ -33,7 +33,7 @@ Panel privado de Daniel, de Los Trotamundos (bar restaurante en Bubión, La Alpu
 ## No-Objetivos
 
 - Que funcione de verdad: lo conecta después Claude Code a la base de datos. En Design todo sale de `panel-demo.json` e `importacion-demo.json`.
-- Traducciones: el panel trabaja solo en español.
+- Traducciones: el panel trabaja solo en español. En los datos, los textos vienen como objeto (`nombre: {es, en, fr, ca}`) porque la web pública está en cuatro idiomas, pero **el panel solo lee y escribe `es`**. No se dibuja ni un campo, ni una pestaña, ni un selector de idioma.
 - Hospedajes, reservas de mesa, estadísticas y gráficos.
 - Editar la portada, los horarios o la sección "Por encargo" de la web.
 - Una versión de escritorio elaborada: el escritorio es el móvil ensanchado, con la lista a la izquierda y la ficha a la derecha.
@@ -66,17 +66,19 @@ Navegación: en móvil, barra inferior fija con cinco iconos y texto (**Inicio �
 - **Carta**:
   - Arriba, las categorías como pestañas deslizables, como en la web (De Aquí, De Todas Partes…), y el botón "Subir Excel de LastApp".
   - Dentro de cada categoría, los platos en filas compactas: emoji, nombre, precio a la derecha y un interruptor de "En la carta" (visible u oculto). Un plato oculto se ve atenuado. Los platos se ordenan arrastrando.
-  - Si un plato está vinculado a LastApp (`lastapp` no nulo), lleva una marca discreta "LastApp". Si además tiene `precio_fijo`, la marca dice "Precio fijo".
+  - Si un plato está vinculado a LastApp (`lastapp` no nulo), lleva una marca discreta "LastApp": su precio lo manda el TPV. Un plato sin vínculo no lleva marca: el precio lo pone Daniel.
   - Botón "Añadir plato" al final de cada categoría.
   - Al pie, "Editar categorías" (renombrar, ordenar, ocultar, crear) y "Archivados" (los `archivado: true`, con "Volver a la carta").
-- **Ficha de plato**: formulario en una columna con categoría (selector), emoji (un toque abre una rejilla de emojis de comida), nombre, descripción, precio y nota de precio ("por unidad", "según peso"…). Interruptor "En la carta". Si el plato viene de LastApp, una línea gris: "En LastApp: Croquetas de cocido · 14,00 €". Al final, en gris, "Quitar de la carta", que lo archiva sin borrarlo. Cada cambio se guarda solo, con un "Guardado" pequeño.
-  - **Precio de un plato vinculado**: si el plato tiene `lastapp` y no tiene `precio_fijo`, al cambiar el precio aparece en la misma ficha, sin ventana emergente: "Este precio lo trae LastApp. ¿Lo dejamos fijo en la web para que la próxima importación no lo cambie?", con los botones "Sí, fijarlo" y "No".
+- **Ficha de plato**: formulario en una columna con categoría (selector), emoji (un toque abre una rejilla de emojis de comida), nombre, descripción, precio y nota de precio ("por unidad", "según peso"…). Interruptor "En la carta". Al final, en gris, "Quitar de la carta", que lo archiva sin borrarlo. Cada cambio se guarda solo, con un "Guardado" pequeño.
+  - **El precio tiene dos caras, y es la decisión de diseño más importante de esta vista.**
+    - **Plato de LastApp** (`lastapp` no nulo): el precio **no es un campo**. Se enseña grande, como un dato, con la etiqueta "Lo trae LastApp" y debajo, pequeño, "En LastApp: Croquetas de cocido · 14,00 €". Al lado, el enlace "Lo quiero poner yo" → `accion('plato.desvincular', {id})`, que pide confirmación en la misma pantalla: "Si lo pones tú, este plato deja de seguir a LastApp y se queda en 14,00 € hasta que tú lo cambies." Al aceptar, el plato pasa a ser de los otros y el precio se convierte en campo.
+    - **Plato a mano** (`lastapp: null`): el precio es un campo normal, editable, sin ninguna etiqueta.
+    - No hay interruptores, ni "precio fijo", ni preguntas al teclear un precio. Un plato o sigue al TPV o lo lleva Daniel.
 - **Importar**: tres momentos en la misma vista.
   1. *Subir*: un bloque grande con "Elige el Excel que exporta LastApp" y una explicación de una línea. Al elegir el archivo, la vista pasa a la vista previa.
   2. *Vista previa*: arriba, el archivo y los totales. Si `aviso_incompleto` o `aviso_fuente` vienen con texto, un aviso destacado en oro con ese texto. Debajo, los grupos como acordeones, los que piden decisión abiertos y los demás plegados:
      - **Nuevos en LastApp**: cada uno con su nombre, su precio y un selector con tres caminos: una categoría de la web (con emoji), "No va en la web" o "Es el mismo que…" (lista de platos sin vincular). Si trae `sugerencia` con destino `mismo`, viene preseleccionado. Si trae `parecidos`, se enseñan como "¿Es alguno de estos?" sin marcar. Arriba del grupo, un botón para marcar varios de golpe como "No va en la web".
-     - **Cambian de precio**: antes y después ("21,00 € → 18,90 €").
-     - **Precio fijo en la web**: informativo ("En LastApp 12,50 €; en la web sigue en 3,50 €").
+     - **Cambian de precio**: antes y después ("21,00 € → 18,90 €"). Se aplican todos: el precio lo manda LastApp. Si son muchos, el grupo viene abierto, porque es lo que Daniel tiene que ver antes de aplicar.
      - **Cambian de nombre en LastApp**: con una casilla desmarcada "Cambiar también el nombre en la web".
      - **Ya no están en LastApp**: con la casilla "Ocultarlos de la web", marcada según `ocultar_desaparecidos_por_defecto`.
      - **Sin cambios** y **No van en la web**: plegados. En el segundo, cada fila tiene "Recuperar".
@@ -143,8 +145,8 @@ La del brandbook: de tú, cálida, honesta, viajera y sensorial. Con Daniel se h
 
 | Asset | Descripción | Estado |
 |---|---|---|
-| `uploads/panel-demo.json` | La carta real (51 platos en 8 categorías), las 3 actividades reales, 6 consultas inventadas en 4 idiomas, ajustes, historial | Listo |
-| `uploads/importacion-demo.json` | Vista previa construida con un Excel real de LastApp contra la carta: 12 nuevos, 6 cambios de precio, 3 de precio fijo, 1 renombrado, 1 desaparecido, 8 sin cambios y 145 que no van en la web | Listo |
+| `uploads/panel-demo.json` | La carta real (51 platos en 8 categorías: 46 de LastApp y 5 a mano), las 3 actividades reales, 6 consultas inventadas en 4 idiomas, ajustes, historial | Listo |
+| `uploads/importacion-demo.json` | Vista previa construida con el export real de LastApp del 23/10/2026 (197 productos) contra la carta: 12 nuevos, 4 cambios de precio, 1 renombrado, 1 desaparecido, 39 sin cambios y 141 que no van en la web | Listo |
 | Logo | `img/logo-los-trotamundos-restaurante-bubion.jpg` (emblema circular) | Listo |
 | Fotos de actividades | Las rutas de `foto` en `actividades` son las de la web (`img/…`) | En la web |
 
@@ -154,8 +156,8 @@ La del brandbook: de tú, cálida, honesta, viajera y sensorial. Con Daniel se h
 
 - **Entrada:** título "Tu panel" · campo "Tu correo" · botón "Mándame el enlace" · confirmación "Te hemos mandado un enlace a [correo]. Ábrelo desde este móvil y entras." · pie "Solo entran los correos autorizados."
 - **Inicio:** "Hola, Daniel" · "[n] consultas nuevas" · "[n] platos ocultos" · "Última carta subida: [hace cuánto]" · atajos "Subir Excel de LastApp", "Añadir plato", "Añadir actividad" · "Últimos movimientos" · vacío: "Todo al día."
-- **Carta:** "En la carta" · "Añadir plato" · "Editar categorías" · "Archivados" · "Volver a la carta" · marcas "LastApp" y "Precio fijo" · ficha: "Categoría", "Emoji", "Nombre", "Descripción", "Precio", "Nota de precio (por unidad, según peso…)", "Quitar de la carta", "Guardado" · pregunta de precio: "Este precio lo trae LastApp. ¿Lo dejamos fijo en la web para que la próxima importación no lo cambie?" · "Sí, fijarlo" · "No" · vacío de una categoría: "Aquí todavía no hay platos."
-- **Importar:** "Elige el Excel que exporta LastApp" · "Te enseñamos lo que va a cambiar antes de tocar nada." · grupos: "Nuevos en LastApp", "Cambian de precio", "Precio fijo en la web", "Cambian de nombre en LastApp", "Ya no están en LastApp", "Sin cambios", "No van en la web" · opciones: "No va en la web", "Es el mismo que…", "¿Es alguno de estos?" · casillas: "Cambiar también el nombre en la web", "Ocultarlos de la web" · "Marcar como 'No va en la web'" · "Recuperar" · "Aplicar cambios" · "Descartar" · hecho: "Carta actualizada: [resumen]" · "Ver la carta"
+- **Carta:** "En la carta" · "Añadir plato" · "Editar categorías" · "Archivados" · "Volver a la carta" · marca "LastApp" · ficha: "Categoría", "Emoji", "Nombre", "Descripción", "Precio", "Nota de precio (por unidad, según peso…)", "Quitar de la carta", "Guardado" · precio de un plato del TPV: "Lo trae LastApp" · "En LastApp: [nombre] · [precio]" · "Lo quiero poner yo" · confirmación: "Si lo pones tú, este plato deja de seguir a LastApp y se queda en [precio] hasta que tú lo cambies." · "Sí, lo pongo yo" · "Déjalo como está" · vacío de una categoría: "Aquí todavía no hay platos."
+- **Importar:** "Elige el Excel que exporta LastApp" · "Te enseñamos lo que va a cambiar antes de tocar nada." · grupos: "Nuevos en LastApp", "Cambian de precio", "Cambian de nombre en LastApp", "Ya no están en LastApp", "Sin cambios", "No van en la web" · opciones: "No va en la web", "Es el mismo que…", "¿Es alguno de estos?" · casillas: "Cambiar también el nombre en la web", "Ocultarlos de la web" · "Marcar como 'No va en la web'" · "Recuperar" · "Aplicar cambios" · "Descartar" · hecho: "Carta actualizada: [resumen]" · "Ver la carta"
 - **Actividades:** "En la web" · "Añadir actividad" · "Cambiar foto" · "Encuadre: Arriba · Centro · Abajo" · "Archivar" · vacío: "No hay actividades en la web. Añade la primera."
 - **Consultas:** chips "Todas · Nuevas · Contestadas · Confirmadas · Descartadas" · botones "WhatsApp" y "Llamar" · "Tus notas" (placeholder: "Lo que quieras recordar: hora de salida, quién la lleva…") · "Borrar los datos de esta persona" · confirmación: "¿Borramos los datos de [nombre]? La consulta queda, sin nombre ni teléfono." · "Sí, borrar" · vacío: "Ninguna consulta nueva. Buen rato para salir a la terraza."
 - **Ajustes:** "WhatsApp del restaurante" · "Correos que reciben el aviso de cada consulta" · "Avisarme por correo de cada consulta" · "Tu nombre en los mensajes" · "Quién entra al panel" · "Añadir persona" · "Quitar" · "Guardar"
@@ -166,7 +168,7 @@ La del brandbook: de tú, cálida, honesta, viajera y sensorial. Con Daniel se h
 
 No cambian nada visual y son imprescindibles para que Claude Code conecte la maqueta sin tocarla:
 
-1. Cada cambio que hace Daniel pasa por un único método del componente, `accion(tipo, datos)`, que en la maqueta solo actualiza el estado. Los `tipo` son: `plato.guardar`, `plato.visible`, `plato.archivar`, `plato.ordenar`, `categoria.guardar`, `categoria.ordenar`, `actividad.guardar`, `actividad.archivar`, `actividad.ordenar`, `consulta.estado`, `consulta.notas`, `consulta.borrar`, `ajustes.guardar`, `acceso.anadir`, `acceso.quitar` e `importacion.aplicar`. Los datos de un `.guardar` llevan el `id` y solo los campos que cambian (por ejemplo, `{id: 'pl-8', precio: '21.00'}`), y los textos van como objeto con la clave `es` (`{nombre: {es: 'Choto'}}`).
+1. Cada cambio que hace Daniel pasa por un único método del componente, `accion(tipo, datos)`, que en la maqueta solo actualiza el estado. Los `tipo` son: `plato.guardar`, `plato.visible`, `plato.archivar`, `plato.ordenar`, `plato.desvincular`, `categoria.guardar`, `categoria.ordenar`, `actividad.guardar`, `actividad.archivar`, `actividad.ordenar`, `consulta.estado`, `consulta.notas`, `consulta.borrar`, `ajustes.guardar`, `acceso.anadir`, `acceso.quitar` e `importacion.aplicar`. Los datos de un `.guardar` llevan el `id` y solo los campos que cambian (por ejemplo, `{id: 'pl-8', precio: '21.00'}`), y los textos van como objeto con la clave `es` (`{nombre: {es: 'Choto'}}`).
 2. Los elementos que se crean en la maqueta llevan un id que empieza por `nuevo-`.
 3. El selector de archivo de Importar es un `<input type="file" accept=".xls,.xlsx,.csv" data-trota-importar>`. Al elegir un archivo, la maqueta hace `fetch('uploads/importacion-demo.json')` y pinta esa vista previa. "Aplicar cambios" llama a `accion('importacion.aplicar', {id, decisiones})` con esta forma de decisiones:
    `{ nuevos: { <lastapp_id>: {destino:'plato', categoria, emoji} | {destino:'no_web'} | {destino:'mismo', plato_id} | {destino:'pendiente'} }, renombrar: [<plato_id>], ocultar_desaparecidos: true|false, recuperar_no_web: [<lastapp_id>] }`
@@ -203,8 +205,9 @@ No cambian nada visual y son imprescindibles para que Claude Code conecte la maq
 ## Criterios de Aceptación
 
 - [ ] Las siete vistas existen y se navega con la barra inferior (móvil) o lateral (escritorio).
-- [ ] Carta: pestañas de categorías, filas con emoji, nombre, precio e interruptor; ficha editable; la pregunta de precio fijo sale en la misma pantalla; editar categorías y archivados.
-- [ ] Importar: subir, vista previa con los siete grupos, selector de destino por cada nuevo, marcar varios como "No va en la web", casillas de renombrar y ocultar, avisos cuando vienen, aplicar y resumen.
+- [ ] Carta: pestañas de categorías, filas con emoji, nombre, precio e interruptor; ficha editable; editar categorías y archivados.
+- [ ] El precio de un plato de LastApp se enseña pero no se edita, con "Lo trae LastApp" y "Lo quiero poner yo"; el de un plato a mano es un campo normal. La confirmación de desvincular sale en la misma pantalla.
+- [ ] Importar: subir, vista previa con los seis grupos, selector de destino por cada nuevo, marcar varios como "No va en la web", casillas de renombrar y ocultar, avisos cuando vienen, aplicar y resumen.
 - [ ] Actividades: tarjetas con foto y ficha con "Cambiar foto" y encuadre.
 - [ ] Consultas: nuevas primero, filtros, ficha con WhatsApp y Llamar fijos abajo en móvil, estados y notas.
 - [ ] Ajustes con la lista de acceso, sin "Quitar" en la propia persona.
@@ -218,8 +221,8 @@ No cambian nada visual y son imprescindibles para que Claude Code conecte la maq
 ## Notas y Restricciones
 
 - La carta y las actividades de `panel-demo.json` son las reales; las consultas son inventadas.
-- Casos que tienen que verse bien: Zaalouk (oculto), Codillo con chucrut (archivado), las dos empanadas y el Entrecote (precio fijo; el Entrecote no tiene precio), Pizza Pepperoni, Shakshuka y Sopa de verduras (llegaron en una importación), la consulta de Oliver Bennett (teléfono británico, en inglés) y las cuatro consultas en idiomas distintos.
-- En `importacion-demo.json` hay 145 filas en "No van en la web": el grupo tiene que plegarse bien y no estorbar.
+- Casos que tienen que verse bien: Zaalouk (oculto), Codillo con chucrut (archivado), las dos empanadas, el Entrecote y los dos Pan Bao (a mano, `lastapp: null`; el Entrecote además sin precio), Pizza Pepperoni, Shakshuka y torrija (llegaron en una importación y solo tienen el español), la consulta de Oliver Bennett (teléfono británico, en inglés) y las cuatro consultas en idiomas distintos.
+- En `importacion-demo.json` hay 141 filas en "No van en la web": el grupo tiene que plegarse bien y no estorbar.
 - Precios: en la maqueta se pintan con coma y euro ("21,00 €"), aunque en los datos vengan como `"21.00"`.
 
 ---
@@ -229,19 +232,31 @@ No cambian nada visual y son imprescindibles para que Claude Code conecte la maq
 ## 1. Prompt autónomo
 
 ```
-Esto es el panel privado de Daniel, del bar restaurante Los Trotamundos (Bubión, La Alpujarra). Te pego el PRD: úsalo como briefing y respeta el copy tal cual. Hereda el design system de la web y del brandbook (noche, oro y azul globo; Berkshire Swash en titulares, Merriweather en el resto), con densidad de herramienta: menos aire y más información por pantalla, y contraste alto para leerse al sol. Pensado para el móvil de Daniel; el escritorio es el móvil ensanchado, con la lista a la izquierda y la ficha a la derecha.
+Esto es el panel privado de Daniel, dueño del bar restaurante Los Trotamundos, en Bubión (La Alpujarra, Granada). Lo usa desde el móvil, detrás de la barra o en la terraza, entre mesa y mesa. Con él mantiene la carta de su web, sube el Excel que exporta su TPV para actualizar precios de golpe, crea y retira actividades (senderismo, rutas a caballo, 4x4) y contesta por WhatsApp las consultas que llegan de la web.
 
-Todos los datos salen de panel-demo.json e importacion-demo.json, que he subido. No escribas datos a mano.
+Te pego el PRD completo: úsalo como briefing y respeta el copy tal cual, palabra por palabra. Hereda el design system de la web y del brandbook: fondo noche casi negro, oro del atardecer para la acción, azul globo solo en detalles pequeños, Berkshire Swash en titulares, cifras y precios y nunca en bloques de texto, Merriweather en todo lo demás. Cambia una cosa respecto a la web: aquí hay densidad de herramienta, menos aire y más información por pantalla, y contraste alto para que se lea con el sol de la terraza.
+
+Todos los datos salen de panel-demo.json e importacion-demo.json, que he subido. No escribas datos a mano en los componentes.
+
+Dos cosas que son el corazón de este panel y que no se te pueden escapar:
+
+1. EL PRECIO TIENE DOS CARAS. Cada plato o sigue al TPV o lo lleva Daniel, y se ve de un vistazo cuál es cuál.
+   - Si el plato tiene "lastapp" con datos, el precio NO es un campo: se enseña grande, como un dato, con la etiqueta "Lo trae LastApp", debajo en pequeño "En LastApp: [nombre allí] · [precio allí]", y al lado el enlace "Lo quiero poner yo".
+   - Si "lastapp" es null, el precio es un campo normal y editable, sin etiqueta ninguna.
+   - "Lo quiero poner yo" pide confirmación en la misma pantalla, nunca en una ventana emergente, y llama a accion('plato.desvincular', {id}).
+   - No inventes interruptores, ni un "precio fijo", ni preguntas al teclear un precio. Solo esas dos caras.
+
+2. TODO EN ESPAÑOL, SIEMPRE. En los datos los textos vienen como objeto con cuatro idiomas (nombre: {es, en, fr, ca}) porque la web pública está en cuatro idiomas, pero el panel lee y escribe SOLO la clave es. No dibujes ni un campo de otro idioma, ni pestañas de idioma, ni selectores, ni botones de traducir, ni banderas, en ninguna vista. La única excepción es un punto pequeño con el idioma del cliente en una consulta, porque eso dice en qué idioma hay que contestarle.
 
 Construye el panel completo, vista por vista y en este orden: Entrada, estructura (cabecera y barra inferior), Inicio, Carta con la ficha de plato, Importar, Actividades con su ficha, Consultas con su ficha y Ajustes. Termina cada vista antes de pasar a la siguiente.
 
-Cumple las peticiones técnicas del PRD al pie de la letra: todos los cambios pasan por un método accion(tipo, datos); los elementos nuevos llevan id "nuevo-…"; el selector de archivo de Importar es un input con data-trota-importar que, al elegir archivo, hace fetch de uploads/importacion-demo.json; y el botón de foto es un label con aria-label="Cambiar foto".
+Cumple las peticiones técnicas del PRD al pie de la letra: todos los cambios pasan por un método accion(tipo, datos); los elementos nuevos llevan id "nuevo-…"; el selector de archivo de Importar es un input con data-trota-importar que, al elegir archivo, hace fetch de uploads/importacion-demo.json; y el botón de foto de una actividad es un label con aria-label="Cambiar foto".
 
-Nada de ventanas emergentes: las confirmaciones, en la misma pantalla. Todo en español.
+Nada de ventanas emergentes: todas las confirmaciones, en la misma pantalla. Nada de estética de dashboard: ni gráficas, ni KPIs con flechitas, ni degradados. Son tarjetas y filas para el pulgar.
 ```
 
 ## 2. Repaso en móvil
 
 ```
-Revisa todo el panel a 390 px de ancho. Botones de al menos 44 px, nada cortado, sin scroll horizontal, la barra inferior siempre visible, y en la ficha de consulta los botones WhatsApp y Llamar fijos abajo, igual que "Aplicar cambios" en Importar. Comprueba los estados vacíos de cada lista y que el grupo "No van en la web" (145 filas) se queda plegado sin estorbar.
+Revisa todo el panel a 390 px de ancho. Botones de al menos 44 px, nada cortado, sin scroll horizontal, la barra inferior siempre visible, y en la ficha de consulta los botones WhatsApp y Llamar fijos abajo, igual que "Aplicar cambios" en Importar. Comprueba los estados vacíos de cada lista y que el grupo "No van en la web" (141 filas) se queda plegado sin estorbar. Repasa también que en la ficha de un plato de LastApp el precio se lee bien como dato (no parece un campo desactivado) y que "Lo quiero poner yo" se toca sin pelearse con el pulgar.
 ```

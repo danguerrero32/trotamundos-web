@@ -18,8 +18,8 @@ test('actividadAWeb traduce el encuadre y escribe los textos con la forma de la 
   assert.deepEqual(w, { id: 'senderismo', ico: '🥾', foto: 'img/s.png', posicion: 'top center', es: 'Senderismo', en: 'Hiking', desc_es: 'Rutas' });
 });
 
-test('actividadAWeb pendiente de traducir: solo español', () => {
-  const w = actividadAWeb({ id: 'visita', emoji: '🏛️', foto: null, encuadre: 'centro', nombre: { es: 'Visita al pueblo', en: 'Old' }, descripcion: {}, traduccion: { pendiente: true } });
+test('actividadAWeb de una actividad nueva: solo español', () => {
+  const w = actividadAWeb({ id: 'visita', emoji: '🏛️', foto: null, encuadre: 'centro', nombre: { es: 'Visita al pueblo' }, descripcion: {} });
   assert.deepEqual(w, { id: 'visita', ico: '🏛️', foto: '', posicion: 'center', es: 'Visita al pueblo' });
 });
 
