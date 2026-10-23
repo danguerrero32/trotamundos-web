@@ -1,0 +1,2145 @@
+{
+  "_aviso": "DATOS DE MUESTRA para diseñar el panel. La carta y las actividades son las reales; las consultas, inventadas.",
+  "gestor": {
+    "nombre": "Daniel",
+    "email": "daniel@example.com"
+  },
+  "resumen": {
+    "consultas_nuevas": 2,
+    "platos_ocultos": 1,
+    "ultima_importacion": "2026-10-20T11:05:00+02:00"
+  },
+  "idiomas": [
+    "es",
+    "en",
+    "fr",
+    "ca"
+  ],
+  "categorias": [
+    {
+      "id": "deaqui",
+      "nombre": {
+        "es": "De Aquí",
+        "en": "From Here",
+        "fr": "D'Ici",
+        "ca": "D'Aquí"
+      },
+      "visible": true,
+      "orden": 1,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "detodaspartes",
+      "nombre": {
+        "es": "De Todas Partes",
+        "en": "From Everywhere",
+        "fr": "De Partout",
+        "ca": "De Tot Arreu"
+      },
+      "visible": true,
+      "orden": 2,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "ensaladas",
+      "nombre": {
+        "es": "Ensaladas",
+        "en": "Salads",
+        "fr": "Salades",
+        "ca": "Amanides"
+      },
+      "visible": true,
+      "orden": 3,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "vegetarianos",
+      "nombre": {
+        "es": "Vegetarianos",
+        "en": "Vegetarian",
+        "fr": "Végétariens",
+        "ca": "Vegetarians"
+      },
+      "visible": true,
+      "orden": 4,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "carnes",
+      "nombre": {
+        "es": "Carnes",
+        "en": "Meat",
+        "fr": "Viandes",
+        "ca": "Carns"
+      },
+      "visible": true,
+      "orden": 5,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "delamar",
+      "nombre": {
+        "es": "De la Mar",
+        "en": "From the Sea",
+        "fr": "De la Mer",
+        "ca": "De la Mar"
+      },
+      "visible": true,
+      "orden": 6,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "hamburguesas",
+      "nombre": {
+        "es": "Hamburguesas y Pan",
+        "en": "Burgers & Bao",
+        "fr": "Burgers et Pains",
+        "ca": "Hamburgueses i Pa"
+      },
+      "visible": true,
+      "orden": 7,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pizzapasta",
+      "nombre": {
+        "es": "Pizza y Pasta",
+        "en": "Pizza & Pasta",
+        "fr": "Pizza et Pâtes",
+        "ca": "Pizza i Pasta"
+      },
+      "visible": true,
+      "orden": 8,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    }
+  ],
+  "platos": [
+    {
+      "id": "pl-1",
+      "categoria": "deaqui",
+      "orden": 1,
+      "nombre": {
+        "es": "Jamón Gran Reserva",
+        "en": "Reserve Ham",
+        "fr": "Jambon Gran Reserva",
+        "ca": "Pernil Gran Reserva"
+      },
+      "descripcion": {
+        "es": "Jamones Diego Martín, corte fino a mano",
+        "en": "Diego Martín hams, hand-sliced",
+        "fr": "Jambons Diego Martín, coupés finement à la main",
+        "ca": "Pernils Diego Martín, tall fi a mà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🍖",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-2",
+      "categoria": "deaqui",
+      "orden": 2,
+      "nombre": {
+        "es": "Surtido queso alpujarreño",
+        "en": "Alpujarra Cheese",
+        "fr": "Assortiment de fromages de l'Alpujarra",
+        "ca": "Assortiment de formatge alpujarrenyo"
+      },
+      "descripcion": {
+        "es": "Selección variada de la sierra, venta del chaleco",
+        "en": "Assorted local cheeses",
+        "fr": "Sélection variée de la sierra, venta del chaleco",
+        "ca": "Selecció variada de la serra, venta del chaleco"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "20.00",
+      "precio_fijo": false,
+      "emoji": "🧀",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-3",
+      "categoria": "deaqui",
+      "orden": 3,
+      "nombre": {
+        "es": "Chorizo alpujarreño",
+        "en": "Alpujarra Chorizo",
+        "fr": "Chorizo de l'Alpujarra",
+        "ca": "Xoriç alpujarrenyo"
+      },
+      "descripcion": {
+        "es": "Curado artesano de la Alpujarra",
+        "en": "Artisan cured chorizo",
+        "fr": "Séché de façon artisanale dans l'Alpujarra",
+        "ca": "Curat artesà de l'Alpujarra"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "12.00",
+      "precio_fijo": false,
+      "emoji": "🌶️",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "febfebd6-4af8-4600-a4b4-51e091f16638",
+        "nombre": "Chorizo alpujarreño",
+        "precio": "11.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-4",
+      "categoria": "deaqui",
+      "orden": 4,
+      "nombre": {
+        "es": "Morcilla alpujarreña",
+        "en": "Alpujarra Black Pudding",
+        "fr": "Boudin noir de l'Alpujarra",
+        "ca": "Botifarra negra alpujarrenya"
+      },
+      "descripcion": {
+        "es": "Receta tradicional de la sierra",
+        "en": "Traditional sierra recipe",
+        "fr": "Recette traditionnelle de la sierra",
+        "ca": "Recepta tradicional de la serra"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "11.00",
+      "precio_fijo": false,
+      "emoji": "🍢",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "cb2d2dc0-18bb-4ccc-abf9-e769ddb383d0",
+        "nombre": "Morcilla",
+        "precio": "11.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-5",
+      "categoria": "deaqui",
+      "orden": 5,
+      "nombre": {
+        "es": "Surtido de croquetas",
+        "en": "Assorted Croquettes",
+        "fr": "Assortiment de croquettes",
+        "ca": "Assortiment de croquetes"
+      },
+      "descripcion": {
+        "es": "Cocido, morcilla, setas y jamón",
+        "en": "Cocido stew, black pudding, mushrooms, ham",
+        "fr": "Pot-au-feu, boudin noir, champignons et jambon",
+        "ca": "Cuinat, botifarra negra, bolets i pernil"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "14.00",
+      "precio_fijo": false,
+      "emoji": "🧆",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-6",
+      "categoria": "deaqui",
+      "orden": 6,
+      "nombre": {
+        "es": "Plato Alpujarreño",
+        "en": "Alpujarra Plate",
+        "fr": "Assiette Alpujarreña",
+        "ca": "Plat Alpujarrenyo"
+      },
+      "descripcion": {
+        "es": "Patatas con pimientos, chorizo, morcilla, jamón, costilla en orza y huevo frito",
+        "en": "Potatoes, peppers, chorizo, black pudding, ham, pork rib and fried egg",
+        "fr": "Pommes de terre aux poivrons, chorizo, boudin noir, jambon, travers de porc confit et œuf au plat",
+        "ca": "Patates amb pebrots, xoriç, botifarra negra, pernil, costella en orça i ou ferrat"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "17.00",
+      "precio_fijo": false,
+      "emoji": "🍳",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "98832290-4813-477a-9f28-1d9ed6d395be",
+        "nombre": "Plato alpujarreño",
+        "precio": "17.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-7",
+      "categoria": "deaqui",
+      "orden": 7,
+      "nombre": {
+        "es": "Migas Alpujarreñas",
+        "en": "Alpujarra Migas",
+        "fr": "Migas Alpujarreñas",
+        "ca": "Migues Alpujarrenyes"
+      },
+      "descripcion": {
+        "es": "Migas tradicionales con pimientos salteados, chorizo, morcilla y jamón",
+        "en": "Fried bread crumbs, peppers, chorizo, black pudding, ham",
+        "fr": "Migas traditionnelles aux poivrons sautés, chorizo, boudin noir et jambon",
+        "ca": "Migues tradicionals amb pebrots saltats, xoriç, botifarra negra i pernil"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "16.50",
+      "precio_fijo": false,
+      "emoji": "🍞",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "920d7399-9c17-441b-87fa-b8c67af5e4e4",
+        "nombre": "Migas alpujarreñas",
+        "precio": "16.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-8",
+      "categoria": "deaqui",
+      "orden": 8,
+      "nombre": {
+        "es": "Choto",
+        "en": "Kid Goat Stew",
+        "fr": "Chevreau",
+        "ca": "Cabrit"
+      },
+      "descripcion": {
+        "es": "Guiso tradicional de choto (cabrito) de la sierra, en salsa de almendras",
+        "en": "Traditional sierra stew in almond sauce",
+        "fr": "Ragoût traditionnel de chevreau de la sierra, sauce aux amandes",
+        "ca": "Guisat tradicional de cabrit de la serra, en salsa d'ametlles"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "21.00",
+      "precio_fijo": false,
+      "emoji": "🐐",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-9",
+      "categoria": "deaqui",
+      "orden": 9,
+      "nombre": {
+        "es": "Chuletas Segureñas",
+        "en": "Segureño Lamb Chops",
+        "fr": "Côtelettes d'agneau Segureño",
+        "ca": "Costelles Segurenyes"
+      },
+      "descripcion": {
+        "es": "Chuletas de cordero segureño a la brasa",
+        "en": "Grilled lamb chops",
+        "fr": "Côtelettes d'agneau segureño grillées",
+        "ca": "Costelles de xai segureny a la brasa"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "25.00",
+      "precio_fijo": false,
+      "emoji": "🐑",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-10",
+      "categoria": "deaqui",
+      "orden": 10,
+      "nombre": {
+        "es": "Costilla en orza",
+        "en": "Preserved Pork Ribs",
+        "fr": "Côtes de porc confites",
+        "ca": "Costella en orça"
+      },
+      "descripcion": {
+        "es": "Confitada en manteca, receta tradicional",
+        "en": "Pork ribs preserved in lard, traditional recipe",
+        "fr": "Confites au saindoux, recette traditionnelle",
+        "ca": "Confitada en llard, recepta tradicional"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "18.00",
+      "precio_fijo": false,
+      "emoji": "🍖",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "b60f2173-52cd-4ab4-91ed-f33ef1a6bf75",
+        "nombre": "Costilla en orza",
+        "precio": "16.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-11",
+      "categoria": "deaqui",
+      "orden": 11,
+      "nombre": {
+        "es": "Pollo mozárabe",
+        "en": "Mozarabic Chicken",
+        "fr": "Poulet mozarabe",
+        "ca": "Pollastre mossàrab"
+      },
+      "descripcion": {
+        "es": "Pollo especiado con un toque de frutos secos",
+        "en": "Spiced chicken, touch of nuts",
+        "fr": "Poulet épicé avec une touche de fruits secs",
+        "ca": "Pollastre especiat amb un toc de fruita seca"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "17.00",
+      "precio_fijo": false,
+      "emoji": "🍗",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "demo-ya-no-esta",
+        "nombre": "Pollo mozárabe",
+        "precio": "17.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-12",
+      "categoria": "detodaspartes",
+      "orden": 1,
+      "nombre": {
+        "es": "Empanada argentina",
+        "en": "Argentinian Empanada",
+        "fr": "Empanada argentine",
+        "ca": "Empanada argentina"
+      },
+      "descripcion": {
+        "es": "Ternera picada, cebolla caramelizada y huevo duro — por unidad",
+        "en": "Beef, caramelized onion, egg",
+        "fr": "Bœuf haché, oignon caramélisé et œuf dur — à l'unité",
+        "ca": "Vedella picada, ceba caramel·litzada i ou dur — per unitat"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "3.50",
+      "precio_fijo": true,
+      "emoji": "🥟",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "4c91472f-62b1-4f73-9933-72fe71cb2b83",
+        "nombre": "Empanada de ternera",
+        "precio": "12.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-13",
+      "categoria": "detodaspartes",
+      "orden": 2,
+      "nombre": {
+        "es": "Enchiladas",
+        "en": "Enchiladas",
+        "fr": "Enchiladas",
+        "ca": "Enchiladas"
+      },
+      "descripcion": {
+        "es": "Receta mexicana",
+        "en": "Mexican recipe, spicy",
+        "fr": "Recette mexicaine",
+        "ca": "Recepta mexicana"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "18.00",
+      "precio_fijo": false,
+      "emoji": "🌮",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-14",
+      "categoria": "ensaladas",
+      "orden": 1,
+      "nombre": {
+        "es": "Ensalada Trotamundos",
+        "en": "Trotamundos Salad",
+        "fr": "Salade Trotamundos",
+        "ca": "Amanida Trotamundos"
+      },
+      "descripcion": {
+        "es": "Mezcla de la casa con lo mejor de la huerta",
+        "en": "House mix, best of the garden",
+        "fr": "Mélange maison avec le meilleur du potager",
+        "ca": "Barreja de la casa amb el millor de l'hort"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "14.00",
+      "precio_fijo": false,
+      "emoji": "🥗",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-15",
+      "categoria": "ensaladas",
+      "orden": 2,
+      "nombre": {
+        "es": "Tomate con burrata",
+        "en": "Tomato with Burrata",
+        "fr": "Tomate à la burrata",
+        "ca": "Tomàquet amb burrata"
+      },
+      "descripcion": {
+        "es": "Tomate aliñado con burrata cremosa",
+        "en": "Dressed tomato and creamy burrata",
+        "fr": "Tomate assaisonnée et burrata crémeuse",
+        "ca": "Tomàquet amanit amb burrata cremosa"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "14.00",
+      "precio_fijo": false,
+      "emoji": "🍅",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-16",
+      "categoria": "vegetarianos",
+      "orden": 1,
+      "nombre": {
+        "es": "Cous-cous",
+        "en": "Couscous",
+        "fr": "Couscous",
+        "ca": "Cuscús"
+      },
+      "descripcion": {
+        "es": "Cuscús con verduras salteadas y frutos secos",
+        "en": "With sautéed vegetables and nuts",
+        "fr": "Couscous aux légumes sautés et fruits secs",
+        "ca": "Cuscús amb verdures saltades i fruita seca"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🌾",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-17",
+      "categoria": "vegetarianos",
+      "orden": 2,
+      "nombre": {
+        "es": "Zaalouk",
+        "en": "Zaalouk",
+        "fr": "Zaalouk",
+        "ca": "Zaalouk"
+      },
+      "descripcion": {
+        "es": "Crema de verduras asadas, estilo marroquí",
+        "en": "Roasted vegetable soup, moroccan style",
+        "fr": "Crème de légumes rôtis, style marocain",
+        "ca": "Crema de verdures rostides, estil marroquí"
+      },
+      "nota_precio": {
+        "es": "(confirmar)",
+        "en": "(to confirm)",
+        "fr": "(à confirmer)",
+        "ca": "(a confirmar)"
+      },
+      "precio": "10.00",
+      "precio_fijo": false,
+      "emoji": "🍆",
+      "visible": false,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-18",
+      "categoria": "vegetarianos",
+      "orden": 3,
+      "nombre": {
+        "es": "Gyozas de verdura",
+        "en": "Vegetable Gyoza",
+        "fr": "Gyozas aux légumes",
+        "ca": "Gyozas de verdura"
+      },
+      "descripcion": {
+        "es": "Empanadillas japonesas de verduras salteadas",
+        "en": "Japanese dumplings, sautéed vegetables",
+        "fr": "Raviolis japonais aux légumes sautés",
+        "ca": "Empanadetes japoneses de verdures saltades"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "10.00",
+      "precio_fijo": false,
+      "emoji": "🥟",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "6830eef8-2e82-439e-b3f6-99c7c2af2e06",
+        "nombre": "Gyozas de verdura",
+        "precio": "9.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-19",
+      "categoria": "vegetarianos",
+      "orden": 4,
+      "nombre": {
+        "es": "Mix de Gyozas",
+        "en": "Gyoza Mix",
+        "fr": "Mix de Gyozas",
+        "ca": "Mix de Gyozas"
+      },
+      "descripcion": {
+        "es": "Selección mixta de gyozas de la casa",
+        "en": "House selection",
+        "fr": "Sélection mixte de gyozas de la maison",
+        "ca": "Selecció mixta de gyozas de la casa"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "12.50",
+      "precio_fijo": false,
+      "emoji": "🥟",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "09da6ddd-14aa-4b96-b20a-5a18e7a14abe",
+        "nombre": "Mix de gyozas",
+        "precio": "12.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-20",
+      "categoria": "vegetarianos",
+      "orden": 5,
+      "nombre": {
+        "es": "Empanada fugazzeta",
+        "en": "Fugazzeta Empanada",
+        "fr": "Empanada fugazzeta",
+        "ca": "Empanada fugazzeta"
+      },
+      "descripcion": {
+        "es": "Cebolla caramelizada y queso de cabra — por unidad",
+        "en": "Caramelized onion and goat cheese",
+        "fr": "Oignon caramélisé et fromage de chèvre — à l'unité",
+        "ca": "Ceba caramel·litzada i formatge de cabra — per unitat"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "3.50",
+      "precio_fijo": true,
+      "emoji": "🧅",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "7bbb51b6-66d3-483d-9cfd-b30c3cc33e20",
+        "nombre": "Empanada de Fugazzeta",
+        "precio": "10.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-21",
+      "categoria": "vegetarianos",
+      "orden": 6,
+      "nombre": {
+        "es": "Hamburguesa vegana",
+        "en": "Vegan Burger",
+        "fr": "Burger vegan",
+        "ca": "Hamburguesa vegana"
+      },
+      "descripcion": {
+        "es": "Lechuga, tomate, cebolla, guacamole y hamburguesa de lentejas",
+        "en": "Lentil patty, lettuce, tomato, onion and guacamole",
+        "fr": "Steak de lentilles, laitue, tomate, oignon et guacamole",
+        "ca": "Enciam, tomàquet, ceba, guacamole i hamburguesa de llenties"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🥑",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "0dd068bd-3a72-47bd-ae81-48585fcf7fd8",
+        "nombre": "Hamburguesa vegana",
+        "precio": "14.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-22",
+      "categoria": "carnes",
+      "orden": 1,
+      "nombre": {
+        "es": "Carpaccio de wagyu",
+        "en": "Wagyu Carpaccio",
+        "fr": "Carpaccio de wagyu",
+        "ca": "Carpaccio de wagyu"
+      },
+      "descripcion": {
+        "es": "Aceite de albahaca, lima, alcaparras, rúcula y finas láminas de parmesano",
+        "en": "Basil oil, lime, capers, arugula, and thin shavings of Parmesan",
+        "fr": "Huile de basilic, citron vert, câpres, roquette et fines lamelles de parmesan",
+        "ca": "Oli d'alfàbrega, llima, tàperes, ruca i fines làmines de parmesà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "14.00",
+      "precio_fijo": false,
+      "emoji": "🥩",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-23",
+      "categoria": "carnes",
+      "orden": 2,
+      "nombre": {
+        "es": "Alitas Buffalo",
+        "en": "Buffalo Wings",
+        "fr": "Ailes de poulet Buffalo",
+        "ca": "Aletes Buffalo"
+      },
+      "descripcion": {
+        "es": "Salsa búfalo",
+        "en": "Buffalo sauce",
+        "fr": "Sauce buffalo",
+        "ca": "Salsa búfal"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "14.00",
+      "precio_fijo": false,
+      "emoji": "🍗",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-24",
+      "categoria": "carnes",
+      "orden": 3,
+      "nombre": {
+        "es": "Ternera con ciruelas",
+        "en": "Beef with Prunes",
+        "fr": "Bœuf aux pruneaux",
+        "ca": "Vedella amb prunes"
+      },
+      "descripcion": {
+        "es": "Guisada con ciruelas, especias y toque marroquí",
+        "en": "Spices, Moroccan touch",
+        "fr": "Mijoté aux pruneaux, épices et touche marocaine",
+        "ca": "Guisada amb prunes, espècies i toc marroquí"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "20.00",
+      "precio_fijo": false,
+      "emoji": "🍲",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-25",
+      "categoria": "carnes",
+      "orden": 4,
+      "nombre": {
+        "es": "Wok de pollo",
+        "en": "Chicken Wok",
+        "fr": "Wok de poulet",
+        "ca": "Wok de pollastre"
+      },
+      "descripcion": {
+        "es": "Salteado al wok con verduras, estilo asiático",
+        "en": "Vegetables, Asian style",
+        "fr": "Sauté au wok avec légumes, style asiatique",
+        "ca": "Saltat al wok amb verdures, estil asiàtic"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "12.50",
+      "precio_fijo": false,
+      "emoji": "🥘",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-26",
+      "categoria": "carnes",
+      "orden": 5,
+      "nombre": {
+        "es": "Pollo al curry",
+        "en": "Chicken Curry",
+        "fr": "Poulet au curry",
+        "ca": "Pollastre al curri"
+      },
+      "descripcion": {
+        "es": "Con leche de coco y especias de la India",
+        "en": "Coconut milk, Indian spices",
+        "fr": "Au lait de coco et épices indiennes",
+        "ca": "Amb llet de coco i espècies de l'Índia"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "16.50",
+      "precio_fijo": false,
+      "emoji": "🍛",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-27",
+      "categoria": "carnes",
+      "orden": 6,
+      "nombre": {
+        "es": "Codillo con chucrut",
+        "en": "Pork Knuckle & Sauerkraut",
+        "fr": "Jarret de porc à la choucroute",
+        "ca": "Colze de porc amb xucrut"
+      },
+      "descripcion": {
+        "es": "Codillo de cerdo asado con chucrut, receta alemana",
+        "en": "German recipe",
+        "fr": "Jarret de porc rôti à la choucroute, recette allemande",
+        "ca": "Colze de porc rostit amb xucrut, recepta alemanya"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "18.00",
+      "precio_fijo": false,
+      "emoji": "🥨",
+      "visible": true,
+      "archivado": true,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-28",
+      "categoria": "carnes",
+      "orden": 7,
+      "nombre": {
+        "es": "Parrillada",
+        "en": "Grilled Meat Platter",
+        "fr": "Grillade",
+        "ca": "Graellada"
+      },
+      "descripcion": {
+        "es": "Selección de carnes a la brasa",
+        "en": "Selection of grilled meats",
+        "fr": "Sélection de viandes grillées",
+        "ca": "Selecció de carns a la brasa"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "32.00",
+      "precio_fijo": false,
+      "emoji": "🔥",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-29",
+      "categoria": "carnes",
+      "orden": 8,
+      "nombre": {
+        "es": "Osobuco",
+        "en": "Osobuco",
+        "fr": "Osobuco",
+        "ca": "Ossobuco"
+      },
+      "descripcion": {
+        "es": "Pierna de ternera a baja temperatura con pasta de cacao 100% de la Abuela ili",
+        "en": "Pork Knuckle & Sauerkraut. German recipe",
+        "fr": "Gigot de veau à basse température avec pâte de cacao 100% de la Abuela ili",
+        "ca": "Cuixa de vedella a baixa temperatura amb pasta de cacau 100% de la Abuela ili"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "23.00",
+      "precio_fijo": false,
+      "emoji": "🥩",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-30",
+      "categoria": "carnes",
+      "orden": 9,
+      "nombre": {
+        "es": "Entrecote",
+        "en": "Entrecote",
+        "fr": "Entrecôte",
+        "ca": "Entrecot"
+      },
+      "descripcion": {
+        "es": "Pierna de ternera a baja temperatura con pasta de cacao 100% de la Abuela ili",
+        "en": "Pork Knuckle & Sauerkraut. German recipe",
+        "fr": "Gigot de veau à basse température avec pâte de cacao 100% de la Abuela ili",
+        "ca": "Cuixa de vedella a baixa temperatura amb pasta de cacau 100% de la Abuela ili"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "",
+      "precio_fijo": true,
+      "emoji": "🥩",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "b492a359-7821-4a48-8955-fe412ec18160",
+        "nombre": "Entrecot de ternera con guarnición",
+        "precio": "23.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-31",
+      "categoria": "delamar",
+      "orden": 1,
+      "nombre": {
+        "es": "Langostinos al pilpil",
+        "en": "Sizzling Prawns",
+        "fr": "Crevettes au pil pil",
+        "ca": "Llagostins al pilpil"
+      },
+      "descripcion": {
+        "es": "Ajo, gamba, pimentón de la Vera",
+        "en": "Garlic, prawns, La Vera paprika",
+        "fr": "Ail, crevette, paprika de la Vera",
+        "ca": "All, gamba, pebre vermell de la Vera"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "16.00",
+      "precio_fijo": false,
+      "emoji": "🦐",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "56625d63-3304-4bfb-aefc-a6405464809c",
+        "nombre": "Langostinos al pilpil",
+        "precio": "16.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-32",
+      "categoria": "delamar",
+      "orden": 2,
+      "nombre": {
+        "es": "Bacalao Trotamundos",
+        "en": "Trotamundos Cod",
+        "fr": "Morue Trotamundos",
+        "ca": "Bacallà Trotamundos"
+      },
+      "descripcion": {
+        "es": "Crema de puerro y almendra con picada de pistacho",
+        "en": "Leek and almond cream, pistachio praline",
+        "fr": "Crème de poireau et amande, éclats de pistache",
+        "ca": "Crema de porro i ametlla amb picada de pistatxo"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "19.00",
+      "precio_fijo": false,
+      "emoji": "🐟",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-33",
+      "categoria": "delamar",
+      "orden": 3,
+      "nombre": {
+        "es": "Pulpo a la gallega",
+        "en": "Galician-style Octopus",
+        "fr": "Poulpe à la galicienne",
+        "ca": "Pop a la gallega"
+      },
+      "descripcion": {
+        "es": "Con patata, pimentón y aceite de oliva",
+        "en": "With potato, paprika and olive oil",
+        "fr": "Avec pomme de terre, paprika et huile d'olive",
+        "ca": "Amb patata, pebre vermell i oli d'oliva"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "22.00",
+      "precio_fijo": false,
+      "emoji": "🐙",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-34",
+      "categoria": "delamar",
+      "orden": 4,
+      "nombre": {
+        "es": "Gyozas de langostinos",
+        "en": "Prawn Gyoza",
+        "fr": "Gyozas aux crevettes",
+        "ca": "Gyozas de llagostins"
+      },
+      "descripcion": {
+        "es": "Empanadillas japonesas rellenas de langostino",
+        "en": "Japanese dumplings filled with prawn",
+        "fr": "Raviolis japonais farcis aux crevettes",
+        "ca": "Empanadetes japoneses farcides de llagostí"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "12.00",
+      "precio_fijo": false,
+      "emoji": "🥟",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-35",
+      "categoria": "hamburguesas",
+      "orden": 1,
+      "nombre": {
+        "es": "Hamburguesa completa",
+        "en": "Full Burger",
+        "fr": "Burger complet",
+        "ca": "Hamburguesa completa"
+      },
+      "descripcion": {
+        "es": "Wagyu, bacon, queso, lechuga",
+        "en": "Wagyu, bacon, cheese, lettuce",
+        "fr": "Wagyu, bacon, fromage, laitue",
+        "ca": "Wagyu, bacó, formatge, enciam"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🍔",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "ea0342d4-d7e8-4ab8-b715-a208f6b7235a",
+        "nombre": "Hamburguesa completa",
+        "precio": "12.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-36",
+      "categoria": "hamburguesas",
+      "orden": 2,
+      "nombre": {
+        "es": "Hamburguesa de cabra",
+        "en": "Goat Cheese Burger",
+        "fr": "Burger au fromage de chèvre",
+        "ca": "Hamburguesa de cabra"
+      },
+      "descripcion": {
+        "es": "Wagyu, pimiento asado, cebolla caramelizada y rulo de cabra frito",
+        "en": "Wagyu, roasted pepper, fried goat cheese",
+        "fr": "Wagyu, poivron rôti, oignon caramélisé et bûche de chèvre frite",
+        "ca": "Wagyu, pebrot rostit, ceba caramel·litzada i rotlle de cabra fregit"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "16.00",
+      "precio_fijo": false,
+      "emoji": "🍔",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "e691edf0-cce4-4d66-ac81-75f1a1985d30",
+        "nombre": "Hamburguesa de cabra",
+        "precio": "13.00"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-37",
+      "categoria": "hamburguesas",
+      "orden": 3,
+      "nombre": {
+        "es": "Hamburguesa Trotamundos",
+        "en": "Trotamundos Burger",
+        "fr": "Burger Trotamundos",
+        "ca": "Hamburguesa Trotamundos"
+      },
+      "descripcion": {
+        "es": "Wagyu al horno",
+        "en": "Oven-baked wagyu",
+        "fr": "Wagyu au four",
+        "ca": "Wagyu al forn"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "18.00",
+      "precio_fijo": false,
+      "emoji": "🍔",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-38",
+      "categoria": "hamburguesas",
+      "orden": 4,
+      "nombre": {
+        "es": "Pan Bao — Pulled pork",
+        "en": "Bao Bun — Pulled Pork",
+        "fr": "Pain Bao — Pulled pork",
+        "ca": "Pa Bao — Pulled pork"
+      },
+      "descripcion": {
+        "es": "Precio por unidad",
+        "en": "Per unit",
+        "fr": "Prix à l'unité",
+        "ca": "Preu per unitat"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "3.00",
+      "precio_fijo": false,
+      "emoji": "🐷",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-39",
+      "categoria": "hamburguesas",
+      "orden": 5,
+      "nombre": {
+        "es": "Pan Bao — Kebab",
+        "en": "Bao Bun — Kebab",
+        "fr": "Pain Bao — Kebab",
+        "ca": "Pa Bao — Kebab"
+      },
+      "descripcion": {
+        "es": "Precio por unidad",
+        "en": "Per unit",
+        "fr": "Prix à l'unité",
+        "ca": "Preu per unitat"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "3.00",
+      "precio_fijo": false,
+      "emoji": "🥙",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-40",
+      "categoria": "pizzapasta",
+      "orden": 1,
+      "nombre": {
+        "es": "Margarita",
+        "en": "Margherita",
+        "fr": "Margherita",
+        "ca": "Margarida"
+      },
+      "descripcion": {
+        "es": "Tomate y mozzarella",
+        "en": "Tomato and mozzarella",
+        "fr": "Tomate et mozzarella",
+        "ca": "Tomàquet i mozzarella"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "12.50",
+      "precio_fijo": false,
+      "emoji": "🍕",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-41",
+      "categoria": "pizzapasta",
+      "orden": 2,
+      "nombre": {
+        "es": "4 Quesos",
+        "en": "Four Cheese",
+        "fr": "4 Fromages",
+        "ca": "4 Formatges"
+      },
+      "descripcion": {
+        "es": "Mozzarella, queso de cabra, parmesano y roquefort",
+        "en": "Mozzarella, goat cheese, parmesan, roquefort",
+        "fr": "Mozzarella, fromage de chèvre, parmesan et roquefort",
+        "ca": "Mozzarella, formatge de cabra, parmesà i roquefort"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🧀",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-42",
+      "categoria": "pizzapasta",
+      "orden": 3,
+      "nombre": {
+        "es": "Carbonara",
+        "en": "Carbonara",
+        "fr": "Carbonara",
+        "ca": "Carbonara"
+      },
+      "descripcion": {
+        "es": "Margarita, bacon, huevo y parmesano",
+        "en": "Margherita, bacon, egg, parmesan",
+        "fr": "Margherita, bacon, œuf et parmesan",
+        "ca": "Margarida, bacó, ou i parmesà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🍳",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-43",
+      "categoria": "pizzapasta",
+      "orden": 4,
+      "nombre": {
+        "es": "Fugazzeta",
+        "en": "Fugazzeta",
+        "fr": "Fugazzeta",
+        "ca": "Fugazzeta"
+      },
+      "descripcion": {
+        "es": "Cebolla caramelizada y queso de cabra",
+        "en": "Caramelized onion and goat cheese",
+        "fr": "Oignon caramélisé et fromage de chèvre",
+        "ca": "Ceba caramel·litzada i formatge de cabra"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "15.00",
+      "precio_fijo": false,
+      "emoji": "🧅",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-44",
+      "categoria": "pizzapasta",
+      "orden": 5,
+      "nombre": {
+        "es": "De la Sierra",
+        "en": "From the Sierra",
+        "fr": "De la Sierra",
+        "ca": "De la Serra"
+      },
+      "descripcion": {
+        "es": "Jamón, rúcula y parmesano",
+        "en": "Ham, rocket and parmesan",
+        "fr": "Jambon, roquette et parmesan",
+        "ca": "Pernil, ruca i parmesà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "17.00",
+      "precio_fijo": false,
+      "emoji": "🏔️",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-45",
+      "categoria": "pizzapasta",
+      "orden": 6,
+      "nombre": {
+        "es": "Macarrones a la Boloñesa",
+        "en": "Macaroni Bolognese",
+        "fr": "Macaronis à la bolognaise",
+        "ca": "Macarrons a la Bolonyesa"
+      },
+      "descripcion": {
+        "es": "Pasta italiana con salsa boloñesa casera",
+        "en": "Italian pasta, homemade bolognese",
+        "fr": "Pâtes italiennes, sauce bolognaise maison",
+        "ca": "Pasta italiana amb salsa bolonyesa casolana"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.50",
+      "precio_fijo": false,
+      "emoji": "🍝",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-46",
+      "categoria": "pizzapasta",
+      "orden": 7,
+      "nombre": {
+        "es": "Tallarines Carbonara",
+        "en": "Tagliatelle Carbonara",
+        "fr": "Tagliatelles Carbonara",
+        "ca": "Tallarines Carbonara"
+      },
+      "descripcion": {
+        "es": "Con bacon, huevo y parmesano",
+        "en": "Bacon, egg, parmesan",
+        "fr": "Bacon, œuf et parmesan",
+        "ca": "Amb bacó, ou i parmesà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.50",
+      "precio_fijo": false,
+      "emoji": "🥚",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "9f930171-f8ed-42e6-99ff-e5b11d1d74e2",
+        "nombre": "Tallarines carbonara",
+        "precio": "13.50"
+      },
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-47",
+      "categoria": "pizzapasta",
+      "orden": 8,
+      "nombre": {
+        "es": "Pasta con salsa de queso",
+        "en": "Pasta with Cheese Sauce",
+        "fr": "Pâtes à la sauce fromagère",
+        "ca": "Pasta amb salsa de formatge"
+      },
+      "descripcion": {
+        "es": "Salsa cremosa de quesos italianos",
+        "en": "Creamy Italian cheese sauce",
+        "fr": "Sauce crémeuse aux fromages italiens",
+        "ca": "Salsa cremosa de formatges italians"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.50",
+      "precio_fijo": false,
+      "emoji": "🧀",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-48",
+      "categoria": "pizzapasta",
+      "orden": 9,
+      "nombre": {
+        "es": "Pasta al Pesto",
+        "en": "Pesto Pasta",
+        "fr": "Pâtes au Pesto",
+        "ca": "Pasta al Pesto"
+      },
+      "descripcion": {
+        "es": "Pesto genovés casero",
+        "en": "Homemade Genovese pesto",
+        "fr": "Pesto génois maison",
+        "ca": "Pesto genovès casolà"
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.50",
+      "precio_fijo": false,
+      "emoji": "🌿",
+      "visible": true,
+      "archivado": false,
+      "lastapp": null,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-49",
+      "categoria": "pizzapasta",
+      "orden": 10,
+      "nombre": {
+        "es": "Pizza Pepperoni",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "descripcion": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.50",
+      "precio_fijo": false,
+      "emoji": "🍕",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "c4373db9-6f00-4105-b517-90de3741c12e",
+        "nombre": "Pizza Pepperoni",
+        "precio": "13.50"
+      },
+      "traduccion": {
+        "pendiente": true,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-50",
+      "categoria": "vegetarianos",
+      "orden": 7,
+      "nombre": {
+        "es": "Shakshuka",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "descripcion": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "13.00",
+      "precio_fijo": false,
+      "emoji": "🍳",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "8a7cd63f-27b6-4dce-b698-237126f98b6a",
+        "nombre": "Shakshuka",
+        "precio": "13.00"
+      },
+      "traduccion": {
+        "pendiente": true,
+        "manual": []
+      }
+    },
+    {
+      "id": "pl-51",
+      "categoria": "vegetarianos",
+      "orden": 8,
+      "nombre": {
+        "es": "Sopa de verduras",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "descripcion": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "nota_precio": {
+        "es": "",
+        "en": "",
+        "fr": "",
+        "ca": ""
+      },
+      "precio": "8.50",
+      "precio_fijo": false,
+      "emoji": "🥣",
+      "visible": true,
+      "archivado": false,
+      "lastapp": {
+        "id": "89a5352c-cabc-49de-a7f7-32057862a8e6",
+        "nombre": "Sopa de verduras",
+        "precio": "8.50"
+      },
+      "traduccion": {
+        "pendiente": true,
+        "manual": []
+      }
+    }
+  ],
+  "actividades": [
+    {
+      "id": "senderismo",
+      "emoji": "🥾",
+      "nombre": {
+        "es": "Senderismo en Sierra Nevada",
+        "en": "Hiking in Sierra Nevada",
+        "fr": "Randonnée à Sierra Nevada",
+        "ca": "Senderisme a Sierra Nevada"
+      },
+      "descripcion": {
+        "es": "Rutas guiadas para todos los niveles. Paisajes únicos, flora de alta montaña y vistas que no olvidarás.",
+        "en": "Guided hikes for all levels. Unique landscapes, high-mountain flora and views you'll never forget.",
+        "fr": "Randonnées guidées pour tous les niveaux. Paysages uniques, flore de haute montagne et vues inoubliables.",
+        "ca": "Rutes guiades per a tots els nivells. Paisatges únics, flora d'alta muntanya i vistes que no oblidaràs."
+      },
+      "foto": "img/senderismo-sierra-nevada-rutas-alpujarra.png",
+      "encuadre": "arriba",
+      "orden": 1,
+      "visible": true,
+      "archivada": false,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "caballo",
+      "emoji": "🐴",
+      "nombre": {
+        "es": "Rutas a caballo",
+        "en": "Horse riding routes",
+        "fr": "Randonnées à cheval",
+        "ca": "Rutes a cavall"
+      },
+      "descripcion": {
+        "es": "Los caminos históricos de La Alpujarra a lomos de caballo. Para principiantes y para quien ya monta.",
+        "en": "Historic trails of La Alpujarra on horseback. Suitable for beginners and experienced riders.",
+        "fr": "Les chemins historiques de La Alpujarra à cheval. Pour tous les niveaux.",
+        "ca": "Els camins històrics de La Alpujarra a cavall. Per a tots els nivells."
+      },
+      "foto": "img/ruta-caballo-alpujarra-sierra-nevada.jpg",
+      "encuadre": "centro",
+      "orden": 2,
+      "visible": true,
+      "archivada": false,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    },
+    {
+      "id": "4x4",
+      "emoji": "🚙",
+      "nombre": {
+        "es": "Excursiones en 4x4",
+        "en": "4x4 excursions",
+        "fr": "Excursions en 4x4",
+        "ca": "Excursions en 4x4"
+      },
+      "descripcion": {
+        "es": "Accede a lugares que no están en ningún mapa. Pistas de montaña, cortijos y rincones secretos de Sierra Nevada.",
+        "en": "Access places not on any map. Mountain tracks, farmhouses and secret corners of Sierra Nevada.",
+        "fr": "Accédez à des endroits qui ne figurent sur aucune carte. Sierra Nevada en profondeur, sans limites.",
+        "ca": "Accedeix a llocs que no surten en cap mapa. Sierra Nevada a fons, sense límits."
+      },
+      "foto": "img/excursion-4x4-sierra-nevada-alpujarra.jpg",
+      "encuadre": "centro",
+      "orden": 3,
+      "visible": true,
+      "archivada": false,
+      "traduccion": {
+        "pendiente": false,
+        "manual": []
+      }
+    }
+  ],
+  "consultas": [
+    {
+      "id": "con-1",
+      "recibida_en": "2026-10-22T18:40:00+02:00",
+      "actividad_id": "caballo",
+      "actividad": "Rutas a caballo",
+      "nombre": "Ana Martín",
+      "telefono": "+34 611 222 333",
+      "fecha": "2026-11-14",
+      "personas": "2",
+      "idioma": "es",
+      "estado": "nueva",
+      "notas": "",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/34611222333?text=Hola%2C%20Ana.%20Soy%20Daniel%2C%20de%20Los%20Trotamundos.%20Hemos%20recibido%20tu%20consulta%20sobre%20%C2%ABRutas%20a%20caballo%C2%BB.",
+      "llamar_url": "tel:+34611222333"
+    },
+    {
+      "id": "con-2",
+      "recibida_en": "2026-10-23T09:15:00+02:00",
+      "actividad_id": "senderismo",
+      "actividad": "Senderismo en Sierra Nevada",
+      "nombre": "Oliver Bennett",
+      "telefono": "+44 7700 900123",
+      "fecha": "2026-11-02",
+      "personas": "4",
+      "idioma": "en",
+      "estado": "nueva",
+      "notas": "",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/447700900123?text=Hi%20Oliver%2C%20this%20is%20Daniel%20from%20Los%20Trotamundos.%20We've%20received%20your%20enquiry%20about%20%22Hiking%20in%20Sierra%20Nevada%22.",
+      "llamar_url": "tel:+447700900123"
+    },
+    {
+      "id": "con-3",
+      "recibida_en": "2026-10-20T12:05:00+02:00",
+      "actividad_id": "4x4",
+      "actividad": "Excursiones en 4x4",
+      "nombre": "Camille Laurent",
+      "telefono": "+33 6 12 34 56 78",
+      "fecha": "2026-10-30",
+      "personas": "2",
+      "idioma": "fr",
+      "estado": "contestada",
+      "notas": "Le he pasado precio. Espera respuesta.",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/33612345678?text=Bonjour%20Camille%2C%20c'est%20Daniel%2C%20de%20Los%20Trotamundos.%20Nous%20avons%20bien%20re%C3%A7u%20votre%20demande%20concernant%20%C2%AB%20Excursions%20en%204x4%20%C2%BB.",
+      "llamar_url": "tel:+33612345678"
+    },
+    {
+      "id": "con-4",
+      "recibida_en": "2026-10-18T20:31:00+02:00",
+      "actividad_id": "caballo",
+      "actividad": "Rutas a caballo",
+      "nombre": "Jordi Puig",
+      "telefono": "622 456 789",
+      "fecha": "2026-10-26",
+      "personas": "3",
+      "idioma": "ca",
+      "estado": "confirmada",
+      "notas": "Confirmado con Paco, salida a las 10.",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/34622456789?text=Hola%2C%20Jordi.%20S%C3%B3c%20en%20Daniel%2C%20de%20Los%20Trotamundos.%20Hem%20rebut%20la%20teva%20consulta%20sobre%20%C2%ABRutes%20a%20cavall%C2%BB.",
+      "llamar_url": "tel:+34622456789"
+    },
+    {
+      "id": "con-5",
+      "recibida_en": "2026-10-12T11:47:00+02:00",
+      "actividad_id": "senderismo",
+      "actividad": "Senderismo en Sierra Nevada",
+      "nombre": "Lucía Romero",
+      "telefono": "655 987 321",
+      "fecha": "",
+      "personas": "5+",
+      "idioma": "es",
+      "estado": "descartada",
+      "notas": "Buscaba algo en enero, ya no hay salidas.",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/34655987321?text=Hola%2C%20Luc%C3%ADa.%20Soy%20Daniel%2C%20de%20Los%20Trotamundos.%20Hemos%20recibido%20tu%20consulta%20sobre%20%C2%ABSenderismo%20en%20Sierra%20Nevada%C2%BB.",
+      "llamar_url": "tel:+34655987321"
+    },
+    {
+      "id": "con-6",
+      "recibida_en": "2026-10-21T16:20:00+02:00",
+      "actividad_id": "4x4",
+      "actividad": "Excursiones en 4x4",
+      "nombre": "Marta Gil",
+      "telefono": "699 111 222",
+      "fecha": "2026-12-06",
+      "personas": "1",
+      "idioma": "es",
+      "estado": "contestada",
+      "notas": "",
+      "aviso_enviado": true,
+      "whatsapp_url": "https://wa.me/34699111222?text=Hola%2C%20Marta.%20Soy%20Daniel%2C%20de%20Los%20Trotamundos.%20Hemos%20recibido%20tu%20consulta%20sobre%20%C2%ABExcursiones%20en%204x4%C2%BB.",
+      "llamar_url": "tel:+34699111222"
+    }
+  ],
+  "estados_consulta": [
+    "nueva",
+    "contestada",
+    "confirmada",
+    "descartada"
+  ],
+  "etiquetas_consulta": {
+    "nueva": "Nueva",
+    "contestada": "Contestada",
+    "confirmada": "Confirmada",
+    "descartada": "Descartada"
+  },
+  "ajustes": {
+    "whatsapp": "+34 858 893 777",
+    "correos_aviso": [
+      "daniel@example.com"
+    ],
+    "aviso_consultas_correo": true,
+    "nombre_gestor": "Daniel",
+    "traduccion_automatica": false,
+    "administradores": [
+      {
+        "email": "daniel@example.com",
+        "nombre": "Daniel",
+        "soy_yo": true
+      },
+      {
+        "email": "dan@example.com",
+        "nombre": "Dan",
+        "soy_yo": false
+      }
+    ]
+  },
+  "ultima_importacion": {
+    "en": "2026-10-20T11:05:00+02:00",
+    "archivo": "Products-20-10-2026.xls",
+    "resumen": {
+      "nuevos": 3,
+      "precios": 5,
+      "ocultados": 2
+    }
+  },
+  "historial": [
+    {
+      "en": "2026-10-23T09:16:00+02:00",
+      "quien": "web",
+      "accion": "Nueva consulta de Oliver Bennett: Senderismo en Sierra Nevada"
+    },
+    {
+      "en": "2026-10-22T12:01:00+02:00",
+      "quien": "Daniel",
+      "accion": "Cambió el precio de Choto a 21 €"
+    },
+    {
+      "en": "2026-10-21T10:30:00+02:00",
+      "quien": "Daniel",
+      "accion": "Ocultó Zaalouk"
+    },
+    {
+      "en": "2026-10-20T11:05:00+02:00",
+      "quien": "Daniel",
+      "accion": "Importó la carta de LastApp: 3 platos nuevos, 5 precios"
+    },
+    {
+      "en": "2026-10-19T19:12:00+02:00",
+      "quien": "Daniel",
+      "accion": "Quitó de la carta Codillo con chucrut"
+    }
+  ]
+}

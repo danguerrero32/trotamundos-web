@@ -1,0 +1,1234 @@
+[
+[
+"Id",
+"Name",
+"Price",
+"Description",
+"Image URL"
+],
+[
+"965b450f-1f34-4fad-8cd0-19429abba241",
+"Absolut",
+"6,00 €",
+"",
+""
+],
+[
+"1f9655dd-153e-4d08-a1a4-9f5b6ad6f357",
+"Agua 1,5 L",
+"2,50 €",
+"",
+""
+],
+[
+"903f4193-cb7b-443b-95aa-05f9db2b01af",
+"Agua 50cl",
+"1,80 €",
+"",
+""
+],
+[
+"abde9012-b150-4323-9cd6-9cc96c1fec46",
+"Agua c/Gas",
+"2,50 €",
+"",
+""
+],
+[
+"00ca945f-aca8-4f07-b9f1-fae5fa0bd051",
+"Alhambra 1925",
+"3,50 €",
+"",
+""
+],
+[
+"47324afb-c97c-4e00-9d3f-e1cad08a2b02",
+"Americano",
+"1,50 €",
+"",
+""
+],
+[
+"a9823b8b-86b2-4e5d-a53a-c04645590920",
+"Aquarius",
+"2,80 €",
+"",
+""
+],
+[
+"36aaf2ad-76e1-4008-a1c8-37fc3c143dc1",
+"Bacalao a la Vizcaína",
+"19,00 €",
+"",
+""
+],
+[
+"4f40d527-e41a-4be9-942e-5343805b7540",
+"Baileys",
+"4,00 €",
+"",
+""
+],
+[
+"4d7f21dd-bfb0-4587-9215-402a017af5f3",
+"Ballantines",
+"5,50 €",
+"",
+""
+],
+[
+"b5f26692-077a-42c1-a163-2d515167c651",
+"Barceló",
+"5,50 €",
+"",
+""
+],
+[
+"dcd40839-b8e6-4556-be09-31d12d61d7b2",
+"Beefeater",
+"5,50 €",
+"",
+""
+],
+[
+"f5380ae0-c0c9-4cd0-880c-71813099793b",
+"Bombas de queso con jalapeños y salsa de setas",
+"11,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/iqn2to9eom0mbz3nm0on"
+],
+[
+"57447bbb-c6e6-43c6-a641-793dbb9f5f47",
+"altos de bergasa crianza",
+"22,50 €",
+"",
+""
+],
+[
+"c4e449cc-b64c-4ee7-bac7-b72a2160b4f4",
+"Brandy",
+"3,00 €",
+"",
+""
+],
+[
+"ea34fb9b-465d-4427-99fd-ad06b3f4dcd9",
+"Brugal",
+"5,50 €",
+"",
+""
+],
+[
+"f682bb32-b741-4b9e-a927-a638c870c4f8",
+"Café & Tostada",
+"2,50 €",
+"",
+""
+],
+[
+"3cf9a3b3-14ba-495e-bf00-27fa5e4866e3",
+"Café Bombon",
+"1,80 €",
+"",
+""
+],
+[
+"bfa0dd68-81c1-416b-935e-5e185e305d9b",
+"Cafe c/Leche",
+"1,50 €",
+"",
+""
+],
+[
+"0eed4eaf-b464-4015-b76e-94d3d079e8c0",
+"cafe doble",
+"2,00 €",
+"",
+""
+],
+[
+"e661a43a-1258-4ae8-ad51-41dd7861f681",
+"Café Irlandes",
+"2,50 €",
+"",
+""
+],
+[
+"5ffe67a5-8c08-4603-a8ff-dd95f7d3cdab",
+"Café Solo",
+"1,50 €",
+"",
+""
+],
+[
+"d201df01-4b7a-4379-a3f9-71dfd1ccff97",
+"Café solo con HIELO",
+"1,60 €",
+"",
+""
+],
+[
+"364b43f0-5fd9-4a8f-b047-474ccf0f1297",
+"Calamar nacional",
+"18,50 €",
+"",
+""
+],
+[
+"91820df9-c7f6-4a2e-8b5c-87f534ef0e76",
+"Canelones de foie y trufa",
+"15,50 €",
+"",
+""
+],
+[
+"a87b7c21-a81d-4f62-a995-59f81176866d",
+"Capriccio di Daniel",
+"18,00 €",
+"",
+""
+],
+[
+"7003c4f7-60ae-4855-b0e8-9eead86bd7d4",
+"Capuccino",
+"2,50 €",
+"",
+""
+],
+[
+"7d5f27ee-bb74-4ff9-8429-38866eec350d",
+"Carajillo",
+"2,00 €",
+"",
+""
+],
+[
+"01b898d4-1b10-428c-a5fa-5b6efd83694f",
+"Carajillo de Bailey",
+"2,30 €",
+"",
+""
+],
+[
+"daef581a-9427-439d-9dbd-aa9f66f786a3",
+"carlos tercero",
+"4,00 €",
+"",
+""
+],
+[
+"da62c5ae-5c46-445a-a4ce-76a75c359b4d",
+"Chco Clack",
+"2,00 €",
+"",
+""
+],
+[
+"ca6ac6e5-e48d-4933-a7ac-ced49b2306ec",
+"chocolate",
+"2,70 €",
+"",
+""
+],
+[
+"febfebd6-4af8-4600-a4b4-51e091f16638",
+"Chorizo alpujarreño",
+"11,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/frm0tfpzhfwblvidvmnc"
+],
+[
+"ec3df2c6-0d14-43f1-83a1-740f6829f222",
+"Choto en salsa de almendras",
+"18,90 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/wzfmluhpdtzcyroigpnt"
+],
+[
+"19e3e0ef-56b5-4c3d-bb68-f5d3d23a1a8b",
+"Chuletas de cordero con guarnición",
+"19,50 €",
+"",
+""
+],
+[
+"2919d15b-86c3-448f-9f4c-dce7082bff5c",
+"Chupito",
+"2,00 €",
+"",
+""
+],
+[
+"618f8cee-2449-4eed-a779-c0145c431e15",
+"chupito",
+"1,50 €",
+"",
+""
+],
+[
+"adc98e77-848a-45be-8a97-7a0e9a61b9ef",
+"Chupito Habana",
+"2,50 €",
+"",
+""
+],
+[
+"425ee615-abd3-43ff-afa6-9117ccdd08e1",
+"Chupito S/A",
+"1,00 €",
+"",
+""
+],
+[
+"1f751533-cc83-4f6e-bbf6-aaa0718d76b4",
+"Chupito Tequila",
+"2,00 €",
+"",
+""
+],
+[
+"c41a73b3-ca6d-40a4-b779-8cf852718546",
+"Coca Cola",
+"3,00 €",
+"",
+""
+],
+[
+"ff9e386a-4eee-4fc4-aaee-8f318beacde7",
+"Codillo de cerdo",
+"18,90 €",
+"",
+""
+],
+[
+"d0902d08-c23e-4309-9659-dc014b7fcfb1",
+"Colacao",
+"1,50 €",
+"",
+""
+],
+[
+"65c641bc-8047-450a-a450-97739835cc94",
+"Caña Clara 33",
+"2,80 €",
+"",
+""
+],
+[
+"35430ede-6067-4fc4-9201-d5f68d0091a1",
+"Caña 33",
+"2,80 €",
+"",
+""
+],
+[
+"3737bd61-d916-4dbc-970c-a4235c132d5a",
+"Copa de vino de la casa",
+"3,20 €",
+"",
+""
+],
+[
+"c05e929f-c2ec-4af4-bdee-3abe954dd259",
+"Copa de vino Rioja CRIANZA",
+"3,80 €",
+"",
+""
+],
+[
+"8c7d7ad0-52fd-4a12-b25b-d77c95fe464b",
+"Cortado",
+"1,50 €",
+"",
+""
+],
+[
+"b60f2173-52cd-4ab4-91ed-f33ef1a6bf75",
+"Costilla en orza",
+"16,50 €",
+"",
+""
+],
+[
+"27ca23ce-32ea-48a0-ac36-732b87b619a0",
+"Crema de orujo",
+"3,50 €",
+"",
+""
+],
+[
+"f7f677de-2326-4b0c-8cab-58a0095a7d8e",
+"Creppe",
+"5,00 €",
+"",
+""
+],
+[
+"6c0a58b2-46f3-4631-8bc7-c4c87cbdd60c",
+"Croquetas de cocido",
+"14,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/g85j2tm5vebfefyblzye"
+],
+[
+"d5510554-5e39-4513-992b-f5af080a66b7",
+"Croquetas del mar",
+"16,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/vwrdqndsazzjvzxj8yhy"
+],
+[
+"36b48ca1-3961-4753-9e75-32f279fade7f",
+"Cuscús vegetal",
+"15,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/mspoqoa1kw354w0248fj"
+],
+[
+"1e2b1a17-ccab-49b7-af82-30a64dad6177",
+"Dewars White Label",
+"5,50 €",
+"",
+""
+],
+[
+"06f9720e-a969-4fb7-b785-b00ff8561419",
+"DYC",
+"5,50 €",
+"",
+""
+],
+[
+"fe7a4b95-f9dc-4410-a905-ff1f779904e5",
+"DYC 8 AÑOS",
+"6,00 €",
+"",
+""
+],
+[
+"7bbb51b6-66d3-483d-9cfd-b30c3cc33e20",
+"Empanada de Fugazzeta",
+"10,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/hoveppgpkuncyv09mcaq"
+],
+[
+"4c91472f-62b1-4f73-9933-72fe71cb2b83",
+"Empanada de ternera",
+"12,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/xliz5msv8cqawhxlij3g"
+],
+[
+"139bca0e-0d5d-4615-8b94-985a4aab4c6f",
+"Enchiladas de pollo picantes",
+"17,00 €",
+"",
+""
+],
+[
+"ee2cfe99-df03-4235-befd-4fa4a1232b9f",
+"Ensalada de quesos",
+"14,00 €",
+"",
+""
+],
+[
+"4f6a4ab1-c2c8-44bc-b073-a9bded66afa4",
+"Ensalada mixta",
+"11,00 €",
+"",
+""
+],
+[
+"c71c91dc-3836-4605-b211-2b360dee3c2d",
+"Espresso Doble",
+"2,50 €",
+"",
+""
+],
+[
+"7e1c2e3b-0019-48cc-bf9e-3ee34ef3abf2",
+"EXTRA",
+"1,00 €",
+"",
+""
+],
+[
+"c45d0d21-c014-402a-94d3-0f3702b003e3",
+"Extreme",
+"2,40 €",
+"",
+""
+],
+[
+"3bdbb913-e4a4-4cd1-aee8-809569f9936f",
+"Fanta Limón",
+"3,00 €",
+"",
+""
+],
+[
+"d96215e4-fa21-4e4d-bfd7-e8fc3d6912d5",
+"Fanta Naranja",
+"3,00 €",
+"",
+""
+],
+[
+"fe1d8e2c-f010-4ce8-ac41-760059e5f28c",
+"Fruta",
+"2,50 €",
+"",
+""
+],
+[
+"affc4599-29fe-4992-b1b0-d480e01cde8f",
+"Gyozas de pato o langostino",
+"12,00 €",
+"",
+""
+],
+[
+"6830eef8-2e82-439e-b3f6-99c7c2af2e06",
+"Gyozas de verdura",
+"9,50 €",
+"",
+""
+],
+[
+"ea0342d4-d7e8-4ab8-b715-a208f6b7235a",
+"Hamburguesa completa",
+"12,00 €",
+"",
+""
+],
+[
+"e691edf0-cce4-4d66-ac81-75f1a1985d30",
+"Hamburguesa de cabra",
+"13,00 €",
+"",
+""
+],
+[
+"0dd068bd-3a72-47bd-ae81-48585fcf7fd8",
+"Hamburguesa vegana",
+"14,00 €",
+"",
+""
+],
+[
+"d181940b-6282-4946-b35f-ce906fea1a89",
+"Infucion Montecelio",
+"2,00 €",
+"",
+""
+],
+[
+"faf55ab8-b135-4499-b8f4-adc87a10ca67",
+"Infusión",
+"1,50 €",
+"",
+""
+],
+[
+"2f86e57b-d35b-44de-91fc-4ac3279d2ba5",
+"Ingrediente extra (pizza)",
+"1,50 €",
+"",
+""
+],
+[
+"521517a8-7ee9-4860-9530-d961bb3cfb56",
+"Jack Daniels",
+"7,00 €",
+"",
+""
+],
+[
+"eab8fb8a-7bd9-46b6-ba7f-7e85997f1f6a",
+"Jameson",
+"6,00 €",
+"",
+""
+],
+[
+"2dcdfcae-fba2-4416-986a-add85cf3cc7d",
+"Jamón alpujarreño gran reserva",
+"14,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/csy56p8ahxxs5obbcymb"
+],
+[
+"a4ffe9ff-ec7e-40cc-8e20-2f175bb40c2a",
+"JW Red Label",
+"5,50 €",
+"",
+""
+],
+[
+"afa98cf2-3217-45bd-948d-2eaba986cb0e",
+"Kalimotxo",
+"3,50 €",
+"",
+""
+],
+[
+"74652d73-f63a-4396-a958-a778f0750003",
+"Kitkat",
+"2,90 €",
+"",
+""
+],
+[
+"56625d63-3304-4bfb-aefc-a6405464809c",
+"Langostinos al pilpil",
+"16,00 €",
+"",
+""
+],
+[
+"6569da4f-7543-4656-8615-ac62b9af6af2",
+"Larios",
+"5,50 €",
+"",
+""
+],
+[
+"c1c3ab55-cc97-4740-873b-944c307c54aa",
+"Lata",
+"2,00 €",
+"",
+""
+],
+[
+"669b893a-1db2-43ac-bf2b-77107b7f4d69",
+"lata llevar",
+"2,00 €",
+"",
+""
+],
+[
+"ea42f6ed-d185-4bfa-a0fe-c71bf6133d68",
+"Maxi Bon",
+"2,80 €",
+"",
+""
+],
+[
+"98ab31c7-0fa3-4369-a00e-c94c9b42ac13",
+"Menú del día",
+"15,00 €",
+"",
+""
+],
+[
+"64825884-f553-408f-81ee-c39749c54ba1",
+"Menú infantil",
+"12,00 €",
+"",
+""
+],
+[
+"920d7399-9c17-441b-87fa-b8c67af5e4e4",
+"Migas alpujarreñas",
+"16,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/k3k8lfrpydsdvwebm4sk"
+],
+[
+"fa458083-cdde-4d88-b1f2-e4c570c0fd66",
+"Milka",
+"3,00 €",
+"",
+""
+],
+[
+"09da6ddd-14aa-4b96-b20a-5a18e7a14abe",
+"Mix de gyozas",
+"12,50 €",
+"",
+""
+],
+[
+"9f4aaf23-b188-4fb7-8d9c-01fdf094e404",
+"Mojito",
+"6,50 €",
+"",
+""
+],
+[
+"7e280a00-b1af-47b5-98cd-2a4ba9ec4aed",
+"Monster",
+"2,80 €",
+"",
+""
+],
+[
+"1da938ef-f886-4260-9bd7-ec3853822d58",
+"Monter llevar",
+"2,50 €",
+"",
+""
+],
+[
+"cb2d2dc0-18bb-4ccc-abf9-e769ddb383d0",
+"Morcilla alpujarreña",
+"11,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/rzwfmh0jzm2dcj0tdzsi"
+],
+[
+"a3f0fea8-b6d6-4ff6-802a-11e3fba5cdf7",
+"Mosto",
+"2,80 €",
+"",
+""
+],
+[
+"80603373-8ce4-4c1e-8d88-e860ec005e5a",
+"Nata",
+"2,00 €",
+"",
+""
+],
+[
+"80202a61-aa9a-43ae-a29a-314200598e54",
+"Nestea",
+"2,80 €",
+"",
+""
+],
+[
+"d1c77c76-e820-4afa-a4ee-c094519127a1",
+"Nuii",
+"2,90 €",
+"",
+""
+],
+[
+"2e58d69a-7a9f-4fdc-afb9-9ccc8ca48138",
+"Oreo",
+"2,90 €",
+"",
+""
+],
+[
+"fa5d2c0f-0e2d-4132-b609-639faf14d876",
+"orujo hiervas",
+"3,00 €",
+"",
+""
+],
+[
+"44539a43-03ed-40ef-9d8c-930a83765c65",
+"Osobuco de ternera",
+"23,00 €",
+"",
+""
+],
+[
+"80a7ae41-255d-4fcb-8299-35baa8ae9ecd",
+"Pacharán",
+"3,50 €",
+"",
+""
+],
+[
+"088e4d0e-cc5e-440f-9484-eddcab0cec09",
+"palo cortado",
+"3,00 €",
+"",
+""
+],
+[
+"5fc7441f-0250-46fd-9718-287248594cf7",
+"Panera",
+"1,00 €",
+"",
+""
+],
+[
+"01fe1736-7101-49ec-b28f-e98654dfa73d",
+"Parrillada para compartir",
+"30,00 €",
+"",
+""
+],
+[
+"0b947f4e-3a70-4f99-8c18-6e03a3ea8038",
+"Pata de pulpo con parmentier",
+"20,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/oqc1m2ovxjjybbpxd1fu"
+],
+[
+"fcec9288-be79-47b4-a0d9-6cdff9d3685c",
+"Caña 25",
+"2,30 €",
+"",
+""
+],
+[
+"9784d90c-b9cd-44e5-8561-aefdd9842492",
+"Pinta",
+"4,00 €",
+"",
+""
+],
+[
+"4546bd8e-728e-4d3f-b5aa-55bcb2143ef5",
+"pinta alpujarra",
+"3,50 €",
+"",
+""
+],
+[
+"6bf15f61-9f11-40df-af19-0eeda2bba9c9",
+"Pinta Clara",
+"4,50 €",
+"",
+""
+],
+[
+"38dfe96b-144b-4e11-89d7-8f2a7969ab81",
+"Pirulo",
+"1,90 €",
+"",
+""
+],
+[
+"850ec610-2ca3-4eed-a179-30c37a5c6b5f",
+"Pizza 4 quesos",
+"13,90 €",
+"",
+""
+],
+[
+"21fe0244-8480-4ae2-a8c7-418958c57a4c",
+"Pizza Carbonara",
+"13,50 €",
+"",
+""
+],
+[
+"fc761c6a-7121-4a13-a78a-ae09f27b167a",
+"Pizza De la sierra",
+"15,00 €",
+"",
+""
+],
+[
+"a1b39ebd-1a6d-439a-9a77-b2778a68d947",
+"Pizza Del huerto",
+"14,00 €",
+"",
+""
+],
+[
+"9589abde-8987-4009-862d-7b5c04ed3580",
+"Pizza Del mar",
+"16,00 €",
+"",
+""
+],
+[
+"0c5db5e9-0bf1-4b01-a5d3-f24a148a95e7",
+"Pizza Fugazzeta",
+"14,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/q1faxowseepw3len2wch"
+],
+[
+"509156d4-dcc6-4b39-8c5a-21dd6fd95a62",
+"Pizza Margarita",
+"11,50 €",
+"",
+""
+],
+[
+"c4373db9-6f00-4105-b517-90de3741c12e",
+"Pizza Pepperoni",
+"13,50 €",
+"",
+""
+],
+[
+"be48bddf-9fb4-4450-accd-a7a75a30654a",
+"Pizza Prosciutto",
+"12,50 €",
+"",
+""
+],
+[
+"98832290-4813-477a-9f28-1d9ed6d395be",
+"Plato alpujarreño",
+"17,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/ucjzazrtttvxusoavm6s"
+],
+[
+"fc189cfb-ef20-4bea-bc79-d0d0f0682639",
+"Poke de langostinos",
+"17,00 €",
+"",
+""
+],
+[
+"fb04cd44-b5c0-4bd2-acbd-e6ae5511e3e4",
+"Poke de pollo",
+"15,00 €",
+"",
+""
+],
+[
+"665315ad-b088-4744-a4e1-d888517f8d5b",
+"puerto de indias",
+"6,00 €",
+"",
+""
+],
+[
+"753d6f23-defd-4357-9b37-3f448f93908b",
+"Queso alpujarreño",
+"11,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/gquzko8zfsbvd9mdichn"
+],
+[
+"bb242c9b-9947-4eb8-8c2a-5b8044fe2f85",
+"Salmorejo (en temporada)",
+"10,00 €",
+"",
+""
+],
+[
+"3115dac0-428e-4d1c-95e1-d267552359ab",
+"Sangria",
+"6,00 €",
+"",
+""
+],
+[
+"5ac3f533-2888-4577-a4c9-5028c98ecbc3",
+"Seagrams",
+"6,00 €",
+"",
+""
+],
+[
+"8a7cd63f-27b6-4dce-b698-237126f98b6a",
+"Shakshuka",
+"13,00 €",
+"",
+""
+],
+[
+"62956960-2547-4bcd-bd5a-bc810dd8d247",
+"sidra",
+"3,00 €",
+"",
+""
+],
+[
+"be0e0224-1815-4f4f-b1f7-97bfe61a7604",
+"sol y sombra",
+"3,00 €",
+"",
+""
+],
+[
+"cab9ad45-0dca-4889-80e1-b25d22722279",
+"Sopa de marisco",
+"12,50 €",
+"",
+""
+],
+[
+"8a91c710-2c2f-4022-b2f2-5c06e387de1c",
+"Sopa de picadillo",
+"9,50 €",
+"",
+""
+],
+[
+"89a5352c-cabc-49de-a7f7-32057862a8e6",
+"Sopa de verduras",
+"8,50 €",
+"",
+""
+],
+[
+"a6c99f01-4f16-4562-b746-35f9bf6d40e1",
+"Sprite",
+"3,00 €",
+"",
+""
+],
+[
+"413f0a06-e563-4190-98b4-f18e165fcf92",
+"Tallarines 4 quesos",
+"13,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/stkjer1avkejfiqilmjw"
+],
+[
+"a0ed1050-b16d-425c-af36-07d8fe23778a",
+"Tallarines al pesto",
+"12,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/la8ur3yrf7kzteduriea"
+],
+[
+"f6f93c14-a3fe-4b42-a644-667790faf9db",
+"Tallarines boloñesa",
+"13,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/ir9wleozbn0i1uchqgvf"
+],
+[
+"9f930171-f8ed-42e6-99ff-e5b11d1d74e2",
+"Tallarines carbonara",
+"13,50 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/cjxx6cabkxz33gzi8w1q"
+],
+[
+"fc2664ae-2a34-4ef0-a22c-ef0fd41b0906",
+"Tallarines con verduras",
+"13,50 €",
+"",
+""
+],
+[
+"5ccbf9ec-a615-4132-9ee4-29db0814057e",
+"Tallarines marinera",
+"15,00 €",
+"",
+"https://res.cloudinary.com/lastpos/image/upload/f_auto,q_auto/v1560251370/yjtb0q5yj6zcsrthqlvl"
+],
+[
+"f9df509b-9cc5-4031-874c-1fc03df17d04",
+"Tarta de chocolate",
+"5,00 €",
+"",
+""
+],
+[
+"1c7b3c05-1a57-448e-bf03-d5ee6d5879e5",
+"Tarta de queso",
+"5,00 €",
+"",
+""
+],
+[
+"b492a359-7821-4a48-8955-fe412ec18160",
+"Entrecot de ternera con guarnición",
+"23,00 €",
+"",
+""
+],
+[
+"4270dbb7-a099-491d-9524-6321b08b5bf4",
+"Tercio 0,0 tostada",
+"3,20 €",
+"",
+""
+],
+[
+"f506f205-fbfe-4f0b-b4c8-8ee25074fb85",
+"Tercio Alhambra",
+"3,00 €",
+"",
+""
+],
+[
+"2347c559-4411-4642-928d-a42cb9a7c671",
+"Texas Burger",
+"15,00 €",
+"",
+""
+],
+[
+"459fd577-d8f8-4279-8d97-39c64c2d8e1f",
+"Frikendel",
+"15,00 €",
+"",
+""
+],
+[
+"82d022f8-386a-41dd-9761-60ef3b4511c6",
+"Tinto de Verano",
+"3,00 €",
+"",
+""
+],
+[
+"22fca1f9-775b-4a87-b5f9-42d180e24bb4",
+"Tiramisú",
+"5,00 €",
+"",
+""
+],
+[
+"77f85236-53e4-4902-af7a-aad0a2d50db1",
+"Toblerone",
+"3,00 €",
+"",
+""
+],
+[
+"256b4a38-f7d7-46ae-8f02-5c4f95f0a4e1",
+"Tomate aliñado",
+"11,50 €",
+"",
+""
+],
+[
+"a0b35cf9-e392-44bc-892c-a04e8e2aa35a",
+"Tónica",
+"3,00 €",
+"",
+""
+],
+[
+"8fdce488-3ec3-419e-a5a9-09e285a915b8",
+"Vaso con hielo",
+"0,10 €",
+"",
+""
+],
+[
+"a0582c0b-8094-4f48-890c-c49519caa7df",
+"Verdejo",
+"15,00 €",
+"",
+""
+],
+[
+"7d5d9f81-fa8d-41e0-ad0a-ce473e210cb5",
+"Vermut",
+"3,50 €",
+"",
+""
+],
+[
+"c5f4d236-5cab-4897-9ed2-3298707ecacb",
+"vino del terreno",
+"2,80 €",
+"",
+""
+],
+[
+"cc70abf6-2c36-4b1c-8126-918b3a24c51a",
+"Yogurt",
+"3,50 €",
+"",
+""
+],
+[
+"e6cb1abb-f325-40b7-be56-230a012d4e49",
+"Zumo",
+"2,80 €",
+"",
+""
+],
+[
+"f2abc683-7efa-4646-b34e-4bebbfbefefe",
+"Tortilla",
+"5,00 €",
+"tortilla",
+""
+],
+[
+"de909817-91ed-4aa8-8654-380bc6d821c4",
+"caña Shandy 33",
+"2,80 €",
+"",
+""
+],
+[
+"a5575d88-e355-4be1-86b3-4074c8f243f2",
+"Sugerencia del día",
+"40,00 €",
+"",
+""
+],
+[
+"85a2bdec-2eb2-4e49-9a4c-beb1ec3bff11",
+"extra010",
+"0,10 €",
+"",
+""
+],
+[
+"50398e92-4a7f-49ec-b548-c1ac4cca394d",
+"extra020",
+"0,20 €",
+"",
+""
+],
+[
+"25fb7ad2-dd2e-4c42-8127-ac99d07fe176",
+"extra050",
+"0,50 €",
+"",
+""
+],
+[
+"c15a84fd-c829-4bab-80fa-ae9bffe0905e",
+"extra1",
+"1,00 €",
+"",
+""
+],
+[
+"463cb2a2-ce43-4839-a55e-8ea6dca6d7ad",
+"extra2",
+"2,00 €",
+"",
+""
+],
+[
+"ee8e3ef4-5a58-421e-a667-a1d24b8b5d53",
+"extra3",
+"3,00 €",
+"",
+""
+],
+[
+"74d72283-c925-4f68-9191-a83bac7b890e",
+"Seagram tónica",
+"5,50 €",
+"",
+""
+],
+[
+"82486f36-221d-4284-9979-57a8d8ce2ed1",
+"COPA DE Ribera",
+"3,50 €",
+"",
+""
+],
+[
+"9edadd29-27f8-4572-8150-b25d17826c4d",
+"tinto de verano pinta",
+"4,00 €",
+"",
+""
+],
+[
+"660a117f-2f00-4069-871e-2cd4cff3f89a",
+"tinto veran pinta",
+"4,00 €",
+"",
+""
+],
+[
+"284fc6df-6697-4e98-aabc-df8b9dec3257",
+"tinto de verano pinta",
+"4,00 €",
+"",
+""
+]
+]
