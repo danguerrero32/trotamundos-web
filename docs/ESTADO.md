@@ -89,7 +89,7 @@ Las tareas son las del plan. Lo escrito está en la rama `backend-panel`, con **
 | Tarea 9 · Datos y acciones del panel | Escrita |
 | Tarea 10 · Importación del Excel de LastApp con vista previa | Escrita. `003` **ejecutado el 24 de octubre** (función `aplicar_importacion` creada). Sin probar con datos |
 | Tarea 11 · Vinculación inicial con LastApp | **Sin empezar.** Espera el export de catálogo y, sobre todo, el OK de Dan a los precios que van a cambiar |
-| Tarea 12 · Importar y conectar el panel de Claude Design | **Hecha el 24 de octubre.** `Trotamundos Panel.dc.html` y `support.js` traídos del proyecto de Design "Backend Trotamundos" (DesignSync llega a él por su id aunque `list_projects` no lo liste). `tools/panel-conexion.js` envuelve `accion()`, redirige las lecturas a `/api/panel/datos`, lee el Excel con SheetJS y sube las fotos; `tools/ajustes.py` lo inyecta y quita el botón de demo. **Comprobado en modo demo** con el servidor local a 390 px: alta de plato (espera al nombre, fusiona el precio, las acciones siguientes usan el id real), importación con el export real (vista previa y aplicar), salir y pedir enlace. **Sin comprobar aún contra la base real** |
+| Tarea 12 · Importar y conectar el panel de Claude Design | **Hecha el 24 de octubre.** `Trotamundos Panel.dc.html` y `support.js` traídos del proyecto de Design "Backend Trotamundos" (DesignSync llega a él por su id aunque `list_projects` no lo liste). `tools/panel-conexion.js` envuelve `accion()`, redirige las lecturas a `/api/panel/datos`, lee el Excel con SheetJS y sube las fotos; `tools/ajustes.py` lo inyecta y quita el botón de demo. **Comprobado en modo demo** con el servidor local a 390 px: alta de plato (espera al nombre, fusiona el precio, las acciones siguientes usan el id real), importación con el export real (vista previa y aplicar), salir y pedir enlace. **Comprobado también en la vista previa de Vercel con la base real** el 24 de octubre: `/api/carta` devuelve la carta de octubre con `origen: 'bd'`, la web de la vista previa pinta las 9 pestañas y los 57 platos, `/panel` carga la pantalla de entrada y guarda el enlace en `sesiones_panel`. Lo que falta: entrar de verdad (ver Resend en §7) y el recorrido de la Tarea 14 |
 | Tarea 13 · Tarea diaria (latido, anonimizado, limpieza) | Escrita |
 | Tarea 14 · Verificación en la vista previa y guía para Daniel | Sin empezar |
 | Tarea 15 · Publicación | Sin empezar |
@@ -102,7 +102,7 @@ Comprobado el 24 de octubre por la noche:
 
 - [x] **Supabase.** Proyecto `trotamundos` creado. Esquema cargado.
 - [x] **Vercel**: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM` y `CRON_SECRET` en Production, Preview (marcado el 24 de octubre con el OK de Dan) y Development. La vista previa de la rama es `trotamundos-web-git-backend-panel-danguerrero32s-projects.vercel.app`, protegida con inicio de sesión de Vercel.
-- [ ] **Resend.** La clave está en Vercel. Sin comprobar si el dominio `lostrotamundosalpujarra.com` está verificado: se verá al pedir el primer enlace de entrada. Ojo con IONOS: añade el dominio él solo, así que en el nombre del registro va solo la parte de delante (`resend._domainkey`, no el nombre entero).
+- [ ] **Resend: la clave de Vercel no vale.** Al pedir el enlace desde la vista previa, Resend responde `401 API key is invalid` (visto en los registros de Vercel el 24 de octubre a las 21:58). Hay que crear una clave nueva en Resend (permiso de envío, en la cuenta donde esté el dominio) y sustituir `RESEND_API_KEY` en Vercel, en Production y Preview. Después, volver a pedir el enlace en `…/panel`. Aparte, el dominio `lostrotamundosalpujarra.com` tiene que estar verificado para que `RESEND_FROM` (`panel@lostrotamundosalpujarra.com`) pueda enviar; si no lo está, Resend dará otro error (403). Ojo con IONOS: añade el dominio él solo, así que en el nombre del registro va solo la parte de delante (`resend._domainkey`, no el nombre entero).
 - [ ] **GitHub** → Settings → Secrets → Actions: `SUPABASE_URL` y `SUPABASE_PUBLISHABLE_KEY`. Es solo el latido de respaldo; no corre prisa.
 - [ ] **OK para pasar el repositorio a privado** cuando se publique.
 - [x] **Rama** `backend-panel` subida (OK de Dan del 24 de octubre).
@@ -114,6 +114,10 @@ Comprobado el 24 de octubre por la noche:
 - El correo de Daniel para darle acceso al panel.
 - Los datos fiscales de Daniel para la página de privacidad, que hoy lleva huecos marcados.
 - Confirmar que el WhatsApp del restaurante sigue siendo el +34 858 893 777.
+
+## 8b. Cómo se ejecuta SQL en Supabase desde aquí
+
+Claude Code no tiene las claves: el SQL se pega en el editor SQL del proyecto desde el Chrome de Dan (Claude in Chrome), copiándolo al portapapeles con `pbcopy`. **Siempre con `LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 pbcopy < archivo.sql`**: el 24 de octubre la primera carga entró con las tildes y los emojis rotos ("Jam√≥n") porque el terminal no tenía la codificación puesta, y hubo que borrar y recargar los datos. Comprobar después con una consulta que devuelva un nombre con tilde y un emoji.
 
 ## 9. Lo que hay que saber del Excel de LastApp
 
@@ -133,6 +137,6 @@ Dan lo decidió el 23 de octubre y está apuntado en el PRD, en el apartado "Pen
 
 ## 11. Siguiente paso
 
-1. **Vista previa de la rama con la base real** (Tarea 14): `/api/carta` con `origen: 'bd'` y la carta de octubre, entrar al panel con el enlace al correo de Dan (es la primera prueba real de Resend), crear y ocultar un plato, verlo en la web de la vista previa, consulta de actividad de prueba.
+1. **Clave de Resend nueva en Vercel** (Dan) y entrar al panel de la vista previa con el enlace. Después, el recorrido de la Tarea 14: crear y ocultar un plato, verlo en la web de la vista previa, importar el export real, actividad con foto, consulta de prueba.
 2. Vinculación inicial con LastApp y la lista de precios para que Dan la confirme (Tarea 11). `uploads/panel-demo.json` sigue con la carta vieja: es solo la muestra del diseño y no afecta a nada real; se regenera cuando toque.
 3. Guía para Daniel (Tarea 14) y publicación con el OK de Dan (Tarea 15). **Ojo:** en cuanto `api/carta.js` llegue a `main`, la web pública pasa a enseñar la carta de la base de datos (la de octubre, ya cargada).

@@ -1136,7 +1136,20 @@ class Component extends DCLogic {
   const ESPERA_MS = 900;
   const SHEETJS = 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js';
   const esNuevo = (id) => typeof id === 'string' && /^nuevo-/.test(id);
-  const avisar = (t) => { try { alert(t); } catch (e) {} };
+  // Avisos sin ventanas emergentes: una franja arriba, con los colores del panel, que se quita sola o al tocarla.
+  const avisar = (t) => {
+    try {
+      let el = document.getElementById('trota-aviso');
+      if (!el) {
+        el = document.createElement('div'); el.id = 'trota-aviso';
+        el.style.cssText = 'position:fixed;top:12px;left:12px;right:12px;z-index:9999;padding:14px 16px;background:#231A12;color:#F0E6D2;border:1px solid #C88860;border-radius:10px;font:15px/1.4 Merriweather,Georgia,serif;box-shadow:0 8px 24px rgba(0,0,0,.5);cursor:pointer;';
+        el.onclick = () => el.remove();
+        document.body.appendChild(el);
+      }
+      el.textContent = t;
+      clearTimeout(el._t); el._t = setTimeout(() => el.remove(), 8000);
+    } catch (e) { console.warn('[panel]', t); }
+  };
 
   const post = (ruta, cuerpo) => fetch(API + ruta, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(cuerpo || {}) })
     .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok && j.ok !== false, status: r.status, j })), () => ({ ok: false, status: 0, j: {} }));
@@ -1153,9 +1166,9 @@ class Component extends DCLogic {
         if (r.status === 401) {
           if (comp) comp.setState({ vista: 'entrada', d: null });
           try { if (location.hash && location.hash !== '#enlace-caducado') history.replaceState(null, '', location.pathname); } catch (e) {}
-          throw new Error('sin sesión');
+          return new Promise(() => {}); // sin sesión: la maqueta se queda en Entrada y no espera datos
         }
-        if (!r.ok) { avisar('No se han podido cargar los datos del panel. Recarga la página en un momento.'); throw new Error('HTTP ' + r.status); }
+        if (!r.ok) { avisar('No se han podido cargar los datos del panel. Recarga la página en un momento.'); return new Promise(() => {}); }
         return r;
       });
     }
