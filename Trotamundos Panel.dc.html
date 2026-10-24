@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0907;color:#F0E6D2;-webkit-text-size-adjust:100%;}
+*{-webkit-tap-highlight-color:transparent;}
+input,textarea,select,button{font-family:'Merriweather',Georgia,serif;}
+::placeholder{color:#8A7A62;opacity:1;}
+a{color:#EDAF8C;}
+a:hover{color:#F5CFA8;}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0B0907;color:#F0E6D2;font-family:'Merriweather',Georgia,serif;font-weight:400;font-size:15px;line-height:1.45;color-scheme:dark;overflow-x:hidden;">
+
+<!-- ENTRADA -->
+<sc-if value="{{ enEntrada }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Entrada" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px;box-sizing:border-box;">
+    <div style="width:100%;max-width:380px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="Los Trotamundos" style="width:112px;height:112px;border-radius:50%;object-fit:cover;display:block;border:1px solid #2E2418;">
+      <h1 style="font-family:'Berkshire Swash',cursive;font-weight:400;font-size:2.5rem;line-height:1.1;color:#F5CFA8;margin:22px 0 26px;">Tu panel</h1>
+      <sc-if value="{{ noEnviado }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ enviar }}" style="width:100%;display:flex;flex-direction:column;gap:12px;text-align:left;">
+          <label style="display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Tu correo</span>
+            <input type="email" value="{{ email }}" onChange="{{ setEmail }}" autocomplete="email" inputmode="email" style="width:100%;box-sizing:border-box;min-height:52px;background:#13100A;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:12px 14px;outline:none;" style-focus="border-color:#C88860;">
+          </label>
+          <button type="submit" style="min-height:52px;background:#EDAF8C;color:#0B0907;border:none;border-radius:8px;font-size:16px;cursor:pointer;opacity: {{ btnEnviarOpacidad }};" style-hover="background:#F5CFA8;">Mándame el enlace</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ enviado }}" hint-placeholder-val="{{ false }}">
+        <div style="width:100%;box-sizing:border-box;background:#1C1510;border:1px solid #C88860;border-radius:10px;padding:18px;text-align:left;font-size:16px;line-height:1.6;color:#F0E6D2;">Te hemos mandado un enlace a <span style="color:#F5CFA8;word-break:break-all;">{{ email }}</span>. Ábrelo desde este móvil y entras.</div>
+      </sc-if>
+      <p style="font-size:13px;color:#8A7A62;margin:22px 0 0;">Solo entran los correos autorizados.</p>
+    </div>
+  </div>
+</sc-if>
+
+<!-- PANEL -->
+<sc-if value="{{ enPanel }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;min-height:100vh;">
+
+  <sc-if value="{{ esEscritorio }}" hint-placeholder-val="{{ false }}">
+    <nav style="position:sticky;top:0;height:100vh;width:96px;flex:none;background:#13100A;border-right:1px solid #2E2418;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0;box-sizing:border-box;">
+      <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="" style="width:46px;height:46px;border-radius:50%;object-fit:cover;margin-bottom:12px;">
+      <button onClick="{{ nav.inicio.ir }}" style="width:80px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background: {{ nav.inicio.fondo }};border:none;border-radius:8px;cursor:pointer;color: {{ nav.inicio.color }};font-size:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>
+        <span>Inicio</span>
+      </button>
+      <button onClick="{{ nav.carta.ir }}" style="width:80px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background: {{ nav.carta.fondo }};border:none;border-radius:8px;cursor:pointer;color: {{ nav.carta.color }};font-size:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg>
+        <span>Carta</span>
+      </button>
+      <button onClick="{{ nav.actividades.ir }}" style="width:80px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background: {{ nav.actividades.fondo }};border:none;border-radius:8px;cursor:pointer;color: {{ nav.actividades.color }};font-size:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M2 20 9.5 7l4.5 7.5 2.5-3.5L22 20z"></path></svg>
+        <span>Actividades</span>
+      </button>
+      <button onClick="{{ nav.consultas.ir }}" style="position:relative;width:80px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background: {{ nav.consultas.fondo }};border:none;border-radius:8px;cursor:pointer;color: {{ nav.consultas.color }};font-size:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 5h16v11H10l-5 4v-4H4z"></path></svg>
+        <span>Consultas</span>
+        <sc-if value="{{ hayNuevas }}"><span style="position:absolute;top:6px;left:46px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:9px;background:#EDAF8C;color:#0B0907;font-size:11px;line-height:18px;text-align:center;">{{ nuevasN }}</span></sc-if>
+      </button>
+      <button onClick="{{ nav.ajustes.ir }}" style="width:80px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background: {{ nav.ajustes.fondo }};border:none;border-radius:8px;cursor:pointer;color: {{ nav.ajustes.color }};font-size:12px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg>
+        <span>Ajustes</span>
+      </button>
+    </nav>
+  </sc-if>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column;">
+    <header style="position:sticky;top:0;z-index:20;height:56px;display:flex;align-items:center;gap:10px;padding:0 10px 0 14px;background:#0B0907;border-bottom:1px solid #2E2418;">
+      <img src="img/logo-los-trotamundos-restaurante-bubion.jpg" alt="" style="width:32px;height:32px;border-radius:50%;object-fit:cover;flex:none;">
+      <div style="flex:1;min-width:0;font-family:'Berkshire Swash',cursive;font-size:1.45rem;color:#F5CFA8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ titulo }}</div>
+      <span style="font-size:14px;color:#F0E6D2;">{{ gestorNombre }}</span>
+      <button onClick="{{ salir }}" style="min-height:44px;padding:0 12px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.4);border-radius:8px;font-size:13px;cursor:pointer;" style-hover="border-color:#C88860;">Salir</button>
+    </header>
+
+    <main style="flex:1;width:100%;max-width:1160px;margin:0 auto;box-sizing:border-box;padding:16px 14px;padding-bottom: {{ ui.padInf }};">
+
+      <!-- INICIO -->
+      <sc-if value="{{ vInicio }}">
+        <div data-screen-label="Inicio" style="display:flex;flex-direction:column;gap:22px;max-width:760px;">
+          <h2 style="font-family:'Berkshire Swash',cursive;font-weight:400;font-size:2.1rem;line-height:1.15;color:#F5CFA8;margin:4px 0 0;">{{ hola }}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;">
+            <sc-if value="{{ ini.verNuevas }}">
+              <button onClick="{{ ini.abrirNuevas }}" style="min-height:128px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;text-align:left;padding:16px;background:#1C1510;border:1px solid #C88860;border-radius:12px;color:#F0E6D2;cursor:pointer;" style-hover="border-color:#EDAF8C;">
+                <span style="font-family:'Berkshire Swash',cursive;font-size:3.6rem;line-height:1;color:#EDAF8C;">{{ ini.nuevasN }}</span>
+                <span style="font-size:16px;">{{ ini.nuevasTxt }}</span>
+              </button>
+            </sc-if>
+            <sc-if value="{{ ini.verOcultos }}">
+              <button onClick="{{ ini.abrirOcultos }}" style="min-height:128px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;text-align:left;padding:16px;background:#1C1510;border:1px solid #2E2418;border-radius:12px;color:#F0E6D2;cursor:pointer;" style-hover="border-color:#C88860;">
+                <span style="font-family:'Berkshire Swash',cursive;font-size:3.6rem;line-height:1;color:#F5CFA8;">{{ ini.ocultosN }}</span>
+                <span style="font-size:16px;">{{ ini.ocultosTxt }}</span>
+              </button>
+            </sc-if>
+            <sc-if value="{{ ini.verImport }}">
+              <button onClick="{{ ini.abrirImportar }}" style="min-height:128px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;text-align:left;padding:16px;background:#1C1510;border:1px solid #2E2418;border-radius:12px;color:#F0E6D2;cursor:pointer;" style-hover="border-color:#C88860;">
+                <span style="font-size:14px;color:rgba(240,230,210,.8);">Última carta subida:</span>
+                <span style="font-family:'Berkshire Swash',cursive;font-size:2rem;line-height:1.1;color:#F5CFA8;">{{ ini.importHace }}</span>
+              </button>
+            </sc-if>
+            <sc-if value="{{ ini.todoAlDia }}">
+              <div style="grid-column:1/-1;min-height:110px;display:flex;align-items:center;padding:18px;background:#1C1510;border:1px solid #2E2418;border-radius:12px;font-family:'Berkshire Swash',cursive;font-size:1.8rem;color:#F5CFA8;">Todo al día.</div>
+            </sc-if>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
+            <button onClick="{{ ini.subirExcel }}" style="min-height:58px;display:flex;align-items:center;gap:12px;padding:0 16px;background:#EDAF8C;color:#0B0907;border:none;border-radius:10px;font-size:16px;cursor:pointer;text-align:left;" style-hover="background:#F5CFA8;"><span style="font-size:20px;">↑</span><span>Subir Excel de LastApp</span></button>
+            <button onClick="{{ ini.anadirPlato }}" style="min-height:58px;display:flex;align-items:center;gap:12px;padding:0 16px;background:#1C1510;color:#F0E6D2;border:1px solid rgba(240,230,210,.4);border-radius:10px;font-size:16px;cursor:pointer;text-align:left;" style-hover="border-color:#C88860;"><span style="font-size:20px;color:#EDAF8C;">+</span><span>Añadir plato</span></button>
+            <button onClick="{{ ini.anadirActividad }}" style="min-height:58px;display:flex;align-items:center;gap:12px;padding:0 16px;background:#1C1510;color:#F0E6D2;border:1px solid rgba(240,230,210,.4);border-radius:10px;font-size:16px;cursor:pointer;text-align:left;" style-hover="border-color:#C88860;"><span style="font-size:20px;color:#EDAF8C;">+</span><span>Añadir actividad</span></button>
+          </div>
+          <section style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Últimos movimientos</div>
+            <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+              <sc-for list="{{ ini.historial }}" as="h" hint-placeholder-count="5">
+                <div style="padding:12px 14px;border-bottom:1px solid #2E2418;">
+                  <div style="font-size:14px;color:#F0E6D2;line-height:1.45;">{{ h.accion }}</div>
+                  <div style="font-size:12px;color:#8A7A62;margin-top:3px;">{{ h.meta }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+      <!-- CARTA -->
+      <sc-if value="{{ vCarta }}">
+        <div data-screen-label="Carta">
+        <sc-if value="{{ c.subLista }}">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <sc-if value="{{ c.verLista }}">
+              <div style="flex: {{ c.listaFlex }};min-width:0;display:flex;flex-direction:column;gap:12px;">
+                <div style="display:flex;gap:8px;overflow-x:auto;margin:0 -14px;padding:2px 14px 4px;scrollbar-width:none;">
+                  <sc-for list="{{ c.tabs }}" as="t" hint-placeholder-count="5">
+                    <button onClick="{{ t.elegir }}" style="flex:none;min-height:44px;padding:0 16px;border-radius:22px;white-space:nowrap;font-size:14px;cursor:pointer;background: {{ t.fondo }};color: {{ t.color }};border:1px solid {{ t.borde }};opacity: {{ t.opacidad }};">{{ t.nombre }}</button>
+                  </sc-for>
+                </div>
+                <button onClick="{{ c.subirExcel }}" style="min-height:50px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#EDAF8C;border:1.5px solid #EDAF8C;border-radius:10px;font-size:15px;cursor:pointer;" style-hover="background:rgba(237,175,140,.1);"><span>↑</span><span>Subir Excel de LastApp</span></button>
+                <sc-if value="{{ c.soloOcultos }}">
+                  <div style="display:flex;"><button onClick="{{ c.quitarFiltro }}" style="min-height:44px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#EDAF8C;color:#0B0907;border:none;border-radius:22px;font-size:14px;cursor:pointer;"><span>{{ c.ocultosTxt }}</span><span>✕</span></button></div>
+                </sc-if>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <sc-for list="{{ c.platos }}" as="p" hint-placeholder-count="8">
+                    <div data-arrastre="platos" data-id="{{ p.id }}" style="display:flex;align-items:center;background:#1C1510;border:1px solid {{ p.borde }};border-radius:10px;min-height:62px;">
+                      <span onPointerDown="{{ p.arrastrar }}" aria-label="Ordenar" style="touch-action:none;cursor:grab;width:30px;align-self:stretch;display:flex;align-items:center;justify-content:center;color:#8A7A62;font-size:15px;letter-spacing:-2px;flex:none;user-select:none;">⋮⋮</span>
+                      <button onClick="{{ p.abrir }}" style="flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:none;border:none;color:#F0E6D2;text-align:left;padding:10px 4px 10px 0;cursor:pointer;opacity: {{ p.opacidad }};">
+                        <span style="font-size:1.5rem;width:30px;text-align:center;flex:none;">{{ p.emoji }}</span>
+                        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;">
+                          <span style="font-size:15px;line-height:1.3;color:#F0E6D2;">{{ p.nombre }}</span>
+                          <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                            <sc-if value="{{ p.esLastapp }}"><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#68B4C8;"><span style="width:6px;height:6px;border-radius:50%;background:#68B4C8;"></span>LastApp</span></sc-if>
+                            <sc-if value="{{ p.verCat }}"><span style="font-size:12px;color:#8A7A62;">{{ p.catTxt }}</span></sc-if>
+                          </span>
+                        </span>
+                        <span style="font-family:'Berkshire Swash',cursive;font-size:1.2rem;color:#F5CFA8;white-space:nowrap;">{{ p.precioTxt }}</span>
+                      </button>
+                      <button type="button" role="switch" aria-checked="{{ p.swAria }}" aria-label="En la carta" onClick="{{ p.alternar }}" style="flex:none;width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                        <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ p.swFondo }};border:1.5px solid {{ p.swBorde }};transition:background .15s;"><span style="position:absolute;top:2px;left: {{ p.swX }};width:19px;height:19px;border-radius:50%;background: {{ p.swBola }};transition:left .15s;"></span></span>
+                      </button>
+                    </div>
+                  </sc-for>
+                </div>
+                <sc-if value="{{ c.vacia }}"><p style="margin:4px 0;font-style:italic;font-weight:300;font-size:15px;color:rgba(240,230,210,.8);">Aquí todavía no hay platos.</p></sc-if>
+                <sc-if value="{{ c.verAnadir }}">
+                  <button onClick="{{ c.anadir }}" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#F0E6D2;border:1.5px dashed #8A7A62;border-radius:10px;font-size:15px;cursor:pointer;" style-hover="border-color:#C88860;"><span style="color:#EDAF8C;font-size:18px;">+</span><span>Añadir plato</span></button>
+                </sc-if>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid #2E2418;margin-top:6px;">
+                  <button onClick="{{ c.editarCategorias }}" style="flex:1 1 140px;min-height:48px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.4);border-radius:8px;font-size:14px;cursor:pointer;" style-hover="border-color:#C88860;">Editar categorías</button>
+                  <button onClick="{{ c.verArchivados }}" style="flex:1 1 140px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.4);border-radius:8px;font-size:14px;cursor:pointer;" style-hover="border-color:#C88860;"><span>Archivados</span><span style="font-family:'Berkshire Swash',cursive;color:#F5CFA8;">{{ c.nArchivados }}</span></button>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ c.verFicha }}">
+              <div style="flex:1 1 0;min-width:0;">
+                <div data-screen-label="Ficha de plato" style="background:#13100A;border:1px solid #2E2418;border-radius:12px;padding:12px 14px 16px;display:flex;flex-direction:column;gap:16px;">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                    <button onClick="{{ c.f.cerrar }}" style="min-height:44px;display:flex;align-items:center;gap:8px;background:none;border:none;color:#EDAF8C;font-size:15px;cursor:pointer;padding:0;"><span>←</span><span>Carta</span></button>
+                    <sc-if value="{{ c.f.guardado }}"><span style="font-size:13px;color:#8A7A62;">✓ Guardado</span></sc-if>
+                  </div>
+                  <label style="display:flex;flex-direction:column;gap:7px;">
+                    <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Categoría</span>
+                    <select value="{{ c.f.categoria }}" onChange="{{ c.f.setCategoria }}" style="width:100%;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:0 12px;outline:none;">
+                      <sc-for list="{{ c.f.catOpciones }}" as="o" hint-placeholder-count="0"><option value="{{ o.id }}">{{ o.nombre }}</option></sc-for>
+                    </select>
+                  </label>
+                  <div style="display:flex;gap:10px;align-items:flex-end;">
+                    <div style="display:flex;flex-direction:column;gap:7px;">
+                      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Emoji</span>
+                      <button onClick="{{ c.f.alternarEmoji }}" aria-label="Emoji" style="width:56px;height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;font-size:1.6rem;cursor:pointer;" style-hover="border-color:#C88860;">{{ c.f.emoji }}</button>
+                    </div>
+                    <label style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+                      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Nombre</span>
+                      <input value="{{ c.f.nombre }}" onChange="{{ c.f.setNombre }}" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:10px 12px;outline:none;" style-focus="border-color:#C88860;">
+                    </label>
+                  </div>
+                  <sc-if value="{{ c.f.emojiAbierto }}">
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:4px;background:#0B0907;border:1px solid #2E2418;border-radius:10px;padding:8px;margin-top:-6px;">
+                      <sc-for list="{{ c.f.emojis }}" as="em" hint-placeholder-count="0"><button onClick="{{ em.elegir }}" style="height:44px;border:none;border-radius:8px;font-size:1.4rem;cursor:pointer;background: {{ em.fondo }};">{{ em.e }}</button></sc-for>
+                    </div>
+                  </sc-if>
+                  <label style="display:flex;flex-direction:column;gap:7px;">
+                    <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Descripción</span>
+                    <textarea value="{{ c.f.descripcion }}" onChange="{{ c.f.setDescripcion }}" rows="3" style="width:100%;box-sizing:border-box;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;line-height:1.5;padding:10px 12px;outline:none;resize:vertical;" style-focus="border-color:#C88860;"></textarea>
+                  </label>
+
+                  <sc-if value="{{ c.f.esLastapp }}">
+                    <div style="display:flex;flex-direction:column;gap:7px;">
+                      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Precio</span>
+                      <sc-if value="{{ c.f.noConfirmando }}">
+                        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 0 2px;">
+                          <div style="display:flex;flex-direction:column;gap:6px;min-width:0;">
+                            <span style="font-family:'Berkshire Swash',cursive;font-size:2.6rem;line-height:1;color:#F5CFA8;">{{ c.f.precioTxt }}</span>
+                            <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#68B4C8;"><span style="width:7px;height:7px;border-radius:50%;background:#68B4C8;"></span>Lo trae LastApp</span>
+                            <span style="font-size:13px;color:rgba(240,230,210,.8);">En LastApp: {{ c.f.laNombre }} · {{ c.f.laPrecio }}</span>
+                          </div>
+                          <button onClick="{{ c.f.pedirDesvincular }}" style="min-height:48px;padding:0 14px;background:transparent;color:#EDAF8C;border:1px solid #C88860;border-radius:8px;font-size:14px;cursor:pointer;" style-hover="background:rgba(237,175,140,.1);">Lo quiero poner yo</button>
+                        </div>
+                      </sc-if>
+                      <sc-if value="{{ c.f.confirmando }}">
+                        <div style="background:#1C1510;border:1.5px solid #EDAF8C;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px;">
+                          <p style="margin:0;font-size:15px;line-height:1.55;color:#F0E6D2;">Si lo pones tú, este plato deja de seguir a LastApp y se queda en {{ c.f.precioTxt }} hasta que tú lo cambies.</p>
+                          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                            <button onClick="{{ c.f.desvincular }}" style="flex:1 1 140px;min-height:48px;background:#EDAF8C;color:#0B0907;border:none;border-radius:8px;font-size:15px;cursor:pointer;">Sí, lo pongo yo</button>
+                            <button onClick="{{ c.f.cancelar }}" style="flex:1 1 140px;min-height:48px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.45);border-radius:8px;font-size:15px;cursor:pointer;">Déjalo como está</button>
+                          </div>
+                        </div>
+                      </sc-if>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ c.f.esManual }}">
+                    <label style="display:flex;flex-direction:column;gap:7px;">
+                      <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Precio</span>
+                      <span style="position:relative;display:block;max-width:220px;">
+                        <input value="{{ c.f.precioInput }}" onChange="{{ c.f.setPrecio }}" onBlur="{{ c.f.normalizarPrecio }}" inputmode="decimal" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:18px;padding:10px 36px 10px 12px;outline:none;" style-focus="border-color:#C88860;">
+                        <span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#8A7A62;font-size:16px;pointer-events:none;">€</span>
+                      </span>
+                    </label>
+                  </sc-if>
+
+                  <label style="display:flex;flex-direction:column;gap:7px;">
+                    <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Nota de precio (por unidad, según peso…)</span>
+                    <input value="{{ c.f.nota }}" onChange="{{ c.f.setNota }}" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:10px 12px;outline:none;" style-focus="border-color:#C88860;">
+                  </label>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:4px 4px 4px 14px;">
+                    <span style="font-size:15px;">En la carta</span>
+                    <button type="button" role="switch" aria-checked="{{ c.f.swAria }}" aria-label="En la carta" onClick="{{ c.f.alternar }}" style="width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                      <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ c.f.swFondo }};border:1.5px solid {{ c.f.swBorde }};"><span style="position:absolute;top:2px;left: {{ c.f.swX }};width:19px;height:19px;border-radius:50%;background: {{ c.f.swBola }};transition:left .15s;"></span></span>
+                    </button>
+                  </div>
+                  <div><button onClick="{{ c.f.quitar }}" style="min-height:44px;padding:0;background:none;border:none;color:#8A7A62;font-size:14px;text-decoration:underline;cursor:pointer;">Quitar de la carta</button></div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ c.subCategorias }}">
+          <div style="max-width:640px;display:flex;flex-direction:column;gap:10px;">
+            <button onClick="{{ c.volver }}" style="align-self:flex-start;min-height:44px;display:flex;align-items:center;gap:8px;background:none;border:none;color:#EDAF8C;font-size:15px;cursor:pointer;padding:0;"><span>←</span><span>Carta</span></button>
+            <h3 style="font-family:'Berkshire Swash',cursive;font-weight:400;font-size:1.7rem;color:#F5CFA8;margin:0 0 4px;">Editar categorías</h3>
+            <sc-for list="{{ c.cats }}" as="k" hint-placeholder-count="8">
+              <div data-arrastre="categorias" data-id="{{ k.id }}" style="display:flex;align-items:center;gap:6px;background:#1C1510;border:1px solid {{ k.borde }};border-radius:10px;padding:6px 4px 6px 0;">
+                <span onPointerDown="{{ k.arrastrar }}" aria-label="Ordenar" style="touch-action:none;cursor:grab;width:30px;align-self:stretch;display:flex;align-items:center;justify-content:center;color:#8A7A62;font-size:15px;letter-spacing:-2px;flex:none;user-select:none;">⋮⋮</span>
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;opacity: {{ k.opacidad }};">
+                  <input value="{{ k.nombre }}" onChange="{{ k.renombrar }}" style="width:100%;box-sizing:border-box;min-height:44px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:8px 10px;outline:none;" style-focus="border-color:#C88860;">
+                  <span style="font-size:12px;color:#8A7A62;padding-left:2px;">{{ k.nTxt }}</span>
+                </div>
+                <button type="button" role="switch" aria-checked="{{ k.swAria }}" aria-label="En la carta" onClick="{{ k.alternar }}" style="flex:none;width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                  <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ k.swFondo }};border:1.5px solid {{ k.swBorde }};"><span style="position:absolute;top:2px;left: {{ k.swX }};width:19px;height:19px;border-radius:50%;background: {{ k.swBola }};transition:left .15s;"></span></span>
+                </button>
+              </div>
+            </sc-for>
+            <button onClick="{{ c.anadirCategoria }}" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#F0E6D2;border:1.5px dashed #8A7A62;border-radius:10px;font-size:15px;cursor:pointer;" style-hover="border-color:#C88860;"><span style="color:#EDAF8C;font-size:18px;">+</span><span>Añadir categoría</span></button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ c.subArchivados }}">
+          <div style="max-width:640px;display:flex;flex-direction:column;gap:10px;">
+            <button onClick="{{ c.volver }}" style="align-self:flex-start;min-height:44px;display:flex;align-items:center;gap:8px;background:none;border:none;color:#EDAF8C;font-size:15px;cursor:pointer;padding:0;"><span>←</span><span>Carta</span></button>
+            <h3 style="font-family:'Berkshire Swash',cursive;font-weight:400;font-size:1.7rem;color:#F5CFA8;margin:0 0 4px;">Archivados</h3>
+            <sc-for list="{{ c.archivados }}" as="ar" hint-placeholder-count="1">
+              <div style="display:flex;align-items:center;gap:10px;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:10px 10px 10px 12px;flex-wrap:wrap;">
+                <span style="font-size:1.5rem;">{{ ar.emoji }}</span>
+                <div style="flex:1;min-width:140px;">
+                  <div style="font-size:15px;">{{ ar.nombre }}</div>
+                  <div style="font-size:12px;color:#8A7A62;margin-top:2px;">{{ ar.cat }} · {{ ar.precioTxt }}</div>
+                </div>
+                <button onClick="{{ ar.volver }}" style="min-height:44px;padding:0 14px;background:transparent;color:#EDAF8C;border:1px solid #C88860;border-radius:8px;font-size:14px;cursor:pointer;">Volver a la carta</button>
+              </div>
+            </sc-for>
+            <sc-if value="{{ c.sinArchivados }}"><p style="margin:4px 0;font-style:italic;font-weight:300;color:rgba(240,230,210,.8);">No hay platos archivados.</p></sc-if>
+          </div>
+        </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- IMPORTAR -->
+      <sc-if value="{{ vImportar }}">
+        <div data-screen-label="Importar" style="max-width:760px;display:flex;flex-direction:column;gap:12px;">
+          <sc-if value="{{ imp.subir }}">
+            <label style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;min-height:260px;padding:28px 20px;box-sizing:border-box;background:#1C1510;border:2px dashed #C88860;border-radius:14px;cursor:pointer;" style-hover="border-color:#EDAF8C;">
+              <svg width="44" height="44" viewBox="0 0 24 24" style="fill:none;stroke:#EDAF8C;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 15V4M7 9l5-5 5 5"></path><path d="M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"></path></svg>
+              <span style="font-size:19px;line-height:1.35;color:#F0E6D2;">Elige el Excel que exporta LastApp</span>
+              <span style="font-size:14px;line-height:1.5;color:rgba(240,230,210,.8);max-width:320px;">Te enseñamos lo que va a cambiar antes de tocar nada.</span>
+              <sc-if value="{{ imp.cargando }}"><span style="font-size:13px;color:#8A7A62;">…</span></sc-if>
+              <input type="file" accept=".xls,.xlsx,.csv" data-trota-importar="" onChange="{{ imp.elegir }}" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;">
+            </label>
+          </sc-if>
+
+          <sc-if value="{{ imp.previa }}">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:#1C1510;border:1px solid #2E2418;border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <span style="font-size:14px;color:#F0E6D2;word-break:break-all;">{{ imp.archivo }}</span>
+                <span style="display:flex;align-items:baseline;gap:6px;font-size:14px;color:rgba(240,230,210,.8);"><span style="font-family:'Berkshire Swash',cursive;font-size:1.4rem;color:#F5CFA8;">{{ imp.filas }}</span>productos</span>
+              </div>
+              <sc-for list="{{ imp.avisos }}" as="av" hint-placeholder-count="0">
+                <div style="background:rgba(237,175,140,.12);border:1.5px solid #EDAF8C;border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5;color:#F5CFA8;">{{ av.t }}</div>
+              </sc-for>
+
+              <!-- Nuevos -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.nuevos.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">Nuevos en LastApp</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.nuevos.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.nuevos.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.nuevos.abierto }}">
+                  <div style="padding:0 10px 12px;display:flex;flex-direction:column;gap:8px;">
+                    <button onClick="{{ imp.marcarNoWeb }}" style="min-height:46px;padding:0 14px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.45);border-radius:8px;font-size:14px;cursor:pointer;opacity: {{ imp.marcarOpacidad }};">Marcar como 'No va en la web' {{ imp.selTxt }}</button>
+                    <sc-for list="{{ imp.nuevos }}" as="nv" hint-placeholder-count="4">
+                      <div style="background:#1C1510;border:1px solid {{ nv.borde }};border-radius:10px;padding:6px 10px 10px 4px;display:flex;flex-direction:column;gap:6px;">
+                        <div style="display:flex;align-items:center;gap:4px;">
+                          <button role="checkbox" aria-checked="{{ nv.cbAria }}" aria-label="{{ nv.nombre }}" onClick="{{ nv.alternarSel }}" style="flex:none;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;padding:0;">
+                            <span style="width:22px;height:22px;box-sizing:border-box;border-radius:5px;border:1.5px solid {{ nv.cbBorde }};background: {{ nv.cbFondo }};display:flex;align-items:center;justify-content:center;color:#0B0907;font-size:14px;">{{ nv.cbMarca }}</span>
+                          </button>
+                          <span style="flex:1;min-width:0;font-size:15px;line-height:1.35;">{{ nv.nombre }}</span>
+                          <span style="font-family:'Berkshire Swash',cursive;font-size:1.15rem;color:#F5CFA8;white-space:nowrap;">{{ nv.precioTxt }}</span>
+                        </div>
+                        <div style="display:flex;gap:8px;align-items:center;padding-left:8px;">
+                          <sc-if value="{{ nv.esPlato }}">
+                            <button onClick="{{ nv.alternarEmoji }}" aria-label="Emoji" style="flex:none;width:48px;height:46px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;font-size:1.4rem;cursor:pointer;">{{ nv.emoji }}</button>
+                          </sc-if>
+                          <select value="{{ nv.valor }}" onChange="{{ nv.elegir }}" style="flex:1;min-width:0;min-height:46px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:15px;padding:0 10px;outline:none;">
+                            <option value="pendiente">—</option>
+                            <sc-for list="{{ imp.catOpts }}" as="co" hint-placeholder-count="0"><option value="{{ co.id }}">{{ co.nombre }}</option></sc-for>
+                            <option value="no_web">No va en la web</option>
+                            <optgroup label="Es el mismo que…">
+                              <sc-for list="{{ imp.sinVincular }}" as="sv" hint-placeholder-count="0"><option value="{{ sv.id }}">{{ sv.nombre }}</option></sc-for>
+                            </optgroup>
+                          </select>
+                        </div>
+                        <sc-if value="{{ nv.hayParecidos }}">
+                          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-left:8px;">
+                            <span style="font-size:13px;color:rgba(240,230,210,.8);">¿Es alguno de estos?</span>
+                            <sc-for list="{{ nv.parecidos }}" as="pa" hint-placeholder-count="0"><button onClick="{{ pa.elegir }}" style="min-height:40px;padding:0 12px;background:transparent;color:#F0E6D2;border:1px solid #2E2418;border-radius:20px;font-size:13px;cursor:pointer;" style-hover="border-color:#C88860;">{{ pa.nombre }}</button></sc-for>
+                          </div>
+                        </sc-if>
+                        <sc-if value="{{ nv.emojiAbierto }}">
+                          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:4px;background:#0B0907;border:1px solid #2E2418;border-radius:10px;padding:8px;margin-left:8px;">
+                            <sc-for list="{{ nv.emojis }}" as="em" hint-placeholder-count="0"><button onClick="{{ em.elegir }}" style="height:44px;border:none;border-radius:8px;font-size:1.4rem;cursor:pointer;background: {{ em.fondo }};">{{ em.e }}</button></sc-for>
+                          </div>
+                        </sc-if>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <!-- Precio -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.precio.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">Cambian de precio</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.precio.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.precio.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.precio.abierto }}">
+                  <div style="padding:0 10px 12px;display:flex;flex-direction:column;gap:6px;">
+                    <sc-for list="{{ imp.precios }}" as="pr" hint-placeholder-count="4">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:12px;">
+                        <span style="font-size:15px;flex:1;min-width:140px;">{{ pr.nombre }}</span>
+                        <span style="display:flex;align-items:baseline;gap:8px;white-space:nowrap;"><span style="font-size:14px;color:rgba(240,230,210,.7);">{{ pr.antes }}</span><span style="color:#8A7A62;">→</span><span style="font-family:'Berkshire Swash',cursive;font-size:1.2rem;color:#F5CFA8;">{{ pr.despues }}</span></span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <!-- Nombre -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.nombre.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">Cambian de nombre en LastApp</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.nombre.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.nombre.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.nombre.abierto }}">
+                  <div style="padding:0 10px 12px;display:flex;flex-direction:column;gap:6px;">
+                    <sc-for list="{{ imp.nombres }}" as="nm" hint-placeholder-count="1">
+                      <div style="background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:12px 12px 4px;display:flex;flex-direction:column;gap:4px;">
+                        <span style="font-size:15px;">{{ nm.nombreWeb }}</span>
+                        <span style="font-size:13px;color:rgba(240,230,210,.75);">{{ nm.antes }} → {{ nm.despues }}</span>
+                        <button role="checkbox" aria-checked="{{ nm.cbAria }}" onClick="{{ nm.alternar }}" style="min-height:44px;display:flex;align-items:center;gap:10px;background:none;border:none;color:#F0E6D2;font-size:14px;cursor:pointer;padding:0;text-align:left;">
+                          <span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:5px;border:1.5px solid {{ nm.cbBorde }};background: {{ nm.cbFondo }};display:flex;align-items:center;justify-content:center;color:#0B0907;font-size:14px;">{{ nm.cbMarca }}</span>
+                          <span>Cambiar también el nombre en la web</span>
+                        </button>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <!-- Desaparecidos -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.desaparecidos.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">Ya no están en LastApp</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.desaparecidos.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.desaparecidos.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.desaparecidos.abierto }}">
+                  <div style="padding:0 10px 12px;display:flex;flex-direction:column;gap:6px;">
+                    <button role="checkbox" aria-checked="{{ imp.oc.cbAria }}" onClick="{{ imp.alternarOcultar }}" style="min-height:44px;display:flex;align-items:center;gap:10px;background:none;border:none;color:#F0E6D2;font-size:14px;cursor:pointer;padding:0 4px;text-align:left;">
+                      <span style="flex:none;width:22px;height:22px;box-sizing:border-box;border-radius:5px;border:1.5px solid {{ imp.oc.cbBorde }};background: {{ imp.oc.cbFondo }};display:flex;align-items:center;justify-content:center;color:#0B0907;font-size:14px;">{{ imp.oc.cbMarca }}</span>
+                      <span>Ocultarlos de la web</span>
+                    </button>
+                    <sc-for list="{{ imp.desaparecidos }}" as="ds" hint-placeholder-count="1">
+                      <div style="background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:12px;font-size:15px;">{{ ds.nombre }}</div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <!-- Sin cambios -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.sin_cambios.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">Sin cambios</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.sin_cambios.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.sin_cambios.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.sin_cambios.abierto }}">
+                  <div style="padding:0 14px 14px;display:flex;flex-wrap:wrap;gap:6px;">
+                    <sc-for list="{{ imp.sinCambios }}" as="sc" hint-placeholder-count="0">
+                      <span style="font-size:13px;padding:6px 10px;border:1px solid #2E2418;border-radius:16px;color:rgba(240,230,210,.85);">{{ sc.nombre }}</span>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <!-- No van en la web -->
+              <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;overflow:hidden;">
+                <button onClick="{{ imp.g.no_web.alternar }}" style="width:100%;min-height:56px;display:flex;align-items:center;gap:10px;padding:0 14px;background:none;border:none;color:#F0E6D2;cursor:pointer;text-align:left;">
+                  <span style="flex:1;font-size:16px;">No van en la web</span>
+                  <span style="font-family:'Berkshire Swash',cursive;font-size:1.35rem;color:#F5CFA8;">{{ imp.g.no_web.n }}</span>
+                  <span style="color:#8A7A62;display:inline-block;transform: {{ imp.g.no_web.giro }};transition:transform .15s;">▾</span>
+                </button>
+                <sc-if value="{{ imp.g.no_web.abierto }}">
+                  <div style="padding:0 10px 12px;display:flex;flex-direction:column;">
+                    <sc-for list="{{ imp.noWeb }}" as="nw" hint-placeholder-count="0">
+                      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 2px 6px;border-bottom:1px solid #2E2418;">
+                        <span style="font-size:14px;color:rgba(240,230,210,.85);min-width:0;">{{ nw.nombre }}</span>
+                        <button onClick="{{ nw.recuperar }}" style="flex:none;min-height:44px;padding:0 10px;background:none;border:none;color:#EDAF8C;font-size:13px;cursor:pointer;text-decoration:underline;">Recuperar</button>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+
+              <div style="position: {{ ui.barraPos }};bottom: {{ ui.barraBottom }};left:0;right:0;z-index:15;background:#0B0907;border-top:1px solid #2E2418;padding:10px 14px;display:flex;gap:10px;">
+                <button onClick="{{ imp.aplicar }}" style="flex:1;min-height:52px;background:#EDAF8C;color:#0B0907;border:none;border-radius:8px;font-size:16px;cursor:pointer;" style-hover="background:#F5CFA8;">Aplicar cambios</button>
+                <button onClick="{{ imp.descartar }}" style="flex:none;min-height:52px;padding:0 18px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.45);border-radius:8px;font-size:15px;cursor:pointer;">Descartar</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ imp.hecho }}">
+            <div style="background:#1C1510;border:1px solid #C88860;border-radius:14px;padding:24px 18px;display:flex;flex-direction:column;gap:18px;">
+              <p style="margin:0;font-size:18px;line-height:1.5;color:#F0E6D2;">Carta actualizada: {{ imp.resumen }}</p>
+              <button onClick="{{ imp.verCarta }}" style="align-self:flex-start;min-height:52px;padding:0 22px;background:#EDAF8C;color:#0B0907;border:none;border-radius:8px;font-size:16px;cursor:pointer;">Ver la carta</button>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- ACTIVIDADES -->
+      <sc-if value="{{ vActividades }}">
+        <div data-screen-label="Actividades" style="display:flex;gap:16px;align-items:flex-start;">
+          <sc-if value="{{ a.verLista }}">
+            <div style="flex: {{ a.listaFlex }};min-width:0;max-width:760px;display:flex;flex-direction:column;gap:10px;">
+              <sc-for list="{{ a.lista }}" as="ac" hint-placeholder-count="3">
+                <div data-arrastre="actividades" data-id="{{ ac.id }}" style="position:relative;border-radius:12px;overflow:hidden;border:1px solid {{ ac.borde }};background-color:#231A12;background-image: {{ ac.fondo }};background-size:cover;background-position: {{ ac.pos }};">
+                  <div style="position:absolute;inset:0;background:rgba(11,9,7,.68);"></div>
+                  <button onClick="{{ ac.abrir }}" style="position:relative;display:block;width:100%;min-height:170px;text-align:left;background:none;border:none;color:#F0E6D2;padding:16px 16px 70px;cursor:pointer;opacity: {{ ac.opacidad }};">
+                    <span style="display:block;font-size:1.8rem;line-height:1;">{{ ac.emoji }}</span>
+                    <span style="display:block;font-family:'Berkshire Swash',cursive;font-size:1.5rem;line-height:1.2;color:#F5CFA8;margin:8px 0 6px;">{{ ac.nombre }}</span>
+                    <span style="display:block;font-size:14px;line-height:1.55;color:#F0E6D2;">{{ ac.descripcion }}</span>
+                  </button>
+                  <div style="position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:6px;background:rgba(11,9,7,.88);border-top:1px solid #2E2418;">
+                    <span onPointerDown="{{ ac.arrastrar }}" aria-label="Ordenar" style="touch-action:none;cursor:grab;width:44px;height:52px;display:flex;align-items:center;justify-content:center;color:#8A7A62;font-size:15px;letter-spacing:-2px;user-select:none;">⋮⋮</span>
+                    <span style="flex:1;font-size:14px;">En la web</span>
+                    <button type="button" role="switch" aria-checked="{{ ac.swAria }}" aria-label="En la web" onClick="{{ ac.alternar }}" style="flex:none;width:62px;height:52px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                      <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ ac.swFondo }};border:1.5px solid {{ ac.swBorde }};"><span style="position:absolute;top:2px;left: {{ ac.swX }};width:19px;height:19px;border-radius:50%;background: {{ ac.swBola }};transition:left .15s;"></span></span>
+                    </button>
+                  </div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ a.vacia }}"><p style="margin:4px 0;font-style:italic;font-weight:300;font-size:15px;color:rgba(240,230,210,.8);">No hay actividades en la web. Añade la primera.</p></sc-if>
+              <button onClick="{{ a.anadir }}" style="min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#F0E6D2;border:1.5px dashed #8A7A62;border-radius:10px;font-size:15px;cursor:pointer;" style-hover="border-color:#C88860;"><span style="color:#EDAF8C;font-size:18px;">+</span><span>Añadir actividad</span></button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ a.verFicha }}">
+            <div style="flex:1 1 0;min-width:0;">
+              <div data-screen-label="Ficha de actividad" style="background:#13100A;border:1px solid #2E2418;border-radius:12px;padding:12px 14px 16px;display:flex;flex-direction:column;gap:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <button onClick="{{ a.f.cerrar }}" style="min-height:44px;display:flex;align-items:center;gap:8px;background:none;border:none;color:#EDAF8C;font-size:15px;cursor:pointer;padding:0;"><span>←</span><span>Actividades</span></button>
+                  <sc-if value="{{ a.f.guardado }}"><span style="font-size:13px;color:#8A7A62;">✓ Guardado</span></sc-if>
+                </div>
+                <div style="position:relative;height:210px;border-radius:12px;overflow:hidden;border:1px solid #2E2418;background-color:#231A12;background-image: {{ a.f.fondo }};background-size:cover;background-position: {{ a.f.pos }};transition:background-position .25s;">
+                  <div style="position:absolute;inset:0;background:rgba(11,9,7,.45);"></div>
+                  <label aria-label="Cambiar foto" style="position:absolute;top:10px;right:10px;min-height:44px;display:flex;align-items:center;gap:8px;padding:0 14px;background:rgba(11,9,7,.88);border:1px solid rgba(240,230,210,.6);border-radius:8px;color:#F0E6D2;font-size:14px;cursor:pointer;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+                    <span>Cambiar foto</span>
+                    <input type="file" accept="image/*" onChange="{{ a.f.cambiarFoto }}" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;">
+                  </label>
+                  <div style="position:absolute;left:14px;right:14px;bottom:12px;">
+                    <div style="font-size:1.6rem;line-height:1;">{{ a.f.emoji }}</div>
+                    <div style="font-family:'Berkshire Swash',cursive;font-size:1.4rem;color:#F5CFA8;margin-top:6px;">{{ a.f.nombre }}</div>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:7px;">
+                  <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Encuadre</span>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+                    <sc-for list="{{ a.f.encuadres }}" as="en" hint-placeholder-count="3">
+                      <button onClick="{{ en.elegir }}" style="min-height:44px;border-radius:8px;font-size:14px;cursor:pointer;background: {{ en.fondo }};color: {{ en.color }};border:1px solid {{ en.borde }};">{{ en.t }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-end;">
+                  <div style="display:flex;flex-direction:column;gap:7px;">
+                    <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Emoji</span>
+                    <button onClick="{{ a.f.alternarEmoji }}" aria-label="Emoji" style="width:56px;height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;font-size:1.6rem;cursor:pointer;">{{ a.f.emoji }}</button>
+                  </div>
+                  <label style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+                    <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Nombre</span>
+                    <input value="{{ a.f.nombre }}" onChange="{{ a.f.setNombre }}" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:10px 12px;outline:none;" style-focus="border-color:#C88860;">
+                  </label>
+                </div>
+                <sc-if value="{{ a.f.emojiAbierto }}">
+                  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:4px;background:#0B0907;border:1px solid #2E2418;border-radius:10px;padding:8px;margin-top:-6px;">
+                    <sc-for list="{{ a.f.emojis }}" as="em" hint-placeholder-count="0"><button onClick="{{ em.elegir }}" style="height:44px;border:none;border-radius:8px;font-size:1.4rem;cursor:pointer;background: {{ em.fondo }};">{{ em.e }}</button></sc-for>
+                  </div>
+                </sc-if>
+                <label style="display:flex;flex-direction:column;gap:7px;">
+                  <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Descripción</span>
+                  <textarea value="{{ a.f.descripcion }}" onChange="{{ a.f.setDescripcion }}" rows="4" style="width:100%;box-sizing:border-box;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;line-height:1.5;padding:10px 12px;outline:none;resize:vertical;" style-focus="border-color:#C88860;"></textarea>
+                </label>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:4px 4px 4px 14px;">
+                  <span style="font-size:15px;">En la web</span>
+                  <button type="button" role="switch" aria-checked="{{ a.f.swAria }}" aria-label="En la web" onClick="{{ a.f.alternar }}" style="width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                    <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ a.f.swFondo }};border:1.5px solid {{ a.f.swBorde }};"><span style="position:absolute;top:2px;left: {{ a.f.swX }};width:19px;height:19px;border-radius:50%;background: {{ a.f.swBola }};transition:left .15s;"></span></span>
+                  </button>
+                </div>
+                <div><button onClick="{{ a.f.archivar }}" style="min-height:44px;padding:0;background:none;border:none;color:#8A7A62;font-size:14px;text-decoration:underline;cursor:pointer;">Archivar</button></div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- CONSULTAS -->
+      <sc-if value="{{ vConsultas }}">
+        <div data-screen-label="Consultas" style="display:flex;gap:16px;align-items:flex-start;">
+          <sc-if value="{{ q.verLista }}">
+            <div style="flex: {{ q.listaFlex }};min-width:0;max-width:760px;display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:8px;overflow-x:auto;margin:0 -14px;padding:2px 14px 4px;scrollbar-width:none;">
+                <sc-for list="{{ q.chips }}" as="ch" hint-placeholder-count="5">
+                  <button onClick="{{ ch.elegir }}" style="flex:none;min-height:44px;padding:0 16px;border-radius:22px;white-space:nowrap;font-size:14px;cursor:pointer;background: {{ ch.fondo }};color: {{ ch.color }};border:1px solid {{ ch.borde }};">{{ ch.t }}</button>
+                </sc-for>
+              </div>
+              <sc-for list="{{ q.lista }}" as="cq" hint-placeholder-count="4">
+                <button onClick="{{ cq.abrir }}" style="width:100%;display:flex;flex-direction:column;gap:6px;text-align:left;padding:12px 14px;background:#1C1510;border:1px solid {{ cq.borde }};border-radius:10px;color:#F0E6D2;cursor:pointer;" style-hover="border-color:#C88860;">
+                  <span style="display:flex;align-items:center;gap:8px;width:100%;">
+                    <span style="flex:1;min-width:0;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ cq.nombre }}</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:.06em;color:#68B4C8;"><span style="width:6px;height:6px;border-radius:50%;background:#68B4C8;"></span>{{ cq.idioma }}</span>
+                    <span style="font-size:12px;padding:3px 9px;border-radius:12px;background: {{ cq.eF }};color: {{ cq.eC }};border:1px solid {{ cq.eB }};white-space:nowrap;">{{ cq.estadoTxt }}</span>
+                  </span>
+                  <span style="font-size:14px;color:rgba(240,230,210,.85);">{{ cq.linea }}</span>
+                  <span style="font-size:12px;color:#8A7A62;">{{ cq.hace }}</span>
+                </button>
+              </sc-for>
+              <sc-if value="{{ q.vacia }}"><p style="margin:4px 0;font-style:italic;font-weight:300;font-size:15px;color:rgba(240,230,210,.8);">Ninguna consulta nueva. Buen rato para salir a la terraza.</p></sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ q.verFicha }}">
+            <div style="flex:1 1 0;min-width:0;">
+              <div data-screen-label="Ficha de consulta" style="background:#13100A;border:1px solid #2E2418;border-radius:12px;padding:12px 14px 16px;display:flex;flex-direction:column;gap:16px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                  <button onClick="{{ q.f.cerrar }}" style="min-height:44px;display:flex;align-items:center;gap:8px;background:none;border:none;color:#EDAF8C;font-size:15px;cursor:pointer;padding:0;"><span>←</span><span>Consultas</span></button>
+                  <sc-if value="{{ q.f.guardado }}"><span style="font-size:13px;color:#8A7A62;">✓ Guardado</span></sc-if>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <span style="font-family:'Berkshire Swash',cursive;font-size:1.8rem;line-height:1.15;color:#F5CFA8;">{{ q.f.nombre }}</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;letter-spacing:.06em;color:#68B4C8;"><span style="width:7px;height:7px;border-radius:50%;background:#68B4C8;"></span>{{ q.f.idioma }}</span>
+                  </div>
+                  <span style="font-size:15px;color:#F0E6D2;">{{ q.f.linea }}</span>
+                  <sc-if value="{{ q.f.hayTel }}"><a href="{{ q.f.llamar }}" style="font-size:15px;color:#EDAF8C;text-decoration:none;min-height:32px;display:inline-flex;align-items:center;">{{ q.f.telefono }}</a></sc-if>
+                  <span style="font-size:12px;color:#8A7A62;">{{ q.f.hace }}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#0B0907;border:1px solid #2E2418;border-radius:10px;padding:4px;">
+                  <sc-for list="{{ q.f.estados }}" as="es" hint-placeholder-count="4">
+                    <button onClick="{{ es.elegir }}" style="min-height:46px;padding:0 2px;border:none;border-radius:7px;font-size:12.5px;cursor:pointer;background: {{ es.fondo }};color: {{ es.color }};">{{ es.t }}</button>
+                  </sc-for>
+                </div>
+                <label style="display:flex;flex-direction:column;gap:7px;">
+                  <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Tus notas</span>
+                  <textarea value="{{ q.f.notas }}" onChange="{{ q.f.setNotas }}" rows="4" placeholder="Lo que quieras recordar: hora de salida, quién la lleva…" style="width:100%;box-sizing:border-box;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;line-height:1.5;padding:10px 12px;outline:none;resize:vertical;" style-focus="border-color:#C88860;"></textarea>
+                </label>
+                <sc-if value="{{ q.f.noBorrado }}">
+                  <sc-if value="{{ q.f.noConfirmando }}">
+                    <div><button onClick="{{ q.f.pedirBorrar }}" style="min-height:44px;padding:0;background:none;border:none;color:#8A7A62;font-size:14px;text-decoration:underline;cursor:pointer;text-align:left;">Borrar los datos de esta persona</button></div>
+                  </sc-if>
+                  <sc-if value="{{ q.f.confirmando }}">
+                    <div style="background:#1C1510;border:1.5px solid #7A1A1A;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px;">
+                      <p style="margin:0;font-size:15px;line-height:1.55;">¿Borramos los datos de {{ q.f.nombre }}? La consulta queda, sin nombre ni teléfono.</p>
+                      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button onClick="{{ q.f.borrar }}" style="flex:1 1 140px;min-height:48px;background:#7A1A1A;color:#F0E6D2;border:none;border-radius:8px;font-size:15px;cursor:pointer;">Sí, borrar</button>
+                        <button onClick="{{ q.f.cancelar }}" style="flex:1 1 140px;min-height:48px;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.45);border-radius:8px;font-size:15px;cursor:pointer;">Déjalo como está</button>
+                      </div>
+                    </div>
+                  </sc-if>
+                </sc-if>
+                <sc-if value="{{ q.f.puedeContactar }}">
+                  <div style="position: {{ ui.barraPos }};bottom: {{ ui.barraBottom }};left:0;right:0;z-index:15;background:#0B0907;border-top:1px solid #2E2418;padding:10px 14px;display:flex;gap:10px;margin:0 -14px -16px;">
+                    <a href="{{ q.f.wa }}" target="_blank" rel="noopener" style="flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;background:#25D366;color:#0B0907;border-radius:8px;font-size:16px;text-decoration:none;">WhatsApp</a>
+                    <a href="{{ q.f.llamar }}" style="flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;background:transparent;color:#F0E6D2;border:1px solid rgba(240,230,210,.5);border-radius:8px;font-size:16px;text-decoration:none;box-sizing:border-box;">Llamar</a>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- AJUSTES -->
+      <sc-if value="{{ vAjustes }}">
+        <div data-screen-label="Ajustes" style="max-width:640px;display:flex;flex-direction:column;gap:16px;">
+          <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:16px;">
+            <label style="display:flex;flex-direction:column;gap:7px;">
+              <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">WhatsApp del restaurante</span>
+              <input type="tel" value="{{ aj.whatsapp }}" onChange="{{ aj.setWhatsapp }}" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:10px 12px;outline:none;" style-focus="border-color:#C88860;">
+            </label>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Correos que reciben el aviso de cada consulta</span>
+              <sc-for list="{{ aj.correos }}" as="co" hint-placeholder-count="1">
+                <div style="display:flex;gap:6px;align-items:center;">
+                  <input type="email" value="{{ co.valor }}" onChange="{{ co.set }}" style="flex:1;min-width:0;box-sizing:border-box;min-height:48px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:8px 12px;outline:none;" style-focus="border-color:#C88860;">
+                  <button onClick="{{ co.quitar }}" style="flex:none;min-height:48px;padding:0 12px;background:none;border:none;color:#8A7A62;font-size:14px;text-decoration:underline;cursor:pointer;">Quitar</button>
+                </div>
+              </sc-for>
+              <div style="display:flex;gap:6px;align-items:center;">
+                <input type="email" value="{{ aj.nuevoCorreo }}" onChange="{{ aj.setNuevoCorreo }}" placeholder="correo@…" style="flex:1;min-width:0;box-sizing:border-box;min-height:48px;background:#0B0907;border:1px dashed #8A7A62;border-radius:8px;color:#F0E6D2;font-size:16px;padding:8px 12px;outline:none;" style-focus="border-color:#C88860;">
+                <button onClick="{{ aj.anadirCorreo }}" aria-label="Añadir" style="flex:none;width:48px;min-height:48px;background:transparent;color:#EDAF8C;border:1px solid #C88860;border-radius:8px;font-size:20px;cursor:pointer;">+</button>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:4px 4px 4px 14px;">
+              <span style="font-size:15px;line-height:1.35;">Avisarme por correo de cada consulta</span>
+              <button type="button" role="switch" aria-checked="{{ aj.swAria }}" aria-label="Avisarme por correo de cada consulta" onClick="{{ aj.alternarAviso }}" style="flex:none;width:58px;height:48px;display:flex;align-items:center;justify-content:center;background:none;border:none;padding:0;cursor:pointer;">
+                <span style="position:relative;display:block;width:44px;height:26px;box-sizing:border-box;border-radius:13px;background: {{ aj.swFondo }};border:1.5px solid {{ aj.swBorde }};"><span style="position:absolute;top:2px;left: {{ aj.swX }};width:19px;height:19px;border-radius:50%;background: {{ aj.swBola }};transition:left .15s;"></span></span>
+              </button>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:7px;">
+              <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8A7A62;">Tu nombre en los mensajes</span>
+              <input value="{{ aj.nombre }}" onChange="{{ aj.setNombre }}" style="width:100%;box-sizing:border-box;min-height:50px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:10px 12px;outline:none;" style-focus="border-color:#C88860;">
+            </label>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <button onClick="{{ aj.guardar }}" style="min-height:52px;padding:0 26px;background:#EDAF8C;color:#0B0907;border:none;border-radius:8px;font-size:16px;cursor:pointer;opacity: {{ aj.guardarOpacidad }};" style-hover="background:#F5CFA8;">Guardar</button>
+              <sc-if value="{{ aj.guardado }}"><span style="font-size:13px;color:#8A7A62;">✓ Guardado</span></sc-if>
+            </div>
+          </div>
+
+          <div style="background:#13100A;border:1px solid #2E2418;border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;">
+            <h3 style="font-family:'Berkshire Swash',cursive;font-weight:400;font-size:1.5rem;color:#F5CFA8;margin:0 0 2px;">Quién entra al panel</h3>
+            <sc-for list="{{ aj.admins }}" as="ad" hint-placeholder-count="2">
+              <div style="display:flex;align-items:center;gap:10px;background:#1C1510;border:1px solid #2E2418;border-radius:10px;padding:8px 6px 8px 14px;min-height:48px;">
+                <div style="flex:1;min-width:0;">
+                  <div style="font-size:15px;">{{ ad.nombre }}</div>
+                  <div style="font-size:13px;color:rgba(240,230,210,.75);word-break:break-all;">{{ ad.email }}</div>
+                </div>
+                <sc-if value="{{ ad.puedeQuitar }}"><button onClick="{{ ad.quitar }}" style="flex:none;min-height:44px;padding:0 12px;background:none;border:none;color:#8A7A62;font-size:14px;text-decoration:underline;cursor:pointer;">Quitar</button></sc-if>
+              </div>
+            </sc-for>
+            <div style="display:flex;flex-direction:column;gap:8px;padding-top:6px;">
+              <input value="{{ aj.pNombre }}" onChange="{{ aj.setPNombre }}" placeholder="Nombre" style="width:100%;box-sizing:border-box;min-height:48px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:8px 12px;outline:none;" style-focus="border-color:#C88860;">
+              <input type="email" value="{{ aj.pEmail }}" onChange="{{ aj.setPEmail }}" placeholder="Correo" style="width:100%;box-sizing:border-box;min-height:48px;background:#0B0907;border:1px solid #2E2418;border-radius:8px;color:#F0E6D2;font-size:16px;padding:8px 12px;outline:none;" style-focus="border-color:#C88860;">
+              <button onClick="{{ aj.anadirPersona }}" style="min-height:50px;display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#F0E6D2;border:1.5px dashed #8A7A62;border-radius:10px;font-size:15px;cursor:pointer;opacity: {{ aj.anadirOpacidad }};" style-hover="border-color:#C88860;"><span style="color:#EDAF8C;font-size:18px;">+</span><span>Añadir persona</span></button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+    </main>
+  </div>
+</div>
+
+<sc-if value="{{ esMovil }}" hint-placeholder-val="{{ true }}">
+  <nav style="position:fixed;left:0;right:0;bottom:0;z-index:30;height:64px;display:grid;grid-template-columns:repeat(5,1fr);background:#13100A;border-top:1px solid #2E2418;">
+    <button onClick="{{ nav.inicio.ir }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;cursor:pointer;color: {{ nav.inicio.color }};font-size:11px;padding:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>
+      <span>Inicio</span>
+    </button>
+    <button onClick="{{ nav.carta.ir }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;cursor:pointer;color: {{ nav.carta.color }};font-size:11px;padding:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6"></path></svg>
+      <span>Carta</span>
+    </button>
+    <button onClick="{{ nav.actividades.ir }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;cursor:pointer;color: {{ nav.actividades.color }};font-size:11px;padding:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M2 20 9.5 7l4.5 7.5 2.5-3.5L22 20z"></path></svg>
+      <span>Actividades</span>
+    </button>
+    <button onClick="{{ nav.consultas.ir }}" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;cursor:pointer;color: {{ nav.consultas.color }};font-size:11px;padding:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 5h16v11H10l-5 4v-4H4z"></path></svg>
+      <span>Consultas</span>
+      <sc-if value="{{ hayNuevas }}"><span style="position:absolute;top:6px;left:50%;margin-left:6px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:9px;background:#EDAF8C;color:#0B0907;font-size:11px;line-height:18px;text-align:center;">{{ nuevasN }}</span></sc-if>
+    </button>
+    <button onClick="{{ nav.ajustes.ir }}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:none;cursor:pointer;color: {{ nav.ajustes.color }};font-size:11px;padding:0;">
+      <svg width="24" height="24" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg>
+      <span>Ajustes</span>
+    </button>
+  </nav>
+</sc-if>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const MESES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const EMOJIS=['🍽️','🍖','🥩','🍗','🐐','🐑','🐷','🍳','🥚','🍞','🥖','🧀','🌶️','🍢','🧆','🥟','🌮','🥙','🍔','🍕','🍝','🍲','🥘','🍛','🥗','🍅','🍆','🧅','🥑','🌾','🌿','🍄','🥔','🫒','🦐','🐟','🐙','🦑','🥨','🔥','🏔️','🍰','🍮','🍨','🍷','🍺','☕','🥾','🐴','🚙','🧭','🌄'];
+const VISTAS=['entrada','inicio','carta','importar','actividades','consultas','ajustes'];
+const TITULOS={inicio:'Inicio',carta:'Carta',importar:'Importar',actividades:'Actividades',consultas:'Consultas',ajustes:'Ajustes'};
+const fmt=p=>{ if(p===''||p==null) return '—'; const n=Number(String(p).replace(',','.')); return isNaN(n)?'—':n.toFixed(2).replace('.',',')+' €'; };
+const sw=on=>({swFondo:on?'#EDAF8C':'#13100A',swBorde:on?'#EDAF8C':'#8A7A62',swX:on?'20px':'2px',swBola:on?'#0B0907':'#8A7A62',swAria:on?'true':'false'});
+const cb=on=>({cbFondo:on?'#EDAF8C':'transparent',cbBorde:on?'#EDAF8C':'#8A7A62',cbMarca:on?'✓':'',cbAria:on?'true':'false'});
+const es=o=>(o&&typeof o==='object')?(o.es||''):(o||'');
+const plural=(n,s,p)=>n===1?s:p;
+const nid=()=>'nuevo-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+
+class Component extends DCLogic {
+  state = { d:null, imp:null, vista:'entrada', abierto:null, sub:'lista', cat:null, soloOcultos:false, filtro:'todas',
+    email:'', enviado:false, ancho:(typeof window!=='undefined'?window.innerWidth:390), confirmar:null, guardado:false, emojiAbierto:null,
+    impFase:'subir', dec:null, abiertos:{}, selNuevos:{}, recuperados:[], impResultado:'', cargandoImp:false,
+    aj:null, ajGuardado:false, nuevoCorreo:'', pNombre:'', pEmail:'', drag:null };
+
+  componentDidMount(){
+    fetch('uploads/panel-demo.json').then(r=>r.json()).then(d=>{
+      const cats=[...d.categorias].sort((a,b)=>a.orden-b.orden);
+      this.setState({d, cat:cats[0]&&cats[0].id, aj:JSON.parse(JSON.stringify(d.ajustes))}, ()=>this.leerHash());
+    });
+    this._rs=()=>this.setState({ancho:window.innerWidth});
+    this._pop=()=>this.leerHash();
+    window.addEventListener('resize',this._rs);
+    window.addEventListener('popstate',this._pop);
+    window.addEventListener('hashchange',this._pop);
+    this._t=setInterval(()=>this.forceUpdate(),60000);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize',this._rs);
+    window.removeEventListener('popstate',this._pop);
+    window.removeEventListener('hashchange',this._pop);
+    clearInterval(this._t);
+  }
+
+  leerHash(){
+    const [v,id]=(location.hash||'').replace(/^#/,'').split('/');
+    if(!VISTAS.includes(v)) return;
+    const sub = v==='carta'&&(id==='categorias'||id==='archivados') ? id : 'lista';
+    const abierto = id&&sub==='lista' ? decodeURIComponent(id) : null;
+    const extra={};
+    if(v==='carta'&&abierto&&this.state.d){ const p=this.state.d.platos.find(x=>x.id===abierto); if(p) extra.cat=p.categoria; }
+    this.setState({vista:v, sub, abierto, confirmar:null, emojiAbierto:null, guardado:false, ...extra});
+  }
+  ir(vista, abierto=null, extra={}){
+    const sub=extra.sub||'lista';
+    const ex={soloOcultos:false, ...extra};
+    if(vista==='carta'&&abierto&&this.state.d){ const p=this.state.d.platos.find(x=>x.id===abierto); if(p) ex.cat=p.categoria; }
+    this.setState({vista, abierto, sub, confirmar:null, emojiAbierto:null, guardado:false, ...ex});
+    const h='#'+vista+(sub!=='lista'?'/'+sub:'')+(abierto?'/'+abierto:'');
+    try{ history.pushState(null,'',h); }catch(e){}
+    try{ window.scrollTo(0,0); }catch(e){}
+  }
+
+  accion(tipo, datos){
+    console.log('[accion]', tipo, datos);
+    this.setState(s=>{
+      const d={...s.d}; const extra={guardado:true};
+      const merge=(x,o)=>{ const r={...x}; Object.keys(o).forEach(k=>{ if(k==='id') return; const v=o[k]; r[k]=(v&&typeof v==='object'&&!Array.isArray(v)&&x[k]&&typeof x[k]==='object')?{...x[k],...v}:v; }); return r; };
+      const guardar=(key,o)=>{ const l=d[key]; d[key]=l.some(x=>x.id===o.id)?l.map(x=>x.id===o.id?merge(x,o):x):[...l,{...o}]; };
+      const reord=(key,ids)=>{ d[key]=d[key].map(x=>{ const i=ids.indexOf(x.id); return i>-1?{...x,orden:i+1}:x; }); };
+      switch(tipo){
+        case 'plato.guardar': case 'plato.visible': case 'plato.archivar': guardar('platos',datos); break;
+        case 'plato.ordenar': reord('platos',datos.orden); break;
+        case 'plato.desvincular': d.platos=d.platos.map(p=>p.id===datos.id?{...p,lastapp:null}:p); extra.confirmar=null; break;
+        case 'categoria.guardar': guardar('categorias',datos); break;
+        case 'categoria.ordenar': reord('categorias',datos.orden); break;
+        case 'actividad.guardar': guardar('actividades',datos); break;
+        case 'actividad.archivar': guardar('actividades',{id:datos.id,archivada:true}); break;
+        case 'actividad.ordenar': reord('actividades',datos.orden); break;
+        case 'consulta.estado': case 'consulta.notas': guardar('consultas',datos); break;
+        case 'consulta.borrar': d.consultas=d.consultas.map(c=>c.id===datos.id?{...c,nombre:'',telefono:'',whatsapp_url:'',llamar_url:''}:c); extra.confirmar=null; break;
+        case 'ajustes.guardar': d.ajustes={...d.ajustes,...datos}; break;
+        case 'acceso.anadir': d.ajustes={...d.ajustes,administradores:[...d.ajustes.administradores,{...datos,soy_yo:false}]}; break;
+        case 'acceso.quitar': d.ajustes={...d.ajustes,administradores:d.ajustes.administradores.filter(a=>a.email!==datos.email)}; break;
+        case 'importacion.aplicar': extra.impResultado=this.aplicarImportacion(d,s.imp,datos.decisiones,s.recuperados); extra.impFase='hecho'; break;
+      }
+      return {d,...extra};
+    });
+  }
+
+  aplicarImportacion(d,imp,dec,recup){
+    const platos=d.platos.map(p=>({...p})); const by=id=>platos.find(p=>p.id===id);
+    let nuevos=0,precios=0,ocultados=0;
+    [...recup,...imp.grupos.nuevos].forEach(n=>{
+      const x=dec.nuevos[n.lastapp_id]; if(!x) return;
+      const la={id:n.lastapp_id,nombre:n.nombre,precio:n.precio||''};
+      if(x.destino==='plato'){
+        nuevos++; const v={es:'',en:'',fr:'',ca:''};
+        platos.push({id:nid(),categoria:x.categoria,orden:platos.filter(p=>p.categoria===x.categoria).length+1,nombre:{...v,es:n.nombre},descripcion:{...v},nota_precio:{...v},precio:n.precio||'',emoji:x.emoji||'🍽️',visible:true,archivado:false,lastapp:la});
+      } else if(x.destino==='mismo'){ const p=by(x.plato_id); if(p){ p.lastapp=la; if(n.precio) p.precio=n.precio; } }
+    });
+    imp.grupos.precio.forEach(c=>{ const p=by(c.plato_id); if(p){ p.precio=c.despues; if(p.lastapp) p.lastapp={...p.lastapp,precio:c.despues}; precios++; } });
+    imp.grupos.nombre.forEach(c=>{ const p=by(c.plato_id); if(p){ if(p.lastapp) p.lastapp={...p.lastapp,nombre:c.despues}; if(dec.renombrar.includes(c.plato_id)) p.nombre={...p.nombre,es:c.despues}; } });
+    if(dec.ocultar_desaparecidos) imp.grupos.desaparecidos.forEach(c=>{ const p=by(c.plato_id); if(p&&p.visible){ p.visible=false; ocultados++; } });
+    d.platos=platos;
+    const ahora=new Date().toISOString();
+    d.ultima_importacion={en:ahora,archivo:imp.archivo,resumen:{nuevos,precios,ocultados}};
+    d.resumen={...d.resumen,ultima_importacion:ahora};
+    return nuevos+' '+plural(nuevos,'plato nuevo','platos nuevos')+', '+precios+' '+plural(precios,'precio','precios')+', '+ocultados+' '+plural(ocultados,'ocultado','ocultados');
+  }
+
+  elegirArchivo(e){
+    const f=e.target.files&&e.target.files[0]; if(!f) return;
+    this.setState({cargandoImp:true});
+    fetch('uploads/importacion-demo.json').then(r=>r.json()).then(imp=>{
+      const nuevos={};
+      imp.grupos.nuevos.forEach(n=>{ nuevos[n.lastapp_id]= n.sugerencia&&n.sugerencia.destino==='mismo' ? {destino:'mismo',plato_id:n.sugerencia.plato_id} : {destino:'pendiente'}; });
+      const dec={nuevos,renombrar:[],ocultar_desaparecidos:!!imp.ocultar_desaparecidos_por_defecto,recuperar_no_web:[]};
+      const abiertos={nuevos:true,precio:imp.grupos.precio.length>=3,nombre:true,desaparecidos:true,sin_cambios:false,no_web:false};
+      this.setState({imp,dec,abiertos,selNuevos:{},recuperados:[],impFase:'previa',cargandoImp:false,emojiAbierto:null});
+    });
+    e.target.value='';
+  }
+  decidirNuevo(id,val){
+    this.setState(s=>{
+      const prev=s.dec.nuevos[id]||{}; let x;
+      if(val.startsWith('cat:')) x={destino:'plato',categoria:val.slice(4),emoji:prev.emoji||'🍽️'};
+      else if(val.startsWith('mismo:')) x={destino:'mismo',plato_id:val.slice(6)};
+      else x={destino:val};
+      return {dec:{...s.dec,nuevos:{...s.dec.nuevos,[id]:x}}, emojiAbierto: x.destino==='plato'?s.emojiAbierto:null};
+    });
+  }
+  recuperar(x){
+    this.setState(s=>({recuperados:[x,...s.recuperados], abiertos:{...s.abiertos,nuevos:true},
+      dec:{...s.dec,nuevos:{...s.dec.nuevos,[x.lastapp_id]:{destino:'pendiente'}},recuperar_no_web:[...s.dec.recuperar_no_web,x.lastapp_id]}}));
+  }
+
+  nuevoPlato(cat){
+    const d=this.state.d; const id=nid();
+    this.accion('plato.guardar',{id,categoria:cat,orden:d.platos.filter(p=>p.categoria===cat).length+1,nombre:{es:''},descripcion:{es:''},nota_precio:{es:''},precio:'',emoji:'🍽️',visible:true,archivado:false,lastapp:null});
+    this.ir('carta',id,{cat});
+  }
+  nuevaActividad(){
+    const d=this.state.d; const id=nid();
+    this.accion('actividad.guardar',{id,emoji:'🧭',nombre:{es:''},descripcion:{es:''},foto:'',encuadre:'centro',orden:d.actividades.length+1,visible:true,archivada:false});
+    this.ir('actividades',id);
+  }
+  setAj(o){ this.setState(s=>({aj:{...s.aj,...o},ajGuardado:false})); }
+
+  orden(key,items){
+    const dr=this.state.drag;
+    if(!dr||dr.lista!==key) return items;
+    return [...items].sort((a,b)=>dr.ids.indexOf(a.id)-dr.ids.indexOf(b.id));
+  }
+  arrastrar(lista,id,ids,cfg,e){
+    if(e.button!==undefined&&e.button!==0) return;
+    e.preventDefault(); e.stopPropagation();
+    this.setState({drag:{lista,id,ids:[...ids]}});
+    const move=ev=>{
+      const dr=this.state.drag; if(!dr) return;
+      const els=[...document.querySelectorAll('[data-arrastre="'+lista+'"]')].filter(el=>el.getAttribute('data-id')!==id);
+      let i=0; els.forEach(el=>{ const r=el.getBoundingClientRect(); if(ev.clientY>r.top+r.height/2) i++; });
+      const otros=dr.ids.filter(x=>x!==id);
+      const n=[...otros.slice(0,i),id,...otros.slice(i)];
+      if(n.join()!==dr.ids.join()) this.setState({drag:{...dr,ids:n}});
+    };
+    const up=()=>{
+      window.removeEventListener('pointermove',move); window.removeEventListener('pointerup',up); window.removeEventListener('pointercancel',up);
+      const dr=this.state.drag; this.setState({drag:null});
+      if(dr&&dr.ids.join()!==ids.join()) this.accion(cfg.tipo,{...cfg.datos,orden:dr.ids});
+    };
+    window.addEventListener('pointermove',move); window.addEventListener('pointerup',up); window.addEventListener('pointercancel',up);
+  }
+
+  hace(iso){
+    const m=Math.max(0,Math.round((Date.now()-new Date(iso).getTime())/60000));
+    if(m<1) return 'ahora mismo'; if(m<60) return 'hace '+m+' min';
+    const h=Math.round(m/60); if(h<24) return 'hace '+h+' h';
+    const dd=Math.round(h/24); return dd===1?'ayer':'hace '+dd+' días';
+  }
+  fechaCorta(ymd){ const [y,m,dd]=ymd.split('-'); return Number(dd)+' '+MESES[Number(m)-1]; }
+  emojiGrid(actual,elegir){ return EMOJIS.map(e=>({e,fondo:e===actual?'rgba(237,175,140,.25)':'transparent',elegir:()=>elegir(e)})); }
+
+  renderVals(){
+    const s=this.state, d=s.d, esc=s.ancho>=900;
+    const v={ esEscritorio:esc, esMovil:!esc, enEntrada:s.vista==='entrada', enPanel:s.vista!=='entrada'&&!!d,
+      email:s.email, setEmail:e=>this.setState({email:e.target.value}),
+      enviar:e=>{ e.preventDefault(); if(s.email.trim()) this.setState({enviado:true}); },
+      enviado:s.enviado, noEnviado:!s.enviado, entrarDemo:()=>this.ir('inicio'),
+      btnEnviarOpacidad:s.email.trim()?'1':'.55' };
+    if(!d) return v;
+    const vista=s.vista;
+    Object.assign(v,{vInicio:vista==='inicio',vCarta:vista==='carta',vImportar:vista==='importar',vActividades:vista==='actividades',vConsultas:vista==='consultas',vAjustes:vista==='ajustes'});
+    v.titulo=TITULOS[vista]||''; v.gestorNombre=d.gestor.nombre;
+    v.salir=()=>{ this.setState({enviado:false}); this.ir('entrada'); };
+    const activo=vista==='importar'?'carta':vista;
+    v.nav={}; ['inicio','carta','actividades','consultas','ajustes'].forEach(k=>{ v.nav[k]={color:activo===k?'#EDAF8C':'rgba(240,230,210,.72)',fondo:activo===k?'rgba(237,175,140,.1)':'transparent',ir:()=>this.ir(k)}; });
+    const nuevas=d.consultas.filter(c=>c.estado==='nueva').length;
+    v.nuevasN=nuevas; v.hayNuevas=nuevas>0;
+    const platosAct=d.platos.filter(p=>!p.archivado);
+    const ocultos=platosAct.filter(p=>!p.visible);
+    const cats=this.orden('categorias',[...d.categorias].sort((a,b)=>a.orden-b.orden));
+    const catNombre=id=>{ const k=d.categorias.find(c=>c.id===id); return k?es(k.nombre):''; };
+    const imp=s.imp;
+    const fichaP=vista==='carta'&&s.sub==='lista'&&s.abierto?d.platos.find(p=>p.id===s.abierto):null;
+    const fichaA=vista==='actividades'&&s.abierto?d.actividades.find(a=>a.id===s.abierto):null;
+    const fichaC=vista==='consultas'&&s.abierto?d.consultas.find(c=>c.id===s.abierto):null;
+    const barra=(vista==='importar'&&s.impFase==='previa'&&!!imp)||(!!fichaC&&!!fichaC.whatsapp_url);
+    v.ui={padInf:esc?'40px':(64+(barra?76:0)+24)+'px', barraPos:esc?'sticky':'fixed', barraBottom:esc?'0px':'64px'};
+
+    // Inicio
+    const uImp=(d.ultima_importacion&&d.ultima_importacion.en)||d.resumen.ultima_importacion;
+    const nada=nuevas===0&&ocultos.length===0;
+    v.hola='Hola, '+d.gestor.nombre;
+    v.ini={ verNuevas:nuevas>0, nuevasN:nuevas, nuevasTxt:plural(nuevas,'consulta nueva','consultas nuevas'),
+      verOcultos:ocultos.length>0, ocultosN:ocultos.length, ocultosTxt:plural(ocultos.length,'plato oculto','platos ocultos'),
+      verImport:!nada, todoAlDia:nada, importHace:uImp?this.hace(uImp):'—',
+      abrirNuevas:()=>this.ir('consultas',null,{filtro:'nueva'}),
+      abrirOcultos:()=>this.ir('carta',null,{soloOcultos:true}),
+      abrirImportar:()=>this.ir('importar',null,s.impFase==='hecho'?{impFase:'subir'}:{}),
+      subirExcel:()=>this.ir('importar',null,s.impFase==='hecho'?{impFase:'subir'}:{}),
+      anadirPlato:()=>this.nuevoPlato(s.cat||(cats[0]&&cats[0].id)),
+      anadirActividad:()=>this.nuevaActividad(),
+      historial:d.historial.map(h=>({accion:h.accion,meta:h.quien+' · '+this.hace(h.en)})) };
+
+    // Carta
+    const catAct=s.cat;
+    const lista=s.soloOcultos?ocultos:this.orden('platos',platosAct.filter(p=>p.categoria===catAct).sort((a,b)=>a.orden-b.orden));
+    const idsLista=lista.map(p=>p.id);
+    const archivados=d.platos.filter(p=>p.archivado);
+    const c={ subLista:s.sub==='lista', subCategorias:s.sub==='categorias', subArchivados:s.sub==='archivados',
+      verLista:esc||!fichaP, verFicha:!!fichaP, listaFlex:fichaP&&esc?'0 0 400px':'1 1 auto',
+      soloOcultos:s.soloOcultos, ocultosTxt:ocultos.length+' '+plural(ocultos.length,'plato oculto','platos ocultos'),
+      quitarFiltro:()=>this.setState({soloOcultos:false}),
+      tabs:cats.map(k=>{ const on=!s.soloOcultos&&k.id===catAct; return {nombre:es(k.nombre)||'—',fondo:on?'#EDAF8C':'#1C1510',color:on?'#0B0907':'#F0E6D2',borde:on?'#EDAF8C':'#2E2418',opacidad:k.visible?'1':'.5',elegir:()=>this.setState({cat:k.id,soloOcultos:false})}; }),
+      platos:lista.map(p=>({ id:p.id, emoji:p.emoji, nombre:es(p.nombre)||'—', precioTxt:fmt(p.precio), esLastapp:!!p.lastapp,
+        verCat:s.soloOcultos, catTxt:catNombre(p.categoria), opacidad:p.visible?'1':'.45',
+        borde:(s.drag&&s.drag.id===p.id)||(fichaP&&fichaP.id===p.id)?'#C88860':'#2E2418', ...sw(p.visible),
+        alternar:e=>{ e.stopPropagation(); this.accion('plato.visible',{id:p.id,visible:!p.visible}); },
+        abrir:()=>this.ir('carta',p.id),
+        arrastrar:e=>{ if(!s.soloOcultos) this.arrastrar('platos',p.id,idsLista,{tipo:'plato.ordenar',datos:{categoria:catAct}},e); } })),
+      vacia:lista.length===0&&!s.soloOcultos, verAnadir:!s.soloOcultos,
+      anadir:()=>this.nuevoPlato(catAct),
+      subirExcel:()=>this.ir('importar',null,s.impFase==='hecho'?{impFase:'subir'}:{}),
+      nArchivados:archivados.length,
+      editarCategorias:()=>this.ir('carta',null,{sub:'categorias'}),
+      verArchivados:()=>this.ir('carta',null,{sub:'archivados'}),
+      volver:()=>this.ir('carta'),
+      cats:cats.map(k=>{ const n=platosAct.filter(p=>p.categoria===k.id).length; return { id:k.id, nombre:es(k.nombre), nTxt:n+' '+plural(n,'plato','platos'), opacidad:k.visible?'1':'.55',
+        borde:s.drag&&s.drag.id===k.id?'#C88860':'#2E2418', ...sw(k.visible),
+        renombrar:e=>this.accion('categoria.guardar',{id:k.id,nombre:{es:e.target.value}}),
+        alternar:()=>this.accion('categoria.guardar',{id:k.id,visible:!k.visible}),
+        arrastrar:e=>this.arrastrar('categorias',k.id,cats.map(x=>x.id),{tipo:'categoria.ordenar',datos:{}},e) }; }),
+      anadirCategoria:()=>this.accion('categoria.guardar',{id:nid(),nombre:{es:''},visible:true,orden:d.categorias.length+1}),
+      archivados:archivados.map(p=>({emoji:p.emoji,nombre:es(p.nombre),cat:catNombre(p.categoria),precioTxt:fmt(p.precio),volver:()=>this.accion('plato.archivar',{id:p.id,archivado:false})})),
+      sinArchivados:archivados.length===0, f:{} };
+    if(fichaP){
+      const p=fichaP, id=p.id, conf=s.confirmar==='desvincular:'+id;
+      c.f={ emoji:p.emoji, nombre:es(p.nombre), descripcion:es(p.descripcion), nota:es(p.nota_precio), categoria:p.categoria,
+        precioInput:(p.precio||'').replace('.',','), precioTxt:fmt(p.precio),
+        esLastapp:!!p.lastapp, esManual:!p.lastapp, laNombre:p.lastapp?p.lastapp.nombre:'', laPrecio:p.lastapp?fmt(p.lastapp.precio):'',
+        confirmando:conf, noConfirmando:!conf,
+        pedirDesvincular:()=>this.setState({confirmar:'desvincular:'+id}), cancelar:()=>this.setState({confirmar:null}),
+        desvincular:()=>this.accion('plato.desvincular',{id}),
+        catOpciones:cats.map(k=>({id:k.id,nombre:es(k.nombre)})),
+        setCategoria:e=>{ const cat=e.target.value; this.accion('plato.guardar',{id,categoria:cat}); this.setState({cat}); },
+        setNombre:e=>this.accion('plato.guardar',{id,nombre:{es:e.target.value}}),
+        setDescripcion:e=>this.accion('plato.guardar',{id,descripcion:{es:e.target.value}}),
+        setNota:e=>this.accion('plato.guardar',{id,nota_precio:{es:e.target.value}}),
+        setPrecio:e=>this.accion('plato.guardar',{id,precio:e.target.value.replace(',','.')}),
+        normalizarPrecio:()=>{ const n=Number(String(p.precio).replace(',','.')); if(p.precio!==''&&!isNaN(n)&&n.toFixed(2)!==p.precio) this.accion('plato.guardar',{id,precio:n.toFixed(2)}); },
+        emojiAbierto:s.emojiAbierto==='plato', alternarEmoji:()=>this.setState({emojiAbierto:s.emojiAbierto==='plato'?null:'plato'}),
+        emojis:s.emojiAbierto==='plato'?this.emojiGrid(p.emoji,e=>{ this.accion('plato.guardar',{id,emoji:e}); this.setState({emojiAbierto:null}); }):[],
+        ...sw(p.visible), alternar:()=>this.accion('plato.visible',{id,visible:!p.visible}),
+        quitar:()=>{ this.accion('plato.archivar',{id,archivado:true}); this.ir('carta'); },
+        cerrar:()=>this.ir('carta'), guardado:s.guardado };
+    }
+    v.c=c;
+
+    // Importar
+    const I={ subir:s.impFase==='subir'||(s.impFase==='previa'&&!imp), previa:s.impFase==='previa'&&!!imp, hecho:s.impFase==='hecho',
+      cargando:s.cargandoImp, elegir:e=>this.elegirArchivo(e), resumen:s.impResultado,
+      verCarta:()=>this.ir('carta',null,{impFase:'subir',imp:null,dec:null}), g:{}, oc:{} };
+    if(I.previa){
+      const dec=s.dec, recup=s.recuperados;
+      const listaNuevos=[...recup,...imp.grupos.nuevos];
+      const noWeb=imp.grupos.no_web.filter(x=>!recup.some(r=>r.lastapp_id===x.lastapp_id));
+      const grp=(k,n)=>({n,abierto:!!s.abiertos[k],giro:s.abiertos[k]?'rotate(180deg)':'none',alternar:()=>this.setState(st=>({abiertos:{...st.abiertos,[k]:!st.abiertos[k]}}))});
+      const selIds=Object.keys(s.selNuevos).filter(k=>s.selNuevos[k]);
+      const nombrePlato=id=>{ const p=d.platos.find(x=>x.id===id); return p?es(p.nombre):id; };
+      Object.assign(I,{ archivo:imp.archivo, filas:imp.totales.filas,
+        avisos:[imp.aviso_incompleto,imp.aviso_fuente].filter(x=>typeof x==='string'&&x.trim()).map(t=>({t})),
+        g:{nuevos:grp('nuevos',listaNuevos.length),precio:grp('precio',imp.grupos.precio.length),nombre:grp('nombre',imp.grupos.nombre.length),desaparecidos:grp('desaparecidos',imp.grupos.desaparecidos.length),sin_cambios:grp('sin_cambios',imp.grupos.sin_cambios.length),no_web:grp('no_web',noWeb.length)},
+        catOpts:cats.map(k=>({id:'cat:'+k.id,nombre:es(k.nombre)})),
+        sinVincular:d.platos.filter(p=>!p.lastapp&&!p.archivado).map(p=>({id:'mismo:'+p.id,nombre:es(p.nombre)})),
+        selTxt:selIds.length?'('+selIds.length+')':'', marcarOpacidad:selIds.length?'1':'.5',
+        marcarNoWeb:()=>{ if(!selIds.length) return; this.setState(st=>{ const n={...st.dec.nuevos}; selIds.forEach(k=>{n[k]={destino:'no_web'};}); return {dec:{...st.dec,nuevos:n},selNuevos:{}}; }); },
+        nuevos:listaNuevos.map(n=>{
+          const x=dec.nuevos[n.lastapp_id]||{destino:'pendiente'}; const ek='imp:'+n.lastapp_id;
+          const valor=x.destino==='plato'?'cat:'+x.categoria:x.destino==='mismo'?'mismo:'+x.plato_id:x.destino;
+          return { nombre:n.nombre, precioTxt:n.precio?fmt(n.precio):'', valor, esPlato:x.destino==='plato', emoji:x.emoji||'🍽️',
+            borde:x.destino==='pendiente'?'#2E2418':'#C88860', ...cb(!!s.selNuevos[n.lastapp_id]),
+            elegir:e=>this.decidirNuevo(n.lastapp_id,e.target.value),
+            alternarSel:()=>this.setState(st=>({selNuevos:{...st.selNuevos,[n.lastapp_id]:!st.selNuevos[n.lastapp_id]}})),
+            hayParecidos:(n.parecidos||[]).length>0,
+            parecidos:(n.parecidos||[]).map(pp=>{ const pid=typeof pp==='string'?pp:(pp.plato_id||pp.id); return {nombre:(pp&&pp.nombre)||nombrePlato(pid),elegir:()=>this.decidirNuevo(n.lastapp_id,'mismo:'+pid)}; }),
+            emojiAbierto:s.emojiAbierto===ek, alternarEmoji:()=>this.setState({emojiAbierto:s.emojiAbierto===ek?null:ek}),
+            emojis:s.emojiAbierto===ek?this.emojiGrid(x.emoji,e=>this.setState(st=>({emojiAbierto:null,dec:{...st.dec,nuevos:{...st.dec.nuevos,[n.lastapp_id]:{...st.dec.nuevos[n.lastapp_id],emoji:e}}}}))):[] };
+        }),
+        precios:imp.grupos.precio.map(x=>({nombre:x.nombre,antes:fmt(x.antes),despues:fmt(x.despues)})),
+        nombres:imp.grupos.nombre.map(x=>({nombreWeb:x.nombre_web,antes:x.antes,despues:x.despues,...cb(dec.renombrar.includes(x.plato_id)),
+          alternar:()=>this.setState(st=>{ const r=st.dec.renombrar; return {dec:{...st.dec,renombrar:r.includes(x.plato_id)?r.filter(i=>i!==x.plato_id):[...r,x.plato_id]}}; })})),
+        oc:cb(dec.ocultar_desaparecidos),
+        alternarOcultar:()=>this.setState(st=>({dec:{...st.dec,ocultar_desaparecidos:!st.dec.ocultar_desaparecidos}})),
+        desaparecidos:imp.grupos.desaparecidos.map(x=>({nombre:x.nombre})),
+        sinCambios:s.abiertos.sin_cambios?imp.grupos.sin_cambios.map(x=>({nombre:x.nombre})):[],
+        noWeb:s.abiertos.no_web?noWeb.map(x=>({nombre:x.nombre,recuperar:()=>this.recuperar(x)})):[],
+        aplicar:()=>this.accion('importacion.aplicar',{id:imp.id,decisiones:dec}),
+        descartar:()=>this.setState({impFase:'subir',imp:null,dec:null}) });
+    }
+    v.imp=I;
+
+    // Actividades
+    const acts=this.orden('actividades',d.actividades.filter(a=>!a.archivada).sort((a,b)=>a.orden-b.orden));
+    const posDe=e=>e==='arriba'?'center top':e==='abajo'?'center bottom':'center center';
+    const fondoDe=f=>f?'url("'+f+'")':'none';
+    const A={ verLista:esc||!fichaA, verFicha:!!fichaA, listaFlex:fichaA&&esc?'0 0 400px':'1 1 auto', vacia:acts.length===0,
+      lista:acts.map(a=>({ id:a.id, emoji:a.emoji, nombre:es(a.nombre)||'—', descripcion:es(a.descripcion), fondo:fondoDe(a.foto), pos:posDe(a.encuadre),
+        opacidad:a.visible?'1':'.5', borde:(s.drag&&s.drag.id===a.id)||(fichaA&&fichaA.id===a.id)?'#C88860':'#2E2418', ...sw(a.visible),
+        alternar:e=>{ e.stopPropagation(); this.accion('actividad.guardar',{id:a.id,visible:!a.visible}); },
+        abrir:()=>this.ir('actividades',a.id),
+        arrastrar:e=>this.arrastrar('actividades',a.id,acts.map(x=>x.id),{tipo:'actividad.ordenar',datos:{}},e) })),
+      anadir:()=>this.nuevaActividad(), f:{} };
+    if(fichaA){
+      const a=fichaA, id=a.id;
+      A.f={ emoji:a.emoji, nombre:es(a.nombre), descripcion:es(a.descripcion), fondo:fondoDe(a.foto), pos:posDe(a.encuadre),
+        cambiarFoto:e=>{ const f=e.target.files&&e.target.files[0]; if(f) this.accion('actividad.guardar',{id,foto:URL.createObjectURL(f)}); },
+        encuadres:[['arriba','Arriba'],['centro','Centro'],['abajo','Abajo']].map(([k,t])=>{ const on=(a.encuadre||'centro')===k; return {t,fondo:on?'#EDAF8C':'transparent',color:on?'#0B0907':'#F0E6D2',borde:on?'#EDAF8C':'rgba(240,230,210,.4)',elegir:()=>this.accion('actividad.guardar',{id,encuadre:k})}; }),
+        setNombre:e=>this.accion('actividad.guardar',{id,nombre:{es:e.target.value}}),
+        setDescripcion:e=>this.accion('actividad.guardar',{id,descripcion:{es:e.target.value}}),
+        emojiAbierto:s.emojiAbierto==='actividad', alternarEmoji:()=>this.setState({emojiAbierto:s.emojiAbierto==='actividad'?null:'actividad'}),
+        emojis:s.emojiAbierto==='actividad'?this.emojiGrid(a.emoji,e=>{ this.accion('actividad.guardar',{id,emoji:e}); this.setState({emojiAbierto:null}); }):[],
+        ...sw(a.visible), alternar:()=>this.accion('actividad.guardar',{id,visible:!a.visible}),
+        archivar:()=>{ this.accion('actividad.archivar',{id}); this.ir('actividades'); },
+        cerrar:()=>this.ir('actividades'), guardado:s.guardado };
+    }
+    v.a=A;
+
+    // Consultas
+    const ordenC=[...d.consultas].sort((x,y)=>((x.estado==='nueva'?0:1)-(y.estado==='nueva'?0:1))||(new Date(y.recibida_en)-new Date(x.recibida_en)));
+    const filtradas=s.filtro==='todas'?ordenC:ordenC.filter(c=>c.estado===s.filtro);
+    const linea=c=>[c.actividad,c.fecha?this.fechaCorta(c.fecha):'',c.personas?c.personas+' '+(c.personas==='1'?'persona':'personas'):''].filter(Boolean).join(' · ');
+    const est={nueva:['#EDAF8C','#0B0907','#EDAF8C'],contestada:['transparent','#F0E6D2','rgba(240,230,210,.5)'],confirmada:['transparent','#68B4C8','#68B4C8'],descartada:['transparent','#8A7A62','#2E2418']};
+    const Q={ verLista:esc||!fichaC, verFicha:!!fichaC, listaFlex:fichaC&&esc?'0 0 400px':'1 1 auto', vacia:filtradas.length===0,
+      chips:[['todas','Todas'],['nueva','Nuevas'],['contestada','Contestadas'],['confirmada','Confirmadas'],['descartada','Descartadas']].map(([k,t])=>{ const on=s.filtro===k; return {t,fondo:on?'#EDAF8C':'#1C1510',color:on?'#0B0907':'#F0E6D2',borde:on?'#EDAF8C':'#2E2418',elegir:()=>this.setState({filtro:k})}; }),
+      lista:filtradas.map(c=>{ const st=est[c.estado]||est.contestada; return { nombre:c.nombre||'—', linea:linea(c), hace:this.hace(c.recibida_en), estadoTxt:d.etiquetas_consulta[c.estado]||c.estado,
+        eF:st[0],eC:st[1],eB:st[2], idioma:(c.idioma||'').toUpperCase(), borde:fichaC&&fichaC.id===c.id?'#EDAF8C':(c.estado==='nueva'?'#C88860':'#2E2418'), abrir:()=>this.ir('consultas',c.id) }; }),
+      f:{} };
+    if(fichaC){
+      const c=fichaC, id=c.id, conf=s.confirmar==='borrar:'+id;
+      Q.f={ nombre:c.nombre||'—', linea:linea(c), idioma:(c.idioma||'').toUpperCase(), telefono:c.telefono, hayTel:!!c.telefono, hace:this.hace(c.recibida_en),
+        wa:c.whatsapp_url, llamar:c.llamar_url, puedeContactar:!!c.whatsapp_url,
+        estados:d.estados_consulta.map(k=>{ const on=c.estado===k; return {t:d.etiquetas_consulta[k],fondo:on?'#EDAF8C':'transparent',color:on?'#0B0907':'#F0E6D2',elegir:()=>this.accion('consulta.estado',{id,estado:k})}; }),
+        notas:c.notas||'', setNotas:e=>this.accion('consulta.notas',{id,notas:e.target.value}),
+        confirmando:conf, noConfirmando:!conf, pedirBorrar:()=>this.setState({confirmar:'borrar:'+id}), cancelar:()=>this.setState({confirmar:null}),
+        borrar:()=>this.accion('consulta.borrar',{id}), noBorrado:!!(c.nombre||c.telefono),
+        cerrar:()=>this.ir('consultas'), guardado:s.guardado };
+    }
+    v.q=Q;
+
+    // Ajustes
+    const aj=s.aj||d.ajustes;
+    const diff={}; ['whatsapp','aviso_consultas_correo','nombre_gestor'].forEach(k=>{ if(aj[k]!==d.ajustes[k]) diff[k]=aj[k]; });
+    if(JSON.stringify(aj.correos_aviso)!==JSON.stringify(d.ajustes.correos_aviso)) diff.correos_aviso=aj.correos_aviso;
+    const sucio=Object.keys(diff).length>0;
+    v.aj={ whatsapp:aj.whatsapp, setWhatsapp:e=>this.setAj({whatsapp:e.target.value}),
+      correos:aj.correos_aviso.map((m,i)=>({valor:m,set:e=>this.setAj({correos_aviso:aj.correos_aviso.map((x,j)=>j===i?e.target.value:x)}),quitar:()=>this.setAj({correos_aviso:aj.correos_aviso.filter((x,j)=>j!==i)})})),
+      nuevoCorreo:s.nuevoCorreo, setNuevoCorreo:e=>this.setState({nuevoCorreo:e.target.value}),
+      anadirCorreo:()=>{ const m=s.nuevoCorreo.trim(); if(m){ this.setAj({correos_aviso:[...aj.correos_aviso,m]}); this.setState({nuevoCorreo:''}); } },
+      ...sw(aj.aviso_consultas_correo), alternarAviso:()=>this.setAj({aviso_consultas_correo:!aj.aviso_consultas_correo}),
+      nombre:aj.nombre_gestor, setNombre:e=>this.setAj({nombre_gestor:e.target.value}),
+      guardarOpacidad:sucio?'1':'.55', guardado:s.ajGuardado&&!sucio,
+      guardar:()=>{ if(sucio) this.accion('ajustes.guardar',diff); this.setState({ajGuardado:true}); },
+      admins:d.ajustes.administradores.map(x=>({nombre:x.nombre,email:x.email,puedeQuitar:!x.soy_yo,quitar:()=>this.accion('acceso.quitar',{email:x.email})})),
+      pNombre:s.pNombre, pEmail:s.pEmail, setPNombre:e=>this.setState({pNombre:e.target.value}), setPEmail:e=>this.setState({pEmail:e.target.value}),
+      anadirOpacidad:s.pEmail.trim()?'1':'.55',
+      anadirPersona:()=>{ const m=s.pEmail.trim(); if(!m) return; this.accion('acceso.anadir',{id:nid(),email:m,nombre:s.pNombre.trim()||m}); this.setState({pNombre:'',pEmail:''}); } };
+    return v;
+  }
+}
+
+// --- Conexión del panel con el servidor. Lo añade tools/ajustes.py al final del script de "Trotamundos Panel.dc.html". ---
+// La maqueta de Claude Design no se toca: todo cambio que hace Daniel pasa por su método accion(tipo, datos), que aquí
+// se envuelve para mandarlo también a /api/panel/accion. Los datos salen de /api/panel/datos en vez del JSON de muestra,
+// el Excel de LastApp se lee en el navegador y se manda a /api/panel/importar, y las fotos suben directas al almacén.
+(() => {
+  const P = Component.prototype, API = '/api/panel';
+  const ESPERA_MS = 900;
+  const SHEETJS = 'https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js';
+  const esNuevo = (id) => typeof id === 'string' && /^nuevo-/.test(id);
+  const avisar = (t) => { try { alert(t); } catch (e) {} };
+
+  const post = (ruta, cuerpo) => fetch(API + ruta, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(cuerpo || {}) })
+    .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok && j.ok !== false, status: r.status, j })), () => ({ ok: false, status: 0, j: {} }));
+
+  // Las lecturas de la maqueta (fetch de los JSON de muestra) se redirigen a la API. Se instala una sola vez y para siempre,
+  // porque la vista previa de importación también se pide con fetch desde elegirArchivo().
+  const fetchOriginal = window.fetch;
+  let vistaPendiente = null; // promesa de la vista previa real del archivo que se acaba de elegir
+  window.fetch = function (u, ...a) {
+    const url = typeof u === 'string' ? u : (u && u.url) || '';
+    if (/uploads\/panel-demo\.json$/.test(url)) {
+      return fetchOriginal(API + '/datos', { credentials: 'same-origin' }).then((r) => {
+        const comp = window.__trotaPanel;
+        if (r.status === 401) {
+          if (comp) comp.setState({ vista: 'entrada', d: null });
+          try { if (location.hash && location.hash !== '#enlace-caducado') history.replaceState(null, '', location.pathname); } catch (e) {}
+          throw new Error('sin sesión');
+        }
+        if (!r.ok) { avisar('No se han podido cargar los datos del panel. Recarga la página en un momento.'); throw new Error('HTTP ' + r.status); }
+        return r;
+      });
+    }
+    if (/uploads\/importacion-demo\.json$/.test(url)) {
+      const p = vistaPendiente || Promise.reject(new Error('sin archivo'));
+      vistaPendiente = null;
+      return p.then((vista) => ({ ok: true, status: 200, json: () => Promise.resolve(vista) }));
+    }
+    return fetchOriginal.call(this, u, ...a);
+  };
+
+  const mount = P.componentDidMount;
+  P.componentDidMount = function () {
+    window.__trotaPanel = this;
+    this._sync = { reales: {}, pendientes: {}, creando: {}, cola: {}, timers: {} };
+    mount.call(this);
+    if (location.hash === '#enlace-caducado') {
+      try { history.replaceState(null, '', location.pathname); } catch (e) {}
+      setTimeout(() => avisar('Ese enlace ya no vale: ha caducado o ya se usó. Pide otro con tu correo.'), 300);
+    }
+  };
+
+  P._idReal = function (id) { return (this._sync.reales && this._sync.reales[id]) || id; };
+
+  P._recargar = function () {
+    return fetchOriginal(API + '/datos', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)).then((d) => { if (d && d.categorias) this.setState({ d }); }).catch(() => {});
+  };
+
+  // Manda una acción ya traducida (ids reales, forma de la API). Un 401 significa que la sesión se ha ido.
+  P._mandar = function (tipo, datos) {
+    return post('/accion', { tipo, datos }).then((x) => {
+      if (x.status === 401) { avisar('Tu sesión ha caducado. Vuelve a pedir el enlace con tu correo.'); location.reload(); return x; }
+      if (!x.ok) { console.warn('[panel] no guardado', tipo, x.j); avisar((x.j && x.j.error) || 'No se ha podido guardar ese cambio. Inténtalo de nuevo.'); }
+      return x;
+    });
+  };
+
+  // Lo que la maqueta llama "orden" (lista de ids) la API lo llama "ids"; la foto de muestra (blob:) no se manda.
+  function traducir(tipo, datos, idReal) {
+    const d = { ...datos };
+    if (d.id !== undefined) d.id = idReal(d.id);
+    if (/\.ordenar$/.test(tipo)) { const ids = (d.orden || d.ids || []).map(idReal).filter((x) => !esNuevo(x)); delete d.orden; d.ids = ids; }
+    if (tipo === 'actividad.archivar' && d.archivada === undefined) d.archivada = true;
+    if (tipo === 'acceso.anadir') delete d.id;
+    if (tipo === 'plato.guardar') { delete d.lastapp; delete d.archivado; delete d.orden; }
+    if (tipo === 'actividad.guardar') { delete d.archivada; delete d.orden; if (typeof d.foto === 'string' && /^blob:/.test(d.foto)) delete d.foto; }
+    if (tipo === 'categoria.guardar') delete d.orden;
+    return d;
+  }
+  const fusionar = (base, extra) => {
+    const r = { ...base };
+    for (const k of Object.keys(extra)) {
+      const v = extra[k];
+      r[k] = v && typeof v === 'object' && !Array.isArray(v) && r[k] && typeof r[k] === 'object' ? { ...r[k], ...v } : v;
+    }
+    return r;
+  };
+  const DEBOUNCE = /^(plato|categoria|actividad)\.guardar$|^consulta\.notas$/;
+  const CREA = { 'plato.guardar': true, 'categoria.guardar': true, 'actividad.guardar': true };
+  const soloId = (d) => Object.keys(d).every((k) => k === 'id');
+
+  // Un elemento nuevo en la maqueta (id "nuevo-…") se da de alta en el servidor cuando ya tiene nombre; hasta entonces se
+  // acumula lo que Daniel va escribiendo. Las acciones que lleguen mientras tanto (ocultar, ordenar…) esperan en cola.
+  P._crear = function (tipo, idLocal) {
+    const S = this._sync, datos = S.pendientes[idLocal];
+    if (!datos || S.creando[idLocal] || S.reales[idLocal]) return;
+    if (!datos.nombre || !String(datos.nombre.es || '').trim()) return; // aún sin nombre: no hay nada que crear
+    S.creando[idLocal] = true;
+    const cuerpo = { ...traducir(tipo, datos, (x) => x), id: null };
+    this._mandar(tipo, cuerpo).then((x) => {
+      S.creando[idLocal] = false;
+      if (!x.ok || !x.j.id) return;
+      S.reales[idLocal] = x.j.id;
+      S.pendientes[idLocal] = null;
+      // La maqueta sigue usando el id local; en los datos reales el servidor ya tiene el id definitivo.
+      const cola = S.cola[idLocal] || []; S.cola[idLocal] = [];
+      for (const [t, d] of cola) this._enviar(t, d);
+      // Si Daniel siguió escribiendo mientras se creaba, lo que cambió después se manda ahora.
+      if (S.pendientes[idLocal]) { const resto = S.pendientes[idLocal]; S.pendientes[idLocal] = null; this._enviar(tipo, { ...resto, id: idLocal }); }
+    });
+  };
+
+  P._enviar = function (tipo, datos) {
+    const S = this._sync, id = datos && datos.id;
+    if (esNuevo(id) && !S.reales[id]) {
+      if (CREA[tipo]) {
+        S.pendientes[id] = fusionar(S.pendientes[id] || {}, datos);
+        if (S.creando[id]) return; // se mandará al terminar la creación
+        clearTimeout(S.timers['crear:' + id]);
+        S.timers['crear:' + id] = setTimeout(() => this._crear(tipo, id), ESPERA_MS);
+        return;
+      }
+      (S.cola[id] = S.cola[id] || []).push([tipo, datos]);
+      return;
+    }
+    const cuerpo = traducir(tipo, datos, (x) => this._idReal(x));
+    if (CREA[tipo] && soloId(cuerpo)) return;
+    if (DEBOUNCE.test(tipo)) {
+      const k = tipo + ':' + id;
+      S.pendientes[k] = fusionar(S.pendientes[k] || {}, cuerpo);
+      clearTimeout(S.timers[k]);
+      S.timers[k] = setTimeout(() => { const d = S.pendientes[k]; S.pendientes[k] = null; if (d) this._mandar(tipo, d); }, ESPERA_MS);
+      return;
+    }
+    this._mandar(tipo, cuerpo);
+  };
+
+  const accionOriginal = P.accion;
+  P.accion = function (tipo, datos) {
+    if (tipo === 'importacion.aplicar') return this._aplicarImportacion(datos);
+    accionOriginal.call(this, tipo, datos);
+    try { this._enviar(tipo, datos || {}); } catch (e) { console.error('[panel]', e); }
+  };
+
+  // Aplicar una importación: lo hace la base de datos de una vez. Después se vuelven a leer los datos reales.
+  P._aplicarImportacion = function (datos) {
+    if (this._aplicando) return;
+    this._aplicando = true;
+    this.setState({ cargandoImp: true });
+    post('/importar', { paso: 'aplicar', id: datos.id, decisiones: datos.decisiones }).then((x) => {
+      this._aplicando = false;
+      if (x.status === 401) { avisar('Tu sesión ha caducado. Vuelve a pedir el enlace con tu correo.'); location.reload(); return; }
+      if (!x.ok) {
+        avisar((x.j && x.j.error) || 'No se ha podido aplicar la importación. Vuelve a subir el archivo.');
+        this.setState({ cargandoImp: false, impFase: 'subir', imp: null, dec: null });
+        return this._recargar();
+      }
+      const r = x.j.resumen || {};
+      const n = (v, s, p) => v + ' ' + (v === 1 ? s : p);
+      const texto = [n(r.nuevos || 0, 'plato nuevo', 'platos nuevos'), n(r.precios || 0, 'precio', 'precios'), n(r.ocultados || 0, 'ocultado', 'ocultados')].join(', ');
+      this.setState({ cargandoImp: false, impFase: 'hecho', impResultado: texto, imp: null, dec: null });
+      return this._recargar();
+    });
+  };
+
+  // Entrada y salida: la maqueta solo cambia su estado; aquí se avisa al servidor.
+  const update = P.componentDidUpdate;
+  P.componentDidUpdate = function (pp) {
+    if (update) update.call(this, pp);
+    const S = this.state, ps = this._prevState || S;
+    this._prevState = S;
+    if (ps === S) return;
+    if (S.enviado && !ps.enviado && S.email) {
+      post('/entrar', { email: S.email.trim() }).then((x) => {
+        if (!x.ok) { avisar((x.j && x.j.error) || 'No se ha podido enviar el enlace. Revisa el correo e inténtalo otra vez.'); this.setState({ enviado: false }); }
+      });
+    }
+    // Con sesión y sin una vista en la dirección, se entra a Inicio (la maqueta arranca siempre en Entrada).
+    if (S.d && !ps.d && S.vista === 'entrada' && !/^#(inicio|carta|importar|actividades|consultas|ajustes)/.test(location.hash)) this.ir('inicio');
+    if (S.vista === 'entrada' && ps.vista !== 'entrada' && ps.d) { post('/salir'); this.setState({ d: null, enviado: false }); }
+  };
+
+  // Importar: el archivo se lee en el navegador con SheetJS y la vista previa la calcula el servidor.
+  let sheetjs = null;
+  const cargarSheetJS = () => sheetjs || (sheetjs = new Promise((ok, mal) => {
+    if (window.XLSX) return ok(window.XLSX);
+    const s = document.createElement('script'); s.src = SHEETJS; s.onload = () => ok(window.XLSX); s.onerror = () => { sheetjs = null; mal(new Error('No se ha podido cargar el lector de Excel.')); };
+    document.head.appendChild(s);
+  }));
+  async function leerFilas(file) {
+    const XLSX = await cargarSheetJS();
+    // Un CSV se lee como texto (UTF-8) para que no se estropeen las tildes ni el símbolo del euro; un .xls/.xlsx, en binario.
+    const wb = /\.csv$/i.test(file.name)
+      ? XLSX.read(await file.text(), { type: 'string', raw: false })
+      : XLSX.read(await file.arrayBuffer(), { type: 'array', raw: false });
+    const ws = wb.Sheets[wb.SheetNames[0]];
+    return XLSX.utils.sheet_to_json(ws, { header: 1, raw: false, defval: '' }).map((f) => f.map((c) => String(c ?? '')));
+  }
+  document.addEventListener('change', (e) => {
+    const inp = e.target; if (!inp || !inp.matches || !inp.matches('input[data-trota-importar]')) return;
+    const file = inp.files && inp.files[0]; if (!file) return;
+    const comp = window.__trotaPanel;
+    vistaPendiente = (async () => {
+      const filas = await leerFilas(file);
+      const { normalizarExport } = await import('/lib/lastapp.js');
+      const n = normalizarExport(filas, file.name);
+      if (!n.ok) throw new Error(n.error);
+      const x = await post('/importar', { paso: 'vista_previa', archivo: file.name, filas });
+      if (x.status === 401) { avisar('Tu sesión ha caducado. Vuelve a pedir el enlace con tu correo.'); location.reload(); throw new Error('401'); }
+      if (!x.ok) throw new Error((x.j && x.j.error) || 'No se ha podido leer el archivo.');
+      return x.j;
+    })().catch((err) => {
+      avisar(err && err.message ? err.message : 'No se ha podido leer el archivo.');
+      if (comp) comp.setState({ cargandoImp: false, impFase: 'subir', imp: null, dec: null });
+      return new Promise(() => {}); // la maqueta se queda esperando una vista previa que ya no llega
+    });
+  }, true);
+
+  // Foto de una actividad: se reduce en el navegador y se sube directa al almacén con una URL firmada.
+  async function reducir(file) {
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((ok, mal) => { const i = new Image(); i.onload = () => ok(i); i.onerror = mal; i.src = url; });
+      const max = 1600, k = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      return await new Promise((ok) => c.toBlob(ok, 'image/jpeg', 0.82));
+    } finally { URL.revokeObjectURL(url); }
+  }
+  document.addEventListener('change', async (e) => {
+    const inp = e.target; if (!inp || !inp.matches || !inp.matches('label[aria-label="Cambiar foto"] input[type="file"]')) return;
+    const file = inp.files && inp.files[0]; if (!file) return;
+    const comp = window.__trotaPanel, id = comp && comp.state.abierto; if (!id) return;
+    if (esNuevo(id) && !comp._sync.reales[id]) { avisar('Escribe primero el nombre de la actividad y espera un segundo; luego pon la foto.'); return; }
+    const blob = await reducir(file).catch(() => null);
+    if (!blob) { avisar('No se ha podido leer esa foto. Prueba con otra.'); return; }
+    const x = await post('/foto', { id: comp._idReal(id), nombre: file.name, tipo: 'image/jpeg' });
+    if (!x.ok) { avisar('No se ha podido preparar la subida de la foto.'); return; }
+    const up = await fetchOriginal(x.j.subir, { method: 'PUT', headers: { 'Content-Type': 'image/jpeg', 'x-upsert': 'true' }, body: blob }).catch(() => null);
+    if (!up || !up.ok) { avisar('No se ha podido subir la foto. Prueba con otra o más tarde.'); return; }
+    comp.accion('actividad.guardar', { id, foto: x.j.publica });
+  }, true);
+})();
+</script>
+</body>
+</html>

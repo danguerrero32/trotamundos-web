@@ -25,9 +25,31 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/panel",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/Trotamundos Panel.dc.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
   "rewrites": [
+    {
+      "source": "/panel",
+      "destination": "/Trotamundos Panel.dc.html"
+    },
     {
       "source": "/privacidad",
       "destination": "/privacidad.html"
