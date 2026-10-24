@@ -1,6 +1,6 @@
 # Backend y panel de Los Trotamundos — estado del proyecto
 
-Última actualización: 24 de octubre de 2026, por la noche. **Este archivo es el punto de entrada.** Si abres una conversación nueva sobre este proyecto, lee esto primero y después `docs/diseno-funcional.md`. Lo que diga este archivo manda sobre lo que digan los demás, porque es lo único que se mantiene al día.
+Última actualización: 24 de octubre de 2026, de madrugada (tras la sesión de la noche). **Este archivo es el punto de entrada.** Si abres una conversación nueva sobre este proyecto, lee esto primero y después `docs/diseno-funcional.md`. Lo que diga este archivo manda sobre lo que digan los demás, porque es lo único que se mantiene al día.
 
 ---
 
@@ -79,8 +79,8 @@ Las tareas son las del plan. Lo escrito está en la rama `backend-panel`, con **
 | Documento de diseño, plan y PRD | Hechos y corregidos con las decisiones de Dan del 23 de octubre |
 | Tarea 1 · Cimientos (módulos ES, Node 24, servidor local) | Escrita, sin aprobar |
 | Tarea 2 · Contrato de datos (`uploads/panel-demo.json`, `uploads/importacion-demo.json`) y PRD | Escrita. Regenerada con el export real del 23 de octubre |
-| Datos iniciales (`supabase/002`) | **Hay que regenerarlos con la carta de octubre**, no con la web. `tools/genera-sql-inicial.mjs` hoy lee `index.html`; tiene que pasar a leer la carta nueva y conservar los textos en los otros idiomas de los platos que ya existen. Espera las respuestas de `carta-2026-10.md` |
-| Tarea 3 · Base de datos (`supabase/001`, `002`), latido de Vercel y de GitHub | `001` **ejecutado el 24 de octubre** en el proyecto `trotamundos` de Supabase (ref `tirnsyngbulmldodrrxb`, organización `trotamundos`, desde el Chrome de Dan): 11 tablas con RLS, `latir`, bucket `fotos`, ajustes sembrados. Dan dado de alta en `administradores` con `supabase/local-administradores.sql` (no versionado). `002` sin ejecutar (ver fila anterior). Latidos sin probar |
+| Datos iniciales (`supabase/002`) | **Regenerados con la carta de octubre y cargados el 24 de octubre**: 9 categorías, 57 platos, 3 actividades. `tools/genera-sql-inicial.mjs` lee `tools/carta-2026-10.json` (la carta como datos) e `index.html` (actividades, y traducciones y emojis de los platos que ya estaban). Las respuestas de Dan están al final de `carta-2026-10.md` |
+| Tarea 3 · Base de datos (`supabase/001`, `002`), latido de Vercel y de GitHub | `001` **ejecutado el 24 de octubre** en el proyecto `trotamundos` de Supabase (ref `tirnsyngbulmldodrrxb`, organización `trotamundos`, desde el Chrome de Dan): 11 tablas con RLS, `latir`, bucket `fotos`, ajustes sembrados. Dan dado de alta en `administradores` con `supabase/local-administradores.sql` (no versionado). `002` ejecutado (ver fila anterior). Latidos sin probar |
 | Tarea 4 · Entrada al panel con enlace al correo | Escrita, sin probar de verdad (falta Resend) |
 | Tarea 5 · Carta pública desde la base de datos | Escrita |
 | Tarea 6 · Actividades públicas desde la base de datos | Escrita |
@@ -89,7 +89,7 @@ Las tareas son las del plan. Lo escrito está en la rama `backend-panel`, con **
 | Tarea 9 · Datos y acciones del panel | Escrita |
 | Tarea 10 · Importación del Excel de LastApp con vista previa | Escrita. `003` **ejecutado el 24 de octubre** (función `aplicar_importacion` creada). Sin probar con datos |
 | Tarea 11 · Vinculación inicial con LastApp | **Sin empezar.** Espera el export de catálogo y, sobre todo, el OK de Dan a los precios que van a cambiar |
-| Tarea 12 · Importar y conectar el panel de Claude Design | **Sin empezar.** El diseño ya está hecho; falta traerlo y conectarlo. Comprobado el 24 de octubre: la herramienta DesignSync solo lista proyectos de *sistema de diseño* (Nocturne, Classical, Organic, Design System), no el proyecto del panel. Hace falta que Dan haga *Hand off to Claude Code* o exporte el `.dc.html` y lo deje en `~/Downloads` (ahí solo está `Brandbook Los Trotamundos.dc.html`) |
+| Tarea 12 · Importar y conectar el panel de Claude Design | **Hecha el 24 de octubre.** `Trotamundos Panel.dc.html` y `support.js` traídos del proyecto de Design "Backend Trotamundos" (DesignSync llega a él por su id aunque `list_projects` no lo liste). `tools/panel-conexion.js` envuelve `accion()`, redirige las lecturas a `/api/panel/datos`, lee el Excel con SheetJS y sube las fotos; `tools/ajustes.py` lo inyecta y quita el botón de demo. **Comprobado en modo demo** con el servidor local a 390 px: alta de plato (espera al nombre, fusiona el precio, las acciones siguientes usan el id real), importación con el export real (vista previa y aplicar), salir y pedir enlace. **Sin comprobar aún contra la base real** |
 | Tarea 13 · Tarea diaria (latido, anonimizado, limpieza) | Escrita |
 | Tarea 14 · Verificación en la vista previa y guía para Daniel | Sin empezar |
 | Tarea 15 · Publicación | Sin empezar |
@@ -101,13 +101,11 @@ El panel va todo en **una sola función de Vercel** (`api/panel/[ruta].js` + `li
 Comprobado el 24 de octubre por la noche:
 
 - [x] **Supabase.** Proyecto `trotamundos` creado. Esquema cargado.
-- [x] **Vercel**: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM` y `CRON_SECRET` están puestas… **pero solo en Production y Development, no en Preview.** Sin Preview, la vista previa de la rama `backend-panel` (`trotamundos-web-git-backend-panel-….vercel.app`, protegida con inicio de sesión de Vercel) no tiene base de datos y el panel no se puede probar ahí. Se arregla marcando también Preview en cada variable.
+- [x] **Vercel**: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `RESEND_FROM` y `CRON_SECRET` en Production, Preview (marcado el 24 de octubre con el OK de Dan) y Development. La vista previa de la rama es `trotamundos-web-git-backend-panel-danguerrero32s-projects.vercel.app`, protegida con inicio de sesión de Vercel.
 - [ ] **Resend.** La clave está en Vercel. Sin comprobar si el dominio `lostrotamundosalpujarra.com` está verificado: se verá al pedir el primer enlace de entrada. Ojo con IONOS: añade el dominio él solo, así que en el nombre del registro va solo la parte de delante (`resend._domainkey`, no el nombre entero).
 - [ ] **GitHub** → Settings → Secrets → Actions: `SUPABASE_URL` y `SUPABASE_PUBLISHABLE_KEY`. Es solo el latido de respaldo; no corre prisa.
-- [ ] **Claude Design:** exportar el panel (*Hand off to Claude Code* o descarga del `.dc.html`) y dejarlo en `~/Downloads`. DesignSync no llega a ese proyecto (ver Tarea 12).
-- [ ] **Responder las preguntas de `carta-2026-10.md`** (pestañas de "De todas partes", dos precios de hamburguesas, Shakshuka, Margaritas repetidas, postres).
 - [ ] **OK para pasar el repositorio a privado** cuando se publique.
-- [ ] **Subir la rama** `backend-panel`: hay commits en local sin subir.
+- [x] **Rama** `backend-panel` subida (OK de Dan del 24 de octubre).
 
 ## 8. Datos que faltan
 
@@ -135,11 +133,6 @@ Dan lo decidió el 23 de octubre y está apuntado en el PRD, en el apartado "Pen
 
 ## 11. Siguiente paso
 
-Con las respuestas de Dan a `carta-2026-10.md`:
-
-1. Rehacer `tools/genera-sql-inicial.mjs` para que lea la carta de octubre (con los textos en los otros idiomas que la web ya tiene para los platos que siguen), regenerar `002` y cargarlo en el editor SQL desde el Chrome de Dan. Comprobar categorías, platos y 3 actividades. Regenerar `uploads/panel-demo.json` con la carta nueva.
-2. Marcar Preview en las variables de Vercel (lo hace Dan, o Claude con su OK) y comprobar `/api/carta` en la vista previa de la rama.
-3. Llevar las tareas 1 a 3 a `main` (no cambian nada visible) y comprobar que producción sigue igual. **Ojo:** en cuanto `api/carta.js` llegue a `main` con la base de datos cargada, la web pública pasa a enseñar la carta de la base de datos. Por eso `002` tiene que estar cargado y revisado antes.
-4. Importar el panel de Claude Design, escribir el puente y conectarlo (Tarea 12).
-5. Vinculación inicial con LastApp y la lista de precios para que Dan la confirme (Tarea 11).
-6. Recorrido completo en la vista previa de Vercel y guía para Daniel (Tarea 14). Publicar solo con el OK de Dan (Tarea 15).
+1. **Vista previa de la rama con la base real** (Tarea 14): `/api/carta` con `origen: 'bd'` y la carta de octubre, entrar al panel con el enlace al correo de Dan (es la primera prueba real de Resend), crear y ocultar un plato, verlo en la web de la vista previa, consulta de actividad de prueba.
+2. Vinculación inicial con LastApp y la lista de precios para que Dan la confirme (Tarea 11). `uploads/panel-demo.json` sigue con la carta vieja: es solo la muestra del diseño y no afecta a nada real; se regenera cuando toque.
+3. Guía para Daniel (Tarea 14) y publicación con el OK de Dan (Tarea 15). **Ojo:** en cuanto `api/carta.js` llegue a `main`, la web pública pasa a enseñar la carta de la base de datos (la de octubre, ya cargada).
