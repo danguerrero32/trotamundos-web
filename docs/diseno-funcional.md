@@ -1,6 +1,7 @@
 # Backend de Los Trotamundos — Documento de diseño
 
-23 de octubre de 2026 · Borrador para que Dan lo apruebe.
+23 de octubre de 2026, corregido el 24 con las decisiones de Dan · Pendiente de su aprobación.
+Estado y punto de entrada del proyecto: `docs/ESTADO.md`.
 Replica el método del backend de Ascua de Oro (repositorio `danguerrero32/ascuadeoro-web`: `docs/ESTADO.md`, `docs/diseno-funcional.md`, `lib/panel.js`, `tools/panel-conexion.js`). Donde este documento no diga otra cosa, se hace como allí.
 
 ---

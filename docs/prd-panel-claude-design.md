@@ -1,8 +1,11 @@
 # PRD: Panel de Los Trotamundos
 
+> Estado y punto de entrada del proyecto: `docs/ESTADO.md`. El diseño ya está hecho (24 de octubre): https://claude.ai/design/p/1cf29510-df55-4d57-b442-423552560dc7
+
 > Encargo para Claude Design con la plantilla de la skill `web-design-claude`, igual que el panel de Ascua de Oro.
->
+> 
 > **Antes de lanzar el prompt (Dan):**
+> 
 > 1. En `claude.ai/design`, **New Prototype → High-Fidelity**. Nombre del proyecto: **Trotamundos panel**.
 > 2. Design system: pegar `https://trotamundos-brandbook.vercel.app/` y `https://www.lostrotamundosalpujarra.com/` para que saque la marca de ahí.
 > 3. Subir estos archivos del repo: `uploads/panel-demo.json`, `uploads/importacion-demo.json` e `img/logo-los-trotamundos-restaurante-bubion.jpg`.
@@ -35,6 +38,7 @@ Panel privado de Daniel, de Los Trotamundos (bar restaurante en Bubión, La Alpu
 - Que funcione de verdad: lo conecta después Claude Code a la base de datos. En Design todo sale de `panel-demo.json` e `importacion-demo.json`.
 - Traducciones: el panel trabaja solo en español. En los datos, los textos vienen como objeto (`nombre: {es, en, fr, ca}`) porque la web pública está en cuatro idiomas, pero **el panel solo lee y escribe `es`**. No se dibuja ni un campo, ni una pestaña, ni un selector de idioma.
 - Hospedajes, reservas de mesa, estadísticas y gráficos.
+- El aviso del día en la web y el panel instalado en el móvil con avisos al teléfono: decididos, pero se diseñan más adelante (ver "Pendiente de diseñar más adelante").
 - Editar la portada, los horarios o la sección "Por encargo" de la web.
 - Una versión de escritorio elaborada: el escritorio es el móvil ensanchado, con la lista a la izquierda y la ficha a la derecha.
 
@@ -44,15 +48,15 @@ Panel privado de Daniel, de Los Trotamundos (bar restaurante en Bubión, La Alpu
 
 Construir en este orden:
 
-| # | Vista | Para qué | Datos |
-|---|---|---|---|
-| 0 | Entrada | Escribir el correo y recibir un enlace. Sin contraseña | `gestor` |
-| 1 | Inicio | Lo que pide atención hoy y atajos grandes | `resumen`, `ultima_importacion`, `historial` |
-| 2 | Carta | Categorías y platos; ficha editable; editar categorías; archivados | `categorias`, `platos` |
-| 3 | Importar | Subir el Excel de LastApp, vista previa por grupos, aplicar | `importacion-demo.json` |
-| 4 | Actividades | Tarjetas con foto; ficha editable | `actividades` |
-| 5 | Consultas | Lista y ficha con WhatsApp, llamar y estado | `consultas`, `estados_consulta`, `etiquetas_consulta` |
-| 6 | Ajustes | WhatsApp, avisos por correo y quién entra al panel | `ajustes` |
+| #   | Vista       | Para qué                                                           | Datos                                                 |
+| --- | ----------- | ------------------------------------------------------------------ | ----------------------------------------------------- |
+| 0   | Entrada     | Escribir el correo y recibir un enlace. Sin contraseña             | `gestor`                                              |
+| 1   | Inicio      | Lo que pide atención hoy y atajos grandes                          | `resumen`, `ultima_importacion`, `historial`          |
+| 2   | Carta       | Categorías y platos; ficha editable; editar categorías; archivados | `categorias`, `platos`                                |
+| 3   | Importar    | Subir el Excel de LastApp, vista previa por grupos, aplicar        | `importacion-demo.json`                               |
+| 4   | Actividades | Tarjetas con foto; ficha editable                                  | `actividades`                                         |
+| 5   | Consultas   | Lista y ficha con WhatsApp, llamar y estado                        | `consultas`, `estados_consulta`, `etiquetas_consulta` |
+| 6   | Ajustes     | WhatsApp, avisos por correo y quién entra al panel                 | `ajustes`                                             |
 
 Navegación: en móvil, barra inferior fija con cinco iconos y texto (**Inicio · Carta · Actividades · Consultas · Ajustes**). En escritorio, barra lateral estrecha con los mismos cinco. Importar no está en la barra: se llega desde Inicio y desde Carta con un botón grande.
 
@@ -93,25 +97,46 @@ Navegación: en móvil, barra inferior fija con cinco iconos y texto (**Inicio �
 
 ---
 
+## Pendiente de diseñar más adelante
+
+Las dos cosas de aquí abajo están decididas pero **todavía no se diseñan**: quedan apuntadas para cuando Dan dé la orden. No hay que dibujarlas en esta vuelta.
+
+### El aviso del día en la web
+
+Un recuadro que Daniel escribe desde el panel y sale en la web, como la franja de oferta de una tienda. Para cuando un día cierra, hay fiesta o hay una promoción. Él escribe el aviso, decide si se ve o no y, si quiere, desde qué día hasta qué día; pasada la fecha se apaga solo. La web lo enseña arriba, en los cuatro idiomas que tenga escritos y en español si solo tiene español, y se puede cerrar. Sin aviso escrito, la web se ve exactamente como hoy.
+
+### El panel instalado en el móvil, con avisos
+
+Daniel se guarda el panel en la pantalla de inicio del móvil, como una aplicación más, y le llega un aviso al teléfono en cuanto entra una consulta de actividades. Al tocarlo, se abre esa consulta. No sustituye al correo ni al WhatsApp: se suma.
+
+Dos cosas que hay que tener claras antes de prometérselo a Daniel:
+
+- **En iPhone el aviso solo funciona si antes se ha guardado el panel en la pantalla de inicio**, y hay que darle permiso la primera vez. En Android funciona igual pero sin esa condición.
+- Si borra el icono de la pantalla de inicio, los avisos se paran hasta que lo vuelva a guardar y a dar permiso.
+
+No cuesta dinero: los avisos van por el mecanismo del propio navegador, no por una herramienta de pago, y el permiso se pide una vez.
+
+---
+
 ## Identidad Visual
 
 La misma que la web y el brandbook: noche serrana, oro del atardecer y azul del globo. Lo que cambia es la **densidad**: es una herramienta, así que hay menos aire y más información por pantalla. El texto tiene que leerse bien con el sol de la terraza: contraste alto (crema sobre noche) y botones grandes.
 
-| Rol | Nombre | Hex | Token |
-|---|---|---|---|
-| Fondo base | Noche | `#0B0907` | `--dark` |
-| Fondo secundario | Carbón | `#13100A` | `--dark2` |
-| Tarjetas | Cartón | `#1C1510` | `--card` |
-| Tarjetas elevadas | Cacao | `#231A12` | `--card2` |
-| Bordes | Borde | `#2E2418` | `--border` |
-| Primario (acción) | Oro | `#EDAF8C` | `--gold` |
-| Titulares | Oro claro | `#F5CFA8` | `--gold-l` |
-| Hover y detalles | Terracota | `#C88860` | `--gold-d` |
-| Texto | Crema | `#F0E6D2` | `--cream` |
-| Texto secundario | Tierra apagada | `#8A7A62` | `--muted` |
-| Acento (detalles, marca LastApp) | Azul globo | `#68B4C8` | `--accent` |
-| Alertas y borrar | Brasa | `#7A1A1A` | `--red` |
-| WhatsApp | Verde | `#25D366` | — |
+| Rol                              | Nombre         | Hex       | Token      |
+| -------------------------------- | -------------- | --------- | ---------- |
+| Fondo base                       | Noche          | `#0B0907` | `--dark`   |
+| Fondo secundario                 | Carbón         | `#13100A` | `--dark2`  |
+| Tarjetas                         | Cartón         | `#1C1510` | `--card`   |
+| Tarjetas elevadas                | Cacao          | `#231A12` | `--card2`  |
+| Bordes                           | Borde          | `#2E2418` | `--border` |
+| Primario (acción)                | Oro            | `#EDAF8C` | `--gold`   |
+| Titulares                        | Oro claro      | `#F5CFA8` | `--gold-l` |
+| Hover y detalles                 | Terracota      | `#C88860` | `--gold-d` |
+| Texto                            | Crema          | `#F0E6D2` | `--cream`  |
+| Texto secundario                 | Tierra apagada | `#8A7A62` | `--muted`  |
+| Acento (detalles, marca LastApp) | Azul globo     | `#68B4C8` | `--accent` |
+| Alertas y borrar                 | Brasa          | `#7A1A1A` | `--red`    |
+| WhatsApp                         | Verde          | `#25D366` | —          |
 
 Proporción de la marca: cerca de un 70 % de oscuros, un 16 % de tarjetas, un 9 % de oro y un 5 % de azul. El oro guía la acción y el azul se reserva para detalles.
 
@@ -143,12 +168,12 @@ La del brandbook: de tú, cálida, honesta, viajera y sensorial. Con Daniel se h
 
 ## Assets Necesarios
 
-| Asset | Descripción | Estado |
-|---|---|---|
-| `uploads/panel-demo.json` | La carta real (51 platos en 8 categorías: 46 de LastApp y 5 a mano), las 3 actividades reales, 6 consultas inventadas en 4 idiomas, ajustes, historial | Listo |
-| `uploads/importacion-demo.json` | Vista previa construida con el export real de LastApp del 23/10/2026 (197 productos) contra la carta: 12 nuevos, 4 cambios de precio, 1 renombrado, 1 desaparecido, 39 sin cambios y 141 que no van en la web | Listo |
-| Logo | `img/logo-los-trotamundos-restaurante-bubion.jpg` (emblema circular) | Listo |
-| Fotos de actividades | Las rutas de `foto` en `actividades` son las de la web (`img/…`) | En la web |
+| Asset                           | Descripción                                                                                                                                                                                                   | Estado    |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `uploads/panel-demo.json`       | La carta real (51 platos en 8 categorías: 46 de LastApp y 5 a mano), las 3 actividades reales, 6 consultas inventadas en 4 idiomas, ajustes, historial                                                        | Listo     |
+| `uploads/importacion-demo.json` | Vista previa construida con el export real de LastApp del 23/10/2026 (197 productos) contra la carta: 12 nuevos, 4 cambios de precio, 1 renombrado, 1 desaparecido, 39 sin cambios y 141 que no van en la web | Listo     |
+| Logo                            | `img/logo-los-trotamundos-restaurante-bubion.jpg` (emblema circular)                                                                                                                                          | Listo     |
+| Fotos de actividades            | Las rutas de `foto` en `actividades` son las de la web (`img/…`)                                                                                                                                              | En la web |
 
 ---
 

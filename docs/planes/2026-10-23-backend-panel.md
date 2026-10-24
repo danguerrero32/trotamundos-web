@@ -8,6 +8,8 @@
 
 **Tecnología:** Node 24 (módulos ES), funciones de Vercel en `cdg1`, Supabase (Postgres, PostgREST, Storage), Resend, SheetJS en el navegador, `node:test`, exportaciones `.dc.html` de Claude Design. Sin dependencias de npm.
 
+**Estado real y punto de entrada:** `docs/ESTADO.md`.
+
 **Spec:** `docs/diseno-funcional.md`. Leerlo entero antes de empezar; este plan argumenta desde él.
 
 **Referencia de código:** `~/Downloads/Blasen Marujeña/ascuadeoro-web/` (en adelante, **Ascua**). Donde una tarea dice "como en Ascua", copiar el patrón de ese archivo y adaptar nombres.
